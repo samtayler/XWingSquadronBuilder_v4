@@ -103,7 +103,8 @@ namespace XWingSquadronBuilderTests
                         upgradeRaw.ShipLimited == upgradeConverted.ShipLimited &&
                         upgradeRaw.RemovedActions.Count() == upgradeConverted.RemoveActionModifiers.Count() &&
                         upgradeRaw.AddedActions.Count() == upgradeConverted.AddActionModifiers.Count() &&
-                        upgradeRaw.AddedUpgrades.Count() == upgradeConverted.AddUpgradeModifiers.Count() &&
+                        upgradeRaw.AddedUpgrades.Count() == upgradeConverted.AddUpgradeModifiers.Count() && 
+                        upgradeRaw.RemovedUpgrades.Count() == upgradeConverted.RemoveUpgradeModifiers.Count() &&
                         upgradeRaw.SizeRestriction == upgradeConverted.SizeRestriction &&
                         upgradeRaw.SlotsRequired == upgradeConverted.SlotsRequired &&
                         upgradeRaw.StatChanges.Count() == upgradeConverted.PilotAttributeModifiers.Count()

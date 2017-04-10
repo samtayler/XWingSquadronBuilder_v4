@@ -95,8 +95,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
 
         public static IEnumerable<UpgradeSlotViewModel> ApplyUpgradeSlotRemoval(IEnumerable<UpgradeSlotViewModel> upgrades)
         {
-            var upgradeTypesToRemove = FlattenUpgradeTree(upgrades)
-                .Select(x => x.Upgrade.Upgrade.RemoveUpgradeModifiers)
+            var upgradeTypesToRemove = FlattenUpgradeTree(upgrades).Select(x => x.Upgrade.Upgrade.RemoveUpgradeModifiers)
                 .Aggregate(new List<IUpgradeType>(), (x, y) => x.Concat(y).ToList());
 
             var finalUpgrades = new List<UpgradeSlotViewModel>(upgrades);
