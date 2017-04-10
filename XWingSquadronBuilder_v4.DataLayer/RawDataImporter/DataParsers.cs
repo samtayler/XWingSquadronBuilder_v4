@@ -26,7 +26,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
                 XWingRepository.Instance.FactionRepository.GetFaction(pilot.Faction), pilot.Cost, pilot.Stats.Attack,
                 pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill,
                 pilot.PilotAbility, pilot.Image, new ShipSize(pilot.ShipSize),
-                pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x)).ToList(),
+                pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x)),
                 pilot.Upgrades.Select(x => XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)), pilot.ShipIcon);
         }
 

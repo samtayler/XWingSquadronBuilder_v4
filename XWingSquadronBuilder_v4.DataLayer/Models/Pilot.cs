@@ -79,6 +79,8 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             ShipSize = shipSize;
             Cost = cost;
             ShipIcon = shipIcon;
+            Actions = actions;
+            Upgrades = upgrades;
 
         }        
 

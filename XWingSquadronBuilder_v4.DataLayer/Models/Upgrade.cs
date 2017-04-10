@@ -74,7 +74,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             RemoveActionModifiers = removeActionModifiers;
             AddUpgradeModifiers = addUpgradeModifiers;
             RemoveUpgradeModifiers = RemoveUpgradeModifiers;
-            PilotAttributeModifiers = PilotAttributeModifiers;
+            PilotAttributeModifiers = pilotAttributesModifiers;
         }
 
         public override string ToString() => $"{Name} - {UpgradeType}";

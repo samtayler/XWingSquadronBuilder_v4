@@ -141,8 +141,8 @@ namespace XWingSquadronBuilderTests
                                 pilotC.PilotSkill != pilotR.PilotSkill ||
                                 pilotC.ShipSize.ToString() != pilotR.ShipSize ||
                                 pilotC.Unique != pilotR.Unique ||
-                                pilotC.Actions.Count() != pilotR.Actions.Count() ||
-                                pilotC.Upgrades.Count() != pilotR.Upgrades.Count() ||
+                                pilotC.Actions?.Count() != pilotR.Actions.Count() ||
+                                pilotC.Upgrades?.Count() != pilotR.Upgrades.Count() ||
                                 pilotC.Cost != pilotR.Cost
                                 select new { PilotName = pilotC.Name, ShipName = pilotC.Ship };
 
