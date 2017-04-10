@@ -1,0 +1,20 @@
+{
+  "Factions": [
+    {
+      "Name": "Empire",
+      "Image": ""
+    },
+    {
+      "Name": "Rebels",
+      "Image": ""
+    },
+    {
+      "Name": "Scum",
+      "Image": ""
+    },
+    {
+      "Name": "Any",
+      "Image": ""
+    }
+  ]
+}

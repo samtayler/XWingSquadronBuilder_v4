@@ -1,0 +1,424 @@
+{
+  "Pilots": [
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Academy Pilot",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 12,
+      "Unique": false,
+      "PilotAbility": "Developed by Sienar Fleet Systems, the Empire used the fast and agile TIE in as its primary starfighter throughout most of the Galactic Civil War.",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Obsidian Squadron Pilot",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 13,
+      "Unique": false,
+      "PilotAbility": "The TIE fighter's Twin Ion Engine system was designed for speed, making the TIE one of the most maneuverable starships ever produced.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighter3Background.png",
+      "Name": "Black Squadron Pilot",
+      "Upgrades": [ "Modification", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 14,
+      "Unique": false,
+      "PilotAbility": "The TIE fighter has no shields or life support systems, forcing TIE pilots to depend solely on their skills to survive.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighter4Background.png",
+      "Name": "Night Beast",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 15,
+      "Unique": true,
+      "PilotAbility": "After executing a green manoeuvre, you may perform a free focus action.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Winged Gundark",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 16,
+      "Unique": true,
+      "PilotAbility": "When attacking at Range 1, you may change 1 of your HIT results to a CRITICAL result.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighter6Background.png",
+      "Name": "Backstabber",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 16,
+      "Unique": true,
+      "PilotAbility": "After executing a green manoeuvre, you may perform a free focus action.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Dark Curse",
+      "Upgrades": [ "Modification" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 16,
+      "Unique": true,
+      "PilotAbility": "When defending, ships attacking you cannot spend focus tokens or reroll attack dice.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighter8Background.png",
+      "Name": "Mauler Mithel",
+      "Upgrades": [ "Modification", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 17,
+      "Unique": true,
+      "PilotAbility": "When attacking at Range 1, roll 1 additional attack die.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Howlrunner",
+      "Upgrades": [ "Modification", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 18,
+      "Unique": true,
+      "PilotAbility": "When another friendly ship at Range 1 is attacking with its primary weapon, it may reroll 1 attack die.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieDefender1Background.png",
+      "Name": "Delta Squadron Pilot",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipName": "TIE Defender",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 30,
+      "Unique": false,
+      "PilotAbility": "In addition to its four laser cannons and warhead launchers, the TIE Defender came equipped with ion cannons in its upper wing.",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieDefender2Background.png",
+      "Name": "Onyx Squadron Pilot",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipName": "TIE Defender",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 32,
+      "Unique": false,
+      "PilotAbility": "The TIE defender outclassed all other starfighters of its time, though its size and array of weapons greatly increased its weight and cost in credits.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieDefender3Background.png",
+      "Name": "Colonel Vessery",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipName": "TIE Defender",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 35,
+      "Unique": true,
+      "PilotAbility": "When attacking, immediately after you roll attack dice, you may acquire a target lock on the defender if it already has a red target lock token.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieDefender4Background.png",
+      "Name": "Rexlar Brath",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipName": "TIE Defender",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 37,
+      "Unique": true,
+      "PilotAbility": "After you perform an attack that deals at least 1 Damage card to the defender, you may spend a focus token to flip those cards faceup.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Omicron Group Pilot",
+      "Upgrades": [ "Modification", "Cannon", "System Upgrade", "Title", "Crew", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/lambda-class.png",
+      "ShipName": "Lambda-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 21,
+      "Unique": false,
+      "PilotAbility": "Noted for its triwing design, the Lambdaclass shuttle served a critical role as a light utility craft in the Imperial Navy.",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda2Background.png",
+      "Name": "Captain Yorr",
+      "Upgrades": [ "Modification", "Cannon", "System Upgrade", "Title", "Crew", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/lambda-class.png",
+      "ShipName": "Lambda-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 24,
+      "Unique": true,
+      "PilotAbility": "When another friendly ship at Range 12 would receive a stress token, if you have 2 or fewer stress tokens, you may receive that token instead.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda3Background.png",
+      "Name": "Colonel Jendon",
+      "Upgrades": [ "Modification", "Cannon", "System Upgrade", "Title", "Crew", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/lambda-class.png",
+      "ShipName": "Lambda-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "At the start of the Combat Phase, you may assign 1 of your blue target lock tokens to a friendly ship at Range 1 if it does not have a blue target lock token.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda4Background.png",
+      "Name": "Captain Kagi",
+      "Upgrades": [ "Modification", "Cannon", "System Upgrade", "Title", "Crew", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/lambda-class.png",
+      "ShipName": "Lambda-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 27,
+      "Unique": true,
+      "PilotAbility": "When an enemy ship acquires a target lock, it must lock onto your ship if able.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Bounty Hunter",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Crew", "Bomb" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Firespray-31.png",
+      "ShipName": "Firespray-31",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 6,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 33,
+      "Unique": false,
+      "PilotAbility": "Originally intended as a prisoner transport, the Firespray patrol craft features a versatile weapons array and heavy armor plating.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Backgroundeffff.png",
+      "Name": "Krassis Trelix",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Crew", "Bomb" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Firespray-31.png",
+      "ShipName": "Firespray-31",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 6,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 36,
+      "Unique": true,
+      "PilotAbility": "When attacking with a secondary weapon, you may reroll 1 attack die.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Kath Scarlet",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Crew", "Bomb", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Firespray-31.png",
+      "ShipName": "Firespray-31",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 6,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 38,
+      "Unique": true,
+      "PilotAbility": "When attacking, the defender receives 1 stress token if he cancels at least 1 Critical Hit result.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Boba Fett",
+      "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Crew", "Bomb", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Firespray-31.png",
+      "ShipName": "Firespray-31",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 6,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 39,
+      "Unique": true,
+      "PilotAbility": "When you reveal a bank maneuver (Left Bank or Right Bank), you may rotate your dial to the other bank maneuver of the same speed.",
+      "PilotSkill": 8
+    }
+  ]
+}

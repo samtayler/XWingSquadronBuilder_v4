@@ -1,0 +1,42 @@
+{
+  "Actions": {
+    "Action": [
+      {
+        "Name": "Boost",
+        "ImageSource": "/Assets/Logos/Actions/Boost.png"
+      },
+      {
+        "Name": "Evade",
+        "ImageSource": "/Assets/Logos/Actions/Evade.png"
+      },
+      {
+        "Name": "Focus",
+        "ImageSource": "/Assets/Logos/Actions/Focus.png"
+      },
+      {
+        "Name": "Target Lock",
+        "ImageSource": "/Assets/Logos/Actions/TargetLock.png"
+      },
+      {
+        "Name": "Cloak",
+        "ImageSource": "/Assets/Logos/Actions/Cloak.png"
+      },
+      {
+        "Name": "Barrel Roll",
+        "ImageSource": "/Assets/Logos/Actions/BarrelRoll.png"
+      },
+      {
+        "Name": "SLAM",
+        "ImageSource": "/Assets/Logos/Actions/SLAM.png"
+      },
+      {
+        "Name": "Coordinate",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Reinforce",
+        "ImageSource": ""
+      }
+    ]
+  }
+}

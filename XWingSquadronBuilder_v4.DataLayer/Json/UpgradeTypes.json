@@ -1,0 +1,74 @@
+{
+  "UpgradeTypes": {
+    "UpgradeType": [
+      {
+        "Name": "Title",
+        "ImageSource": "/assets/logos/basic icons/title.png"
+      },
+      {
+        "Name": "Elite Pilot Talent",
+        "ImageSource": "/assets/logos/basic icons/elitepilottalent.png"
+      },
+      {
+        "Name": "Missile",
+        "ImageSource": "/assets/logos/basic icons/missile.png"
+      },
+      {
+        "Name": "Torpedo",
+        "ImageSource": "/assets/logos/basic icons/torpedo.png"
+      },
+      {
+        "Name": "Bomb",
+        "ImageSource": "/assets/logos/basic icons/bomb.png"
+      },
+      {
+        "Name": "Crew",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Astromech",
+        "ImageSource": "/assets/logos/basic icons/astromech.png"
+      },
+      {
+        "Name": "Cargo",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Hardpoint",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Illicit",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Salvaged Astromech",
+        "ImageSource": ""
+      },
+       {
+        "Name": "Cannon",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Team",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Tech",
+        "ImageSource": ""
+      },
+      {
+        "Name": "Turret",
+        "ImageSource": "/assets/logos/basic icons/turret.png"
+      },
+      {
+        "Name": "System Upgrade",
+        "ImageSource": "/assets/logos/basic icons/systemupgrade.png"
+      },
+      {
+        "Name": "Modification",
+        "ImageSource": "/assets/logos/basic icons/modification.png"
+      }
+    ]
+  }
+}
