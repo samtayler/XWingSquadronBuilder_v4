@@ -124,6 +124,10 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XWingSquadronBuilder_v4.BusinessLogic\XWingSquadronBuilder_v4.BusinessLogic.csproj">
+      <Project>{c2ccc448-0b58-47d6-83fc-67a91bf1a36f}</Project>
+      <Name>XWingSquadronBuilder_v4.BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XWingSquadronBuilder_v4.DataLayer\XWingSquadronBuilder_v4.DataLayer.csproj">
       <Project>{55496516-2BB2-4D9B-9213-D7BFA6940649}</Project>
       <Name>XWingSquadronBuilder_v4.DataLayer</Name>

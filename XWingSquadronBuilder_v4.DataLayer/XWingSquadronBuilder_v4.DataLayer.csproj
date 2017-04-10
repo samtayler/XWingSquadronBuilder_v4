@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Faction.cs" />
+    <Compile Include="Models\NullUpgrade.cs" />
     <Compile Include="Models\Pilot.cs" />
     <Compile Include="Models\ShipSize.cs" />
     <Compile Include="Models\Upgrade.cs" />

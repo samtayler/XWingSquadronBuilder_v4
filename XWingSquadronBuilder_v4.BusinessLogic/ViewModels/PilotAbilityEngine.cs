@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using XWingSquadronBuilder_v4.DataLayer.Models;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
@@ -19,9 +20,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         public int Hull => hull + GetPilotStatModification(nameof(Hull));
         public int PilotSkill => pilotSkill + GetPilotStatModification(nameof(PilotSkill));
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
-        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Upgrade.Cost);
+        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Upgrade.Upgrade.Cost);
         public IEnumerable<UpgradeSlotViewModel> Upgrades => GetCalculatedUpgradeSlots();
-        private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
+        private IReadOnlyList<UpgradeSlotViewModel> _upgrades { get; }
         private List<IAction> _actions { get; }
         private int attack { get; }
         private int agility { get; }
@@ -30,7 +31,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         private int pilotSkill { get; }
 
 
-        public PilotAbilityEngine(PilotStatPackage stats, IReadOnlyList<IAction> actions, List<IUpgradeSlot> upgrades)
+        public PilotAbilityEngine(PilotStatPackage stats, IEnumerable<IAction> actions, IEnumerable<IUpgradeType> upgrades)
         {
             this.attack = stats.Attack;
             this.agility = stats.Agility;
@@ -38,7 +39,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
             this.shield = stats.Shield;
             this.pilotSkill = stats.PilotSkill;
             this._actions = actions.ToList();
-            _upgrades = upgrades.ToList().AsReadOnly();
+            _upgrades = upgrades
+                .Select(x => new UpgradeSlotViewModel(x, UpgradeViewModel.CreateNullUpgradeViewModel(x))).ToList().AsReadOnly();
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged += UpgradeContainer_PropertyChanged;
@@ -62,9 +64,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
             return GetCalculatedUpgradeSlots().Select(x => GetPilotStatModFromContainer(x, key)).Sum();
         }
 
-        private int GetPilotStatModFromContainer(IUpgradeSlot container, string key)
+        private int GetPilotStatModFromContainer(UpgradeSlotViewModel container, string key)
         {
-            container.Upgrade.PilotAttributeModifiers.TryGetValue(key, out int pilotstat);
+            container.Upgrade.Upgrade.PilotAttributeModifiers.TryGetValue(key, out int pilotstat);
             return pilotstat;
         }
 
@@ -73,7 +75,6 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged -= UpgradeContainer_PropertyChanged;
-                upgrade.Dispose();
             }
         }
 
@@ -82,23 +83,23 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
             return ApplyActionAddFromUpgrades(ApplyActionModelRemoval(_actions, Upgrades), Upgrades);
         }
 
-        private IEnumerable<UpgradeViewModel> GetCalculatedUpgradeSlots()
+        private IEnumerable<UpgradeSlotViewModel> GetCalculatedUpgradeSlots()
         {
             return FlattenUpgradeTree(ApplyUpgradeSlotRemoval(_upgrades));
         }
 
-        public static IEnumerable<UpgradeViewModel> FlattenUpgradeTree(IEnumerable<UpgradeViewModel> upgrades)
+        public static IEnumerable<UpgradeSlotViewModel> FlattenUpgradeTree(IEnumerable<UpgradeSlotViewModel> upgrades)
         {
-            return upgrades.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x })).Aggregate(new List<UpgradeViewModel>(), (x, y) => x.Concat(y).ToList());
+            return upgrades.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x })).Aggregate(new List<UpgradeSlotViewModel>(), (x, y) => x.Concat(y).ToList());
         }
 
-        public static IEnumerable<UpgradeViewModel> ApplyUpgradeSlotRemoval(IEnumerable<UpgradeViewModel> upgrades)
+        public static IEnumerable<UpgradeSlotViewModel> ApplyUpgradeSlotRemoval(IEnumerable<UpgradeSlotViewModel> upgrades)
         {
             var upgradeTypesToRemove = FlattenUpgradeTree(upgrades)
-                .Select(x => x.Upgrade.RemoveUpgradeModifiers)
+                .Select(x => x.Upgrade.Upgrade.RemoveUpgradeModifiers)
                 .Aggregate(new List<IUpgradeType>(), (x, y) => x.Concat(y).ToList());
 
-            var finalUpgrades = new List<IUpgradeSlot>(upgrades);
+            var finalUpgrades = new List<UpgradeSlotViewModel>(upgrades);
 
             foreach (var item in upgradeTypesToRemove)
             {
@@ -114,11 +115,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         /// <param name="actions">A Collection of actions</param>
         /// <param name="upgrades">A collection of upgrages without upgradeRemoval applied</param>
         /// <returns></returns>
-        public static IEnumerable<IAction> ApplyActionAddFromUpgrades(IEnumerable<IAction> actions, IEnumerable<UpgradeViewModel> upgrades)
+        public static IEnumerable<IAction> ApplyActionAddFromUpgrades(IEnumerable<IAction> actions, IEnumerable<UpgradeSlotViewModel> upgrades)
         {
             var finalActions = new List<IAction>(actions);
             var actionsToBeAdded = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
-               .Select(x => x.Upgrade.AddActionModifiers)
+               .Select(x => x.Upgrade.Upgrade.AddActionModifiers)
                .Aggregate(new List<IAction>(), (finalList, currentList) => finalList.Concat(currentList).ToList());
 
             finalActions.AddRange(actionsToBeAdded);
@@ -133,11 +134,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         /// <param name="actions">A Collection of actions</param>
         /// <param name="upgrades">A collection of upgrages without upgradeRemoval applied</param>
         /// <returns></returns>
-        public static IEnumerable<IAction> ApplyActionModelRemoval(IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
+        public static IEnumerable<IAction> ApplyActionModelRemoval(IEnumerable<IAction> actions, IEnumerable<UpgradeSlotViewModel> upgrades)
         {
             var finalActions = new List<IAction>(actions);
             var actionsToBeRemoved = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
-                .Select(x => x.Upgrade.RemoveActionModifiers)
+                .Select(x => x.Upgrade.Upgrade.RemoveActionModifiers)
                 .Aggregate(new List<IAction>(), (finalList, currentList) => finalList.Concat(currentList).ToList());
 
             foreach (var item in actionsToBeRemoved)
