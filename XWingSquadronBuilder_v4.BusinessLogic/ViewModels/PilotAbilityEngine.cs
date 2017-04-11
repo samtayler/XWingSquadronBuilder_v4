@@ -90,13 +90,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
 
         public static IEnumerable<UpgradeSlotViewModel> FlattenUpgradeTree(IEnumerable<UpgradeSlotViewModel> upgrades)
         {
-            return upgrades.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x })).Aggregate(new List<UpgradeSlotViewModel>(), (x, y) => x.Concat(y).ToList());
+            return upgrades.SelectMany(x => x.GetInnerUpgradeSlots().Concat(new[] { x }));
         }
 
         public static IEnumerable<UpgradeSlotViewModel> ApplyUpgradeSlotRemoval(IEnumerable<UpgradeSlotViewModel> upgrades)
         {
-            var upgradeTypesToRemove = FlattenUpgradeTree(upgrades).Select(x => x.Upgrade.Upgrade.RemoveUpgradeModifiers)
-                .Aggregate(new List<IUpgradeType>(), (x, y) => x.Concat(y).ToList());
+            var upgradeTypesToRemove = FlattenUpgradeTree(upgrades).SelectMany(x => x.Upgrade.Upgrade.RemoveUpgradeModifiers);
 
             var finalUpgrades = new List<UpgradeSlotViewModel>(upgrades);
 
@@ -118,8 +117,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         {
             var finalActions = new List<IAction>(actions);
             var actionsToBeAdded = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
-               .Select(x => x.Upgrade.Upgrade.AddActionModifiers)
-               .Aggregate(new List<IAction>(), (finalList, currentList) => finalList.Concat(currentList).ToList());
+               .SelectMany(x => x.Upgrade.Upgrade.AddActionModifiers);
 
             finalActions.AddRange(actionsToBeAdded);
 
@@ -137,8 +135,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         {
             var finalActions = new List<IAction>(actions);
             var actionsToBeRemoved = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
-                .Select(x => x.Upgrade.Upgrade.RemoveActionModifiers)
-                .Aggregate(new List<IAction>(), (finalList, currentList) => finalList.Concat(currentList).ToList());
+                .SelectMany(x => x.Upgrade.Upgrade.RemoveActionModifiers);
 
             foreach (var item in actionsToBeRemoved)
             {

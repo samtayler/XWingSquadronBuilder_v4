@@ -28,8 +28,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
         public IPilot Pilot { get; }
         private PilotAbilityEngine abilityEngine { get; }
 
-        public int Cost => cost + abilityEngine.Cost;
-        private int cost;
+        public int Cost => Pilot.Cost + abilityEngine.Cost;       
 
         public IShipSize ShipSize { get; }
 

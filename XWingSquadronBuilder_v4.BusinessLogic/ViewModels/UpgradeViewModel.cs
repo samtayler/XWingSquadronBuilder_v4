@@ -37,8 +37,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
 
         public IEnumerable<UpgradeSlotViewModel> GetInnerUpgradeSlots()
         {
-            return AddUpgradeModifiers.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x }))
-                .Aggregate(new List<UpgradeSlotViewModel>(), (x, y) => x.Concat(y).ToList());
+            return AddUpgradeModifiers.SelectMany((x) => x.GetInnerUpgradeSlots().Concat(new[] { x }));           
         }
 
         public bool Equals(UpgradeViewModel other)
