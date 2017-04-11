@@ -73,7 +73,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             AddActionModifiers = addActionModifiers;
             RemoveActionModifiers = removeActionModifiers;
             AddUpgradeModifiers = addUpgradeModifiers;
-            RemoveUpgradeModifiers = RemoveUpgradeModifiers;
+            RemoveUpgradeModifiers = removeUpgradeModifiers;
             PilotAttributeModifiers = pilotAttributesModifiers;
         }
 

@@ -21,7 +21,7 @@ namespace XWingSquadronBuilderTests
                 .Single(x => x.Name == "Engine Upgrade"));
 
             Assert.IsFalse(pilot.Actions.Contains(Repo.ActionRepository.GetAction("Boost")));
-            var upgradeSlot = pilot.Upgrades.Where(x => x.Upgrade.Upgrade.Name == "Modification").ToList()[0];
+            var upgradeSlot = pilot.Upgrades.Where(x => x.UpgradeType.Name == "Modification").First();
             upgradeSlot.Upgrade = addActionUpgrade;
 
             Assert.IsTrue(pilot.Actions.Contains(Repo.ActionRepository.GetAction("Boost")));

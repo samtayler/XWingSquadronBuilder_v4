@@ -38,7 +38,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Cost => Upgrade.Upgrade.Cost + Cost;
+        public int Cost => Upgrade.Upgrade.Cost + CostReduction;
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
