@@ -112,28 +112,13 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Action.cs" />
-    <Compile Include="Models\Faction.cs" />
-    <Compile Include="Models\NullUpgrade.cs" />
-    <Compile Include="Models\Pilot.cs" />
-    <Compile Include="Models\ShipSize.cs" />
-    <Compile Include="Models\Upgrade.cs" />
-    <Compile Include="Models\UpgradeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RawDataImporter\DataParsers.cs" />
-    <Compile Include="RawDataImporter\UpgradeModifierParsers.cs" />
     <Compile Include="RawData\ActionData.cs" />
     <Compile Include="RawDataImporter\DataImporter.cs" />
     <Compile Include="RawData\FactionData.cs" />
     <Compile Include="RawData\PilotData.cs" />
     <Compile Include="RawData\UpgradeData.cs" />
     <Compile Include="RawData\UpgradeTypesData.cs" />
-    <Compile Include="Repositories\ActionRepository.cs" />
-    <Compile Include="Repositories\FactionRepository.cs" />
-    <Compile Include="Repositories\PilotRepository.cs" />
-    <Compile Include="Repositories\UpgradeRepository.cs" />
-    <Compile Include="Repositories\UpgradeTypesRepository.cs" />
-    <Compile Include="Repositories\XWingRepository.cs" />
     <EmbeddedResource Include="Properties\XWingSquadronBuilder_v4.DataLayer.rd.xml" />
   </ItemGroup>
   <ItemGroup>

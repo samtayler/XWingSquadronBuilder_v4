@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.Linq;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.DataLayer.RawDataImporter;
-using XWingSquadronBuilder_v4.DataLayer.Repositories;
 
 namespace XWingSquadronBuilderTests
 {

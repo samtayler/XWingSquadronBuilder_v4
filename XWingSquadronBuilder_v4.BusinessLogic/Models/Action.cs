@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using XWingSquadronBuilder_v4.Interfaces;
 
-namespace XWingSquadronBuilder_v4.DataLayer.Models
+namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
-    [DataContract]
     public class Action : IAction
     {
         public Action(string name, string image)
@@ -16,23 +14,23 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             Image = image;
         }
 
-        [DataMember]
         public string Name { get; }
 
-        [DataMember]
         public string Image { get; }
 
         public IAction DeepClone()
         {
-            return new Action(this.Name, this.Image);
+            throw new NotImplementedException();
         }
 
-        public bool Equals(IAction other) => Name == other.Name;
+        public bool Equals(IAction other)
+        {
+            return Name == other.Name;
+        }
 
-        public override string ToString() => Name;
-       
-
-        
-
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

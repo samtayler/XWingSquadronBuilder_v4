@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Serialization;
 using XWingSquadronBuilder_v4.Interfaces;
 
-namespace XWingSquadronBuilder_v4.DataLayer.Models
+namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
-    [DataContract]
     public class ShipSize : IShipSize
     {
         public ShipSize(string size)
@@ -23,7 +21,6 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             Huge
         }
 
-        [DataMember]
         private _shipSizeRep size { get; }
 
         public override string ToString()
@@ -41,14 +38,9 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
             return ToString().Equals(other.ToString());
         }
 
-        private ShipSize(_shipSizeRep size)
-        {
-            this.size = size;
-        }
-
         public IShipSize DeepClone()
         {
-            return new ShipSize(this.size);
+            throw new NotImplementedException();
         }
     }
 }

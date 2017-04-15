@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
-using XWingSquadronBuilder_v4.BusinessLogic.ViewModels;
-using XWingSquadronBuilder_v4.DataLayer.Repositories;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 
 namespace XWingSquadronBuilderTests
 {

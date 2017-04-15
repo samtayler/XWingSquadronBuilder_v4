@@ -11,34 +11,34 @@ using XWingSquadronBuilder_v4.DataLayer.RawData;
 
 namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
 {
-    internal class DataImporter
+    public class DataImporter
     {
-        internal static ActionJson[] LoadActions()
+        public static ActionJson[] LoadActions()
         { 
             var root = GetDataFromJson<ActionsRootobject>("Actions");
             return root.Actions.Action;
         }
 
-        internal static PilotJson[] GetPilots()
+        public static PilotJson[] GetPilots()
         {
             var root = GetDataFromJson<PilotsJsonRoot>("Pilots");
             return root.Pilots;
         }
 
-        internal static UpgradeJson[] LoadUpgrades()
+        public static UpgradeJson[] LoadUpgrades()
         {
             var root = GetDataFromJson<UpgradeRootobject>("Upgrades");
             return root.Upgrades.Upgrade;
 
         }
 
-        internal static FactionJson[] LoadFactions()
+        public static FactionJson[] LoadFactions()
         {
             var root = GetDataFromJson<FactionJsonRoot>("Factions");
             return root.Factions;
         }
 
-        internal static UpgradeTypeJson[] LoadUpgradesTypes()
+        public static UpgradeTypeJson[] LoadUpgradesTypes()
         {
             var root = GetDataFromJson<UpgradeTypesRootobject>("UpgradeTypes");
             return root.UpgradeTypes.UpgradeType;

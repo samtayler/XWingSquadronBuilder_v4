@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
-using XWingSquadronBuilder_v4.DataLayer.Models;
-using XWingSquadronBuilder_v4.DataLayer.Models.Models;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.DataLayer.RawData;
-using XWingSquadronBuilder_v4.DataLayer.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.BusinessLogic.Models;
 
-namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
+namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
     public class DataParsers
     {
@@ -23,8 +22,9 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
         public static IPilot CreatePilot(PilotJson pilot)
         {
             return new Pilot(pilot.ShipName, pilot.Name, pilot.Unique,
-                XWingRepository.Instance.FactionRepository.GetFaction(pilot.Faction), pilot.Cost, pilot.Stats.Attack,
-                pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill,
+                XWingRepository.Instance.FactionRepository.GetFaction(pilot.Faction), pilot.Cost, 
+                new Structures.PilotStatPackage(pilot.Stats.Attack,
+                pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill),
                 pilot.PilotAbility, pilot.Image, new ShipSize(pilot.ShipSize),
                 pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x)),
                 pilot.Upgrades.Select(x => XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)), pilot.ShipIcon);

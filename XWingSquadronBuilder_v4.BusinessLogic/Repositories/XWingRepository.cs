@@ -1,8 +1,9 @@
 ﻿using System;
+using XWingSquadronBuilder_v4.BusinessLogic.Factories;
 using XWingSquadronBuilder_v4.DataLayer.RawDataImporter;
 using XWingSquadronBuilder_v4.Interfaces;
 
-namespace XWingSquadronBuilder_v4.DataLayer.Repositories
+namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
     public class XWingRepository
     {

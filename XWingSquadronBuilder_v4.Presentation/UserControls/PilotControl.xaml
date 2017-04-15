@@ -9,7 +9,44 @@
     d:DesignWidth="400">
 
     <RelativePanel>
-        
+        <RelativePanel x:Name="InfoPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+            <TextBlock x:Name="txblkPilotSkill" Foreground="#FFF57F20" TextWrapping="Wrap" Text="{x:Bind ViewModel.PilotSkill,Mode=OneWay, FallbackValue=0}" RelativePanel.AlignTopWithPanel="True" FontSize="24"/>
+            <TextBlock x:Name="txblkPilotName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{x:Bind  ViewModel.Pilot.Name,Mode=OneWay, FallbackValue='Pilot Name'}" VerticalAlignment="Top" RelativePanel.RightOf="txblkPilotSkill" FontSize="22.5" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill" Margin="10,0,0,0"/>
+            <TextBlock x:Name="txblkCost" Foreground="DarkRed" Text="{x:Bind ViewModel.Cost ,Mode=OneWay, FallbackValue=0}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="10,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="txblkPilotName" RelativePanel.AlignVerticalCenterWith="txblkPilotName"/>
+            <ListView x:Name="actionsListview" SelectionMode="None" IsHitTestVisible="False" ItemsSource="{x:Bind ViewModel.Actions,Mode=OneWay}" RelativePanel.RightOf="txblkCost" RelativePanel.AlignVerticalCenterWith="txblkCost" Margin="10,0,0,0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="MinHeight" Value="0"/>
+                        <Setter Property="MinWidth" Value="0"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsStackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </RelativePanel>
+        <StackPanel x:Name="StatsPanel" RelativePanel.Below="InfoPanel" Margin="0" Orientation="Horizontal">
+            <RelativePanel x:Name="AttackGrid" Margin="5">
+                <Image x:Name="imgAttack" Source="/Assets/Logos/basic icons/attack.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Width="15" RelativePanel.LeftOf="" RelativePanel.RightOf="txblkPilotAttack" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="5,0" />
+                <TextBlock x:Name="txblkPilotAttack" TextWrapping="Wrap" Text="{x:Bind ViewModel.Attack,Mode=OneWay, FallbackValue=0}" Foreground="#FFEA0000" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+            <RelativePanel x:Name="AgilityGrid" Margin="5">
+                <Image x:Name="imgAgility" Source="/Assets/Logos/basic icons/agility.png" RelativePanel.RightOf="txblkPilotAgility" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                <TextBlock x:Name="txblkPilotAgility" TextWrapping="Wrap" Text="{x:Bind ViewModel.Agility,Mode=OneWay, FallbackValue=0}" Foreground="#FF48D500" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+            <RelativePanel x:Name="HullGrid" Margin="5">
+                <Image x:Name="imgHull" RelativePanel.RightOf="txblkPilotHull" Source="/Assets/Logos/basic icons/hull.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                <TextBlock x:Name="txblkPilotHull" TextWrapping="Wrap" Text="{x:Bind ViewModel.Hull,Mode=OneWay, FallbackValue=0}" Foreground="#FFEFE900" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+            <RelativePanel x:Name="ShieldGrid" Margin="5">
+                <Image x:Name="imgShield" RelativePanel.RightOf="txblkPilotShield" Source="/Assets/Logos/basic icons/shield.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                <TextBlock x:Name="txblkPilotShield" TextWrapping="Wrap" Text="{x:Bind ViewModel.Shield,Mode=OneWay, FallbackValue=0}" Foreground="#FF24CAE2" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+            </RelativePanel>
+        </StackPanel>
     </RelativePanel>
 
 </UserControl>

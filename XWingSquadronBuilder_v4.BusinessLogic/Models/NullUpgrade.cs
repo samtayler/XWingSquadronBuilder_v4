@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XWingSquadronBuilder_v4.DataLayer.Models.Models;
-using XWingSquadronBuilder_v4.DataLayer.Repositories;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
 
-namespace XWingSquadronBuilder_v4.DataLayer.Models
+namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
     public class NullUpgrade : IUpgrade
     {
@@ -20,7 +20,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
 
         public IEnumerable<IAction> RemoveActionModifiers => new List<IAction>();
 
-        public IEnumerable<IUpgradeModifier> AddUpgradeModifiers => new List<IUpgradeModifier>();
+        public IEnumerable<IUpgradeSlot> AddUpgradeModifiers => new List<IUpgradeSlot>();
 
         public IEnumerable<IUpgradeType> RemoveUpgradeModifiers => new List<IUpgradeType>();
 
@@ -46,6 +46,8 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
 
         public IUpgradeType UpgradeType { get; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public IUpgrade DeepClone()
         {
             return new NullUpgrade(this.UpgradeType);
@@ -54,6 +56,11 @@ namespace XWingSquadronBuilder_v4.DataLayer.Models
         public bool Equals(IUpgrade other)
         {
             return this.UpgradeType.Equals(other.UpgradeType);
+        }
+
+        public IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots()
+        {
+            return new List<IUpgradeSlot>();
         }
     }
 }

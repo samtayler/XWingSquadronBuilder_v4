@@ -4,19 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:XWingSquadronBuilder_v4.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Models="using:XWingSquadronBuilderClasses.Interfaces"
-    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
- 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewModel="using:XWingSquadronBuilder_v4.BusinessLogic.ViewModels"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <!--<UserControl.Resources>
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Presentation/Styles/Generic.xaml" />
-
+                <ResourceDictionary Source="/Styles/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>           
         </ResourceDictionary>
 
@@ -25,15 +22,15 @@
 
     <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{x:Bind ViewModel.Pilots, Mode=OneWay}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" >
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="Models:IPilot">
+            <DataTemplate x:DataType="viewModel:PilotViewModel">
                 <RelativePanel x:Name="PilotPanel" Margin="10" Padding="10">
-                    <Image x:Name="shipIcon" Source="{x:Bind ShipIcon, Mode=OneWay}" Width="40" Height="40" RelativePanel.AlignLeftWithPanel="True"/>
+                    <Image x:Name="shipIcon" Source="{x:Bind Pilot.ShipIcon, Mode=OneWay}" Width="40" Height="40" RelativePanel.AlignLeftWithPanel="True"/>
                     <TextBlock x:Name="txblkPilotSkill" TextWrapping="Wrap" Foreground="#FFF57F20" Text="{x:Bind PilotSkill, Mode=OneWay}" FontSize="20" FontFamily="Segoe UI" TextAlignment="Center" Margin="3,0,0,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="shipIcon"/>
-                    <TextBlock x:Name="txblkPilotName" Text="{x:Bind Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="16" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
+                    <TextBlock x:Name="txblkPilotName" Text="{x:Bind Pilot.Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="16" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
                     <TextBlock x:Name="txblkCost" Foreground="{ThemeResource CostForegroundColour}" Text="{x:Bind Cost, Mode=OneWay}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="3,0,15,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
                 </RelativePanel>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>-->
+    </ListView>
 
 </UserControl>

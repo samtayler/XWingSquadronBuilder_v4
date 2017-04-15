@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IUpgradeSlot : INotifyPropertyChanged, IDisposable, IEquatable<IUpgradeSlot>, IDeepCloneable<IUpgradeSlot>
+    public interface IUpgradeSlot : INotifyPropertyChanged, IEquatable<IUpgradeSlot>, IDeepCloneable<IUpgradeSlot>
     {
         IUpgradeType UpgradeType { get; }
         IUpgrade Upgrade { get; set; }

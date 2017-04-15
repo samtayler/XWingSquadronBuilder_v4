@@ -122,6 +122,11 @@
     <Compile Include="UserControls\Squadron.xaml.cs">
       <DependentUpon>Squadron.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\PilotListViewModel.cs" />
+    <Compile Include="ViewModels\PilotViewModel.cs" />
+    <Compile Include="ViewModels\SquadronViewModel.cs" />
+    <Compile Include="ViewModels\UpgradeSlotViewModel.cs" />
+    <Compile Include="ViewModels\UpgradeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

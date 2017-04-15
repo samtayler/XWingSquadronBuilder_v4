@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IUpgrade : IEquatable<IUpgrade>, IDeepCloneable<IUpgrade>
+    public interface IUpgrade : INotifyPropertyChanged, IEquatable<IUpgrade>, IDeepCloneable<IUpgrade>
     {
         IEnumerable<IAction> AddActionModifiers { get; }
         IEnumerable<IAction> RemoveActionModifiers { get; }
-        IEnumerable<IUpgradeModifier> AddUpgradeModifiers { get; }
+        IEnumerable<IUpgradeSlot> AddUpgradeModifiers { get; }
         IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
         IDictionary<string, int> PilotAttributeModifiers { get; }        
         
@@ -25,6 +25,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         string SizeRestriction { get; }  
 
         IFaction Faction { get; }        
-        IUpgradeType UpgradeType { get; }        
+        IUpgradeType UpgradeType { get; }
+        IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
     }
 }
