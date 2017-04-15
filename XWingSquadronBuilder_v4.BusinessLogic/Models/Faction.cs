@@ -22,7 +22,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IFaction DeepClone()
         {
-            throw new NotImplementedException();
+            return new Faction(this.Name, this.Image);
         }
     }
 }

@@ -145,6 +145,19 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return finalActions;
         }
 
+        /// <summary>
+        /// Creates an exact clone
+        /// </summary>
+        /// <returns></returns>
+        public PilotAbilityEngine DeepClone()
+        {
+            return new PilotAbilityEngine(
+                new PilotStatPackage(this.attack, this.agility, this.hull, 
+                this.shield, this.pilotSkill), 
+                this._actions.Select(x => x.DeepClone()), 
+                this._upgrades.Select(x => x.DeepClone()));
+        }
+
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

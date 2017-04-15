@@ -4,7 +4,7 @@ using System.Linq;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.DataLayer.RawDataImporter;
 
-namespace XWingSquadronBuilderTests
+namespace XWingSquadronBuilder_v4.Tests
 {
     [TestClass]
     public class RepositoryTests

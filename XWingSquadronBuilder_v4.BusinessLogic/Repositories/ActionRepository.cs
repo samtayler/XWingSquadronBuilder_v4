@@ -7,13 +7,9 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
-    public interface IActionRepository
-    {
-        IAction GetAction(string name);
-        IReadOnlyList<IAction> GetAllActions();
-    }
+   
 
-    public class ActionRepository : IActionRepository
+    internal class ActionRepository : IActionRepository
     {
         private IReadOnlyList<ActionJson> actions { get; }
 

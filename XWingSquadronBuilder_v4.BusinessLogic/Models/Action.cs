@@ -20,7 +20,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IAction DeepClone()
         {
-            throw new NotImplementedException();
+            return new Action(this.Name, this.Image);
         }
 
         public bool Equals(IAction other)

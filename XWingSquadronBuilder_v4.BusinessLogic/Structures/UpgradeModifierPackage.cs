@@ -9,9 +9,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
 {
     public struct UpgradeModifierPackage
     {
-        public UpgradeModifierPackage(List<IAction> addActionModifiers, List<IAction> removeActionModifiers, 
-            List<IUpgradeSlot> addUpgradeModifiers, List<IUpgradeType> removeUpgradeModifiers, 
-            Dictionary<string, int> pilotAttributeModifiers) : this()
+        public UpgradeModifierPackage(IEnumerable<IAction> addActionModifiers, IEnumerable<IAction> removeActionModifiers,
+            IEnumerable<IUpgradeSlot> addUpgradeModifiers, IEnumerable<IUpgradeType> removeUpgradeModifiers, 
+            IDictionary<string, int> pilotAttributeModifiers) : this()
         {
             AddActionModifiers = addActionModifiers ?? throw new ArgumentNullException(nameof(addActionModifiers));
             RemoveActionModifiers = removeActionModifiers ?? throw new ArgumentNullException(nameof(removeActionModifiers));
@@ -20,14 +20,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
             PilotAttributeModifiers = pilotAttributeModifiers ?? throw new ArgumentNullException(nameof(pilotAttributeModifiers));
         }
 
-        public List<IAction> AddActionModifiers { get; }
+        public IEnumerable<IAction> AddActionModifiers { get; }
 
-        public List<IAction> RemoveActionModifiers { get; }
+        public IEnumerable<IAction> RemoveActionModifiers { get; }
 
-        public List<IUpgradeSlot> AddUpgradeModifiers { get; }
+        public IEnumerable<IUpgradeSlot> AddUpgradeModifiers { get; }
 
-        public List<IUpgradeType> RemoveUpgradeModifiers { get; }
+        public IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
 
-        public Dictionary<string, int> PilotAttributeModifiers { get; }
+        public IDictionary<string, int> PilotAttributeModifiers { get; }
     }
 }

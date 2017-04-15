@@ -10,7 +10,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
     public abstract class UpgradeModifierParsersBase
     {
-        public abstract List<IUpgradeModifier> ParseAddedUpgrades(AddedUpgrade[] data);
+        public abstract List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgrade[] data);
         public abstract List<IUpgradeType> ParseRemovedUpgrades(string[] data);
         public abstract List<IAction> ParseAddedActions(string[] data);
         public abstract List<IAction> ParseRemovedActions(string[] data);
@@ -24,10 +24,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             return data.Select(action => XWingRepository.Instance.ActionRepository.GetAction(action)).ToList();
         }
 
-        public override List<IUpgradeModifier> ParseAddedUpgrades(AddedUpgrade[] data)
+        public override List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgrade[] data)
         {
             return data.Select(upgrade =>
-            (IUpgradeModifier)new UpgradeModifier(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type),
+            (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
+            new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type)),
             upgrade.CostLimit, upgrade.CostReduction)).ToList();
         }
 

@@ -20,7 +20,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int Hull { get; }
         int Shield { get; }
 
-        IEnumerable<IUpgradeType> Upgrades { get; }
+        IEnumerable<IUpgradeSlot> Upgrades { get; }
         IEnumerable<IAction> Actions { get; }
 
         string Image { get; }

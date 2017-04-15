@@ -38,9 +38,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return ToString().Equals(other.ToString());
         }
 
+        private ShipSize(_shipSizeRep size)
+        {
+            this.size = size;
+        }
+
         public IShipSize DeepClone()
         {
-            throw new NotImplementedException();
+            return new ShipSize(this.size);
         }
     }
 }

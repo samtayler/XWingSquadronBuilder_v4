@@ -77,7 +77,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgradeSlot DeepClone()
         {
-            throw new NotImplementedException();
+            return new UpgradeSlot(this.UpgradeType.DeepClone(), this.Upgrade.DeepClone(), this.CostReduction, this.CostRestriction);
         }
     }
 }

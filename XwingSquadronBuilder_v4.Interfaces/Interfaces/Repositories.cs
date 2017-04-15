@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
+    public interface IActionRepository
+    {
+        IAction GetAction(string name);
+        IReadOnlyList<IAction> GetAllActions();
+    }
+
     public interface IUpgradeTypesRepository
     {
         IUpgradeType GetUpgradeType(string name);

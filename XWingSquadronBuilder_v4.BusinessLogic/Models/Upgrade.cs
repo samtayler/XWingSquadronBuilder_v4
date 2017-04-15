@@ -84,8 +84,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             return AddUpgradeModifiers.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x }))
                 .Aggregate(new List<IUpgradeSlot>(), (x, y) => x.Concat(y).ToList());
-        } 
-      
+        }
+
         public bool Equals(IUpgrade other)
         {
             return Name == other.Name && UpgradeType.Equals(other.UpgradeType);
@@ -93,7 +93,15 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgrade DeepClone()
         {
-            throw new NotImplementedException();
+            return new Upgrade(this.Name, this.Cost, this.SlotsRequired, 
+                this.CardText, this.Unique, this.Limited, this.ShipLimited, 
+                this.SizeRestriction, this.Faction.DeepClone(), this.UpgradeType.DeepClone(), 
+                new UpgradeModifierPackage(this.AddActionModifiers.Select(x => x.DeepClone()), 
+                this.RemoveActionModifiers.Select(x => x.DeepClone()), 
+                this.AddUpgradeModifiers.Select(x => x.DeepClone()), 
+                this.RemoveUpgradeModifiers.Select(x => x.DeepClone()), 
+                this.PilotAttributeModifiers.Select(x => new KeyValuePair<string, int>(x.Key, x.Value))
+                .ToDictionary(x => x.Key, y => y.Value)));
         }
     }
 }

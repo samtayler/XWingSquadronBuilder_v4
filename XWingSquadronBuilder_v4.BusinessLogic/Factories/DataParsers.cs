@@ -27,7 +27,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                 pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill),
                 pilot.PilotAbility, pilot.Image, new ShipSize(pilot.ShipSize),
                 pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x)),
-                pilot.Upgrades.Select(x => XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)), pilot.ShipIcon);
+                pilot.Upgrades.Select(x => 
+                new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x),
+                new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)))), 
+                pilot.ShipIcon);
         }
 
         public static IUpgrade CreateUpgrade(UpgradeJson upgrade)
@@ -37,12 +40,13 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             return new Upgrade(upgrade.Name, upgrade.Cost, upgrade.SlotsRequired,
                 upgrade.Description, upgrade.Unique, upgrade.Limited, upgrade.ShipLimited, upgrade.SizeRestriction,
                 XWingRepository.Instance.FactionRepository.GetFaction(upgrade.Faction),
-                XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type),
+                XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
+                new Structures.UpgradeModifierPackage(
                 upgradeParsers.ParseAddedActions(upgrade.AddedActions),
                 upgradeParsers.ParseRemovedActions(upgrade.RemovedActions),
                 upgradeParsers.ParseAddedUpgrades(upgrade.AddedUpgrades),
                 upgradeParsers.ParseRemovedUpgrades(upgrade.RemovedUpgrades),
-                upgradeParsers.ParseChangedStats(upgrade.StatChanges));
+                upgradeParsers.ParseChangedStats(upgrade.StatChanges)));
         }
 
         public static IUpgradeType CreateUpgradeType(UpgradeTypeJson upgradeType)

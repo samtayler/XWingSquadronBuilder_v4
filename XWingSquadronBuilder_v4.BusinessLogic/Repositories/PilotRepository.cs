@@ -7,7 +7,7 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
-    public class PilotRepository : IPilotRepository
+    internal class PilotRepository : IPilotRepository
     {
         private IReadOnlyList<PilotJson> pilots { get; }           
         private Func<PilotJson, IPilot> CreatePilot { get; }

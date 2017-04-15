@@ -48,10 +48,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public string ShipIcon { get; }
 
-        IEnumerable<IUpgradeType> IPilot.Upgrades => throw new NotImplementedException();
+        IEnumerable<IUpgradeSlot> IPilot.Upgrades => AbilityEngine.Upgrades;
 
         public Pilot(string shipName, string name, bool unique, IFaction faction, int cost, PilotStatPackage stats, string pilotAbility,
-                string imageUri, ShipSize shipSize, IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades, string shipIcon)
+                string imageUri, IShipSize shipSize, IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades, string shipIcon)
         {
             Name = name;
             Faction = faction;
@@ -84,12 +84,34 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public bool Equals(IPilot other)
         {
-            return Name == other.Name && Ship == other.Ship;
+            return Name == other.Name 
+                && Ship == other.Ship
+                && Upgrades.Count().Equals(other.Upgrades.Count())
+                && Actions.Count().Equals(other.Actions.Count())
+                && Cost.Equals(other.Cost);
+        }
+
+        private Pilot(string shipName, string name, bool unique, IFaction faction, int cost,  string pilotAbility,
+                string imageUri, IShipSize shipSize, PilotAbilityEngine engine, string shipIcon)
+        {
+            Name = name;
+            Faction = faction;
+            Ship = shipName;
+            Unique = unique;
+            PilotAbility = pilotAbility;
+            Image = imageUri;
+            ShipSize = shipSize;
+            AbilityEngine = engine;
+            AbilityEngine.PropertyChanged += AbilityEngine_PropertyChanged;
+            this.cost = cost;
+            ShipIcon = shipIcon;
         }
 
         public IPilot DeepClone()
         {
-            throw new NotImplementedException();
+            return new Pilot(this.Ship, this.Name, this.Unique, this.Faction.DeepClone(), 
+                this.cost, this.PilotAbility, this.Image, this.ShipSize.DeepClone(), 
+                this.AbilityEngine.DeepClone(), this.ShipIcon);
         }
     }
 }

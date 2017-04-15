@@ -9,8 +9,8 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
-   
-    public class FactionRepository : IFactionRepository
+
+    internal class FactionRepository : IFactionRepository
     {
         private FactionJson[] factions { get; }
         private Func<FactionJson, IFaction> CreateFaction { get; }

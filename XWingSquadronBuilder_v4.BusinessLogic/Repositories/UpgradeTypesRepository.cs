@@ -10,9 +10,7 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
-  
-
-    public class UpgradeTypesRepository : IUpgradeTypesRepository
+    internal class UpgradeTypesRepository : IUpgradeTypesRepository
     {
         private IEnumerable<UpgradeTypeJson> upgradeTypes { get; }
         private Func<UpgradeTypeJson, IUpgradeType> CreateUpgradeType { get; }

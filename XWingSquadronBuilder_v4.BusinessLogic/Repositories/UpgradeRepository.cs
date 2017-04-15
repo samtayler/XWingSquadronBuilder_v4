@@ -7,7 +7,7 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
-    public class UpgradeRepository : IUpgradeRepository
+    internal class UpgradeRepository : IUpgradeRepository
     {
         private Func<UpgradeJson, IUpgrade> CreateUpgrade { get; }
         public UpgradeRepository(Func<UpgradeJson, IUpgrade> createUpgrade)

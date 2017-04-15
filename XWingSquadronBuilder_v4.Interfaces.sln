@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XwingSquadronBuilder_v4.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWingSquadronBuilder_v4.DataLayer", "XWingSquadronBuilder_v4.DataLayer\XWingSquadronBuilder_v4.DataLayer.csproj", "{55496516-2BB2-4D9B-9213-D7BFA6940649}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWingSquadronBuilder_v4Tests", "XWingSquadronBuilder_v4Tests\XWingSquadronBuilder_v4Tests.csproj", "{289FD6F6-F235-4F88-8D67-DBEB76ADB808}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWingSquadronBuilder_v4.Tests", "XWingSquadronBuilder_v4Tests\XWingSquadronBuilder_v4.Tests.csproj", "{289FD6F6-F235-4F88-8D67-DBEB76ADB808}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWingSquadronBuilder_v4.BusinessLogic", "XWingSquadronBuilder_v4.BusinessLogic\XWingSquadronBuilder_v4.BusinessLogic.csproj", "{C2CCC448-0B58-47D6-83FC-67A91BF1A36F}"
 EndProject

@@ -7,8 +7,8 @@
     <ProjectGuid>{289FD6F6-F235-4F88-8D67-DBEB76ADB808}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XWingSquadronBuilder_v4Tests</RootNamespace>
-    <AssemblyName>XWingSquadronBuilder_v4Tests</AssemblyName>
+    <RootNamespace>XWingSquadronBuilder_v4.Tests</RootNamespace>
+    <AssemblyName>XWingSquadronBuilder_v4.Tests</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PilotModificationTests.cs" />
+    <Compile Include="PilotTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryTests.cs" />
     <Compile Include="UnitTestApp.xaml.cs">

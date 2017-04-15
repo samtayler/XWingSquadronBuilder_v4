@@ -32,5 +32,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             return Name.Equals(other.Name);
         }
+
+        public IUpgradeType DeepClone()
+        {
+            return new UpgradeType(this.Name, this.Image);
+        }
     }
 }
