@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IPilot : IEquatable<IPilot>, IDeepCloneable<IPilot>
+    public interface IPilot : IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged
     {
         string Name { get; }
         string PilotAbility { get; }

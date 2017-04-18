@@ -23,7 +23,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 if (this.upgrade != null) this.upgrade.PropertyChanged -= Upgrade_PropertyChanged;
                 this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));
                 this.upgrade.PropertyChanged += Upgrade_PropertyChanged;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Upgrade"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
             }
         }
 
@@ -32,6 +33,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public int CostReduction { get; }
 
         public int CostRestriction { get; }
+
+        public int Cost => Upgrade.Cost - CostReduction;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

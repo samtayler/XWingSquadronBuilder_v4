@@ -5,9 +5,10 @@
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:XWingSquadronBuilder_v4.UserControls"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <!--<controls:PilotsList Pilots="{x:Bind ViewModel.PilotList}" />-->
     </Grid>
 </Page>

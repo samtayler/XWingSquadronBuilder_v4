@@ -13,7 +13,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         IUpgrade Upgrade { get; set; }
         int CostReduction { get; }
         int CostRestriction { get; }
-
+        int Cost { get; }
         
         IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
         void ClearUpgrade();

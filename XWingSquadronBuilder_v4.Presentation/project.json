@@ -6,7 +6,8 @@
     "Microsoft.Toolkit.Uwp.Notifications": "1.4.1",
     "Microsoft.Toolkit.Uwp.UI": "1.4.1",
     "Microsoft.Toolkit.Uwp.UI.Animations": "1.4.1",
-    "Microsoft.Toolkit.Uwp.UI.Controls": "1.4.1"
+    "Microsoft.Toolkit.Uwp.UI.Controls": "1.4.1",
+    "Prism.Core": "6.3.0"
   },
   "frameworks": {
     "uap10.0": {}

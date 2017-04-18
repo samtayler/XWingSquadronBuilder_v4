@@ -14,34 +14,38 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using XWingSquadronBuilder_v4.BusinessLogic.ViewModels;
 using XWingSquadronBuilder_v4.Interfaces;
 
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace XWingSquadronBuilder_v4.UserControls
+namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class PilotsList : UserControl
     {
-        public delegate void PilotSelectedEventHandler(object sender, PilotViewModel e);
+        public delegate void PilotSelectedEventHandler(object sender, IPilot e);
 
         public event PilotSelectedEventHandler PilotSelected;       
 
-        public IEnumerable<IPilot> Pilots
+        public List<IPilot> Pilots
         {
-            get { return (IEnumerable<IPilot>)GetValue(PilotsProperty); }
+            get { return (List<IPilot>)GetValue(PilotsProperty); }
             set { SetValue(PilotsProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(IEnumerable<IPilot>), typeof(PilotsList), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(Pilots), typeof(List<IPilot>), typeof(PilotsList), new PropertyMetadata(0));
 
 
         public PilotsList()
         {
             this.InitializeComponent();
-        }        
+        }
+
+        private void ShipList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PilotSelected?.Invoke(this, e.ClickedItem as IPilot);
+        }
     }
 }

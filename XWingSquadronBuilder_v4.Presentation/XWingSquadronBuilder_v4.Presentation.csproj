@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\RemovePilotCommand.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -122,11 +123,16 @@
     <Compile Include="UserControls\Squadron.xaml.cs">
       <DependentUpon>Squadron.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\PilotListViewModel.cs" />
+    <Compile Include="UserControls\UpgradeSlotList.xaml.cs">
+      <DependentUpon>UpgradeSlotList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\AddPilotCommand.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
-    <Compile Include="ViewModels\SquadronViewModel.cs" />
-    <Compile Include="ViewModels\UpgradeSlotViewModel.cs" />
-    <Compile Include="ViewModels\UpgradeViewModel.cs" />
+    <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
+    <Compile Include="Views\SquadronBuilder.xaml.cs">
+      <DependentUpon>SquadronBuilder.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -135,14 +141,69 @@
     <None Include="XWingSquadronBuilder_v4.Presentation_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\-Star-Wars-Death-Star-X-wing-Tie-Fighters-Star-Destroyers-Fresh-New-Hd-Wallpaper--.jpg" />
+    <Content Include="Assets\600px-Galactic_Empire_emblem.svg.png" />
+    <Content Include="Assets\ImperialLogo.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logos\Actions\BarrelRoll.png" />
+    <Content Include="Assets\Logos\Actions\Boost.png" />
+    <Content Include="Assets\Logos\Actions\Cloak.png" />
+    <Content Include="Assets\Logos\Actions\evade.png" />
+    <Content Include="Assets\Logos\Actions\focus.png" />
+    <Content Include="Assets\Logos\Actions\targetLock.png" />
+    <Content Include="Assets\Logos\basic icons\Agility.png" />
+    <Content Include="Assets\Logos\basic icons\Astromech.png" />
+    <Content Include="Assets\Logos\basic icons\Attack.png" />
+    <Content Include="Assets\Logos\basic icons\Bomb.png" />
+    <Content Include="Assets\Logos\basic icons\Cannon.png" />
+    <Content Include="Assets\Logos\basic icons\Crew.png" />
+    <Content Include="Assets\Logos\basic icons\ElitePilotTalent.png" />
+    <Content Include="Assets\Logos\basic icons\Hull.png" />
+    <Content Include="Assets\Logos\basic icons\Missile.png" />
+    <Content Include="Assets\Logos\basic icons\Modification.png" />
+    <Content Include="Assets\Logos\basic icons\Shield.png" />
+    <Content Include="Assets\Logos\basic icons\SystemUpgrade.png" />
+    <Content Include="Assets\Logos\basic icons\Title.png" />
+    <Content Include="Assets\Logos\basic icons\Torpedo.png" />
+    <Content Include="Assets\Logos\basic icons\Turret.png" />
+    <Content Include="Assets\Logos\basic icons\Xwing logo.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\Lamda1Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\Lamda2Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\Lamda3Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\Lamda4Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieDefender1Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieDefender2Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieDefender3Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieDefender4Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieFighter3Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieFighter4Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieFighter6Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieFighter8Background.png" />
+    <Content Include="Assets\Logos\Empire\Backgrounds\TieFighterBackground.png" />
+    <Content Include="Assets\Logos\Empire\Firespray-31.png" />
+    <Content Include="Assets\Logos\Empire\lambda-class.png" />
+    <Content Include="Assets\Logos\Empire\tie advanced.png" />
+    <Content Include="Assets\Logos\Empire\tie bomber.png" />
+    <Content Include="Assets\Logos\Empire\tie defender.png" />
+    <Content Include="Assets\Logos\Empire\tie interceptor.png" />
+    <Content Include="Assets\Logos\Empire\tie phantom.png" />
+    <Content Include="Assets\Logos\Empire\tiefighter logo.png" />
+    <Content Include="Assets\Logos\Empire\VT-49-Decimator.png" />
+    <Content Include="Assets\RebelAllianceLogo.png" />
+    <Content Include="Assets\ScumLogo.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\WideLogo.scale-100.png" />
+    <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -157,26 +218,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\ListViewTemplates.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="UserControls\PilotControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\PilotsList.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Squadron.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UpgradeSlotList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SquadronBuilder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\XWingSquadronBuilder_v4.BusinessLogic\XWingSquadronBuilder_v4.BusinessLogic.csproj">
       <Project>{c2ccc448-0b58-47d6-83fc-67a91bf1a36f}</Project>
