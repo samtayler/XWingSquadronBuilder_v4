@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
+    xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     mc:Ignorable="d" 
     RequestedTheme="Dark">
 
@@ -16,6 +17,11 @@
             <TextBlock x:Name="txblkPilotName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{x:Bind  Pilot.Name,Mode=OneWay, FallbackValue='Pilot Name'}" VerticalAlignment="Top" RelativePanel.RightOf="txblkPilotSkill" FontSize="22.5" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill" Margin="10,0,0,0"/>
             <TextBlock x:Name="txblkCost" Foreground="DarkRed" Text="{x:Bind Pilot.Cost ,Mode=OneWay, FallbackValue=0}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="10,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="txblkPilotName" RelativePanel.AlignVerticalCenterWith="txblkPilotName"/>
             <ItemsControl x:Name="actionsListview" ItemsSource="{x:Bind Pilot.Actions,Mode=OneWay}" RelativePanel.RightOf="txblkCost" RelativePanel.AlignVerticalCenterWith="txblkCost" Margin="10,0,0,0">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="interfaces:IAction">
+                        <Image Source="{x:Bind Image}" Height="20" Width="20" Margin="5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsStackPanel Orientation="Horizontal" />
@@ -39,11 +45,11 @@
             <RelativePanel x:Name="ShieldGrid" Margin="5">
                 <Image x:Name="imgShield" RelativePanel.RightOf="txblkPilotShield" Source="/Assets/Logos/basic icons/shield.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
                 <TextBlock x:Name="txblkPilotShield" TextWrapping="Wrap" Text="{x:Bind Pilot.Shield,Mode=OneWay, FallbackValue=0}" Foreground="#FF24CAE2" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-            </RelativePanel>            
+            </RelativePanel>
         </StackPanel>
         <userControls:UpgradeSlotList UpgradeSlots="{x:Bind Pilot.Upgrades}" 
                                       UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
-                                  RelativePanel.Below="StatsPanel"
+                                    RelativePanel.Below="StatsPanel"
                                   RelativePanel.AlignRightWithPanel="True"
                                   RelativePanel.AlignLeftWithPanel="True"/>
     </RelativePanel>

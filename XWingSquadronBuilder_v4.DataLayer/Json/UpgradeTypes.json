@@ -23,7 +23,7 @@
       },
       {
         "Name": "Crew",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/Crew.png"
       },
       {
         "Name": "Astromech",
@@ -45,9 +45,9 @@
         "Name": "Salvaged Astromech",
         "ImageSource": ""
       },
-       {
+      {
         "Name": "Cannon",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/Cannon.png"
       },
       {
         "Name": "Team",

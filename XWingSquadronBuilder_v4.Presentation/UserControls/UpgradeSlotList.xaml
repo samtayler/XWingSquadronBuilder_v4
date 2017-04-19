@@ -48,13 +48,16 @@
                                    RelativePanel.AlignLeftWith="txblkUpgradeName"
                                    Margin="5"/>
                         <Button x:Name="btnClearUpgrade" 
-                            FontFamily="Segoe MDL2 Assets"
-                            Content="&#xE894;"
-                            Width="38" 
-                            Height="38"
-                            Foreground="Red"
-                                Margin="5"
-                            RelativePanel.AlignRightWithPanel="True" Click="btnClearUpgrade_Click" RelativePanel.RightOf="" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                                FontFamily="Segoe MDL2 Assets"
+                                Content="&#xE894;"
+                                Width="28" 
+                                FontSize="8"
+                                Height="28"
+                                Foreground="Red"  
+                                Margin="5" 
+                                RelativePanel.AlignRightWithPanel="True" 
+                                Click="btnClearUpgrade_Click"                                  
+                                RelativePanel.AlignVerticalCenterWithPanel="True"/>
                     </RelativePanel>
                 </ListViewItem>
             </DataTemplate>

@@ -35,7 +35,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(List<IPilot>), typeof(PilotsList), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(Pilots), typeof(List<IPilot>), typeof(PilotsList), new PropertyMetadata(new List<IPilot>()));
 
 
         public PilotsList()

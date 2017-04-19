@@ -22,6 +22,12 @@
 
 
     <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{x:Bind Pilots, Mode=OneWay}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" >
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style >
+        </ListView.ItemContainerStyle>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="interface:IPilot">
                 <RelativePanel x:Name="PilotPanel" Margin="10" Padding="10">

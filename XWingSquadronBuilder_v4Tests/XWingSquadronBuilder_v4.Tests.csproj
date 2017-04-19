@@ -132,9 +132,9 @@
       <Project>{55496516-2BB2-4D9B-9213-D7BFA6940649}</Project>
       <Name>XWingSquadronBuilder_v4.DataLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XwingSquadronBuilder_v4.Interfaces\XwingSquadronBuilder_v4.Interfaces.csproj">
+    <ProjectReference Include="..\XwingSquadronBuilder_v4.Interfaces\XWingSquadronBuilder_v4.Interfaces.csproj">
       <Project>{355F7435-3BB4-4FD3-A6CE-77BC2E6C9EB4}</Project>
-      <Name>XwingSquadronBuilder_v4.Interfaces</Name>
+      <Name>XWingSquadronBuilder_v4.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
