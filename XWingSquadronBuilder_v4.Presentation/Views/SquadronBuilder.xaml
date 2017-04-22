@@ -11,9 +11,15 @@
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"   
     mc:Ignorable="d"
     RequestedTheme="Dark"
-    Background="Black">
-
+    Background="Black">    
+    
+    
     <RelativePanel>
+        <FlyoutBase.AttachedFlyout>
+            <Flyout Closed="Flyout_Closed">
+                <userControls:UpgradePickerPopup/>
+            </Flyout>
+        </FlyoutBase.AttachedFlyout>
         <userControls:PilotsList x:Name="PilotList" 
                                  Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"
                                  RelativePanel.AlignBottomWithPanel="True"
@@ -32,7 +38,8 @@
                                RelativePanel.AlignTopWithPanel="True"                            
                                RelativePanel.AlignRightWithPanel="True"
                                RelativePanel.RightOf="PilotList"
-                               Pilots="{x:Bind ViewModel.Squadron,Mode=OneWay}">
+                               Pilots="{x:Bind ViewModel.Squadron,Mode=OneWay}"
+                               UpgradeSlotSelected="Squadron_UpgradeSlotSelected">
             <Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>
                     <Interactions:EventTriggerBehavior EventName="RemovePilot">

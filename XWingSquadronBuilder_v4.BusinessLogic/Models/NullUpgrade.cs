@@ -32,7 +32,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public int SlotsRequired => 0;
 
-        public string CardText => UpgradeType.Name;
+        public string CardText => "";
 
         public bool Unique => false;
 

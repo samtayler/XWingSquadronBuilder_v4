@@ -65,7 +65,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             return this.UpgradeType.Equals(other.UpgradeType) &&
                 CostReduction == other.CostReduction &&
-                CostRestriction == other.CostRestriction;
+                CostRestriction == other.CostRestriction
+                && Upgrade.Equals(other.Upgrade);
         }
 
         public override string ToString()

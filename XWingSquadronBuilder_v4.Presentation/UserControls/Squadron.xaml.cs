@@ -51,17 +51,17 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void PilotControl_RemovePilot(object sender, Interfaces.IPilot e)
         {
-            RemovePilot?.Invoke(this, e);
+            RemovePilot?.Invoke(sender, e);
         }
 
         private void PilotControl_CopyPilot(object sender, Interfaces.IPilot e)
         {
-            CopyPilot?.Invoke(this, e);
+            CopyPilot?.Invoke(sender, e);
         }
 
         private void PilotControl_UpgradeSlotSelected(object sender, IUpgradeSlot e)
         {
-            UpgradeSlotSelected?.Invoke(this, e);
+            UpgradeSlotSelected?.Invoke(sender, e);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void ShipList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PilotSelected?.Invoke(this, e.ClickedItem as IPilot);
+            PilotSelected?.Invoke(this, (e.ClickedItem as IPilot).DeepClone());
         }
     }
 }

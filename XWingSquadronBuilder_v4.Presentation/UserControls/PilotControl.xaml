@@ -11,8 +11,8 @@
 
     <RelativePanel>
         <RelativePanel x:Name="InfoPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-            <Button x:Name="btnDelete" Content="&#xE894;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="Red" BorderBrush="{x:Null}" Background="{x:Null}" Tapped="btnDelete_Tapped" />
-            <Button x:Name="btnCopy" Content="&#xE8C8;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="White" BorderBrush="{x:Null}" Background="{x:Null}" RelativePanel.LeftOf="btnDelete" Tapped="btnCopy_Tapped"/>
+            <Button x:Name="btnDelete" Background="Transparent" Content="&#xE894;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="Red" Tapped="btnDelete_Tapped" />
+            <Button x:Name="btnCopy" Background="Transparent" Content="&#xE8C8;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="White" RelativePanel.LeftOf="btnDelete" Tapped="btnCopy_Tapped"/>
             <TextBlock x:Name="txblkPilotSkill" Foreground="#FFF57F20" TextWrapping="Wrap" Text="{x:Bind Pilot.PilotSkill,Mode=OneWay, FallbackValue=0}" RelativePanel.AlignTopWithPanel="True" FontSize="24"/>
             <TextBlock x:Name="txblkPilotName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{x:Bind  Pilot.Name,Mode=OneWay, FallbackValue='Pilot Name'}" VerticalAlignment="Top" RelativePanel.RightOf="txblkPilotSkill" FontSize="22.5" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill" Margin="10,0,0,0"/>
             <TextBlock x:Name="txblkCost" Foreground="DarkRed" Text="{x:Bind Pilot.Cost ,Mode=OneWay, FallbackValue=0}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="10,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="txblkPilotName" RelativePanel.AlignVerticalCenterWith="txblkPilotName"/>
@@ -47,7 +47,7 @@
                 <TextBlock x:Name="txblkPilotShield" TextWrapping="Wrap" Text="{x:Bind Pilot.Shield,Mode=OneWay, FallbackValue=0}" Foreground="#FF24CAE2" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
         </StackPanel>
-        <userControls:UpgradeSlotList UpgradeSlots="{x:Bind Pilot.Upgrades}" 
+        <userControls:UpgradeSlotList UpgradeSlots="{x:Bind Pilot.Upgrades,Mode=OneWay}" 
                                       UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
                                     RelativePanel.Below="StatsPanel"
                                   RelativePanel.AlignRightWithPanel="True"

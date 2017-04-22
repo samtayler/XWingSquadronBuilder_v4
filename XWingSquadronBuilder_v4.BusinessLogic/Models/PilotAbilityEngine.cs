@@ -73,7 +73,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             foreach (var upgrade in _upgrades)
             {
-                upgrade.PropertyChanged -= UpgradeContainer_PropertyChanged;               
+                upgrade.PropertyChanged -= UpgradeContainer_PropertyChanged;
             }
         }
 
@@ -101,7 +101,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
             foreach (var item in upgradeTypesToRemove)
             {
-                finalUpgrades.Remove(finalUpgrades.FirstOrDefault(x => x.UpgradeType.Equals(item)));
+                foreach (var upgrade in finalUpgrades.Where(x => x.UpgradeType.Equals(item)))
+                {
+                    if (upgrade.Upgrade.CardText == string.Empty)
+                    {
+                        finalUpgrades.Remove(upgrade);
+                        break;
+                    }
+                }
+
+
             }
 
             return finalUpgrades;
@@ -152,9 +161,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public PilotAbilityEngine DeepClone()
         {
             return new PilotAbilityEngine(
-                new PilotStatPackage(this.attack, this.agility, this.hull, 
-                this.shield, this.pilotSkill), 
-                this._actions.Select(x => x.DeepClone()), 
+                new PilotStatPackage(this.attack, this.agility, this.hull,
+                this.shield, this.pilotSkill),
+                this._actions.Select(x => x.DeepClone()),
                 this._upgrades.Select(x => x.DeepClone()));
         }
 

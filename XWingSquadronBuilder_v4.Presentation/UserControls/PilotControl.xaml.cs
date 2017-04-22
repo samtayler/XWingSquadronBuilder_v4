@@ -39,17 +39,17 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void UpgradeSlotList_UpgradeSlotSelected(object sender, IUpgradeSlot e)
         {
-            UpgradeSlotSelected?.Invoke(this, e);
+            UpgradeSlotSelected?.Invoke(Pilot, e);
         }
 
         private void btnDelete_Tapped(object sender,TappedRoutedEventArgs e)
         {
-            RemovePilot?.Invoke(this, Pilot);
+            RemovePilot?.Invoke(sender, Pilot);
         }
 
         private void btnCopy_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            CopyPilot?.Invoke(this, Pilot.DeepClone());
+            CopyPilot?.Invoke(sender, Pilot.DeepClone());
         }
     }
 }

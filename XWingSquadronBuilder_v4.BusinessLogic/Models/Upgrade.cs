@@ -88,7 +88,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public bool Equals(IUpgrade other)
         {
-            return Name == other.Name && UpgradeType.Equals(other.UpgradeType);
+            return Name == other.Name && UpgradeType.Equals(other.UpgradeType) && CardText == other.CardText;
         }
 
         public IUpgrade DeepClone()

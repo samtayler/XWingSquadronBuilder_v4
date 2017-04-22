@@ -43,12 +43,16 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            UpgradeSlotSelected?.Invoke(this, ((FrameworkElement)e.OriginalSource).DataContext as IUpgradeSlot);
-        }
+            if (e.Handled) return;
+            e.Handled = true;
+            UpgradeSlotSelected?.Invoke(sender, ((FrameworkElement)e.OriginalSource).DataContext as IUpgradeSlot);
+        }        
 
-        private void btnClearUpgrade_Click(object sender, RoutedEventArgs e)
+        private void btnClearUpgrade_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ((IUpgradeSlot)((FrameworkElement)e.OriginalSource).DataContext).ClearUpgrade();
+            if (e.Handled) return;
+            e.Handled = true;
+            ((IUpgradeSlot)((FrameworkElement)sender).DataContext).ClearUpgrade();
         }
     }
 }
