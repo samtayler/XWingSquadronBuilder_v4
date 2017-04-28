@@ -18,9 +18,19 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public string Image { get; }
 
+        public int CompareTo(IAction other)
+        {
+            return this.Name.CompareTo(other.Name);
+        }
+
         public IAction DeepClone()
         {
             return new Action(this.Name, this.Image);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Name.GetHashCode();
         }
 
         public bool Equals(IAction other)

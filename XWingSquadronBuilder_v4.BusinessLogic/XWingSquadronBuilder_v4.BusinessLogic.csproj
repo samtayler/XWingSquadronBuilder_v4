@@ -119,6 +119,7 @@
     <Compile Include="Models\UpgradeSlot.cs" />
     <Compile Include="Models\UpgradeType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReferenceComparer.cs" />
     <Compile Include="Repositories\ActionRepository.cs" />
     <Compile Include="Repositories\FactionRepository.cs" />
     <Compile Include="Repositories\PilotRepository.cs" />

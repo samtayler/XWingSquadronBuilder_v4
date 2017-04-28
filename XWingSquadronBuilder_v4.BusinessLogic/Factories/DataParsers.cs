@@ -4,6 +4,7 @@ using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.DataLayer.RawData;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.BusinessLogic.Models;
+using System.Collections.Generic;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
@@ -26,7 +27,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                 new Structures.PilotStatPackage(pilot.Stats.Attack,
                 pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill),
                 pilot.PilotAbility, pilot.Image, new ShipSize(pilot.ShipSize),
-                pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x)),
+                new HashSet<IAction>(pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x))),
                 pilot.Upgrades.Select(x => 
                 new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x),
                 new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)))), 

@@ -419,6 +419,86 @@
       "Unique": true,
       "PilotAbility": "When you reveal a bank maneuver (Left Bank or Right Bank), you may rotate your dial to the other bank maneuver of the same speed.",
       "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Patrol Leader",
+      "Upgrades": [ "Modification", "Torpedo", "Title", "Crew", "Crew", "Crew", "Bomb" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/VT-49-Decimator.png",
+      "ShipName": "VT-49 Decimator",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 12,
+        "Aglilty": 0,
+        "Attack": 3
+      },
+      "Cost": 40,
+      "Unique": false,
+      "PilotAbility": "To be granted command of a VT-49 Decimator was seen as a significant promotion for a middling officer of the Imperial Navy.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Captain Oicunn",
+      "Upgrades": [ "Modification", "Torpedo", "Title", "Crew", "Crew", "Crew", "Bomb", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/VT-49-Decimator.png",
+      "ShipName": "VT-49 Decimator",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 12,
+        "Aglilty": 0,
+        "Attack": 3
+      },
+      "Cost": 42,
+      "Unique": true,
+      "PilotAbility": "After executing a maneuver, each enemy ship you are touching suffers 1 damage.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Commander Kenkirk",
+      "Upgrades": [ "Modification", "Torpedo", "Title", "Crew", "Crew", "Crew", "Bomb", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/VT-49-Decimator.png",
+      "ShipName": "VT-49 Decimator",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 12,
+        "Aglilty": 0,
+        "Attack": 3
+      },
+      "Cost": 44,
+      "Unique": true,
+      "PilotAbility": "If you have no shields and at least 1 Damage card assigned to you, increase your agility value by 1. ",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Rear Admiral Chiraneau",
+      "Upgrades": [ "Modification", "Torpedo", "Title", "Crew", "Crew", "Crew", "Bomb", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/VT-49-Decimator.png",
+      "ShipName": "VT-49 Decimator",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 12,
+        "Aglilty": 0,
+        "Attack": 3
+      },
+      "Cost": 46,
+      "Unique": true,
+      "PilotAbility": "When attacking at Range 1-2, you may change one of your FOCUS results to a CRITICAL result. ",
+      "PilotSkill": 8
     }
   ]
 }

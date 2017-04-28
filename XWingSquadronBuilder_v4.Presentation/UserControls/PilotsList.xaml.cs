@@ -25,17 +25,33 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
     {
         public delegate void PilotSelectedEventHandler(object sender, IPilot e);
 
-        public event PilotSelectedEventHandler PilotSelected;       
+        public event PilotSelectedEventHandler PilotSelected;
 
         public List<IPilot> Pilots
         {
             get { return (List<IPilot>)GetValue(PilotsProperty); }
-            set { SetValue(PilotsProperty, value); }
+            set
+            {
+                SetValue(PilotsProperty, value);
+                GroupedPilots = Pilots.GroupBy(x => x.Ship).ToList();                
+            }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PilotsProperty =
             DependencyProperty.Register(nameof(Pilots), typeof(List<IPilot>), typeof(PilotsList), new PropertyMetadata(new List<IPilot>()));
+
+
+
+        private List<IGrouping<string, IPilot>> GroupedPilots
+        {
+            get { return (List<IGrouping<string, IPilot>>)GetValue(GroupedPilotsProperty); }
+            set { SetValue(GroupedPilotsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty GroupedPilotsProperty =
+            DependencyProperty.Register("GroupedPilots", typeof(List<IGrouping<string, IPilot>>), typeof(PilotsList), new PropertyMetadata(0));
 
 
         public PilotsList()

@@ -7,10 +7,10 @@
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     mc:Ignorable="d"
-    RequestedTheme="Dark">
-  
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="15">
-        <ItemsControl ItemsSource="{x:Bind Pilots,Mode=OneWay}">
+    RequestedTheme="Dark" >
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10" >
+        <ItemsControl ItemsSource="{x:Bind Pilots,Mode=OneTime}">
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
                     <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -19,7 +19,8 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate x:DataType="interfaces:IPilot">
-                    <userControls:PilotControl Pilot="{x:Bind}" 
+                    <userControls:PilotControl Pilot="{x:Bind}"    
+                                               Margin="5"
                                                RemovePilot="PilotControl_RemovePilot" 
                                                CopyPilot="PilotControl_CopyPilot" 
                                                UpgradeSlotSelected="PilotControl_UpgradeSlotSelected" />

@@ -15,6 +15,8 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
             <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="0,0.5"/>
             <Setter Property="IsHoldingEnabled" Value="True"/>
             <Setter Property="Padding" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -50,7 +52,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-    </UserControl.Resources>
+    </UserControl.Resources>    
 
     <ItemsControl ItemsSource="{x:Bind UpgradeSlots,Mode=OneWay}" >
         <ItemsControl.ItemContainerStyle>
@@ -62,7 +64,7 @@
         </ItemsControl.ItemContainerStyle>
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="interfaces:IUpgradeSlot">
-                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped">
+                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
                     <RelativePanel>
                         <Image x:Name="imgType" Source="{x:Bind UpgradeType.Image, Mode=OneWay}" 
                             Height="20"

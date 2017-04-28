@@ -126,9 +126,6 @@
     <Compile Include="UserControls\UpgradePicker.xaml.cs">
       <DependentUpon>UpgradePicker.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UpgradePickerPopup.xaml.cs">
-      <DependentUpon>UpgradePickerPopup.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UpgradeSlotList.xaml.cs">
       <DependentUpon>UpgradeSlotList.xaml</DependentUpon>
     </Compile>
@@ -233,10 +230,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UpgradePicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\UpgradePickerPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -78,7 +78,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawData
         [DataMember]
         public int CostReduction { get; set; } = 0;
         [DataMember]
-        public int CostLimit { get; set; } = 0;
+        public int CostLimit { get; set; } = 100;
     }
     [DataContract]
     public class ChooseUpgrade

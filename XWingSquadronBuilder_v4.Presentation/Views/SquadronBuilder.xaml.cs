@@ -39,17 +39,8 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
             var pilot = sender as IPilot;
             var upgradeSlot = e;
 
-            ((UIElement)Squadron)
-
-            var upgradeSelector = new UpgradePicker()
-            {
-                Upgrades = XWingRepository.Instance.UpgradeRepository.GetAllUpgradesForType(upgradeSlot.UpgradeType)
-                .OrderBy(x => x.Cost).ThenBy(x => x.Name).ToList()
-            };
-
-            await upgradeSelector.ShowAsync();
-
-            upgradeSlot.Upgrade = upgradeSelector.SelectedUpgrade;
+            var upgradeSelector = new UpgradePicker(pilot, upgradeSlot);
+            await upgradeSelector.ShowAsync();            
         }        
     }
 }

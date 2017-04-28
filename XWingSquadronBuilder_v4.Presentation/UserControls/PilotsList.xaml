@@ -5,27 +5,55 @@
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:interface="using:XWingSquadronBuilder_v4.Interfaces"
-    mc:Ignorable="d">    
-   
+    xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
+    xmlns:uwpControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
 
-    <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{x:Bind Pilots, Mode=OneWay}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" >
-        <ListView.ItemContainerStyle>
-            <Style TargetType="ListViewItem">
+
+
+    <ItemsControl ItemsSource="{x:Bind GroupedPilots,Mode=OneWay}" Width="225">
+        <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ContentPresenter">
                 <Setter Property="VerticalAlignment" Value="Stretch" />
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
-        </ListView.ItemContainerStyle>        
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="interface:IPilot">
-                <RelativePanel x:Name="PilotPanel" Margin="10" Padding="10">
-                    <Image x:Name="shipIcon" Source="{x:Bind ShipIcon, Mode=OneWay}" Width="40" Height="40" RelativePanel.AlignLeftWithPanel="True"/>
-                    <TextBlock x:Name="txblkPilotSkill" TextWrapping="Wrap" Foreground="#FFF57F20" Text="{x:Bind PilotSkill, Mode=OneWay}" FontSize="20" FontFamily="Segoe UI" TextAlignment="Center" Margin="3,0,0,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="shipIcon"/>
-                    <TextBlock x:Name="txblkPilotName" Text="{x:Bind Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="16" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
-                    <TextBlock x:Name="txblkCost" Foreground="Red" Text="{x:Bind Cost, Mode=OneWay}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="3,0,15,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
-                </RelativePanel>
+        </ItemsControl.ItemContainerStyle>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <uwpControls:Expander x:Name="Expander1" VerticalAlignment="Top" 
+                                      Header="{Binding Key}"
+                               IsExpanded="False">
+                    <uwpControls:Expander.Style>
+                        <Style TargetType="uwpControls:Expander">
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </uwpControls:Expander.Style>
+                    <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" >
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="VerticalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="interfaces:IPilot">
+                                <RelativePanel x:Name="PilotPanel">
+                                    <Image x:Name="shipIcon" Source="{x:Bind ShipIcon, Mode=OneWay}" Width="20" Height="20" RelativePanel.AlignLeftWithPanel="True"/>
+                                    <TextBlock x:Name="txblkPilotSkill" TextWrapping="Wrap" Foreground="#FFF57F20" Text="{x:Bind PilotSkill, Mode=OneWay}" FontSize="15" FontFamily="Segoe UI" TextAlignment="Center" Margin="3,0,0,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="shipIcon"/>
+                                    <TextBlock x:Name="txblkPilotName" Text="{x:Bind Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="12" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
+                                    <TextBlock x:Name="txblkCost" Foreground="Red" Text="{x:Bind Cost, Mode=OneWay}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="12" Margin="3,0,15,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
+                                </RelativePanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </uwpControls:Expander>
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+
 
 </UserControl>

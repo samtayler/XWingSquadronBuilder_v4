@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,16 +15,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Agility => agility + GetPilotStatModification(nameof(Agility));
-        public IEnumerable<IAction> Actions => CalculateActions();
+        public int Agility => agility + GetPilotStatModification(nameof(Agility));        
         public int Attack => attack + GetPilotStatModification(nameof(Attack));
         public int Hull => hull + GetPilotStatModification(nameof(Hull));
         public int PilotSkill => pilotSkill + GetPilotStatModification(nameof(PilotSkill));
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
-        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Upgrade.Cost);
-        public IEnumerable<IUpgradeSlot> Upgrades => GetCalculatedUpgradeSlots();
+        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);        
         private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
-        private List<IAction> _actions { get; }
+        public ObservableCollection<IUpgradeSlot> Upgrades { get; }
+        public ObservableCollection<IAction> Actions { get; }
+        private HashSet<IAction> _actions { get; }
         private int attack { get; }
         private int agility { get; }
         private int hull { get; }
@@ -31,31 +32,87 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         private int pilotSkill { get; }
 
 
-        public PilotAbilityEngine(PilotStatPackage stats, IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
+        public PilotAbilityEngine(PilotStatPackage stats, HashSet<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
         {
             this.attack = stats.Attack;
             this.agility = stats.Agility;
             this.hull = stats.Hull;
             this.shield = stats.Shield;
             this.pilotSkill = stats.PilotSkill;
-            this._actions = actions.ToList();
+            this._actions = actions;
             _upgrades = upgrades.ToList().AsReadOnly();
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged += UpgradeContainer_PropertyChanged;
             }
+            Upgrades = new ObservableCollection<IUpgradeSlot>();
+            Actions = new ObservableCollection<IAction>();
+            RecalculateUpgrades();
+            RecalculateActions();
+            
         }
 
-        private void UpgradeContainer_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void UpgradeContainer_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName == "Enabled") return;
+            RecalculateUpgrades();
+            RecalculateActions();           
             NotifyPropertyChanged(nameof(Attack));
             NotifyPropertyChanged(nameof(Agility));
             NotifyPropertyChanged(nameof(Hull));
-            NotifyPropertyChanged(nameof(Shield));
-            NotifyPropertyChanged(nameof(Upgrades));
-            NotifyPropertyChanged(nameof(Actions));
+            NotifyPropertyChanged(nameof(Shield)); 
             NotifyPropertyChanged(nameof(PilotSkill));
             NotifyPropertyChanged(nameof(Cost));
+        }
+
+        private void RecalculateUpgrades()
+        {
+            var upgrades = GetCalculatedUpgradeSlots();
+            var upgradesToRemove = new List<IUpgradeSlot>();
+            foreach(var upgrade in Upgrades)
+            {
+                if (!upgrades.Contains(upgrade,new ReferenceComparer<IUpgradeSlot>()))
+                    upgradesToRemove.Add(upgrade);
+            }
+
+            foreach (var upgrade in upgradesToRemove)
+                Upgrades.Remove(upgrade);
+
+            var upgradesToAdd = new List<IUpgradeSlot>();
+            foreach (var upgrade in upgrades)
+            {
+                if (!Upgrades.Contains(upgrade, new ReferenceComparer<IUpgradeSlot>()))
+                    upgradesToAdd.Add(upgrade);
+            }
+
+            foreach (var upgrade in upgradesToAdd)
+                Upgrades.Add(upgrade);
+
+        }
+
+        private void RecalculateActions()
+        {
+            var actions = CalculateActions();
+            var actionsToRemove = new List<IAction>();
+            foreach (var action in Actions)
+            {
+                if (!actions.Contains(action))
+                    actionsToRemove.Add(action);
+            }
+
+            foreach (var action in actionsToRemove)
+                Actions.Remove(action);
+
+            var actionsToAdd = new List<IAction>();
+            foreach (var action in actions)
+            {
+                if (!Actions.Contains(action))
+                    actionsToAdd.Add(action);
+            }
+
+            foreach (var action in actionsToAdd)
+                Actions.Add(action);           
+
         }
 
         public int GetPilotStatModification(string key)
@@ -97,7 +154,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             var upgradeTypesToRemove = FlattenUpgradeTree(upgrades)
                 .SelectMany(x => x.Upgrade.RemoveUpgradeModifiers);
 
-            var finalUpgrades = new List<IUpgradeSlot>(upgrades);
+            var finalUpgrades = new List<IUpgradeSlot>(upgrades);           
 
             foreach (var item in upgradeTypesToRemove)
             {
@@ -109,7 +166,6 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                         break;
                     }
                 }
-
 
             }
 
@@ -124,11 +180,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         /// <returns></returns>
         public static IEnumerable<IAction> ApplyActionAddFromUpgrades(IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
         {
-            var finalActions = new List<IAction>(actions);
+            var finalActions = new HashSet<IAction>(actions);
             var actionsToBeAdded = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
                .SelectMany(x => x.Upgrade.AddActionModifiers);
 
-            finalActions.AddRange(actionsToBeAdded);
+            foreach(var action in actionsToBeAdded)
+            {
+                finalActions.Add(action);
+            }
 
             return finalActions;
         }
@@ -163,7 +222,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return new PilotAbilityEngine(
                 new PilotStatPackage(this.attack, this.agility, this.hull,
                 this.shield, this.pilotSkill),
-                this._actions.Select(x => x.DeepClone()),
+                new HashSet<IAction>(this._actions.Select(x => x.DeepClone())),
                 this._upgrades.Select(x => x.DeepClone()));
         }
 

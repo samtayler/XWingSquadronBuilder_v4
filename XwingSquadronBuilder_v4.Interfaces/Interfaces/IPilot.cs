@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
@@ -20,8 +22,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int Hull { get; }
         int Shield { get; }
 
-        IEnumerable<IUpgradeSlot> Upgrades { get; }
-        IEnumerable<IAction> Actions { get; }
+        ObservableCollection<IUpgradeSlot> Upgrades { get; }
+        ObservableCollection<IAction> Actions { get; }
 
         string Image { get; }
         string ShipIcon { get; }       

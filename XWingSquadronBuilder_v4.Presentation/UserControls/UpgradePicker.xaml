@@ -8,15 +8,15 @@
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     mc:Ignorable="d"
-    Title="Upgrade Picker"
-    Background="Black"
-    RequestedTheme="Dark">
+    Title="Upgrade Picker"    
+    RequestedTheme="Dark" Background="Black">
 
     <ContentDialog.Style>
         <Style TargetType="ContentControl">
             <Setter Property="Padding" Value="0"/>            
         </Style>
     </ContentDialog.Style>
+   
     
     <ContentDialog.Resources>
         <Style TargetType="ListViewItem" x:Key="CustomListViewItem">

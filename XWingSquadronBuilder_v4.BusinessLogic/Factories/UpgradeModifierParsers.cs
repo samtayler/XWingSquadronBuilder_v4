@@ -29,7 +29,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             return data.Select(upgrade =>
             (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
             new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type)),
-            upgrade.CostLimit, upgrade.CostReduction)).ToList();
+            upgrade.CostReduction, upgrade.CostLimit)).ToList();
         }
 
         public override Dictionary<string, int> ParseChangedStats(StatChange[] data)

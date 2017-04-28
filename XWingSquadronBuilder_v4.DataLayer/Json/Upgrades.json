@@ -51,6 +51,14 @@
       },
       {
         "Faction": "Any",
+        "Name": "Arc Caster",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Type": "Cannon",
+        "Description": "Attack: Attack 1 ship. If this attack hits, you must choose 1 other ship at Range 1 of the defender to suffer 1 damage. Then flip this card. Attack value: 4. Range: 1."
+      },
+      {
+        "Faction": "Any",
         "Name": "Proton Bomb",
         "Cost": 5,
         "SlotsRequired": 1,
@@ -64,6 +72,22 @@
         "SlotsRequired": 1,
         "Type": "Bomb",
         "Description": "When you reveal your maneuver dial, you may discard this card to drop 1 ion bomb token. This token detonates at the end of the Activation phase. When thisbomb token detonates, each ship at Range 1 of the token receives 2 ion tokens. Then discard this token."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Conner Net",
+        "Cost": 4,
+        "SlotsRequired": 1,
+        "Type": "Bomb",
+        "Description": "Action: Discard this card to drop 1 Conner net token. When a ship's base or maneuver template overlaps this token, this token detonates. When this bomb token detonates, the ship that moved through or overlapped this token suffers 1 damage, receives 2 ion tokens, and skips its \"Perform Action\" step. Then discard this token."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Thermal Detonators",
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "Type": "Bomb",
+        "Description": "When you reveal your manoeuvre dial, you may discard this card to drop 1 thermal detonator token. This token detonates at the end of the Activation phase. When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage and receives 1 stress token. Then discard this token."
       },
       {
         "Faction": "Any",
@@ -96,6 +120,77 @@
         "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "After you perform an attack against a ship inside your firing arc at Range 2, that ship receives 1 stress token."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Inspiring Recruit",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Once per round, when a friendly ship at Range 1-2 removes a stress token, it may remove 1 additional stress token."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Tail Gunner",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Limited": true,
+        "Type": "Crew",
+        "Description": "When attacking from your rear-facing auxiliary firing arc, reduce the defender's agility by 1 (to a minimum of 0). Limited."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Bodhi Rook",
+        "Unique": true,
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "When you acquire a target lock, you can lock onto an enemy ship at Range 1-3 of any friendly ship."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Jyn Erso",
+        "Unique": true,
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Action: Choose 1 friendly ship at Range 1-2. Assign 1 focus token to that ship for each enemy ship inside your firing arc at Range 1-3. You cannot assign more than 3 tokens this way."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Baze Malbus",
+        "Unique": true,
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack against a different ship. You cannot perform another attack this round."
+      },
+      {
+        "Faction": "Empire",
+        "Name": "General Hux",
+        "Unique": true,
+        "Cost": 5,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Action: Choose up to 3 friendly ships at Range 1-2. Assign 1 focus token to each of those ships and assign the \"Fanatical Devotion\" Condition card to 1 of them. Then receive 1 stress token."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Cassian Andor",
+        "Unique": true,
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "At the end of the Planning phase, you may choose an enemy ship at Range 1-2. Guess aloud that ship's bearing and speed, then look at its dial. If you are correct, you may rotate your dial to another manoeuvre."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Bistan",
+        "Unique": true,
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "When attacking at Range 1-2, you may change 1 of your HIT results to a CRITICAL result."
       },
       {
         "Faction": "Any",
@@ -163,6 +258,66 @@
         "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You may change 1 FOCUS result to a HIT result. You cannot perform another attack this round."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "\"Chopper\"",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "You may perform actions while stressed. After you perform an action while stressed, suffer 1 damage."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "Ezra Bridger",
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "When attacking, if you are stressed, you may change 1 of your FOCUS results to a CRITICAL result."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "Kanan Jarrus",
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Once per round, after a friendly ship at Range 1-2 executes a white manoeuvre, you may remove 1 stress token from that ship."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "Sabine Wren",
+        "AddedUpgrades": [
+          {
+            "Type": "Bomb",
+            "CostReduction": 0
+          }
+        ],
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Your upgrade bar gains the BOMB upgrade icon. Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token. That ship suffers 1 damage."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "Hera Syndulla",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "You can reveal and execute red manoeuvres even while stressed."
+      },
+      {
+        "Faction": "Rebels",
+        "Unique": true,
+        "Name": "\"Zeb\" Orrelios",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "Type": "Crew",
+        "Description": "Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase."
       },
       {
         "Faction": "Rebels",
@@ -834,7 +989,7 @@
       {
         "Faction": "Any",
         "SizeRestriction": "Large",
-        "Name": "CounterMeasures",
+        "Name": "Counter Measures",
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Modification",
@@ -856,8 +1011,7 @@
         "AddedUpgrades": [
           {
             "Type": "Crew",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "ShipLimited": "B-Wing",
@@ -942,7 +1096,7 @@
         "SlotsRequired": 1,
         "AddedActions": [ "Target Lock" ],
         "Type": "Modification",
-        "Description": "Your action bar gains the TARGETLOCK icon."
+        "Description": "Your action bar gains the TARGET LOCK icon."
       },
       {
         "Faction": "Any",
@@ -1062,8 +1216,8 @@
         "AddedUpgrades": [
           {
             "Type": "Elite Pilot Talent",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
+
           }
         ],
         "ShipLimited": "A-Wing",
@@ -1135,13 +1289,12 @@
         "AddedUpgrades": [
           {
             "Type": "Crew",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
+
           },
           {
             "Type": "Team",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "ShipLimited": "CR90 Corvette",
@@ -1168,8 +1321,8 @@
         "AddedUpgrades": [
           {
             "Type": "Torpedo",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
+
           }
         ],
         "ShipLimited": "Firespray-31",
@@ -1206,8 +1359,7 @@
         "AddedUpgrades": [
           {
             "Type": "Modification",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "ShipLimited": "TIE Interceptor",
@@ -1222,8 +1374,7 @@
         "AddedUpgrades": [
           {
             "Type": "System Upgrade",
-            "CostReduction": 4,
-            "CostLimit": 0
+            "CostReduction": 4
           }
         ],
         "ShipLimited": "TIE Advanced",
@@ -1262,13 +1413,11 @@
         "AddedUpgrades": [
           {
             "Type": "Bomb",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           },
           {
             "Type": "Bomb",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "ShipLimited": "Firespray-31",
@@ -1292,18 +1441,15 @@
         "ChooseUpgrade": [
           {
             "Type": "Missile",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           },
           {
             "Type": "Torpedo",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           },
           {
             "Type": "Cannon",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "StatChanges": [
@@ -1325,13 +1471,11 @@
         "AddedUpgrades": [
           {
             "Type": "System Upgrade",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           },
           {
             "Type": "Illicit",
-            "CostReduction": 0,
-            "CostLimit": 0
+            "CostReduction": 0
           }
         ],
         "ShipLimited": "StarViper",
@@ -1434,6 +1578,132 @@
         "ShipLimited": "Y-Wing",
         "Type": "Torpedo",
         "Description": "Your upgrade bar gains the Bomb icon. Limited."
+      },
+      {
+        "Faction": "Any",
+        "Name": "A Score To Settle",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "During setup, before the \"Place Forces\" step, select 1 enemy ship and assign the \"A Debt ToPay\" Condition card to it. When attacking a ship that has the \"A Debt To Pay\" Condition card, you may change 1 undefined result to a undefined result."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Wired ",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking or defending, if you are stressed, you may reroll 1 or more of your FOCUS results."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Cool Hand",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When you receive a stress token, you may discard this card to assign 1 focus or evade token to your ship."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Expertise",
+        "Cost": 4,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking, if you are not stressed, you may change all of your FOCUS results to HIT results."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Trick Shot",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking, if the attack is obstructed, you may roll 1 additional attack dice."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Snap Shot",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "After an enemy ship executes a manoeuvre, you may perform this attack against that ship. Attack: Attack 1 ship. You cannot modify your attack dice and cannot attack again this phase. Attack value: 2. Range: 1."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Juke",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking, if you have an evade token, you may change 1 of the defender's EVADE results into a FOCUS result."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Crack Shot",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking a ship inside your firing arc, at the start of the ‘Compare results’ step, you may discard this card to cancel 1 of the defender's EVADE results."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Lightning Reflexes",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "After you execute a white or green maneouvre on your dial, you may discard this card to rotate your ship 180°. Then receive 1 stress token after the “Check Pilot Stress” step."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Adaptability",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Adaptability",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
+      },
+      {
+        "Faction": "Scum",
+        "Name": "Attanni Mindlink",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Rage",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "Action: Assign 1 focus token to your ship and receive 2 stress tokens. Until the end of round, when attacking, you may reroll up to 3 dice."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Fearlessness",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 HIT result to your roll."
       }
     ]
   }

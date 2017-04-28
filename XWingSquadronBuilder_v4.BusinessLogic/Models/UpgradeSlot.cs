@@ -30,15 +30,48 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         private IUpgrade upgrade;
 
+
         public int CostReduction { get; }
 
         public int CostRestriction { get; }
 
-        public int Cost => Upgrade.Cost - CostReduction;
+        public int Cost
+        {
+            get
+            {
+                if (CostReduction > 0)
+                {
+                    return (Upgrade.Cost - CostReduction) < 0 ? 0 : (Upgrade.Cost - CostReduction);
+                }
+                else
+                {
+                    return Upgrade.Cost;
+                }
+            }
+        }
+
+        private bool enabled = true;
+
+        public bool Enabled
+        {
+            get { return enabled; }
+            private set
+            {
+                if (value != enabled)
+                {
+                    enabled = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Enabled)));
+                }
+            }
+        }
+
+        public void Enable() => Enabled = true;
+
+        public void Disable() => Enabled = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public UpgradeSlot(IUpgradeType upgradeType, IUpgrade upgrade, int costReduction = 0, int costRestriction = 0)
+        public UpgradeSlot(IUpgradeType upgradeType, IUpgrade upgrade, int costReduction = 0, int costRestriction = 100)
         {
             UpgradeType = upgradeType ?? throw new ArgumentNullException(nameof(upgradeType));
             this.upgrade = upgrade ?? throw new ArgumentNullException(nameof(upgrade));
@@ -59,7 +92,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public void Dispose()
         {
             if (this.Upgrade != null) this.Upgrade.PropertyChanged -= Upgrade_PropertyChanged;
-        }        
+        }
 
         public bool Equals(IUpgradeSlot other)
         {
@@ -82,6 +115,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public IUpgradeSlot DeepClone()
         {
             return new UpgradeSlot(this.UpgradeType.DeepClone(), this.Upgrade.DeepClone(), this.CostReduction, this.CostRestriction);
+        }
+
+        public int CompareTo(IUpgradeSlot other)
+        {
+            return this.UpgradeType.CompareTo(other.UpgradeType);
         }
     }
 }

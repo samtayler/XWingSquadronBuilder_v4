@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -40,18 +41,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public int PilotSkill => AbilityEngine.PilotSkill;
 
-        public IEnumerable<IAction> Actions => AbilityEngine.Actions;
+        public ObservableCollection<IAction> Actions => AbilityEngine.Actions;
 
-        public IEnumerable<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
+        public ObservableCollection<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
 
         private PilotAbilityEngine AbilityEngine { get; }         
 
-        public string ShipIcon { get; }
-
-        IEnumerable<IUpgradeSlot> IPilot.Upgrades => AbilityEngine.Upgrades;
+        public string ShipIcon { get; }       
 
         public Pilot(string shipName, string name, bool unique, IFaction faction, int cost, PilotStatPackage stats, string pilotAbility,
-                string imageUri, IShipSize shipSize, IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades, string shipIcon)
+                string imageUri, IShipSize shipSize, HashSet<IAction> actions, IEnumerable<IUpgradeSlot> upgrades, string shipIcon)
         {
             Name = name;
             Faction = faction;

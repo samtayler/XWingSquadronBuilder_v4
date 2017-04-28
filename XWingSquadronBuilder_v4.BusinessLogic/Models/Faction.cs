@@ -24,5 +24,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             return new Faction(this.Name, this.Image);
         }
+
+        public bool Equals(IFaction other) => Name.Equals(other.Name);
     }
 }
