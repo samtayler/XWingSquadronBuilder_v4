@@ -114,7 +114,6 @@
     <Compile Include="Interfaces\IShipSize.cs" />
     <Compile Include="Interfaces\ISquadron.cs" />
     <Compile Include="Interfaces\IUpgrade.cs" />
-    <Compile Include="Interfaces\IUpgradeModifier.cs" />
     <Compile Include="Interfaces\IUpgradeSlot.cs" />
     <Compile Include="Interfaces\IUpgradeType.cs" />
     <Compile Include="Interfaces\Repositories.cs" />

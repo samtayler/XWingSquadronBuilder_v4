@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
-    mc:Ignorable="d">
+    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    mc:Ignorable="d" Visibility="{Binding Visibility}">
 
     <UserControl.Resources>
         <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
@@ -52,6 +53,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <converters:BooleanToVisibilityConverter x:Key="boolToVis"/>
     </UserControl.Resources>    
 
     <ItemsControl ItemsSource="{x:Bind UpgradeSlots,Mode=OneWay}" >
@@ -62,42 +65,49 @@
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
         </ItemsControl.ItemContainerStyle>
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaximumRowsOrColumns="2" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="interfaces:IUpgradeSlot">
                 <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
                     <RelativePanel>
                         <Image x:Name="imgType" Source="{x:Bind UpgradeType.Image, Mode=OneWay}" 
-                            Height="20"
-                            Width="20"
-                            Margin="5"
+                            Height="15"
+                            Width="15"
+                            Margin="2"
                             RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
                         <TextBlock x:Name="txblkUpgradeName" 
                             Text="{x:Bind Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             RelativePanel.RightOf="imgType"
-                            Margin="5"/>
+                            FontSize="12"
+                            Margin="2"/>
                         <TextBlock x:Name="txblkCost" Text="{x:Bind Cost,Mode=OneWay, FallbackValue='Cost'}"
-                                   RelativePanel.RightOf="txblkUpgradeName" 
-                                   RelativePanel.AlignHorizontalCenterWith=""
+                                   Visibility="{x:Bind IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVis}}"
+                                   RelativePanel.RightOf="txblkUpgradeName"                                    
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName" 
                                    RelativePanel.LeftOf="btnClearUpgrade"
-                                   Margin="5"/>
+                                   HorizontalAlignment="Left"
+                                   Margin="2"/>
                         <TextBlock x:Name="txblkCardText"
                                    Text="{x:Bind Upgrade.CardText,Mode=OneWay, FallbackValue='CardText'}"                               
                                    RelativePanel.Below="txblkUpgradeName" 
-                                   RelativePanel.LeftOf="btnClearUpgrade" RelativePanel.RightOf="" 
-                                   RelativePanel.AlignLeftWith="txblkUpgradeName"
-                                   Margin="5"
-                                   FontSize="14"
+                                   RelativePanel.LeftOf="btnClearUpgrade"
+                                   RelativePanel.AlignLeftWith="txblkUpgradeName"                                   
+                                   FontSize="10"
                                    TextWrapping="WrapWholeWords"/>
                         <Button x:Name="btnClearUpgrade" 
                                 FontFamily="Segoe MDL2 Assets"
                                 Content="&#xE894;"
-                                Width="28" 
+                                Width="25" 
                                 Background="Transparent"
-                                FontSize="8"
-                                Height="28"
+                                FontSize="6"
+                                Height="25"
                                 Foreground="Red"  
-                                Margin="5" 
+                                Padding="0"
+                                Margin="2" 
                                 RelativePanel.AlignRightWithPanel="True"                                                                  
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Tapped="btnClearUpgrade_Tapped"/>

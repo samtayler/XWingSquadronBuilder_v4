@@ -25,6 +25,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 this.upgrade.PropertyChanged += Upgrade_PropertyChanged;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsNotNullUpgrade)));
             }
         }
 
@@ -64,6 +65,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 }
             }
         }
+
+        public bool IsNotNullUpgrade => !(Upgrade is NullUpgrade);
 
         public void Enable() => Enabled = true;
 

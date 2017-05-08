@@ -33,8 +33,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         // Using a DependencyProperty as the backing store for UpgradeSlots.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UpgradeSlotsProperty =
             DependencyProperty.Register(nameof(UpgradeSlots), typeof(IEnumerable<IUpgradeSlot>), typeof(UpgradeSlotList), new PropertyMetadata(0));
-
-
+        
 
         public UpgradeSlotList()
         {

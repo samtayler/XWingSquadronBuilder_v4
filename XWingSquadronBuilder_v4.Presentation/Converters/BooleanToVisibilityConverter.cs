@@ -23,10 +23,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            if ((Windows.UI.Xaml.Visibility)value == Windows.UI.Xaml.Visibility.Visible)
-                return true;
-            else
-                return false;
+            return (Windows.UI.Xaml.Visibility)value == Windows.UI.Xaml.Visibility.Visible;               
         }       
     }
    

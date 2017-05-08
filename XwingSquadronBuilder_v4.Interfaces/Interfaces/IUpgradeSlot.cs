@@ -14,12 +14,13 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int CostReduction { get; }
         int CostRestriction { get; }
         int Cost { get; }
-
+        bool IsNotNullUpgrade { get; }
 
         bool Enabled { get;}
         void Enable();
         void Disable();
         IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
         void ClearUpgrade();
+        
     }
 }

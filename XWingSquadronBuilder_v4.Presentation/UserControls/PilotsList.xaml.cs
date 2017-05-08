@@ -62,6 +62,11 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         private void ShipList_ItemClick(object sender, ItemClickEventArgs e)
         {
             PilotSelected?.Invoke(this, (e.ClickedItem as IPilot).DeepClone());
+        }        
+
+        private void Expander1_Expanded(object sender, EventArgs e)
+        {
+            scrollViewer.ScrollToElement(sender as UIElement);
         }
     }
 }

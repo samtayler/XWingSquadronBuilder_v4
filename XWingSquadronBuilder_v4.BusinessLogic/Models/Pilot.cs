@@ -84,10 +84,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public bool Equals(IPilot other)
         {
             return Name == other.Name 
-                && Ship == other.Ship
-                && Upgrades.Count().Equals(other.Upgrades.Count())
-                && Actions.Count().Equals(other.Actions.Count())
-                && Cost.Equals(other.Cost);
+                && Ship == other.Ship;
         }
 
         private Pilot(string shipName, string name, bool unique, IFaction faction, int cost,  string pilotAbility,
