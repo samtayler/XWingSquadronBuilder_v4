@@ -15,6 +15,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int CostRestriction { get; }
         int Cost { get; }
         bool IsNotNullUpgrade { get; }
+        bool IsNullUpgrade { get; }
 
         bool Enabled { get;}
         void Enable();

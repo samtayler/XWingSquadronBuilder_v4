@@ -36,6 +36,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public string ShipLimited { get; }
 
+        public string ActionLimited { get; }
+
         public string SizeRestriction { get; }
 
         public IFaction Faction { get; }
@@ -45,7 +47,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Upgrade(string name, int cost, int slotsRequired,
-            string cardText, bool unique, bool limited, string shipLimited,
+            string cardText, bool unique, bool limited, string shipLimited, string actionLimited,
             string sizeRestriction, IFaction faction, IUpgradeType upgradeType, UpgradeModifierPackage modifiers)
         {
             Name = name;
@@ -55,6 +57,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             Unique = unique;
             Limited = limited;
             ShipLimited = shipLimited;
+            ActionLimited = actionLimited;
             SizeRestriction = sizeRestriction;
             Faction = faction;
             UpgradeType = upgradeType;
@@ -94,7 +97,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public IUpgrade DeepClone()
         {
             return new Upgrade(this.Name, this.Cost, this.SlotsRequired, 
-                this.CardText, this.Unique, this.Limited, this.ShipLimited, 
+                this.CardText, this.Unique, this.Limited, this.ShipLimited,this.ActionLimited, 
                 this.SizeRestriction, this.Faction.DeepClone(), this.UpgradeType.DeepClone(), 
                 new UpgradeModifierPackage(this.AddActionModifiers.Select(x => x.DeepClone()), 
                 this.RemoveActionModifiers.Select(x => x.DeepClone()), 

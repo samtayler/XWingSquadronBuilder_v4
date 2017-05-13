@@ -7,11 +7,18 @@
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"   
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
     mc:Ignorable="d" 
     RequestedTheme="Dark">
 
-    <Grid BorderBrush="White" BorderThickness="1">       
+    <UserControl.Resources>
+        <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
+        <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>
+    </UserControl.Resources>
+
+
+    <Grid BorderBrush="White" BorderThickness="1">
         <!--<Grid.Background>
             <ImageBrush ImageSource="{x:Bind Pilot.Image}" Stretch="UniformToFill"/>
         </Grid.Background>-->
@@ -27,12 +34,82 @@
                 <SolidColorBrush Color="#E5000000"/>
             </RelativePanel.Background>
             <RelativePanel x:Name="InfoPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-                <Button x:Name="btnDelete" Background="Transparent" Content="&#xE894;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="Red" Tapped="btnDelete_Tapped" />
-                <Button x:Name="btnCopy" Background="Transparent" Content="&#xE8C8;" FontFamily="Segoe MDL2 Assets" RelativePanel.AlignTopWithPanel="True" Width="38" Height="38" Foreground="White" RelativePanel.LeftOf="btnDelete" Tapped="btnCopy_Tapped"/>
-                <TextBlock x:Name="txblkPilotSkill" Foreground="#FFF57F20" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.PilotSkill,Mode=OneWay, FallbackValue=0}" RelativePanel.AlignTopWithPanel="True" FontSize="24"/>
-                <TextBlock x:Name="txblkPilotName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{x:Bind  ViewModel.Pilot.Name,Mode=OneWay, FallbackValue='Pilot Name'}" VerticalAlignment="Top" RelativePanel.RightOf="txblkPilotSkill" FontSize="22.5" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill" Margin="10,0,0,0"/>
-                <TextBlock x:Name="txblkCost" Foreground="DarkRed" Text="{x:Bind ViewModel.Pilot.Cost ,Mode=OneWay, FallbackValue=0}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="16" Margin="10,0,0,0" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.RightOf="txblkPilotName" RelativePanel.AlignVerticalCenterWith="txblkPilotName"/>
-                <ItemsControl x:Name="actionsListview" ItemsSource="{x:Bind ViewModel.Pilot.Actions,Mode=OneWay}" RelativePanel.RightOf="txblkCost" RelativePanel.AlignVerticalCenterWith="txblkCost" Margin="10,0,0,0">
+                <Button x:Name="btnDelete" 
+                        Background="Transparent" 
+                        Content="&#xE894;" 
+                        FontFamily="Segoe MDL2 Assets" 
+                        RelativePanel.AlignRightWithPanel="True"                         
+                        Width="38" 
+                        Height="38" 
+                        Foreground="Red" 
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        Tapped="btnDelete_Tapped" />
+                <Button x:Name="btnCopy" 
+                        Background="Transparent" 
+                        Content="&#xE8C8;" 
+                        FontFamily="Segoe MDL2 Assets"                         
+                        Width="38" 
+                        Height="38" 
+                        Foreground="White" 
+                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                        RelativePanel.LeftOf="btnDelete" 
+                        Tapped="btnCopy_Tapped"/>
+                <TextBlock x:Name="txblkPilotSkill" 
+                           Foreground="#FFF57F20" 
+                           TextWrapping="Wrap" 
+                           Text="{x:Bind ViewModel.Pilot.PilotSkill,Mode=OneWay, FallbackValue=0}"                            
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           Margin="0,0,10,0"
+                           FontSize="18"/>
+                <TextBlock x:Name="txblkUnique"                            
+                           TextWrapping="Wrap" 
+                           Text="&#xE1F5;"    
+                           FontFamily="Segoe MDL2 Assets" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           Visibility="{x:Bind ViewModel.Pilot.Unique, Converter={StaticResource boolToVisibility}}" 
+                           RelativePanel.RightOf="txblkPilotSkill"                            
+                           FontSize="9"/>
+                <TextBlock x:Name="txblkShipName" 
+                           HorizontalAlignment="Left" 
+                           TextWrapping="Wrap" 
+                           Text="{x:Bind  ViewModel.Pilot.Ship,Mode=OneWay, FallbackValue='Ship Name'}" 
+                           VerticalAlignment="Top" 
+                           RelativePanel.Below="txblkPilotName" 
+                           FontSize="10" 
+                           FontStyle="Italic"
+                           RelativePanel.AlignLeftWith="txblkPilotSkill" />
+                <TextBlock x:Name="txblkPilotName" 
+                           HorizontalAlignment="Left" 
+                           TextWrapping="Wrap" 
+                           Text="{x:Bind  ViewModel.Pilot.Name,Mode=OneWay, FallbackValue='Pilot Name'}" 
+                           VerticalAlignment="Top" 
+                           RelativePanel.RightOf="txblkUnique" 
+                           FontSize="18"    
+                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           />               
+                <StackPanel x:Name="StatsPanel" RelativePanel.RightOf="txblkPilotName" Orientation="Horizontal" RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <RelativePanel x:Name="AttackGrid" Margin="5,5,0,5">
+                        <Image x:Name="imgAttack" Source="/Assets/Logos/basic icons/attack.png" RelativePanel.RightOf="txblkPilotAttack" Height="15" Width="15" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="5,0"  />
+                        <TextBlock x:Name="txblkPilotAttack" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Attack ,Mode=OneWay, FallbackValue=0}" Foreground="#FFEA0000" FontSize="18" VerticalAlignment="Top" />
+                    </RelativePanel>
+                    <RelativePanel x:Name="AgilityGrid" Margin="5,5,0,5">
+                        <Image x:Name="imgAgility" Source="/Assets/Logos/basic icons/agility.png" RelativePanel.RightOf="txblkPilotAgility" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                        <TextBlock x:Name="txblkPilotAgility" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Agility,Mode=OneWay, FallbackValue=0}" Foreground="#FF48D500" FontSize="18" VerticalAlignment="Top" />
+                    </RelativePanel>
+                    <RelativePanel x:Name="HullGrid" Margin="5,5,0,5">
+                        <Image x:Name="imgHull" RelativePanel.RightOf="txblkPilotHull" Source="/Assets/Logos/basic icons/hull.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                        <TextBlock x:Name="txblkPilotHull" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Hull,Mode=OneWay, FallbackValue=0}" Foreground="#FFEFE900" FontSize="18" VerticalAlignment="Top" />
+                    </RelativePanel>
+                    <RelativePanel x:Name="ShieldGrid" Margin="5,5,0,5">
+                        <Image x:Name="imgShield" RelativePanel.RightOf="txblkPilotShield" Source="/Assets/Logos/basic icons/shield.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
+                        <TextBlock x:Name="txblkPilotShield" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Shield,Mode=OneWay, FallbackValue=0}" Foreground="#FF24CAE2" FontSize="18" VerticalAlignment="Top" />
+                    </RelativePanel>
+                </StackPanel>
+                <ItemsControl x:Name="actionsListview" 
+                              ItemsSource="{x:Bind ViewModel.Pilot.Actions,Mode=OneWay}" 
+                              RelativePanel.RightOf="StatsPanel" 
+                              RelativePanel.AlignVerticalCenterWithPanel="True"
+                              Margin="10,0,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="interfaces:IAction">
                             <Image Source="{x:Bind Image}" Height="20" Width="20" Margin="5"/>
@@ -44,28 +121,26 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
+                <TextBlock x:Name="txblkCost" 
+                           Foreground="DarkRed" 
+                           Text="{x:Bind ViewModel.Pilot.Cost ,Mode=OneWay, FallbackValue=0}" 
+                           TextAlignment="Center" 
+                           FontFamily="Segoe UI" 
+                           FontSize="16" 
+                           Margin="10,0,0,0"                            
+                           RelativePanel.RightOf="actionsListview" 
+                           RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
-            <StackPanel x:Name="StatsPanel" RelativePanel.Below="InfoPanel" Margin="0" Orientation="Horizontal" Visibility="{x:Bind ViewModel.Collapsed, Mode=OneWay}">
-                <RelativePanel x:Name="AttackGrid" Margin="5">
-                    <Image x:Name="imgAttack" Source="/Assets/Logos/basic icons/attack.png" Stretch="Fill" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Width="15" RelativePanel.LeftOf="" RelativePanel.RightOf="txblkPilotAttack" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="5,0" />
-                    <TextBlock x:Name="txblkPilotAttack" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Attack ,Mode=OneWay, FallbackValue=0}" Foreground="#FFEA0000" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                </RelativePanel>
-                <RelativePanel x:Name="AgilityGrid" Margin="5">
-                    <Image x:Name="imgAgility" Source="/Assets/Logos/basic icons/agility.png" RelativePanel.RightOf="txblkPilotAgility" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
-                    <TextBlock x:Name="txblkPilotAgility" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Agility,Mode=OneWay, FallbackValue=0}" Foreground="#FF48D500" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                </RelativePanel>
-                <RelativePanel x:Name="HullGrid" Margin="5">
-                    <Image x:Name="imgHull" RelativePanel.RightOf="txblkPilotHull" Source="/Assets/Logos/basic icons/hull.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
-                    <TextBlock x:Name="txblkPilotHull" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Hull,Mode=OneWay, FallbackValue=0}" Foreground="#FFEFE900" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                </RelativePanel>
-                <RelativePanel x:Name="ShieldGrid" Margin="5">
-                    <Image x:Name="imgShield" RelativePanel.RightOf="txblkPilotShield" Source="/Assets/Logos/basic icons/shield.png" Width="15" Height="15" RelativePanel.AlignVerticalCenterWithPanel="True"  Margin="5,0" />
-                    <TextBlock x:Name="txblkPilotShield" TextWrapping="Wrap" Text="{x:Bind ViewModel.Pilot.Shield,Mode=OneWay, FallbackValue=0}" Foreground="#FF24CAE2" FontSize="25" VerticalAlignment="Center" RelativePanel.AlignVerticalCenterWithPanel="True"/>
-                </RelativePanel>
-            </StackPanel>
-            <userControls:UpgradeSlotList UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}" 
+            <TextBlock x:Name="txblkpilotAbility" 
+                       Text="{x:Bind ViewModel.Pilot.PilotAbility,Mode=OneTime,FallbackValue='Pilot Ability'}"
+                       RelativePanel.Below="InfoPanel"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       FontSize="15"
+                       Margin="5,5,0,5" />
+            <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}" 
                                       UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
-                                    RelativePanel.Below="StatsPanel"
+                                    RelativePanel.Below="txblkpilotAbility"
                                   RelativePanel.AlignRightWithPanel="True"
                                   RelativePanel.AlignLeftWithPanel="True"
                                           Visibility="{x:Bind ViewModel.Collapsed,Mode=OneWay}"/>

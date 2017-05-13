@@ -14,6 +14,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         IShipSize ShipSize { get; }
         bool Unique { get; }
         int Cost { get; }
+        int UpgradesCost { get; }
         IFaction Faction { get; }
 
         int PilotSkill { get; }

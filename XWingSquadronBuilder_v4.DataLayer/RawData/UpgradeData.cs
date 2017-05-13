@@ -44,6 +44,8 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawData
         [DataMember]
         public string ShipLimited { get; set; } = "";
         [DataMember]
+        public string ActionLimited { get; set; } = "";
+        [DataMember]
         public string[] AddedActions { get; set; } = new string[0];
         [DataMember]
         public string[] RemovedActions { get; set; } = new string[0];

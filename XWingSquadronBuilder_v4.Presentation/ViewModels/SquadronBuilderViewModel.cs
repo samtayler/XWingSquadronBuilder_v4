@@ -18,18 +18,41 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         {
             Faction = faction;
             PilotList = XWingRepository.Instance.PilotRepository.GetPilotsForFaction(faction);
-            Squadron = new ObservableCollection<IPilot>();
+            Squadron = new ObservableCollection<PilotViewModel>();
             AddPilotCommand = new AddPilotCommand(Squadron);
             RemovePilotCommand = new RemovePilotCommand(Squadron);
+            ClearPilotsCommand = new DelegateCommand(ClearPilots);
+
+            Squadron.CollectionChanged += Squadron_CollectionChanged;
+        }
+
+        private void Squadron_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            SquadronCost = Squadron.Sum(x => x.PilotCost);
+        }
+
+        private int squadronCost;
+
+        public int SquadronCost
+        {
+            get { return this.squadronCost; }
+            set { SetProperty(ref squadronCost, value); }
         }
 
         public IFaction Faction { get; }
 
         public List<IPilot> PilotList { get; }
-        public ObservableCollection<IPilot> Squadron { get; }
+        public ObservableCollection<PilotViewModel> Squadron { get; }
 
         public AddPilotCommand AddPilotCommand { get; }
-        public RemovePilotCommand RemovePilotCommand { get; }        
+        public RemovePilotCommand RemovePilotCommand { get; }
+        public DelegateCommand ClearPilotsCommand { get; }
+        
+
+        private void ClearPilots()
+        {
+            Squadron.Clear();
+        }
 
     }
 }

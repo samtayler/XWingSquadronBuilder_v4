@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\UpgradeSlotCollectionExtensions.cs" />
     <Compile Include="Factories\DataParsers.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
     <Compile Include="Models\Action.cs" />

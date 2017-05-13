@@ -88,6 +88,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             foreach (var upgrade in upgradesToAdd)
                 Upgrades.Add(upgrade);
 
+            
         }
 
         private void RecalculateActions()

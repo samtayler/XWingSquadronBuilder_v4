@@ -7,17 +7,147 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
-    mc:Ignorable="d"
-    Title="Upgrade Picker"    
+    mc:Ignorable="d"       
     RequestedTheme="Dark" Background="Black">
 
+    <ContentDialog.TitleTemplate>
+        <DataTemplate x:DataType="local:UpgradePicker">
+            <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                <RelativePanel HorizontalAlignment="Stretch">
+                    <TextBlock x:Name="txblkTitle"
+                               Text="{x:Bind upgradeSlot.UpgradeType, Mode=OneWay}"
+                               RelativePanel.LeftOf="btnClose"
+                               RelativePanel.AlignLeftWithPanel="True"
+                               RelativePanel.AlignVerticalCenterWithPanel="True"
+                               Foreground="White"/>
+                    <Button x:Name="btnClose" 
+                                FontFamily="Segoe MDL2 Assets"
+                                Content="&#xE894;"
+                                Width="30" 
+                                Background="Transparent"
+                                FontSize="10"
+                                Height="30"
+                                Foreground="Red"  
+                                Padding="0"
+                                Margin="10" 
+                                HorizontalAlignment="Right"
+                                RelativePanel.AlignRightWithPanel="True"                                                                  
+                                RelativePanel.AlignVerticalCenterWithPanel="True"
+                            Tapped="btnClose_Tapped"
+                            />
+                </RelativePanel>
+            </ContentControl>
+        </DataTemplate>
+    </ContentDialog.TitleTemplate>
+
     <ContentDialog.Style>
-        <Style TargetType="ContentControl">
-            <Setter Property="Padding" Value="0"/>            
+        <Style TargetType="ContentDialog">
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlPageTextBaseHighBrush}" />
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentDialog">
+                        <Border x:Name="Container">
+                            <Grid x:Name="LayoutRoot">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="BackgroundElement"
+                    Background="{TemplateBinding Background}"
+                    FlowDirection="{TemplateBinding FlowDirection}"
+                    BorderThickness="{ThemeResource ContentDialogBorderWidth}"
+                    BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}"                     >
+                                    <Grid x:Name="DialogSpace" VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <ScrollViewer x:Name="ContentScrollViewer"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Disabled"
+                        ZoomMode="Disabled"
+                        Margin="0"
+                        IsTabStop="False">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <ContentControl x:Name="Title"                        
+                        Content="{TemplateBinding Title}"
+                        ContentTemplate="{TemplateBinding TitleTemplate}"
+                        FontSize="20"
+                        FontFamily="XamlAutoFontFamily"
+                        FontWeight="Normal"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Top"
+                        IsTabStop="False"
+                        MaxHeight="{ThemeResource ContentDialogTitleMaxHeight}" >
+                                                    <ContentControl.Template>
+                                                        <ControlTemplate TargetType="ContentControl">
+                                                            <ContentPresenter
+                              Content="{TemplateBinding Content}"
+                              MaxLines="2"
+                              TextWrapping="Wrap"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Margin="{TemplateBinding Padding}"
+                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                        </ControlTemplate>
+                                                    </ContentControl.Template>
+                                                </ContentControl>
+                                                <ContentPresenter x:Name="Content"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Content="{TemplateBinding Content}"
+                        FontSize="{ThemeResource ControlContentThemeFontSize}"
+                        FontFamily="{ThemeResource ContentControlThemeFontFamily}"                        
+                        Foreground="{TemplateBinding Foreground}"
+                        Grid.Row="1"
+                        Grid.RowSpan="2"
+                        TextWrapping="Wrap" />
+                                            </Grid>
+                                        </ScrollViewer>
+                                        <Grid x:Name="CommandSpace" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Button1Host"
+                      Margin="{ThemeResource ContentDialogButton1HostMargin}"
+                      MinWidth="{ThemeResource ContentDialogButtonMinWidth}"
+                      MaxWidth="{ThemeResource ContentDialogButtonMaxWidth}"
+                      Height="{ThemeResource ContentDialogButtonHeight}"
+                      HorizontalAlignment="Stretch" />
+                                            <Border x:Name="Button2Host"
+                      Margin="{ThemeResource ContentDialogButton2HostMargin}"
+                      MinWidth="{ThemeResource ContentDialogButtonMinWidth}"
+                      MaxWidth="{ThemeResource ContentDialogButtonMaxWidth}"
+                      Height="{ThemeResource ContentDialogButtonHeight}"
+                      Grid.Column="1"
+                      HorizontalAlignment="Stretch" />
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </ContentDialog.Style>
-   
-    
+
+
+
+
     <ContentDialog.Resources>
         <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
             <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
@@ -61,7 +191,7 @@
             </Setter>
         </Style>
     </ContentDialog.Resources>
-    
+
     <ScrollViewer VerticalScrollBarVisibility="Auto" Height="550" Width="500" Padding="15">
         <ItemsControl ItemsSource="{x:Bind Upgrades,Mode=OneWay}" >
             <ItemsControl.ItemContainerStyle>
@@ -83,7 +213,7 @@
                             <TextBlock x:Name="txblkUpgradeName" 
                             Text="{x:Bind Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             RelativePanel.RightOf="imgType"
-                            Margin="5"/>
+                            Margin="5,5,5,0"/>
                             <TextBlock x:Name="txblkCost" Text="{x:Bind Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                   
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                    

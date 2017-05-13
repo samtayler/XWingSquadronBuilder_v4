@@ -31,19 +31,19 @@
       },
       {
         "Name": "Cargo",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/modification.png"
       },
       {
         "Name": "Hardpoint",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/modification.png"
       },
       {
         "Name": "Illicit",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/modification.png"
       },
       {
         "Name": "Salvaged Astromech",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/modification.png"
       },
       {
         "Name": "Cannon",
@@ -51,11 +51,11 @@
       },
       {
         "Name": "Team",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/modification.png"
       },
       {
         "Name": "Tech",
-        "ImageSource": ""
+        "ImageSource": "/assets/logos/basic icons/Tech.png"
       },
       {
         "Name": "Turret",

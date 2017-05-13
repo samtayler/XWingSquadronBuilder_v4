@@ -16,12 +16,33 @@
         <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
     </Page.Background>
 
-    <RelativePanel Background="#E5000000">    
+    <RelativePanel Background="#E5000000">
+        <StackPanel x:Name="CommandBar"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                    Orientation="Horizontal">
+            <Button x:Name="btnPrint"
+                    Height="50"
+                    Width="50"
+                    Content="&#xE2F6;"
+                    Background="Transparent"
+                    FontFamily="Segoe MDL2 Assets"/>
+            <Button x:Name="btnNew"
+                    Height="50"
+                    Width="50"
+                    Content="&#xE160;"
+                    Background="Transparent"
+                    Foreground="Green"
+                    FontFamily="Segoe MDL2 Assets"
+                    Command="{x:Bind ViewModel.ClearPilotsCommand}"/>
+
+        </StackPanel>
         <userControls:PilotsList x:Name="PilotList" 
-                                 Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"
-                                 RelativePanel.AlignBottomWithPanel="True"
-                                 RelativePanel.AlignTopWithPanel="True"
-                                 RelativePanel.AlignLeftWithPanel="True">
+                                 Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"                                                                 
+                                 RelativePanel.AlignLeftWithPanel="True"
+                                 RelativePanel.Above="StatusBar"
+                                 RelativePanel.Below="CommandBar">
             <Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>
                     <Interactions:EventTriggerBehavior EventName="PilotSelected">
@@ -30,11 +51,11 @@
                 </Interactivity:BehaviorCollection>
             </Interactivity:Interaction.Behaviors>
         </userControls:PilotsList>
-        <userControls:Squadron x:Name="Squadron"
-                               RelativePanel.AlignBottomWithPanel="True"
-                               RelativePanel.AlignTopWithPanel="True"                            
+        <userControls:Squadron x:Name="Squadron"                                                                               
                                RelativePanel.AlignRightWithPanel="True"
                                RelativePanel.RightOf="PilotList"
+                               RelativePanel.Below="CommandBar"
+                               RelativePanel.Above="StatusBar"
                                Pilots="{x:Bind ViewModel.Squadron,Mode=OneWay}"
                                UpgradeSlotSelected="Squadron_UpgradeSlotSelected">
             <Interactivity:Interaction.Behaviors>
@@ -48,5 +69,11 @@
                 </Interactivity:BehaviorCollection>
             </Interactivity:Interaction.Behaviors>
         </userControls:Squadron>
+        <RelativePanel x:Name="StatusBar"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True">
+            <TextBlock x:Name="txblkSquadronCost" Foreground="Red" Text="{x:Bind ViewModel.SquadronCost, Mode=OneWay}" RelativePanel.AlignRightWithPanel="True"/>
+        </RelativePanel>
     </RelativePanel>
 </Page>

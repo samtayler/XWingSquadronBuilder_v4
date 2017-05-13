@@ -22,6 +22,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         bool Unique { get; }
         bool Limited { get; }
         string ShipLimited { get; }
+        string ActionLimited { get; }
         string SizeRestriction { get; }  
 
         IFaction Faction { get; }        

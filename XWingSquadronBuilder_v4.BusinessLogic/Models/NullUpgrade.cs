@@ -46,6 +46,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgradeType UpgradeType { get; }
 
+        public string ActionLimited => string.Empty;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public IUpgrade DeepClone()

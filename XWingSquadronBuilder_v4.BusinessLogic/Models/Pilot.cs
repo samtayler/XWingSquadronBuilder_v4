@@ -24,8 +24,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public string Image { get; }
 
-        public int Cost => cost + AbilityEngine.Cost;
-        private int cost;
+        public int Cost { get; }
+
+        public int UpgradesCost => AbilityEngine.Cost;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -61,7 +62,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             ShipSize = shipSize;
             AbilityEngine = new PilotAbilityEngine(stats, actions, upgrades);
             AbilityEngine.PropertyChanged += AbilityEngine_PropertyChanged;
-            this.cost = cost;
+            this.Cost = cost;
             ShipIcon = shipIcon;           
         }
 
@@ -99,14 +100,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             ShipSize = shipSize;
             AbilityEngine = engine;
             AbilityEngine.PropertyChanged += AbilityEngine_PropertyChanged;
-            this.cost = cost;
+            this.Cost = cost;
             ShipIcon = shipIcon;
         }
 
         public IPilot DeepClone()
         {
             return new Pilot(this.Ship, this.Name, this.Unique, this.Faction.DeepClone(), 
-                this.cost, this.PilotAbility, this.Image, this.ShipSize.DeepClone(), 
+                this.Cost, this.PilotAbility, this.Image, this.ShipSize.DeepClone(), 
                 this.AbilityEngine.DeepClone(), this.ShipIcon);
         }
     }

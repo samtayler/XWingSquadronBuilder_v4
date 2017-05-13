@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
-    public class PilotViewModel : BindableBase
+    public class PilotViewModel : BindableBase, IEquatable<PilotViewModel>
     {
         private IPilot pilot;
 
@@ -23,6 +23,15 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
                 if (Collapsed == Visibility.Collapsed) Collapsed = Visibility.Visible;
                 else if (Collapsed == Visibility.Visible) Collapsed = Visibility.Collapsed;
             });
+
+            pilot.PropertyChanged += Pilot_PropertyChanged;
+            PilotCost = pilot.Cost + pilot.UpgradesCost;
+
+        }
+
+        private void Pilot_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            PilotCost = pilot.Cost + pilot.UpgradesCost;
         }
 
         public IPilot Pilot
@@ -32,7 +41,15 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         }
 
 
-        private Visibility collapsed;
+        private int pilotCost;
+
+        public int PilotCost
+        {
+            get { return this.pilotCost; }
+            set { SetProperty(ref pilotCost, value); }
+        }
+
+        private Visibility collapsed = Visibility.Collapsed;
 
         public Visibility Collapsed
         {
@@ -42,5 +59,9 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 
         public ICommand ToggleCollapsed { get; private set; }
 
+        public bool Equals(PilotViewModel other)
+        {
+            return Pilot.Equals(other.Pilot);
+        }
     }
 }

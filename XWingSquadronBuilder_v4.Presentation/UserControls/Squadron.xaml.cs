@@ -22,7 +22,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class Squadron : UserControl
     {
-        public delegate void PilotRemoveSelectedHandler(object sender, IPilot e);
+        public delegate void PilotRemoveSelectedHandler(object sender, PilotViewModel e);
 
         public event PilotRemoveSelectedHandler RemovePilot;
 
@@ -34,22 +34,22 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event UpgradeSlotSelectedHandler UpgradeSlotSelected;
 
-        public ObservableCollection<IPilot> Pilots
+        public ObservableCollection<PilotViewModel> Pilots
         {
-            get { return (ObservableCollection<IPilot>)GetValue(PilotsProperty); }
+            get { return (ObservableCollection<PilotViewModel>)GetValue(PilotsProperty); }
             set { SetValue(PilotsProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Pilots.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(ObservableCollection<IPilot>), typeof(Squadron), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(Pilots), typeof(ObservableCollection<PilotViewModel>), typeof(Squadron), new PropertyMetadata(0));
 
         public Squadron()
         {
             this.InitializeComponent();
         }
 
-        private void PilotControl_RemovePilot(object sender, Interfaces.IPilot e)
+        private void PilotControl_RemovePilot(object sender, PilotViewModel e)
         {
             RemovePilot?.Invoke(sender, e);
         }

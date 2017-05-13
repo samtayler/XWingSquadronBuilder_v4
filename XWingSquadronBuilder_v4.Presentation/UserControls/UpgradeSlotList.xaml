@@ -55,6 +55,7 @@
         </Style>
 
         <converters:BooleanToVisibilityConverter x:Key="boolToVis"/>
+        
     </UserControl.Resources>    
 
     <ItemsControl ItemsSource="{x:Bind UpgradeSlots,Mode=OneWay}" >
@@ -64,17 +65,12 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
-        </ItemsControl.ItemContainerStyle>
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaximumRowsOrColumns="2" />
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
+        </ItemsControl.ItemContainerStyle>       
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="interfaces:IUpgradeSlot">
                 <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
                     <RelativePanel>
-                        <Image x:Name="imgType" Source="{x:Bind UpgradeType.Image, Mode=OneWay}" 
+                        <Image x:Name="imgType" Source="{x:Bind UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}" 
                             Height="15"
                             Width="15"
                             Margin="2"
@@ -84,12 +80,20 @@
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>
+                        <TextBlock x:Name="txblkUpgradeTypeName" 
+                            Text="{x:Bind Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
+                                   Visibility="{x:Bind IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVis}}"
+                                   RelativePanel.AlignVerticalCenterWith="imgType"
+                            RelativePanel.RightOf="imgType"
+                            FontSize="12"
+                            Margin="2"/>
                         <TextBlock x:Name="txblkCost" Text="{x:Bind Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    Visibility="{x:Bind IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVis}}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                    
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName" 
                                    RelativePanel.LeftOf="btnClearUpgrade"
                                    HorizontalAlignment="Left"
+                                   FontSize="12"
                                    Margin="2"/>
                         <TextBlock x:Name="txblkCardText"
                                    Text="{x:Bind Upgrade.CardText,Mode=OneWay, FallbackValue='CardText'}"                               

@@ -163,11 +163,13 @@
     <Content Include="Assets\Logos\basic icons\Cannon.png" />
     <Content Include="Assets\Logos\basic icons\Crew.png" />
     <Content Include="Assets\Logos\basic icons\ElitePilotTalent.png" />
+    <Content Include="Assets\Logos\basic icons\Hardpoint.png" />
     <Content Include="Assets\Logos\basic icons\Hull.png" />
     <Content Include="Assets\Logos\basic icons\Missile.png" />
     <Content Include="Assets\Logos\basic icons\Modification.png" />
     <Content Include="Assets\Logos\basic icons\Shield.png" />
     <Content Include="Assets\Logos\basic icons\SystemUpgrade.png" />
+    <Content Include="Assets\Logos\basic icons\Tech.png" />
     <Content Include="Assets\Logos\basic icons\Title.png" />
     <Content Include="Assets\Logos\basic icons\Torpedo.png" />
     <Content Include="Assets\Logos\basic icons\Turret.png" />

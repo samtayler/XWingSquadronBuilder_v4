@@ -1102,8 +1102,9 @@
         "Faction": "Any",
         "Name": "Autothrusters",
         "Cost": 2,
+        "ActionLimited": "Boost",
         "SlotsRequired": 1,
-        "ShipLimited": "Boost",
+        "ShipLimited": "",
         "Type": "Modification",
         "Description": "When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to a EVADE result. You can equip this card only if you have the BOOST icon."
       },
@@ -1398,10 +1399,10 @@
             "CostLimit": 4
           }
         ],
-        "RemovedUpgrades": [ "Bomb" ],
+        "RemovedUpgrades": [ "Bomb", "Torpedo", "Torpedo", "Missile", "Missile" ],
         "ShipLimited": "TIE Bomber",
         "Type": "Title",
-        "Description": "Incomplete"
+        "Description": "Your upgrade bar loses all MISSILE, TORPEDO and BOMB upgrade icons and gains 2 CREW upgrade icons. You cannot equip an upgrade card that costs more than 4 squad points."
       },
       {
         "Faction": "Any",
@@ -1704,6 +1705,70 @@
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 HIT result to your roll."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Hyperwave Comm Scanner",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "At the start of the \"Place Forces\" step, you may choose to treat your pilot skill value as \"0\", \"6\" or \"12\", until the end of the step. During setup, after another friendly ship is placed at Range 1-2, you may assign 1 focus or evade token to it."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Primed Thrusters",
+        "SizeRestriction": "Small",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "Stress tokens do not prevent you from performing boost or barrel roll actions unless you have 3 or more stress tokens."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Pattern Analyzer",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "When executing a manoeuvre, you may resolve the \"Check Pilot Stress\" step after the \"Perform Action\" step (instead of before that step)."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Sensor Cluster",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "When defending, you may spend a focus token to change 1 of your blank results to an EVADE result."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Weapons Guidance",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "When attacking, you may spend a focus token to change 1 of your blank results to a HIT result."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Comm Relay",
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "You cannot have more that 1 evade token. During the End phase, do not remove an unused evade token from your ship."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Targeting Synchronizer",
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Tech",
+        "Description": "When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the \"Attack (targetlock)\" :header as \"Attack:\" If a game effect instructs that ship to spend a target lock, it may spend your target lock instead."
       }
     ]
   }

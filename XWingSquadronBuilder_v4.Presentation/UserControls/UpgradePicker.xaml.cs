@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using XWingSquadronBuilder_v4.BusinessLogic.Extensions;
 using XWingSquadronBuilder_v4.BusinessLogic.Models;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
@@ -22,7 +23,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class UpgradePicker : ContentDialog
     {
-        private IUpgradeSlot upgradeSlot { get; }
+        public IUpgradeSlot upgradeSlot { get; }
         private IPilot pilot { get; }
 
 
@@ -54,8 +55,10 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
                            where (upgrade.Faction.Equals(pilot.Faction) || upgrade.Faction.Name == "Any") &&
                            (upgrade.Cost <= upgradeSlot.CostRestriction) &&
                            (pilot.Ship.Contains(upgrade.ShipLimited)) &&
+                           (pilot.Actions.Any(x => x.Name.Contains(upgrade.ActionLimited))) &&
                            (upgrade.Limited ? !pilot.Upgrades.Any(x => x.Upgrade.Equals(upgrade)) : true) &&
                            (pilot.Upgrades.Where(x => x.UpgradeType.Equals(upgradeSlot.UpgradeType) &&  ((x.Upgrade is NullUpgrade) || x == upgradeSlot)).Count() >= upgrade.SlotsRequired) &&
+                           (pilot.Upgrades.AreRemovalConditionsMet(upgrade)) &&
                            (upgrade.SizeRestriction == string.Empty || upgrade.SizeRestriction.ToUpper() == pilot.ShipSize.ToString().ToUpper())
                            orderby upgrade.Cost, upgrade.Name
                            select upgrade).ToList();
@@ -65,6 +68,12 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         private void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             upgradeSlot.Upgrade = ((FrameworkElement)e.OriginalSource).DataContext as IUpgrade;
+            Hide();
+        }
+
+        private void btnClose_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            e.Handled = true;
             Hide();
         }
     }
