@@ -21,7 +21,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             set
             {
                 if (this.upgrade != null) this.upgrade.PropertyChanged -= Upgrade_PropertyChanged;
-                this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));
+                if (!value.UpgradeType.Equals(this.UpgradeType)) throw new ArgumentException(value.ToString());
+                this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));                
                 this.upgrade.PropertyChanged += Upgrade_PropertyChanged;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));

@@ -15,12 +15,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int Agility => agility + GetPilotStatModification(nameof(Agility));        
+        public int Agility => agility + GetPilotStatModification(nameof(Agility));
         public int Attack => attack + GetPilotStatModification(nameof(Attack));
         public int Hull => hull + GetPilotStatModification(nameof(Hull));
         public int PilotSkill => pilotSkill + GetPilotStatModification(nameof(PilotSkill));
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
-        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);        
+        public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);
         private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
         public ObservableCollection<IUpgradeSlot> Upgrades { get; }
         public ObservableCollection<IAction> Actions { get; }
@@ -49,29 +49,32 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             Actions = new ObservableCollection<IAction>();
             RecalculateUpgrades();
             RecalculateActions();
-            
+
         }
 
         private void UpgradeContainer_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Enabled") return;
-            RecalculateUpgrades();
-            RecalculateActions();           
-            NotifyPropertyChanged(nameof(Attack));
-            NotifyPropertyChanged(nameof(Agility));
-            NotifyPropertyChanged(nameof(Hull));
-            NotifyPropertyChanged(nameof(Shield)); 
-            NotifyPropertyChanged(nameof(PilotSkill));
-            NotifyPropertyChanged(nameof(Cost));
+            if (e.PropertyName == "Upgrade")
+            {
+                RecalculateUpgrades();
+                RecalculateActions();
+                NotifyPropertyChanged(nameof(Attack));
+                NotifyPropertyChanged(nameof(Agility));
+                NotifyPropertyChanged(nameof(Hull));
+                NotifyPropertyChanged(nameof(Shield));
+                NotifyPropertyChanged(nameof(PilotSkill));
+                NotifyPropertyChanged(nameof(Cost));
+            }
         }
 
         private void RecalculateUpgrades()
         {
             var upgrades = GetCalculatedUpgradeSlots();
             var upgradesToRemove = new List<IUpgradeSlot>();
-            foreach(var upgrade in Upgrades)
+            foreach (var upgrade in Upgrades)
             {
-                if (!upgrades.Contains(upgrade,new ReferenceComparer<IUpgradeSlot>()))
+                if (!upgrades.Contains(upgrade, new ReferenceComparer<IUpgradeSlot>()))
                     upgradesToRemove.Add(upgrade);
             }
 
@@ -88,7 +91,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             foreach (var upgrade in upgradesToAdd)
                 Upgrades.Add(upgrade);
 
-            
+
         }
 
         private void RecalculateActions()
@@ -112,7 +115,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
 
             foreach (var action in actionsToAdd)
-                Actions.Add(action);           
+                Actions.Add(action);
 
         }
 
@@ -155,7 +158,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             var upgradeTypesToRemove = FlattenUpgradeTree(upgrades)
                 .SelectMany(x => x.Upgrade.RemoveUpgradeModifiers);
 
-            var finalUpgrades = new List<IUpgradeSlot>(upgrades);           
+            var finalUpgrades = new List<IUpgradeSlot>(upgrades);
 
             foreach (var item in upgradeTypesToRemove)
             {
@@ -185,7 +188,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             var actionsToBeAdded = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
                .SelectMany(x => x.Upgrade.AddActionModifiers);
 
-            foreach(var action in actionsToBeAdded)
+            foreach (var action in actionsToBeAdded)
             {
                 finalActions.Add(action);
             }

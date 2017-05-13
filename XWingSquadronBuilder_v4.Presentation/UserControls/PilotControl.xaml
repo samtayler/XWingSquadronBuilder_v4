@@ -9,12 +9,14 @@
      xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
     mc:Ignorable="d" 
     RequestedTheme="Dark">
 
     <UserControl.Resources>
         <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
         <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>
+        <converters:TextToItemsConverter x:Key="textToItems"/>
     </UserControl.Resources>
 
 
@@ -22,7 +24,7 @@
         <!--<Grid.Background>
             <ImageBrush ImageSource="{x:Bind Pilot.Image}" Stretch="UniformToFill"/>
         </Grid.Background>-->
-        <RelativePanel Padding="5">
+        <RelativePanel Padding="5,0,5,5">
             <Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>
                     <Interactions:EventTriggerBehavior EventName="Tapped">
@@ -86,7 +88,7 @@
                            RelativePanel.RightOf="txblkUnique" 
                            FontSize="18"    
                            RelativePanel.AlignVerticalCenterWithPanel="True"
-                           />               
+                           />
                 <StackPanel x:Name="StatsPanel" RelativePanel.RightOf="txblkPilotName" Orientation="Horizontal" RelativePanel.AlignVerticalCenterWithPanel="True">
                     <RelativePanel x:Name="AttackGrid" Margin="5,5,0,5">
                         <Image x:Name="imgAttack" Source="/Assets/Logos/basic icons/attack.png" RelativePanel.RightOf="txblkPilotAttack" Height="15" Width="15" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="5,0"  />
@@ -131,16 +133,34 @@
                            RelativePanel.RightOf="actionsListview" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
-            <TextBlock x:Name="txblkpilotAbility" 
+            <ItemsControl Name="pilotAbility"
+                      ItemsSource="{x:Bind ViewModel.Pilot.PilotAbility, Converter={StaticResource textToItems}}"
+                      Margin="5,5,0,5"                   
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True"
+                      RelativePanel.Below="InfoPanel">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <wrapPanel:WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentPresenter Content="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <!--<TextBlock x:Name="txblkpilotAbility" 
                        Text="{x:Bind ViewModel.Pilot.PilotAbility,Mode=OneTime,FallbackValue='Pilot Ability'}"
                        RelativePanel.Below="InfoPanel"
+                       FontFamily="x-wing-symbols"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        FontSize="15"
-                       Margin="5,5,0,5" />
+                       />-->
             <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}" 
                                       UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
-                                    RelativePanel.Below="txblkpilotAbility"
+                                    RelativePanel.Below="pilotAbility"
                                   RelativePanel.AlignRightWithPanel="True"
                                   RelativePanel.AlignLeftWithPanel="True"
                                           Visibility="{x:Bind ViewModel.Collapsed,Mode=OneWay}"/>

@@ -7,9 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
     mc:Ignorable="d" Visibility="{Binding Visibility}">
 
     <UserControl.Resources>
+        <converters:TextToItemsConverter x:Key="textToItems"/>
+
         <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
             <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
             <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
@@ -55,8 +58,10 @@
         </Style>
 
         <converters:BooleanToVisibilityConverter x:Key="boolToVis"/>
+        <converters:BooleanToUniqueConverter x:Key="boolToUnique" />        
         
-    </UserControl.Resources>    
+
+    </UserControl.Resources>
 
     <ItemsControl ItemsSource="{x:Bind UpgradeSlots,Mode=OneWay}" >
         <ItemsControl.ItemContainerStyle>
@@ -65,7 +70,7 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             </Style>
-        </ItemsControl.ItemContainerStyle>       
+        </ItemsControl.ItemContainerStyle>
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="interfaces:IUpgradeSlot">
                 <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
@@ -94,14 +99,24 @@
                                    RelativePanel.LeftOf="btnClearUpgrade"
                                    HorizontalAlignment="Left"
                                    FontSize="12"
-                                   Margin="2"/>
-                        <TextBlock x:Name="txblkCardText"
-                                   Text="{x:Bind Upgrade.CardText,Mode=OneWay, FallbackValue='CardText'}"                               
-                                   RelativePanel.Below="txblkUpgradeName" 
-                                   RelativePanel.LeftOf="btnClearUpgrade"
-                                   RelativePanel.AlignLeftWith="txblkUpgradeName"                                   
-                                   FontSize="10"
-                                   TextWrapping="WrapWholeWords"/>
+                                   Margin="2"/>                       
+                        <ItemsControl Name="CardText"
+                                      ItemsSource="{x:Bind Upgrade.CardText,Mode=OneWay, Converter={StaticResource textToItems}}"
+                                      Margin="5,5,0,5"                   
+                                      RelativePanel.Below="txblkUpgradeName" 
+                                      RelativePanel.LeftOf="btnClearUpgrade"
+                                      RelativePanel.AlignLeftWith="txblkUpgradeName">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <wrapPanel:WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentPresenter Content="{Binding}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                         <Button x:Name="btnClearUpgrade" 
                                 FontFamily="Segoe MDL2 Assets"
                                 Content="&#xE894;"

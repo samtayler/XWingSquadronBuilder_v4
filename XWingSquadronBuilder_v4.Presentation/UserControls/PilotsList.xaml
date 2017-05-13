@@ -11,7 +11,7 @@
 
 
     <ScrollViewer x:Name="scrollViewer" >
-        <ItemsControl ItemsSource="{x:Bind GroupedPilots,Mode=OneWay}" Width="225">
+        <ItemsControl x:Name="pilotListControl" ItemsSource="{x:Bind GroupedPilots,Mode=OneWay}" Width="225">
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
                     <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -22,8 +22,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <uwpControls:Expander x:Name="Expander1" VerticalAlignment="Top" 
-                                      Header="{Binding Key}"
-                               IsExpanded="False"
+                                          Header="{Binding Key}"
+                                          IsExpanded="False"
                                           Expanded="Expander1_Expanded">
                         <uwpControls:Expander.Style>
                             <Style TargetType="uwpControls:Expander">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -23,6 +24,8 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class PilotsList : UserControl
     {
+        private Expander previousExpander;
+
         public delegate void PilotSelectedEventHandler(object sender, IPilot e);
 
         public event PilotSelectedEventHandler PilotSelected;
@@ -67,6 +70,9 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         private void Expander1_Expanded(object sender, EventArgs e)
         {
             scrollViewer.ScrollToElement(sender as UIElement);
+            if (previousExpander != null && previousExpander != sender as Expander)
+                previousExpander.IsExpanded = false;
+            previousExpander = sender as Expander;
         }
     }
 }

@@ -23,7 +23,7 @@
         "Cost": 5,
         "SlotsRequired": 1,
         "Type": "Cannon",
-        "Description": "Attack: Attack 1 ship. Your HIT results cannot be cancelled by defense dice. The defender may cancel CRIT results before HIT results. Attack value: 3. Range 1."
+        "Description": "Attack: Attack 1 ship. Your ^HIT results cannot be cancelled by defense dice. The defender may cancel ^CRITICAL results before ^HIT results. Attack value: 3. Range 1."
       },
       {
         "Faction": "Any",
@@ -39,7 +39,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Cannon",
-        "Description": "Attack: Attack 1 ship. When attacking, you may change 1 of your HIT results to a CRIT result. Range: 13. Attack value: 3."
+        "Description": "Attack: Attack 1 ship. When attacking, you may change 1 of your ^HIT results to a ^CRITICAL result. Range: 13. Attack value: 3."
       },
       {
         "Faction": "Any",
@@ -103,7 +103,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Bomb",
-        "Description": "Action: Discard this card to drop 1 cluster mine token set. When a ship's base or manoeuvre template overlaps a cluster mine token, that token detonates. When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers all damage (HIT) rolled. Then discard that token."
+        "Description": "Action: Discard this card to drop 1 cluster mine token set. When a ship's base or manoeuvre template overlaps a cluster mine token, that token detonates. When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers all damage (^HIT) rolled. Then discard that token."
       },
       {
         "Faction": "Any",
@@ -111,7 +111,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Bomb",
-        "Description": "Action: Discard this card to drop 1 proximity mine token. When a ship executes a maneuver, if its base or maneuver template overlaps this token, this token detonates. When the bomb token detonates, the ship that moved through or overlapped this token rolls 3 attack dice and suffers all damage [HIT] and critical damage [CRIT] rolled. Then discard this token."
+        "Description": "Action: Discard this card to drop 1 proximity mine token. When a ship executes a maneuver, if its base or maneuver template overlaps this token, this token detonates. When the bomb token detonates, the ship that moved through or overlapped this token rolls 3 attack dice and suffers all damage [^HIT] and critical damage [^CRITICAL] rolled. Then discard this token."
       },
       {
         "Faction": "Any",
@@ -190,7 +190,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When attacking at Range 1-2, you may change 1 of your HIT results to a CRITICAL result."
+        "Description": "When attacking at Range 1-2, you may change 1 of your ^HIT results to a ^CRITICAL result."
       },
       {
         "Faction": "Any",
@@ -206,7 +206,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "Action: Choose 1 enemy ship at Range 1 and roll 1 attack die. On a HIT or CRIT result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it."
+        "Description": "Action: Choose 1 enemy ship at Range 1 and roll 1 attack die. On a ^HIT or ^CRITICAL result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it."
       },
       {
         "Faction": "Any",
@@ -222,7 +222,7 @@
         "Cost": 1,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When dropping a bomb, you may use the [2]STRAIGHT template instead of the [1]STRAIGHT template."
+        "Description": "When dropping a bomb, you may use the [2] ^STRAIGHT template instead of the [1] ^STRAIGHT template."
       },
       {
         "Faction": "Rebels",
@@ -231,7 +231,7 @@
         "Cost": 1,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "You may treat all STRAIGHT maneuvers as green maneuvers."
+        "Description": "You may treat all ^STRAIGHT maneuvers as green maneuvers."
       },
       {
         "Faction": "Any",
@@ -257,7 +257,7 @@
         "Cost": 7,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You may change 1 FOCUS result to a HIT result. You cannot perform another attack this round."
+        "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You may change 1 ^FOCUS result to a ^HIT result. You cannot perform another attack this round."
       },
       {
         "Faction": "Rebels",
@@ -275,7 +275,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When attacking, if you are stressed, you may change 1 of your FOCUS results to a CRITICAL result."
+        "Description": "When attacking, if you are stressed, you may change 1 of your ^FOCUS results to a ^CRITICAL result."
       },
       {
         "Faction": "Rebels",
@@ -299,7 +299,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "Your upgrade bar gains the BOMB upgrade icon. Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token. That ship suffers 1 damage."
+        "Description": "Your upgrade bar gains the ^BOMB upgrade icon. Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token. That ship suffers 1 damage."
       },
       {
         "Faction": "Rebels",
@@ -344,7 +344,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "Action: Roll 2 defense dice. For each FOCUS result, assign 1 focus token to your ship. For each EVADE result, assign 1 evade token to your ship."
+        "Description": "Action: Roll 2 defense dice. For each ^FOCUS result, assign 1 focus token to your ship. For each ^EVADE result, assign 1 evade token to your ship."
       },
       {
         "Faction": "Any",
@@ -399,7 +399,7 @@
         "Cost": 6,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When another friendly ship at Range 1 is attacking, it may change 1 of its HIT results to a CRIT."
+        "Description": "When another friendly ship at Range 1 is attacking, it may change 1 of its ^HIT results to a ^CRITICAL."
       },
       {
         "Faction": "Rebels",
@@ -418,7 +418,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When attacking, if you have a target lock on the defender, you may spend that target lock to change all your FOCUS results to HIT results."
+        "Description": "When attacking, if you have a target lock on the defender, you may spend that target lock to change all your ^FOCUS results to ^HIT results."
       },
       {
         "Faction": "Rebels",
@@ -427,7 +427,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "Once per round, before you roll 1 or more defense dice, you may guess aloud a number of EVADE results. If you roll that many EVADE results (before modifying the dice), add 1 EVADE result."
+        "Description": "Once per round, before you roll 1 or more defense dice, you may guess aloud a number of ^EVADE results. If you roll that many ^EVADE results (before modifying the dice), add 1 ^EVADE result."
       },
       {
         "Faction": "Rebels",
@@ -445,7 +445,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a HIT result, randomly flip one of your facedown Damage cards faceup and resolve it."
+        "Description": "At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a ^HIT result, randomly flip one of your facedown Damage cards faceup and resolve it."
       },
       {
         "Faction": "Rebels",
@@ -473,7 +473,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When attacking at Range 3, you may change one of your HIT results to a CRIT result."
+        "Description": "When attacking at Range 3, you may change one of your ^HIT results to a ^CRITICAL result."
       },
       {
         "Faction": "Empire",
@@ -507,7 +507,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When defending, you may reroll one of your FOCUS results. If the attacker's pilot skill value is \"2\" or lower, you may reroll 1 of your blank results instead."
+        "Description": "When defending, you may reroll one of your ^FOCUS results. If the attacker's pilot skill value is \"2\" or lower, you may reroll 1 of your blank results instead."
       },
       {
         "Faction": "Empire",
@@ -516,7 +516,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "When you are dealt a faceup Damage card, you may discard this upgrade card or another CREW upgrade card to flip that Damage card facedown (without resolving its effect)."
+        "Description": "When you are dealt a faceup Damage card, you may discard this upgrade card or another ^CREW upgrade card to flip that Damage card facedown (without resolving its effect)."
       },
       {
         "Faction": "Empire",
@@ -580,7 +580,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "If you overlap an obstacle during the Activation phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a HIT or CRIT result, suffer 1 damage."
+        "Description": "If you overlap an obstacle during the Activation phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a ^HIT or ^CRITICAL result, suffer 1 damage."
       },
       {
         "Faction": "Empire",
@@ -609,7 +609,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "At the start of the first round, choose 1 enemy small or large ship. When attacking or defending agaist that ship, you may change 1 of your FOUCS results to a HIT or EVADE result."
+        "Description": "At the start of the first round, choose 1 enemy small or large ship. When attacking or defending agaist that ship, you may change 1 of your FOUCS results to a ^HIT or ^EVADE result."
       },
       {
         "Faction": "Scum",
@@ -668,7 +668,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Elite Pilot Talent",
-        "Description": "Action: When attacking this round, you may change one of your FOCUS results to a CRIT result and all your other FOCUS results to HIT results."
+        "Description": "Action: When attacking this round, you may change one of your ^FOCUS results to a ^CRITICAL result and all your other ^FOCUS results to ^HIT results."
       },
       {
         "Faction": "Any",
@@ -826,7 +826,7 @@
         "Cost": 1,
         "SlotsRequired": 1,
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking, you may spend a focus token to change 1 of your FOCUS results to a HIT result."
+        "Description": "When attacking, you may spend a focus token to change 1 of your ^FOCUS results to a ^HIT result."
       },
       {
         "Faction": "Scum",
@@ -842,7 +842,7 @@
         "Cost": 1,
         "SlotsRequired": 1,
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's EVADE results."
+        "Description": "When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's ^EVADE results."
       },
       {
         "Faction": "Any",
@@ -858,7 +858,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Elite Pilot Talent",
-        "Description": "Action: Execute a white [Left Turn 1] or [Right Turn 1] manouevre. Then, receive 1 stress token. Then, if you do not have the  action icon, roll 2 attack dice. Suffer any damage [HIT] or critical damage [CRIT] rolled."
+        "Description": "Action: Execute a white [Left Turn 1] or [Right Turn 1] manouevre. Then, receive 1 stress token. Then, if you do not have the  action icon, roll 2 attack dice. Suffer any damage [^HIT] or critical damage [^CRITICAL] rolled."
       },
       {
         "Faction": "Any",
@@ -882,7 +882,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Missile",
-        "Description": "Attack [Target Lock]: Spend your Target Lock and discard this card to perform this attack. You may change 1 of your blank results to a HIT result. Attack value: 4. Range: 23."
+        "Description": "Attack [Target Lock]: Spend your Target Lock and discard this card to perform this attack. You may change 1 of your blank results to a ^HIT result. Attack value: 4. Range: 23."
       },
       {
         "Faction": "Any",
@@ -970,7 +970,7 @@
         "SlotsRequired": 1,
         "AddedActions": [ "Boost" ],
         "Type": "Modification",
-        "Description": "Your action bar gains the BOOST action icon."
+        "Description": "Your action bar gains the ^BOOST action icon."
       },
       {
         "Faction": "Any",
@@ -1016,7 +1016,7 @@
         ],
         "ShipLimited": "B-Wing",
         "Type": "Modification",
-        "Description": "Your upgrade bar gains the CREW icon."
+        "Description": "Your upgrade bar gains the ^CREW icon."
       },
       {
         "Faction": "Rebels",
@@ -1061,7 +1061,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "TIE",
         "Type": "Modification",
-        "Description": "You may treat all bank manoeuvres (Left or Right) as green manoeuvres."
+        "Description": "You may treat all bank manoeuvres (^LEFTBANK or ^RIGHTBANK) as green manoeuvres."
       },
       {
         "Faction": "Any",
@@ -1078,7 +1078,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Modification",
-        "Description": "After an enemy ship performs a maneuver that causes it to overlap your ship, roll 1 attack die. On a HIT or CRIT result, the enemy ship suffers 1 damage."
+        "Description": "After an enemy ship performs a maneuver that causes it to overlap your ship, roll 1 attack die. On a ^HIT or ^CRITICAL result, the enemy ship suffers 1 damage."
       },
       {
         "Faction": "Any",
@@ -1096,7 +1096,7 @@
         "SlotsRequired": 1,
         "AddedActions": [ "Target Lock" ],
         "Type": "Modification",
-        "Description": "Your action bar gains the TARGET LOCK icon."
+        "Description": "Your action bar gains the ^TARGETLOCK icon."
       },
       {
         "Faction": "Any",
@@ -1106,7 +1106,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Modification",
-        "Description": "When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to a EVADE result. You can equip this card only if you have the BOOST icon."
+        "Description": "When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to a ^EVADE result. You can equip this card only if you have the ^BOOST icon."
       },
       {
         "Faction": "Scum",
@@ -1116,7 +1116,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "YV-666",
         "Type": "Modification",
-        "Description": "When you reveal a turn maneuver (Left or Right), you may rotate your dial to the corresponding bank maneuver (Left or Right) of the same speed."
+        "Description": "When you reveal a turn maneuver (^LEFTTURN or ^RIGHTTURN), you may rotate your dial to the corresponding bank maneuver (^LEFTBANK or ^RIGHTBANK) of the same speed."
       },
       {
         "Faction": "Any",
@@ -1125,7 +1125,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Modification",
-        "Description": "After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die. On a HIT or CRIT result, the enemy ship receives 1 ion token."
+        "Description": "After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die. On a ^HIT or ^CRITICAL result, the enemy ship receives 1 ion token."
       },
       {
         "Faction": "Any",
@@ -1149,7 +1149,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "System Upgrade",
-        "Description": "Immediately before you reveal your maneuver, you may perform 1 free action. If you use this ability, skip your \"perform Action\" step during this round."
+        "Description": "Immediately before you reveal your maneuver, you may perform 1 free action. If you use this ability, skip your \"Perform Action\" step during this round."
       },
       {
         "Faction": "Any",
@@ -1157,7 +1157,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "System Upgrade",
-        "Description": "When defending, you may change 1 of the attacker's HIT results to a FOCUS result. The attacker cannot reroll the die with the changed result."
+        "Description": "When defending, you may change 1 of the attacker's ^HIT results to a ^FOCUS result. The attacker cannot reroll the die with the changed result."
       },
       {
         "Faction": "Any",
@@ -1196,7 +1196,7 @@
         "AddedActions": [ "Evade" ],
         "ShipLimited": "YT-1300",
         "Type": "Title",
-        "Description": "Your action bar gains the EVADE action icon."
+        "Description": "Your action bar gains the ^EVADE action icon."
       },
       {
         "Faction": "Rebels",
@@ -1207,7 +1207,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "YT-2400",
         "Type": "Title",
-        "Description": "When you have a Cannon Upgrade card equipped, you cannot perform primary weapon attacks and you may perform Cannon secondary weapon attacks against ships outside your firing arc."
+        "Description": "When you have a ^CANNON Upgrade card equipped, you cannot perform primary weapon attacks and you may perform Cannon secondary weapon attacks against ships outside your firing arc."
       },
       {
         "Faction": "Rebels",
@@ -1223,7 +1223,7 @@
         ],
         "ShipLimited": "A-Wing",
         "Type": "Title",
-        "Description": "Your upgrade bar gains 1 Elite Pilot Telent upgrade icon. You cannot equip 2 of the same Elite Pilot Telent upgrade cards. You cannot equip this card if your pilot skill is \"1\" or lower."
+        "Description": "Your upgrade bar gains 1 ^ELITEPILOTTALENT upgrade icon. You cannot equip 2 of the same ^ELITEPILOTTALENT upgrade cards. You cannot equip this card if your pilot skill is \"1\" or lower."
       },
       {
         "Faction": "Rebels",
@@ -1234,7 +1234,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "GR-75 Medium Transport",
         "Type": "Title",
-        "Description": "When performing a jam action, you may choose an enemy ship at range 13 (instead of at Range 12)."
+        "Description": "When performing a jam action, you may choose an enemy ship at range 1 (instead of at Range 2)."
       },
       {
         "Faction": "Rebels",
@@ -1256,7 +1256,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "GR-75 Medium Transport",
         "Type": "Title",
-        "Description": "A reinforce token assigned to your fore section adds 2  results (instead of 1)."
+        "Description": "A reinforce token assigned to your fore section adds 2 ^EVADE results (instead of 1)."
       },
       {
         "Faction": "Rebels",
@@ -1300,7 +1300,7 @@
         ],
         "ShipLimited": "CR90 Corvette",
         "Type": "Title",
-        "Description": "Your fore section upgrade bar gains 1 additional Crew and 1 additional Team upgrade icon."
+        "Description": "Your fore section upgrade bar gains 1 additional ^CREW and 1 additional ^TEAM upgrade icon."
       },
       {
         "Faction": "Empire",
@@ -1310,7 +1310,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "TIE Advanced Prototype",
         "Type": "Title",
-        "Description": "After you acquire a target lock, you may perform a free evade action."
+        "Description": "After you acquire a target lock, you may perform a free ^EVADE action."
       },
       {
         "Faction": "Any",
@@ -1328,7 +1328,7 @@
         ],
         "ShipLimited": "Firespray-31",
         "Type": "Title",
-        "Description": "Your upgrade bar gains the Torpedo icon."
+        "Description": "Your upgrade bar gains the ^TROPEDO icon."
       },
       {
         "Faction": "Empire",
@@ -1365,7 +1365,7 @@
         ],
         "ShipLimited": "TIE Interceptor",
         "Type": "Title",
-        "Description": "You may equip up to 2 different Modification upgrades (instead of 1). You cannot equip this card if your pilot skill is \"4\" or lower."
+        "Description": "You may equip up to 2 different ^MODIFICAION upgrades (instead of 1). You cannot equip this card if your pilot skill is \"4\" or lower."
       },
       {
         "Faction": "Empire",
@@ -1380,7 +1380,7 @@
         ],
         "ShipLimited": "TIE Advanced",
         "Type": "Title",
-        "Description": "Your upgrade bar gains the System Upgrade upgrade icon. If you equip a System Upgrade upgrade, its squad point cost is reduced by 4 (to a minimum of 0)."
+        "Description": "Your upgrade bar gains the ^SYSTEMUPGRADE upgrade icon. If you equip a ^SYSTEMUPGRADE upgrade, its squad point cost is reduced by 4 (to a minimum of 0)."
       },
       {
         "Faction": "Empire",
@@ -1402,7 +1402,7 @@
         "RemovedUpgrades": [ "Bomb", "Torpedo", "Torpedo", "Missile", "Missile" ],
         "ShipLimited": "TIE Bomber",
         "Type": "Title",
-        "Description": "Your upgrade bar loses all MISSILE, TORPEDO and BOMB upgrade icons and gains 2 CREW upgrade icons. You cannot equip an upgrade card that costs more than 4 squad points."
+        "Description": "Your upgrade bar loses all ^^MISSILE, ^^TORPEDO and ^^BOMB upgrade icons and gains 2 ^CREW upgrade icons. You cannot equip an upgrade card that costs more than 4 squad points."
       },
       {
         "Faction": "Any",
@@ -1423,7 +1423,7 @@
         ],
         "ShipLimited": "Firespray-31",
         "Type": "Title",
-        "Description": "Your upgrade bar gains two additional Bomb upgrade icons."
+        "Description": "Your upgrade bar gains two additional ^^BOMB upgrade icons."
       },
       {
         "Faction": "Any",
@@ -1461,7 +1461,7 @@
         ],
         "ShipLimited": "M3-A Interceptor",
         "Type": "Title",
-        "Description": "Your upgrade bar gains the Cannon, Torpedo, or Missile upgrade icon."
+        "Description": "Your upgrade bar gains the ^CANNON, ^^TORPEDO, or ^^MISSILE upgrade icon."
       },
       {
         "Faction": "Scum",
@@ -1481,7 +1481,7 @@
         ],
         "ShipLimited": "StarViper",
         "Type": "Title",
-        "Description": "Your upgrade bar gains the System Upgrade and Illicit upgrade icons. You cannot equip this card if your pilot skill is \"3\" or lower."
+        "Description": "Your upgrade bar gains the ^SYSTEMUPGRADE and ^ILLICIT upgrade icons. You cannot equip this card if your pilot skill is \"3\" or lower."
       },
       {
         "Faction": "Scum",
@@ -1492,7 +1492,7 @@
         "AddedAction": [ "Barrel Roll" ],
         "ShipLimited": "G-1A Starfighter",
         "Type": "Title",
-        "Description": "Your action bar gains the Barrel Roll action icon. You must equip 1 \"Tractor Beam\" upgrade (paying the squad point cost as normal."
+        "Description": "Your action bar gains the ^BARRELROLL action icon. You must equip 1 \"Tractor Beam\" upgrade (paying the squad point cost as normal."
       },
       {
         "Faction": "Scum",
@@ -1512,7 +1512,7 @@
         "RemovedUpgrades": [ "Cannon", "Missile" ],
         "ShipLimited": "TIE Defender",
         "Type": "Title",
-        "Description": "Your upgrade bar loses the Cannon and Missile upgrade icons. After executing a 3, 4 or 5speed maneuver, you may assign 1 evade token to your ship."
+        "Description": "Your upgrade bar loses the ^CANNON and ^^MISSILE upgrade icons. After executing a 3, 4 or 5 speed maneuver, you may assign 1 evade token to your ship."
       },
       {
         "Faction": "Empire",
@@ -1537,7 +1537,7 @@
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Torpedo",
-        "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. You may change one of your FOCUS results to a CRIT result. Attack value: 4. Range: 23."
+        "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. You may change one of your ^FOCUS results to a ^CRITICAL result. Attack value: 4. Range: 23."
       },
       {
         "Faction": "Any",
@@ -1545,7 +1545,7 @@
         "Cost": 6,
         "SlotsRequired": 1,
         "Type": "Torpedo",
-        "Description": "Attack [Target Lock]: Spend your target lock and discard this card to attack. You may change up to 3 of your blank results to FOCUS results. Attack value: 5. Range: 1."
+        "Description": "Attack [Target Lock]: Spend your target lock and discard this card to attack. You may change up to 3 of your blank results to ^FOCUS results. Attack value: 5. Range: 1."
       },
       {
         "Faction": "Any",
@@ -1561,7 +1561,7 @@
         "Cost": 2,
         "SlotsRequired": 1,
         "Type": "Torpedo",
-        "Description": "When you equip this card, place 1 ordnance token on each equipped TORPEDO, MISSILE, and BOMB Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead. Limited."
+        "Description": "When you equip this card, place 1 ordnance token on each equipped ^TORPEDO, ^MISSILE, and ^BOMB Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead. Limited."
       },
       {
         "Faction": "Any",
@@ -1578,7 +1578,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "Y-Wing",
         "Type": "Torpedo",
-        "Description": "Your upgrade bar gains the Bomb icon. Limited."
+        "Description": "Your upgrade bar gains the ^BOMB icon. Limited."
       },
       {
         "Faction": "Any",
@@ -1596,7 +1596,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking or defending, if you are stressed, you may reroll 1 or more of your FOCUS results."
+        "Description": "When attacking or defending, if you are stressed, you may reroll 1 or more of your ^FOCUS results."
       },
       {
         "Faction": "Any",
@@ -1605,7 +1605,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When you receive a stress token, you may discard this card to assign 1 focus or evade token to your ship."
+        "Description": "When you receive a stress token, you may discard this card to assign 1 ^FOCUS or ^EVADE token to your ship."
       },
       {
         "Faction": "Any",
@@ -1614,7 +1614,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking, if you are not stressed, you may change all of your FOCUS results to HIT results."
+        "Description": "When attacking, if you are not stressed, you may change all of your ^FOCUS results to ^HIT results."
       },
       {
         "Faction": "Any",
@@ -1641,7 +1641,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking, if you have an evade token, you may change 1 of the defender's EVADE results into a FOCUS result."
+        "Description": "When attacking, if you have an evade token, you may change 1 of the defender's ^EVADE results into a ^FOCUS result."
       },
       {
         "Faction": "Any",
@@ -1650,7 +1650,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking a ship inside your firing arc, at the start of the ‘Compare results’ step, you may discard this card to cancel 1 of the defender's EVADE results."
+        "Description": "When attacking a ship inside your firing arc, at the start of the ‘Compare results’ step, you may discard this card to cancel 1 of the defender's ^EVADE results."
       },
       {
         "Faction": "Any",
@@ -1704,7 +1704,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
-        "Description": "When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 HIT result to your roll."
+        "Description": "When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 ^HIT result to your roll."
       },
       {
         "Faction": "Any",
@@ -1741,7 +1741,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Tech",
-        "Description": "When defending, you may spend a focus token to change 1 of your blank results to an EVADE result."
+        "Description": "When defending, you may spend a focus token to change 1 of your blank results to an ^EVADE result."
       },
       {
         "Faction": "Any",
@@ -1750,7 +1750,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Tech",
-        "Description": "When attacking, you may spend a focus token to change 1 of your blank results to a HIT result."
+        "Description": "When attacking, you may spend a focus token to change 1 of your blank results to a ^HIT result."
       },
       {
         "Faction": "Any",
@@ -1768,7 +1768,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "",
         "Type": "Tech",
-        "Description": "When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the \"Attack (targetlock)\" :header as \"Attack:\" If a game effect instructs that ship to spend a target lock, it may spend your target lock instead."
+        "Description": "When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the \"Attack [targetlock]\" :header as \"Attack:\" If a game effect instructs that ship to spend a target lock, it may spend your target lock instead."
       }
     ]
   }
