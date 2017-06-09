@@ -14,11 +14,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Extensions
             var upgradeTypesToRemove = upgrade.RemoveUpgradeModifiers;
             List<IUpgradeSlot> slotsToBeRemoved = new List<IUpgradeSlot>();
 
-            foreach (var upgradeSlot in upgrades)
+            foreach (var uType in upgradeTypesToRemove)
             {
-                foreach (var uType in upgradeTypesToRemove)
+                foreach (var upgradeSlot in upgrades)
                 {
-                    if(upgradeSlot.IsNullUpgrade && upgradeSlot.UpgradeType.Equals(uType))
+                    if (upgradeSlot.IsNullUpgrade && upgradeSlot.UpgradeType.Equals(uType))
                     {
                         slotsToBeRemoved.Add(upgradeSlot);
                         break;

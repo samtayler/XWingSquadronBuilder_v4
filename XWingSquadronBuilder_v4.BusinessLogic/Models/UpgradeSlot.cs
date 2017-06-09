@@ -20,10 +20,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
             set
             {
-                if (this.upgrade != null) this.upgrade.PropertyChanged -= Upgrade_PropertyChanged;
                 if (!value.UpgradeType.Equals(this.UpgradeType)) throw new ArgumentException(value.ToString());
-                this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));                
-                this.upgrade.PropertyChanged += Upgrade_PropertyChanged;
+                this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsNotNullUpgrade)));
@@ -91,14 +89,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return Upgrade.GetInnerUpgradeSlots();
         }
 
-        private void Upgrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(sender, e);
-        }
-
         public void Dispose()
         {
-            if (this.Upgrade != null) this.Upgrade.PropertyChanged -= Upgrade_PropertyChanged;
+
         }
 
         public bool Equals(IUpgradeSlot other)
