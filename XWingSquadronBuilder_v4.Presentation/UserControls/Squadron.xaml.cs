@@ -54,7 +54,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             RemovePilot?.Invoke(sender, e);
         }
 
-        private void PilotControl_CopyPilot(object sender, Interfaces.IPilot e)
+        private void PilotControl_CopyPilot(object sender, IPilot e)
         {
             CopyPilot?.Invoke(sender, e);
         }

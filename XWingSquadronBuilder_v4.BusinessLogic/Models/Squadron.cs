@@ -6,61 +6,103 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using XWingSquadronBuilderClasses.Interfaces;
+using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder.BusinessLogic.Models
 {
     public class Squadron : ISquadron, IDisposable
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<IPilot> Pilots { get; private set; }
+        public SortedSet<string> UniqueNameCards { get; }
+        public IFaction Faction { get; }
+
+        public string Name { get; set; } = "Unnamed Squadron";
+        public int SquadronCostTotal => Pilots.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
+
+        public Func<IXWingCard, bool> CheckSquadronRequirements { get; }
+
         public Squadron(IFaction faction)
         {
             Pilots = new ObservableCollection<IPilot>();
+            UniqueNameCards = new SortedSet<string>();
             Faction = faction;
+            CheckSquadronRequirements = CheckUnique;
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<IPilot> Pilots { get; }
-        public int SquadronCostTotal => Pilots.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
-        public IFaction Faction { get; }
-        
-
-        public IEnumerable<IUpgrade> UniqueUpgradesList => Pilots.Select(x => x.Upgrades.Select(y => y.Upgrade).Where(y => y.Unique))
-            .Aggregate(new List<IUpgrade>(), (x, y) => x.Concat(y).ToList());
-
-        public IEnumerable<IPilot> UniquePilotsList => Pilots.Select(x => x).Where(x => x.Unique);
 
         public bool AddPilot(IPilot pilot)
         {
-            if (RunChecks(pilot))
-            {
-                Pilots.Add(pilot);                
-                NotifyChanges();
-                return true;
-            }
-            return false;
-        }       
+            if (!CheckSquadronRequirements(pilot)) return false;
 
-        private bool RunChecks(IPilot pilot)
-        {
-            return CheckUnique(pilot);
+            Pilots.Add(pilot);
+            NotifyPropertyChanged(nameof(SquadronCostTotal));
+            return true;
         }
 
-        private void NotifyChanges()
-        {            
-            NotifyPropertyChanged(nameof(SquadronCostTotal));
+        public void ClearAllPilots()
+        {
+            this.Pilots.Clear();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns>True if check is OK</returns>
+        private bool CheckUnique(IXWingCard card)
+        {
+            if (card.Unique)
+            {
+                return UniqueNameCards.Add(card.Name);
+            }
+
+            return true;
         }
 
         public bool RemovePilot(IPilot pilot)
         {
-            if (!Pilots.Remove(pilot)) return false;            
-            pilot.Dispose();
-            NotifyChanges();
-            return true;
-        }       
+            if (!Pilots.Remove(pilot)) return false;
 
-        private bool CheckUnique(IPilot pilot)
+            NotifyPropertyChanged(nameof(SquadronCostTotal));
+            UniqueNameCards.Remove(pilot.Name);
+            return true;
+        }
+
+        public void SortPilotsByName(bool ascending)
         {
-            return !UniquePilotsList.Any(x => x.Equals(pilot));
+            if (ascending)
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.Name).ThenByDescending(pilot => pilot.Cost + pilot.UpgradesCost));
+            }
+            else
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.Name).ThenByDescending(pilot => pilot.Cost + pilot.UpgradesCost));
+            }
+        }
+
+        public void SortPilotsByPilotSkill(bool ascending)
+        {
+            if (ascending)
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.PilotSkill).ThenByDescending(pilot => pilot.Name));
+            }
+            else
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.PilotSkill).ThenByDescending(pilot => pilot.Name));
+            }
+        }
+
+        public void SortPilotsByCost(bool ascending)
+        {
+            if (ascending)
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.Cost + pilot.UpgradesCost).ThenByDescending(pilot => pilot.Name));
+            }
+            else
+            {
+                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.Cost + pilot.UpgradesCost).ThenByDescending(pilot => pilot.Name));
+            }
         }
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
@@ -68,22 +110,14 @@ namespace XWingSquadronBuilder.BusinessLogic.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void Pilot_PilotCopied(object sender, IPilot e)
-        {
-            AddPilot(e);
-        }        
-
-        private void Pilot_PilotRemoved(object sender, IPilot e)
-        {
-            RemovePilot(e);
-        }
-
         public void Dispose()
         {
-            foreach (var pilot in Pilots)
-            {                
-                pilot.Dispose();
-            }
+
+        }
+
+        public ISquadron DeepClone()
+        {
+            throw new NotImplementedException();
         }
     }
 }

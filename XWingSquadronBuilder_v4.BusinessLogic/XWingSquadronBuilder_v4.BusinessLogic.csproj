@@ -110,12 +110,14 @@
     <Compile Include="Extensions\UpgradeSlotCollectionExtensions.cs" />
     <Compile Include="Factories\DataParsers.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
+    <Compile Include="Logic\UpgradeFilter.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Faction.cs" />
     <Compile Include="Models\NullUpgrade.cs" />
     <Compile Include="Models\Pilot.cs" />
     <Compile Include="Models\PilotAbilityEngine.cs" />
     <Compile Include="Models\ShipSize.cs" />
+    <Compile Include="Models\Squadron.cs" />
     <Compile Include="Models\Upgrade.cs" />
     <Compile Include="Models\UpgradeSlot.cs" />
     <Compile Include="Models\UpgradeType.cs" />

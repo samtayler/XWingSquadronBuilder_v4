@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IPilot : IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged
-    {
+    public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged
+    {        
         string Name { get; }
+        bool Unique { get; }
         string PilotAbility { get; }
         string Ship { get; }
-        IShipSize ShipSize { get; }
-        bool Unique { get; }
+        IShipSize ShipSize { get; }        
         int Cost { get; }
         int UpgradesCost { get; }
         IFaction Faction { get; }

@@ -8,10 +8,17 @@
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"   
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"  
+    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
     mc:Ignorable="d"
     RequestedTheme="Dark">
 
+    <Page.Resources>
+        <!--<ResourceDictionary>
+            <converters:PilotToPilotViewModelConverter x:Key="PilotToViewModel"/>
+        </ResourceDictionary>-->
+    </Page.Resources>
+    
     <Page.Background>
         <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
     </Page.Background>
@@ -56,7 +63,7 @@
                                RelativePanel.RightOf="PilotList"
                                RelativePanel.Below="CommandBar"
                                RelativePanel.Above="StatusBar"
-                               Pilots="{x:Bind ViewModel.Squadron,Mode=OneWay}"
+                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}"
                                UpgradeSlotSelected="Squadron_UpgradeSlotSelected">
             <Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>

@@ -81,7 +81,7 @@
                             Margin="2"
                             RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
                         <TextBlock x:Name="txblkUpgradeName" 
-                            Text="{x:Bind Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
+                            Text="{Binding Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>

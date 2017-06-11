@@ -44,7 +44,7 @@
                                     <RelativePanel x:Name="PilotPanel">
                                         <Image x:Name="shipIcon" Source="{x:Bind ShipIcon, Mode=OneWay}" Width="20" Height="20" RelativePanel.AlignLeftWithPanel="True"/>
                                         <TextBlock x:Name="txblkPilotSkill" TextWrapping="Wrap" Foreground="#FFF57F20" Text="{x:Bind PilotSkill, Mode=OneWay}" FontSize="15" FontFamily="Segoe UI" TextAlignment="Center" Margin="3,0,0,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="shipIcon"/>
-                                        <TextBlock x:Name="txblkPilotName" Text="{x:Bind Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="12" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
+                                        <TextBlock x:Name="txblkPilotName" Text="{Binding Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="12" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
                                         <TextBlock x:Name="txblkCost" Foreground="Red" Text="{x:Bind Cost, Mode=OneWay}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="12" Margin="3,0,15,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
                                     </RelativePanel>
                                 </DataTemplate>

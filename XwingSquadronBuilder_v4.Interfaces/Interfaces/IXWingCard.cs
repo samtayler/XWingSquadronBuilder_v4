@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IAction : IEquatable<IAction>, IDeepCloneable<IAction>, IComparable<IAction>
-    {        
+    public interface IXWingCard
+    {
         string Name { get; }
-        string Image { get; }
+        bool Unique { get; }
     }
 }

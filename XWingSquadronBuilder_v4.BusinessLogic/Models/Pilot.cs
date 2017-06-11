@@ -74,7 +74,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public override string ToString()
         {
             return $"{Name} {Ship}";
-        }
+        }               
 
         public void Dispose()
         {
@@ -85,7 +85,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public bool Equals(IPilot other)
         {
             return Name == other.Name 
-                && Ship == other.Ship;
+                && Ship == other.Ship
+                && other.Upgrades.All(Upgrades.Contains) 
+                && other.Upgrades.Count == Upgrades.Count
+                && other.UpgradesCost == UpgradesCost;
         }
 
         private Pilot(string shipName, string name, bool unique, IFaction faction, int cost,  string pilotAbility,

@@ -10,12 +10,13 @@ namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface ISquadron : INotifyPropertyChanged, IDeepCloneable<ISquadron>
     {
+        string Name { get; set; }
         ObservableCollection<IPilot> Pilots { get; }
         int SquadronCostTotal { get; }
-        IEnumerable<IUpgrade> UniqueUpgradesList { get; }
-        IEnumerable<IPilot> UniquePilotsList { get; }
+        SortedSet<string> UniqueNameCards { get; }        
 
         bool AddPilot(IPilot pilot);
         bool RemovePilot(IPilot pilot);
+        void ClearAllPilots();
     }
 }
