@@ -26,21 +26,25 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
     /// </summary>
     public sealed partial class SquadronBuilder : Page
     {
-        public SqudronBuilderViewModel ViewModel { get; set; }
+        public SqudronBuilderViewModel ViewModel
+        {
+            get { return (SqudronBuilderViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ViewModel.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register("ViewModel", typeof(SqudronBuilderViewModel), typeof(SquadronBuilder), new PropertyMetadata(0));        
 
         public SquadronBuilder()
         {
-            this.InitializeComponent();
-            ViewModel = new SqudronBuilderViewModel(XWingRepository.Instance.FactionRepository.GetFaction("Empire"));
+            this.InitializeComponent();            
         }
 
-        private async void Squadron_UpgradeSlotSelected(object sender, Interfaces.IUpgradeSlot e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var pilot = sender as IPilot;
-            var upgradeSlot = e;
-
-            var upgradeSelector = new UpgradePicker(pilot, upgradeSlot);
-            await upgradeSelector.ShowAsync();            
-        }        
+            ViewModel = new SqudronBuilderViewModel(e.Parameter as IFaction);
+            base.OnNavigatedTo(e);
+        }
     }
 }

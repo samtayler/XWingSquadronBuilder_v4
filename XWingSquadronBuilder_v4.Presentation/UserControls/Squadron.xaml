@@ -31,7 +31,8 @@
                                                Margin="5"
                                                RemovePilot="PilotControl_RemovePilot" 
                                                CopyPilot="PilotControl_CopyPilot" 
-                                               UpgradeSlotSelected="PilotControl_UpgradeSlotSelected" />
+                                               UpgradeSlotSelected="PilotControl_UpgradeSlotSelected" 
+                                               Tapped="PilotControl_Tapped"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

@@ -75,11 +75,13 @@
             <DataTemplate x:DataType="interfaces:IUpgradeSlot">
                 <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
                     <RelativePanel>
-                        <Image x:Name="imgType" Source="{x:Bind UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}" 
-                            Height="15"
-                            Width="15"
-                            Margin="2"
-                            RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                        <TextBlock x:Name="imgType" Text="{x:Bind UpgradeType.Image, Mode=OneWay, FallbackValue=t}"   
+                                   Margin="2"
+                                   FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
+                                   FontSize="15"
+                                   RelativePanel.AlignLeftWithPanel="True" 
+                                   RelativePanel.AlignVerticalCenterWithPanel="True"
+                                   Foreground="Gold"/>
                         <TextBlock x:Name="txblkUpgradeName" 
                             Text="{Binding Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             RelativePanel.RightOf="imgType"

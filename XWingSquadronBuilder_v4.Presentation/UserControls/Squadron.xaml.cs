@@ -30,7 +30,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event PilotCopySelectedHandler CopyPilot;
 
-        public delegate void UpgradeSlotSelectedHandler(object sender, IUpgradeSlot e);
+        public delegate void UpgradeSlotSelectedHandler(object sender, Tuple<IPilot,IUpgradeSlot> e);
 
         public event UpgradeSlotSelectedHandler UpgradeSlotSelected;
 
@@ -59,9 +59,18 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             CopyPilot?.Invoke(sender, e);
         }
 
-        private void PilotControl_UpgradeSlotSelected(object sender, IUpgradeSlot e)
+        private void PilotControl_UpgradeSlotSelected(object sender, Tuple<IPilot, IUpgradeSlot> e)
         {
             UpgradeSlotSelected?.Invoke(sender, e);
+        }
+
+        private void PilotControl_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            foreach (var pilot in Pilots)
+            {
+                if (pilot != ((PilotViewModel)(((UserControl)sender).DataContext)))
+                    pilot.Collapsed = Visibility.Collapsed;
+            }
         }
     }
 }

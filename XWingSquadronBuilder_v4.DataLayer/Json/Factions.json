@@ -2,15 +2,15 @@
   "Factions": [
     {
       "Name": "Empire",
-      "Image": ""
+      "Image": "@"
     },
     {
       "Name": "Rebels",
-      "Image": ""
+      "Image": "!"
     },
     {
       "Name": "Scum",
-      "Image": ""
+      "Image": "#"
     },
     {
       "Name": "Any",

@@ -6,9 +6,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using XWingSquadronBuilder_v4.BusinessLogic.Logic;
 using XWingSquadronBuilder_v4.Interfaces;
 
-namespace XWingSquadronBuilder.BusinessLogic.Models
+namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
     public class Squadron : ISquadron, IDisposable
     {
@@ -16,7 +17,8 @@ namespace XWingSquadronBuilder.BusinessLogic.Models
 
         public ObservableCollection<IPilot> Pilots { get; private set; }
         public SortedSet<string> UniqueNameCards { get; }
-        public IFaction Faction { get; }
+        public IFaction Faction { get; }        
+
 
         public string Name { get; set; } = "Unnamed Squadron";
         public int SquadronCostTotal => Pilots.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
@@ -43,6 +45,8 @@ namespace XWingSquadronBuilder.BusinessLogic.Models
         public void ClearAllPilots()
         {
             this.Pilots.Clear();
+            NotifyPropertyChanged(nameof(SquadronCostTotal));
+            UniqueNameCards.Clear();
         }
 
         /// <summary>

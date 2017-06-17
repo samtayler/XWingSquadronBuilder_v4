@@ -69,7 +69,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         }
 
         private void RecalculateUpgrades()
-        {
+        {            
             var upgrades = GetCalculatedUpgradeSlots();
             var upgradesToRemove = new List<IUpgradeSlot>();
             foreach (var upgrade in Upgrades)
@@ -91,6 +91,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             foreach (var upgrade in upgradesToAdd)
                 Upgrades.Add(upgrade);
 
+            var orderedUpgrades = Upgrades.OrderBy(upgrade => upgrade.UpgradeType.Name).ThenBy(upgrade => upgrade.IsNullUpgrade).ToArray();
+
+            Upgrades.Clear();
+
+            foreach (var upgrade in orderedUpgrades)
+            {
+                Upgrades.Add(upgrade);
+            }
 
         }
 
@@ -170,7 +178,6 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                         break;
                     }
                 }
-
             }
 
             return finalUpgrades;

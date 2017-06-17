@@ -3,71 +3,71 @@
     "UpgradeType": [
       {
         "Name": "Title",
-        "ImageSource": "/assets/logos/basic icons/title.png"
+        "ImageSource": "t"
       },
       {
         "Name": "Elite Pilot Talent",
-        "ImageSource": "/assets/logos/basic icons/elitepilottalent.png"
+        "ImageSource": "E"
       },
       {
         "Name": "Missile",
-        "ImageSource": "/assets/logos/basic icons/missile.png"
+        "ImageSource": "M"
       },
       {
         "Name": "Torpedo",
-        "ImageSource": "/assets/logos/basic icons/torpedo.png"
+        "ImageSource": "P"
       },
       {
         "Name": "Bomb",
-        "ImageSource": "/assets/logos/basic icons/bomb.png"
+        "ImageSource": "B"
       },
       {
         "Name": "Crew",
-        "ImageSource": "/assets/logos/basic icons/Crew.png"
+        "ImageSource": "W"
       },
       {
         "Name": "Astromech",
-        "ImageSource": "/assets/logos/basic icons/astromech.png"
+        "ImageSource": "A"
       },
       {
         "Name": "Cargo",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "C"
       },
       {
         "Name": "Hardpoint",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "H"
       },
       {
         "Name": "Illicit",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "I"
       },
       {
         "Name": "Salvaged Astromech",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "V"
       },
       {
         "Name": "Cannon",
-        "ImageSource": "/assets/logos/basic icons/Cannon.png"
+        "ImageSource": "C"
       },
       {
         "Name": "Team",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "T"
       },
       {
         "Name": "Tech",
-        "ImageSource": "/assets/logos/basic icons/Tech.png"
+        "ImageSource": "X"
       },
       {
         "Name": "Turret",
-        "ImageSource": "/assets/logos/basic icons/turret.png"
+        "ImageSource": "U"
       },
       {
         "Name": "System Upgrade",
-        "ImageSource": "/assets/logos/basic icons/systemupgrade.png"
+        "ImageSource": "S"
       },
       {
         "Name": "Modification",
-        "ImageSource": "/assets/logos/basic icons/modification.png"
+        "ImageSource": "M"
       }
     ]
   }

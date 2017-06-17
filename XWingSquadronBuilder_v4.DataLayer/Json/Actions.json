@@ -3,39 +3,43 @@
     "Action": [
       {
         "Name": "Boost",
-        "ImageSource": "/Assets/Logos/Actions/Boost.png"
+        "ImageSource": "b"
       },
       {
         "Name": "Evade",
-        "ImageSource": "/Assets/Logos/Actions/Evade.png"
+        "ImageSource": "e"
       },
       {
         "Name": "Focus",
-        "ImageSource": "/Assets/Logos/Actions/Focus.png"
+        "ImageSource": "f"
       },
       {
         "Name": "Target Lock",
-        "ImageSource": "/Assets/Logos/Actions/TargetLock.png"
+        "ImageSource": "l"
       },
       {
         "Name": "Cloak",
-        "ImageSource": "/Assets/Logos/Actions/Cloak.png"
+        "ImageSource": "k"
       },
       {
         "Name": "Barrel Roll",
-        "ImageSource": "/Assets/Logos/Actions/BarrelRoll.png"
+        "ImageSource": "r"
       },
       {
         "Name": "SLAM",
-        "ImageSource": "/Assets/Logos/Actions/SLAM.png"
+        "ImageSource": "s"
       },
       {
         "Name": "Coordinate",
-        "ImageSource": ""
+        "ImageSource": "o"
       },
       {
         "Name": "Reinforce",
-        "ImageSource": ""
+        "ImageSource": "i"
+      },
+      {
+        "Name": "Recover",
+        "ImageSource": "v"
       }
     ]
   }

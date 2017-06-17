@@ -858,7 +858,7 @@
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Elite Pilot Talent",
-        "Description": "Action: Execute a white [Left Turn 1] or [Right Turn 1] manouevre. Then, receive 1 stress token. Then, if you do not have the  action icon, roll 2 attack dice. Suffer any damage ^HIT or ^CRITICAL damage rolled."
+        "Description": "Action: Execute a white [ ^LEFTTURN 1] or [ ^RIGHTTURN 1] manouevre. Then, receive 1 stress token. Then, if you do not have the  action icon, roll 2 attack dice. Suffer any damage ^HIT or ^CRITICAL damage rolled."
       },
       {
         "Faction": "Any",
@@ -960,8 +960,9 @@
         "Name": "Advanced SLAM",
         "Cost": 2,
         "SlotsRequired": 1,
+        "ActionLimited": "SLAM",
         "Type": "Modification",
-        "Description": "After performing a SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action."
+        "Description": "After performing a ^SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action."
       },
       {
         "Faction": "Any",
@@ -1061,7 +1062,7 @@
         "SlotsRequired": 1,
         "ShipLimited": "TIE",
         "Type": "Modification",
-        "Description": "You may treat all bank manoeuvres (^LEFTBANK or ^RIGHTBANK) as green manoeuvres."
+        "Description": "You may treat all bank manoeuvres ( ^LEFTBANK or ^RIGHTBANK ) as green manoeuvres."
       },
       {
         "Faction": "Any",
@@ -1199,6 +1200,16 @@
         "Description": "Your action bar gains the ^EVADE action icon."
       },
       {
+        "Faction": "Any",
+        "SizeRestriction": "Small",       
+        "Name": "Vectored Thrusters",
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "AddedActions": [ "Barrel Roll" ],        
+        "Type": "Modification",
+        "Description": "Your action bar gains the ^BARRELROLL icon."
+      },
+      {
         "Faction": "Rebels",
         "SizeRestriction": "Large",
         "Unique": true,
@@ -1308,7 +1319,7 @@
         "Name": "TIE/v1",
         "Cost": 1,
         "SlotsRequired": 1,
-        "ShipLimited": "TIE Advanced Prototype",
+        "ShipLimited": "TIE Adv. Prototype",
         "Type": "Title",
         "Description": "After you acquire a target lock, you may perform a free ^EVADE action."
       },
@@ -1433,6 +1444,15 @@
         "ShipLimited": "Y-Wing",
         "Type": "Title",
         "Description": "You cannot attack ships outside your firing arc. After you perform a primary weapon attack, you may immediately perform an attack with a ^TURRET secondary weapon."
+      },
+      {
+        "Faction": "Empire",
+        "Name": "Adaptive Ailerons",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "TIE Striker",
+        "Type": "Title",
+        "Description": "Immediately before you reveal your dial, if you are not stressed, you must execute a white ( ^LEFTBANK 1), ( ^STRAIGHT 1), or ( ^RIGHTBANK 1) maneuver."
       },
       {
         "Faction": "Scum",
@@ -1645,33 +1665,6 @@
       },
       {
         "Faction": "Any",
-        "Name": "Crack Shot",
-        "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipLimited": "",
-        "Type": "Elite Pilot Talent",
-        "Description": "When attacking a ship inside your firing arc, at the start of the ‘Compare results’ step, you may discard this card to cancel 1 of the defender's ^EVADE results."
-      },
-      {
-        "Faction": "Any",
-        "Name": "Lightning Reflexes",
-        "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipLimited": "",
-        "Type": "Elite Pilot Talent",
-        "Description": "After you execute a white or green maneouvre on your dial, you may discard this card to rotate your ship 180°. Then receive 1 stress token after the “Check Pilot Stress” step."
-      },
-      {
-        "Faction": "Any",
-        "Name": "Adaptability",
-        "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipLimited": "",
-        "Type": "Elite Pilot Talent",
-        "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
-      },
-      {
-        "Faction": "Any",
         "Name": "Adaptability",
         "Cost": 0,
         "SlotsRequired": 1,
@@ -1698,7 +1691,7 @@
         "Description": "Action: Assign 1 focus token to your ship and receive 2 stress tokens. Until the end of round, when attacking, you may reroll up to 3 dice."
       },
       {
-        "Faction": "Any",
+        "Faction": "Scum",
         "Name": "Fearlessness",
         "Cost": 1,
         "SlotsRequired": 1,

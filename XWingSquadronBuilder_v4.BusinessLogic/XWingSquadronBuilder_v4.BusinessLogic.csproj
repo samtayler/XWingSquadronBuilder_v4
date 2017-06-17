@@ -110,7 +110,7 @@
     <Compile Include="Extensions\UpgradeSlotCollectionExtensions.cs" />
     <Compile Include="Factories\DataParsers.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
-    <Compile Include="Logic\UpgradeFilter.cs" />
+    <Compile Include="Logic\UpgradeSetter.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Faction.cs" />
     <Compile Include="Models\NullUpgrade.cs" />

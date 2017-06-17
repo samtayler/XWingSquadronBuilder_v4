@@ -19,7 +19,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event PilotCopySelectedHandler CopyPilot;
 
-        public delegate void UpgradeSlotSelectedHandler(object sender, IUpgradeSlot e);
+        public delegate void UpgradeSlotSelectedHandler(object sender, Tuple<IPilot, IUpgradeSlot> e);
 
         public event UpgradeSlotSelectedHandler UpgradeSlotSelected;
        
@@ -42,7 +42,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void UpgradeSlotList_UpgradeSlotSelected(object sender, IUpgradeSlot e)
         {
-            UpgradeSlotSelected?.Invoke(ViewModel.Pilot, e);
+            UpgradeSlotSelected?.Invoke(sender, Tuple.Create(ViewModel.Pilot, e));
         }
 
         private void btnDelete_Tapped(object sender, TappedRoutedEventArgs e)

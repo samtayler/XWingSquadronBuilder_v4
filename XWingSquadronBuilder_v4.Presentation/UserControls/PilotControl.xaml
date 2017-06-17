@@ -15,7 +15,7 @@
 
     <UserControl.Resources>
         <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
-        <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>
+        <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>        
         <converters:TextToItemsConverter x:Key="textToItems"/>
     </UserControl.Resources>
 
@@ -60,7 +60,7 @@
                            Foreground="#FFF57F20" 
                            TextWrapping="Wrap" 
                            Text="{x:Bind ViewModel.Pilot.PilotSkill,Mode=OneWay, FallbackValue=0}"                            
-                           RelativePanel.AlignVerticalCenterWithPanel="True"
+                           RelativePanel.AlignVerticalCenterWithPanel="True"                           
                            Margin="0,0,10,0"
                            FontSize="18"/>
                 <TextBlock x:Name="txblkUnique"                            
@@ -79,7 +79,7 @@
                            RelativePanel.Below="txblkPilotName" 
                            FontSize="10" 
                            FontStyle="Italic"
-                           RelativePanel.AlignLeftWith="txblkPilotSkill" />
+                           RelativePanel.AlignLeftWith="txblkPilotName" />
                 <TextBlock x:Name="txblkPilotName" 
                            HorizontalAlignment="Left" 
                            TextWrapping="Wrap" 
@@ -114,7 +114,7 @@
                               Margin="10,0,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="interfaces:IAction">
-                            <Image Source="{x:Bind Image}" Height="20" Width="20" Margin="5"/>
+                            <TextBlock Text="{x:Bind Image}" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="20" Margin="5"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -149,20 +149,12 @@
                         <ContentPresenter Content="{Binding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <!--<TextBlock x:Name="txblkpilotAbility" 
-                       Text="{x:Bind ViewModel.Pilot.PilotAbility,Mode=OneTime,FallbackValue='Pilot Ability'}"
-                       RelativePanel.Below="InfoPanel"
-                       FontFamily="x-wing-symbols"
-                       RelativePanel.AlignRightWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       FontSize="15"
-                       />-->
-            <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}" 
-                                      UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
-                                    RelativePanel.Below="pilotAbility"
-                                  RelativePanel.AlignRightWithPanel="True"
-                                  RelativePanel.AlignLeftWithPanel="True"
+            </ItemsControl>            
+            <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}"
+                                          UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
+                                          RelativePanel.Below="pilotAbility"
+                                          RelativePanel.AlignRightWithPanel="True"
+                                          RelativePanel.AlignLeftWithPanel="True"
                                           Visibility="{x:Bind ViewModel.Collapsed,Mode=OneWay}"/>
         </RelativePanel>
     </Grid>

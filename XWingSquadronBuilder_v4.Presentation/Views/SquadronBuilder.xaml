@@ -17,18 +17,33 @@
         <!--<ResourceDictionary>
             <converters:PilotToPilotViewModelConverter x:Key="PilotToViewModel"/>
         </ResourceDictionary>-->
+        
     </Page.Resources>
     
     <Page.Background>
-        <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
+        <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
     </Page.Background>
 
-    <RelativePanel Background="#E5000000">
+    <RelativePanel Background="#E5000000">        
         <StackPanel x:Name="CommandBar"
                        RelativePanel.AlignTopWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                     Orientation="Horizontal">
+            <Button x:Name="btnHome"
+                    Height="50"
+                    Width="50"
+                    Content="&#xE10F;"
+                    Background="Transparent"
+                    FontFamily="Segoe MDL2 Assets">
+                <Interactivity:Interaction.Behaviors>
+                    <Interactivity:BehaviorCollection>
+                        <Interactions:EventTriggerBehavior EventName="Tapped">
+                            <Interactions:NavigateToPageAction TargetPage="XWingSquadronBuilder_v4.Presentation.Views.FactionSelectionPage"/>
+                        </Interactions:EventTriggerBehavior>
+                    </Interactivity:BehaviorCollection>
+                </Interactivity:Interaction.Behaviors>                
+            </Button>
             <Button x:Name="btnPrint"
                     Height="50"
                     Width="50"
@@ -63,8 +78,7 @@
                                RelativePanel.RightOf="PilotList"
                                RelativePanel.Below="CommandBar"
                                RelativePanel.Above="StatusBar"
-                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}"
-                               UpgradeSlotSelected="Squadron_UpgradeSlotSelected">
+                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}">
             <Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>
                     <Interactions:EventTriggerBehavior EventName="RemovePilot">
@@ -72,6 +86,9 @@
                     </Interactions:EventTriggerBehavior>
                     <Interactions:EventTriggerBehavior EventName="CopyPilot">
                         <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.AddPilotCommand}" />
+                    </Interactions:EventTriggerBehavior>
+                    <Interactions:EventTriggerBehavior EventName="UpgradeSlotSelected">
+                        <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.SelectUpgradeCommand}" />
                     </Interactions:EventTriggerBehavior>
                 </Interactivity:BehaviorCollection>
             </Interactivity:Interaction.Behaviors>
@@ -82,5 +99,12 @@
                        RelativePanel.AlignRightWithPanel="True">
             <TextBlock x:Name="txblkSquadronCost" Foreground="Red" Text="{x:Bind ViewModel.SquadronCost, Mode=OneWay}" RelativePanel.AlignRightWithPanel="True"/>
         </RelativePanel>
+        <userControls:UpgradeSelector x:Name="upgradeSelector" 
+                                      RelativePanel.AlignBottomWithPanel="True" 
+                                      RelativePanel.AlignTopWithPanel="True" 
+                                      RelativePanel.AlignLeftWithPanel="True" 
+                                      RelativePanel.AlignRightWithPanel="True"
+                                      Visibility="{x:Bind ViewModel.ShowUpgradeSelector,Mode=TwoWay}"
+                                      UpgradeSetter="{x:Bind ViewModel.UpgradeSetter,Mode=OneWay}" d:IsHidden="True"/>
     </RelativePanel>
 </Page>

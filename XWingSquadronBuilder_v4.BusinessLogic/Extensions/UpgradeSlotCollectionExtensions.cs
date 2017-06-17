@@ -9,7 +9,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Extensions
 {
     public static class UpgradeSlotCollectionExtensions
     {
-        public static bool AreRemovalConditionsMet(this IEnumerable<IUpgradeSlot> upgrades, IUpgrade upgrade)
+        public static bool AreRemovalConditionsMet(this IEnumerable<IUpgradeSlot> upgrades, IUpgrade upgrade, IUpgradeSlot selectedSlot)
         {
             var upgradeTypesToRemove = upgrade.RemoveUpgradeModifiers;
             List<IUpgradeSlot> slotsToBeRemoved = new List<IUpgradeSlot>();
@@ -18,7 +18,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Extensions
             {
                 foreach (var upgradeSlot in upgrades)
                 {
-                    if (upgradeSlot.IsNullUpgrade && upgradeSlot.UpgradeType.Equals(uType))
+                    if (upgradeSlot.IsNullUpgrade && upgradeSlot.UpgradeType.Equals(uType) && upgradeSlot != selectedSlot)
                     {
                         slotsToBeRemoved.Add(upgradeSlot);
                         break;

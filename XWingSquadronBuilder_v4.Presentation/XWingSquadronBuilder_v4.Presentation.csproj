@@ -29,6 +29,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -99,6 +100,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RemovePilotCommand.cs" />
+    <Compile Include="Converters\BooleanToTextConverter.cs" />
     <Compile Include="Converters\TextToItemsConverter.cs" />
     <Compile Include="Extensions\ScrollViewerExtension.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -127,8 +129,8 @@
     <Compile Include="UserControls\Squadron.xaml.cs">
       <DependentUpon>Squadron.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\UpgradePicker.xaml.cs">
-      <DependentUpon>UpgradePicker.xaml</DependentUpon>
+    <Compile Include="UserControls\UpgradeSelector.xaml.cs">
+      <DependentUpon>UpgradeSelector.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UpgradeSlotList.xaml.cs">
       <DependentUpon>UpgradeSlotList.xaml</DependentUpon>
@@ -137,6 +139,9 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
     <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
+    <Compile Include="Views\FactionSelectionPage.xaml.cs">
+      <DependentUpon>FactionSelectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SquadronBuilder.xaml.cs">
       <DependentUpon>SquadronBuilder.xaml</DependentUpon>
     </Compile>
@@ -159,6 +164,56 @@
     <Content Include="Assets\Logos\Actions\evade.png" />
     <Content Include="Assets\Logos\Actions\focus.png" />
     <Content Include="Assets\Logos\Actions\targetLock.png" />
+    <Content Include="Assets\Logos\App Icons\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\LargeTile.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\LargeTile.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\LargeTile.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\LargeTile.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\LargeTile.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\SmallTile.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\SmallTile.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\SmallTile.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\SmallTile.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\SmallTile.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\SplashScreen.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Logos\App Icons\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\Logos\App Icons\StoreLogo.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\StoreLogo.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\StoreLogo.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\StoreLogo.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Logos\App Icons\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Logos\App Icons\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Logos\App Icons\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Logos\App Icons\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Logos\App Icons\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Logos\basic icons\Agility.png" />
     <Content Include="Assets\Logos\basic icons\Astromech.png" />
     <Content Include="Assets\Logos\basic icons\Attack.png" />
@@ -192,12 +247,18 @@
     <Content Include="Assets\Logos\Empire\Backgrounds\TieFighterBackground.png" />
     <Content Include="Assets\Logos\Empire\Firespray-31.png" />
     <Content Include="Assets\Logos\Empire\lambda-class.png" />
+    <Content Include="Assets\Logos\Empire\TIE Advanced Prototype.png" />
     <Content Include="Assets\Logos\Empire\tie advanced.png" />
     <Content Include="Assets\Logos\Empire\tie bomber.png" />
     <Content Include="Assets\Logos\Empire\tie defender.png" />
     <Content Include="Assets\Logos\Empire\tie interceptor.png" />
-    <Content Include="Assets\Logos\Empire\tie phantom.png" />
+    <Content Include="Assets\Logos\Empire\TIE Phantom.png" />
+    <Content Include="Assets\Logos\Empire\TIE Punisher.png" />
+    <Content Include="Assets\Logos\Empire\TIE Striker.png" />
+    <Content Include="Assets\Logos\Empire\TIE-SF Fighter.png" />
     <Content Include="Assets\Logos\Empire\tiefighter logo.png" />
+    <Content Include="Assets\Logos\Empire\Upsilion-Class Shuttle.png" />
+    <Content Include="Assets\Logos\Empire\Upsilion-Class Shuttle2.png" />
     <Content Include="Assets\Logos\Empire\VT-49-Decimator.png" />
     <Content Include="Assets\RebelAllianceLogo.png" />
     <Content Include="Assets\ScumLogo.png" />
@@ -235,11 +296,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\UpgradePicker.xaml">
+    <Page Include="UserControls\UpgradeSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UpgradeSlotList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FactionSelectionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

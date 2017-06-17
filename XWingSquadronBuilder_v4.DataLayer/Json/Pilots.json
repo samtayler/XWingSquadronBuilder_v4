@@ -1179,6 +1179,1126 @@
       "Unique": true,
       "PilotAbility": "During your \"Perform Action\" step, you may perform 2 actions.",
       "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Duchess\"",
+      "Upgrades": [ "Modification", "Title", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 23,
+      "Unique": true,
+      "PilotAbility": "While you have the 'Adaptive Ailerons' Upgrade card equipped, you may choose to ignore its card ability.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Pure Sabacc\"",
+      "Upgrades": [ "Modification", "Title", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 22,
+      "Unique": true,
+      "PilotAbility": "When attacking. If you have 1 or fewer Damage cards, roll 1 additional attack die.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Countdown\"",
+      "Upgrades": [ "Modification", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 20,
+      "Unique": true,
+      "PilotAbility": "When defending, if you are not stressed during the \"Compare Results\" step, you may suffer 1 damage to cancel all dice results. if you do, receive 1 stress token.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Black Squadron Scout",
+      "Upgrades": [ "Modification", "Title", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 20,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Scarif Defender",
+      "Upgrades": [ "Modification", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 18,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Imperial Trainee",
+      "Upgrades": [ "Modification", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Striker.png",
+      "ShipName": "TIE Striker",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 4,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 17,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Sigma Squadron Pilot",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Phantom.png",
+      "ShipName": "TIE Phantom",
+      "Actions": [ "Focus", "Barrel Roll", "Evade", "Cloak" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 4
+      },
+      "Cost": 25,
+      "Unique": false,
+      "PilotAbility": "The primary result of a hidden research facility on Imdaar Alpha, the TIE phantom added a small fighter with cloaking capabilities to the Imperial fleet.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Shadow Squadron Pilot",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Phantom.png",
+      "ShipName": "TIE Phantom",
+      "Actions": [ "Focus", "Barrel Roll", "Evade", "Cloak" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 4
+      },
+      "Cost": 27,
+      "Unique": false,
+      "PilotAbility": "Featuring a hyperdrive and shields, the TIE phantom also came equipped with five laser cannons, giving it unprecedented firepower for such a small Imperial fighter.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Echo\"",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Phantom.png",
+      "ShipName": "TIE Phantom",
+      "Actions": [ "Focus", "Barrel Roll", "Evade", "Cloak" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 4
+      },
+      "Cost": 30,
+      "Unique": true,
+      "PilotAbility": "When you decloak, you must use the [ ^LEFTBANK 2] or [ ^RIGHTBANK 2] template instead of the [ ^STRAIGHT 2] template.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Whisper\"",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Phantom.png",
+      "ShipName": "TIE Phantom",
+      "Actions": [ "Focus", "Barrel Roll", "Evade", "Cloak" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 4
+      },
+      "Cost": 32,
+      "Unique": true,
+      "PilotAbility": "After you perform an attack that hits, you may assign 1 focus token to your ship.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Starkiller Base Pilot",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Crew", "Tech", "Tech" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Upsilion-Class Shuttle.png",
+      "ShipName": "Upsilion-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock", "Coordinate" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 4
+      },
+      "Cost": 30,
+      "Unique": false,
+      "PilotAbility": "The Upsilon-class shuttle served as a command ship for many of the First Order's elite officers and agents as they spread terror across the galaxy.",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Lieutenant Dormitz",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Crew", "Tech", "Tech" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Upsilion-Class Shuttle.png",
+      "ShipName": "Upsilion-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock", "Coordinate" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 4
+      },
+      "Cost": 31,
+      "Unique": true,
+      "PilotAbility": "During setup, friendly ships may be placed anywhere in the play area at Range 1-2 of you.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Major Stridan",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Crew", "Tech", "Tech" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Upsilion-Class Shuttle.png",
+      "ShipName": "Upsilion-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock", "Coordinate" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 4
+      },
+      "Cost": 32,
+      "Unique": true,
+      "PilotAbility": "For the purpose of your actions and Upgrade cards, you may treat friendly ships at Range 2-3 as being at Range 1.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Kylo Ren",
+      "Upgrades": [ "Modification", "System Upgrade", "Crew", "Crew", "Tech", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Empire/Upsilion-Class Shuttle.png",
+      "ShipName": "Upsilion-Class Shuttle",
+      "Actions": [ "Focus", "Target Lock", "Coordinate" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 4
+      },
+      "Cost": 34,
+      "Unique": true,
+      "PilotAbility": "The first time you are hit by an attack each round, assign the \"I'll Show You the Dark Side\" Condition card to the attacker.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Zeta Specialist",
+      "Upgrades": [ "Modification", "System Upgrade", "Tech", "Missile" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE-SF Fighter.png",
+      "ShipName": "TIE/SF Fighter",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 23,
+      "Unique": false,
+      "PilotAbility": "Only the most elite pilots of the First Order were authorized to fly this specialized two-seater TIE craft outfitted with enhanced shields, weapons, and sensor systems.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Omega Specialist",
+      "Upgrades": [ "Modification", "System Upgrade", "Tech", "Missile", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE-SF Fighter.png",
+      "ShipName": "TIE/SF Fighter",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": false,
+      "PilotAbility": "Only the most elite pilots of the First Order were authorized to fly this specialized two-seater TIE craft outfitted with enhanced shields, weapons, and sensor systems.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Backdraft\"",
+      "Upgrades": [ "Modification", "System Upgrade", "Tech", "Missile", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE-SF Fighter.png",
+      "ShipName": "TIE/SF Fighter",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 27,
+      "Unique": true,
+      "PilotAbility": "When attacking a ship inside your auxiliary firing arc, you may add 1 ^CRITICAL result.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Quickdraw\"",
+      "Upgrades": [ "Modification", "System Upgrade", "Tech", "Missile", "Elite Pilot Talent" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE-SF Fighter.png",
+      "ShipName": "TIE/SF Fighter",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "Once per round, when you lose a shield token, you may perform a primary weapon attack.",
+      "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Sienar Test Pilot",
+      "Upgrades": [ "Modification", "Missile", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Advanced Prototype.png",
+      "ShipName": "TIE Adv. Prototype",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 16,
+      "Unique": false,
+      "PilotAbility": "Sienar Fleet System's TIE Advanced v1 was a groundbreaking starfighter design featuring upgraded engines, a missile launcher, and folding s-foils.",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Baron of the Empire",
+      "Upgrades": [ "Modification", "Missile", "Elite Pilot Talent", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Advanced Prototype.png",
+      "ShipName": "TIE Adv. Prototype",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 19,
+      "Unique": false,
+      "PilotAbility": "The aristocratic title of baron was presented to ace starfighter pilots for outstanding service to the Empire.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Valen Rudor",
+      "Upgrades": [ "Modification", "Missile", "Elite Pilot Talent", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Advanced Prototype.png",
+      "ShipName": "TIE Adv. Prototype",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 22,
+      "Unique": true,
+      "PilotAbility": "After defending, you may perform a free action.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "The Inquisitor",
+      "Upgrades": [ "Modification", "Missile", "Elite Pilot Talent", "Title" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Advanced Prototype.png",
+      "ShipName": "TIE Adv. Prototype",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When attacking with your primary weapon at Range 2-3, treat the range of the attack as Range 1.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Cutlass Squadron Pilot",
+      "Upgrades": [ "Modification", "Missile", "Missile", "Torpedo", "Torpedo", "Bomb", "Bomb", "System Upgrade" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Punisher.png",
+      "ShipName": "TIE Punisher",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 21,
+      "Unique": false,
+      "PilotAbility": "The TIE Punisher built upon the success of the TIE bomber, adding shielding, a second bomb chute, and three additional ordnance pods, each equipped with a twin ion engine.",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Black Eight Squadron Pilot",
+      "Upgrades": [ "Modification", "Missile", "Missile", "Torpedo", "Torpedo", "Bomb", "Bomb", "System Upgrade" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Punisher.png",
+      "ShipName": "TIE Punisher",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 23,
+      "Unique": false,
+      "PilotAbility": "Darth Vader's hand-picked Black Eight Squadron earned its reputation for ruthlessness when its bombardment of Callos rendered the planet uninhabitable.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Deathrain\"",
+      "Upgrades": [ "Modification", "Missile", "Missile", "Torpedo", "Torpedo", "Bomb", "Bomb", "System Upgrade" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Punisher.png",
+      "ShipName": "TIE Punisher",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "When dropping a bomb, you may use the front guides of your ship. After dropping a bomb, you may perform a free barrel roll action.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Redline\"",
+      "Upgrades": [ "Modification", "Missile", "Missile", "Torpedo", "Torpedo", "Bomb", "Bomb", "System Upgrade" ],
+      "Faction": "Empire",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/TIE Punisher.png",
+      "ShipName": "TIE Punisher",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 27,
+      "Unique": true,
+      "PilotAbility": "You may maintain 2 target locks on the same ship. When you acquire a target lock, you may acquire a second lock on that same ship.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Raider-Class Corvette (Aft)",
+      "Upgrades": [ "Modification", "Crew", "Crew", "Hardpoint", "Hardpoint", "Team", "Team", "Cargo" ],
+      "Faction": "Empire",
+      "ShipSize": "Huge",
+      "ShipIcon": "/Assets/Logos/Empire/Raider.png",
+      "ShipName": "Raider-Class Corvette",
+      "Actions": [ "Coordinate", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 8,
+        "Aglilty": 0,
+        "Attack": 6
+      },
+      "Cost": 50,
+      "Unique": false,
+      "PilotAbility": "The demise of the Death Star proved to Imperial High Command the importance of anti-fighter craft which renewed interest in the Raider-class corvette.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Raider-Class Corvette (Fore)",
+      "Upgrades": [ "Modification", "Hardpoint", "Team", "Cargo" ],
+      "Faction": "Empire",
+      "ShipSize": "Huge",
+      "ShipIcon": "/Assets/Logos/Empire/Raider.png",
+      "ShipName": "Raider-Class Corvette",
+      "Actions": [ "Reinforce", "Recover" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 8,
+        "Aglilty": 0,
+        "Attack": 4
+      },
+      "Cost": 50,
+      "Unique": false,
+      "PilotAbility": "Once per round, after you perform a primary weapon attack, you may spend 2 energy to perform another primary weapon attack.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Prototype Pilot",
+      "Upgrades": [ "Modification", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 17,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Green Squadron Pilot",
+      "Upgrades": [ "Modification", "Missile", "Elite Pilot Talent", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 19,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Gemmer Sojan",
+      "Upgrades": [ "Modification", "Missile", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 22,
+      "Unique": true,
+      "PilotAbility": "While you are at Range 1 of at least 1 enemy ship, increase your agility value by 1.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Arvel Crynyd",
+      "Upgrades": [ "Modification", "Missile", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 23,
+      "Unique": true,
+      "PilotAbility": "You may declare an enemy ship inside your firing arc that you are touching as the target of your attack.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Jake Farrell",
+      "Upgrades": [ "Modification", "Missile", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 24,
+      "Unique": true,
+      "PilotAbility": "After you perform a focus action or are assigned a focus token, you may perform a free boost or barrel roll action.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Tycho Celchu",
+      "Upgrades": [ "Modification", "Missile", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/A-Wing.png",
+      "ShipName": "A-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 24,
+      "Unique": true,
+      "PilotAbility": "You may perform actions even while you have a stress token.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Braylen Stramm",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/ARC-170.png",
+      "ShipName": "ARC-170",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "After you execute a manoeuvre, you may roll an attack die. On a ^HIT or ^CRITICAL result, remove 1 stress token from your ship.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Thane Kyrell",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/ARC-170.png",
+      "ShipName": "ARC-170",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "After an enemy ship inside your firing arc at Range 1-3 attacks another friendly ship, you may perform a free action.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Shara Bey",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/ARC-170.png",
+      "ShipName": "ARC-170",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 28,
+      "Unique": true,
+      "PilotAbility": "When another friendly ship at Range 1-2 is attacking, it may treat your blue target lock tokens as its own.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Norra Wexley",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/ARC-170.png",
+      "ShipName": "ARC-170",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "When attacking or defending, you may spend a target lock you have on the enemy ship to add 1 ^FOCUS result to your roll.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "\"Zeb\" Orrelios",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipName": "Attack Shuttle",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 18,
+      "Unique": true,
+      "PilotAbility": "When defending, you may cancel ^CRITICAL results before ^HIT results.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Ezra Bridger",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipName": "Attack Shuttle",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 20,
+      "Unique": true,
+      "PilotAbility": "When defending, if you are stressed, you may change 2 of your ^FOCUS results to ^EVADE results.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Sabine Wren",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipName": "Attack Shuttle",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 21,
+      "Unique": true,
+      "PilotAbility": "Immediately before you reveal your manoeuvre, you may perform a free boost or barrel roll action.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Hera Syndulla",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipName": "Attack Shuttle",
+      "Actions": [ "Focus", "Barrel Roll", "Evade" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 22,
+      "Unique": true,
+      "PilotAbility": "When you reveal a green or red manoeuvre, you may rotate your dial to another manoeuvre of the same difficulty.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Blue Squadron Pilot",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 22,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Dagger Squadron Pilot",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 24,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Nera Dantels",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "You can perform ^TORPEDO secondary weapon attacks at ships outside your firing arc.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Ibtisam",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 28,
+      "Unique": true,
+      "PilotAbility": "When attacking or defending, if you have at least one stress token, you may reroll 1 of your dice.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Keyan Farlander",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "When attacking, you may remove 1 stress token to change all of your ^FOCUS results to ^HIT results.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Ten Numb",
+      "Upgrades": [ "Modification", "System Upgrade", "Cannon", "Torpedo", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/B-Wing.png",
+      "ShipName": "B-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 3,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 31,
+      "Unique": true,
+      "PilotAbility": "When attacking, 1 of your ^CRITICAL results cannot be cancelled by defense dice.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Knave Squadron Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "System Upgrade" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/E-Wing.png",
+      "ShipName": "E-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 27,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Blackmoon Squadron Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "System Upgrade" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/E-Wing.png",
+      "ShipName": "E-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Etahm A'baht",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "System Upgrade", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/E-Wing.png",
+      "ShipName": "E-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 32,
+      "Unique": true,
+      "PilotAbility": "When an enemy ship inside your firing arc at Range 1-3 is defending, the attacker may change 1 of its ^HIT results to a ^CRITICAL result.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Corran Horn",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "System Upgrade", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/E-Wing.png",
+      "ShipName": "E-Wing",
+      "Actions": [ "Focus", "Barrel Roll", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 2,
+        "Aglilty": 3,
+        "Attack": 3
+      },
+      "Cost": 35,
+      "Unique": true,
+      "PilotAbility": "At the start of the End phase, you may perform 1 attack. You may not attack next round.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Rebel Operative",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/HWK-290.png",
+      "ShipName": "HWK-290",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 1,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 16,
+      "Unique": false,
+      "PilotAbility": "",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Roark Garnet",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/HWK-290.png",
+      "ShipName": "HWK-290",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 1,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 19,
+      "Unique": true,
+      "PilotAbility": "At the start of the combat phase choose 1 other friendly ship at Range 1-3. Until the end of the phase, treat that pilot's pilot skill value as 12. ",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Kyle Katarn",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/HWK-290.png",
+      "ShipName": "HWK-290",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 1,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 21,
+      "Unique": true,
+      "PilotAbility": "At the start of the Combat Phase, you may assign 1 of your focus tokens to another friendly ship at Range 1-3.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Jan Ors",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/HWK-290.png",
+      "ShipName": "HWK-290",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 1,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 21,
+      "Unique": true,
+      "PilotAbility": "When another friendly ship at Range 1-3 is attacking, if you have no stress tokens, you may receive 1 stress token to allow that ship to roll 1 additional attack die.",
+      "PilotSkill": 8
     }
   ]
 }
