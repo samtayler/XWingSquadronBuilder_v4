@@ -58,8 +58,9 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
                 {
                     DataContractJsonSerializer mySerializer = new DataContractJsonSerializer(typeof(T));
                     var root = (T)mySerializer.ReadObject(stream);
+                    inputStream.CloneStream();                    
                     return root;
-                }
+                }                
             }).Result;
         }
 

@@ -34,7 +34,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
 
         // Using a DependencyProperty as the backing store for ViewModel.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register("ViewModel", typeof(SqudronBuilderViewModel), typeof(SquadronBuilder), new PropertyMetadata(0));        
+            DependencyProperty.Register("ViewModel", typeof(SqudronBuilderViewModel), typeof(SquadronBuilder), new PropertyMetadata(null));        
 
         public SquadronBuilder()
         {
@@ -43,6 +43,10 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if(ViewModel != null)
+            {
+                ViewModel.Dispose();
+            }
             ViewModel = new SqudronBuilderViewModel(e.Parameter as IFaction);
             base.OnNavigatedTo(e);
         }

@@ -42,9 +42,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public int PilotSkill => AbilityEngine.PilotSkill;
 
-        public ObservableCollection<IAction> Actions => AbilityEngine.Actions;
+        public List<IAction> Actions => AbilityEngine.Actions;
 
-        public ObservableCollection<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
+        public List<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
 
         private PilotAbilityEngine AbilityEngine { get; }         
 

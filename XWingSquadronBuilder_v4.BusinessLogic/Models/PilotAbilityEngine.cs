@@ -22,8 +22,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
         public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);
         private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
-        public ObservableCollection<IUpgradeSlot> Upgrades { get; }
-        public ObservableCollection<IAction> Actions { get; }
+        public List<IUpgradeSlot> Upgrades => GetCalculatedUpgradeSlots()
+            .OrderBy(upgrade => upgrade.UpgradeType.Name).ThenBy(upgrade => upgrade.IsNullUpgrade).ToList();
+        public List<IAction> Actions => CalculateActions().ToList();
         private HashSet<IAction> _actions { get; }
         private int attack { get; }
         private int agility { get; }
@@ -44,11 +45,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged += UpgradeContainer_PropertyChanged;
-            }
-            Upgrades = new ObservableCollection<IUpgradeSlot>();
-            Actions = new ObservableCollection<IAction>();
-            RecalculateUpgrades();
-            RecalculateActions();
+            }           
 
         }
 
@@ -56,9 +53,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             if (e.PropertyName == "Enabled") return;
             if (e.PropertyName == "Upgrade")
-            {
-                RecalculateUpgrades();
-                RecalculateActions();
+            {                
+                NotifyPropertyChanged(nameof(Actions));
+                NotifyPropertyChanged(nameof(Upgrades));
                 NotifyPropertyChanged(nameof(Attack));
                 NotifyPropertyChanged(nameof(Agility));
                 NotifyPropertyChanged(nameof(Hull));
@@ -66,66 +63,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 NotifyPropertyChanged(nameof(PilotSkill));
                 NotifyPropertyChanged(nameof(Cost));
             }
-        }
-
-        private void RecalculateUpgrades()
-        {            
-            var upgrades = GetCalculatedUpgradeSlots();
-            var upgradesToRemove = new List<IUpgradeSlot>();
-            foreach (var upgrade in Upgrades)
-            {
-                if (!upgrades.Contains(upgrade, new ReferenceComparer<IUpgradeSlot>()))
-                    upgradesToRemove.Add(upgrade);
-            }
-
-            foreach (var upgrade in upgradesToRemove)
-                Upgrades.Remove(upgrade);
-
-            var upgradesToAdd = new List<IUpgradeSlot>();
-            foreach (var upgrade in upgrades)
-            {
-                if (!Upgrades.Contains(upgrade, new ReferenceComparer<IUpgradeSlot>()))
-                    upgradesToAdd.Add(upgrade);
-            }
-
-            foreach (var upgrade in upgradesToAdd)
-                Upgrades.Add(upgrade);
-
-            var orderedUpgrades = Upgrades.OrderBy(upgrade => upgrade.UpgradeType.Name).ThenBy(upgrade => upgrade.IsNullUpgrade).ToArray();
-
-            Upgrades.Clear();
-
-            foreach (var upgrade in orderedUpgrades)
-            {
-                Upgrades.Add(upgrade);
-            }
-
-        }
-
-        private void RecalculateActions()
-        {
-            var actions = CalculateActions();
-            var actionsToRemove = new List<IAction>();
-            foreach (var action in Actions)
-            {
-                if (!actions.Contains(action))
-                    actionsToRemove.Add(action);
-            }
-
-            foreach (var action in actionsToRemove)
-                Actions.Remove(action);
-
-            var actionsToAdd = new List<IAction>();
-            foreach (var action in actions)
-            {
-                if (!Actions.Contains(action))
-                    actionsToAdd.Add(action);
-            }
-
-            foreach (var action in actionsToAdd)
-                Actions.Add(action);
-
-        }
+        }        
 
         public int GetPilotStatModification(string key)
         {

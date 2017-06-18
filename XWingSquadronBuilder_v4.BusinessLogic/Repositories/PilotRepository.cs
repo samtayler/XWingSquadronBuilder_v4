@@ -18,9 +18,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
             pilots = DataImporter.GetPilots().ToList().AsReadOnly();
         }
 
-        public List<IPilot> GetPilotsForFaction(IFaction faction) => (from pilot in pilots where pilot.Faction == faction.Name select CreatePilot(pilot)).ToList();
+        public List<IPilot> GetPilotsForFaction(IFaction faction) => pilots.Where(pilot => pilot.Faction == faction.Name).Select(CreatePilot).ToList();
 
-        public List<IPilot> GetPilots() => (from pilot in pilots select CreatePilot(pilot)).ToList();
+        public List<IPilot> GetPilots() => pilots.Select(CreatePilot).ToList();
 
     }
 }

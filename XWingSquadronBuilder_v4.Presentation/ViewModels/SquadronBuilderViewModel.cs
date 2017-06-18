@@ -18,12 +18,12 @@ using XWingSquadronBuilder_v4.Presentation.Commands;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
-    public partial class SqudronBuilderViewModel : BindableBase
+    
+    public partial class SqudronBuilderViewModel : BindableBase , IDisposable
     {
         private int squadronCost;
         public ISquadron Squadron { get; private set; }
-        public ObservableCollection<PilotViewModel> SquadronPilots { get; }
-
+        public ObservableCollection<PilotViewModel> SquadronPilots { get; }       
 
         private UpgradeSetter upgradeSetter;
 
@@ -133,5 +133,10 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             Squadron.ClearAllPilots();
         }
 
+        public void Dispose()
+        {
+            Squadron.PropertyChanged -= Squadron_PropertyChanged;
+            Squadron.Pilots.CollectionChanged -= Pilots_CollectionChanged;
+        }
     }
 }

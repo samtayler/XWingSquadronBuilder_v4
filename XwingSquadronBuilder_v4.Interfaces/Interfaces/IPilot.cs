@@ -23,8 +23,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int Hull { get; }
         int Shield { get; }
 
-        ObservableCollection<IUpgradeSlot> Upgrades { get; }
-        ObservableCollection<IAction> Actions { get; }
+        List<IUpgradeSlot> Upgrades { get; }
+        List<IAction> Actions { get; }
 
         string Image { get; }
         string ShipIcon { get; }       

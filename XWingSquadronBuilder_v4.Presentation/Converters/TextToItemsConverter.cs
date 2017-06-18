@@ -15,7 +15,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
         private static Dictionary<string, string> xwingKeyWords = new Dictionary<string, string>()
         {
             {"HIT","d" },{"CRIT","c" },{"CRITICAL","c" },{"EVADE","e" },{"FOCUS","f" },{"TARGETLOCK","l" },{"BOOST","b" },{"BARRELROLL","r" },
-            { "CLOAK","k" },{"SLAM","s" },{"BOMB","B" },{"CREW","W" },{"CANNON","C" },{"MISSILE","M" },{"TORPEDO","P" },
+            { "CLOAK","k" },{"SLAM","s" },{"BOMB","B" },{"CREW","W" },{"CANNON","C" },{"MISSILE","M" },{"TORPEDO","P" },{"TURRET","U" },
             { "MODFIFICATION","m" },{"TITLE","t" }, { "ELITEPILOTTALET","E" },{"SYSTEMUPGRADE","S" },{"TECH","X" },{"K-TURN","2" },
             { "RIGHTBANK","9" },{"LEFTBANK","7" },{"RIGHTTURN","6" },{"LEFTTURN","4" },{"STRAIGHT","8" },{"RIGHTTALONROLL","\"" },
             { "LEFTTALONROLL","\'" },{ "RIGHTSEGNORSLOOP","2" },{"STOP","5" },{ "LEFTSEGNORSLOOP","1" }};

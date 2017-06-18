@@ -79,6 +79,8 @@
                                    Margin="2"
                                    FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
                                    FontSize="15"
+                                   Height="15"
+                                   Width="15"
                                    RelativePanel.AlignLeftWithPanel="True" 
                                    RelativePanel.AlignVerticalCenterWithPanel="True"
                                    Foreground="Gold"/>

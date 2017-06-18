@@ -1946,7 +1946,7 @@
       "Upgrades": [ "Modification", "Turret", "Crew", "Title" ],
       "Faction": "Rebels",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipIcon": "/Assets/Logos/Rebels/Attack Shuttle.png",
       "ShipName": "Attack Shuttle",
       "Actions": [ "Focus", "Barrel Roll", "Evade" ],
       "Stats": {
@@ -1966,7 +1966,7 @@
       "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
       "Faction": "Rebels",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipIcon": "/Assets/Logos/Rebels/Attack Shuttle.png",
       "ShipName": "Attack Shuttle",
       "Actions": [ "Focus", "Barrel Roll", "Evade" ],
       "Stats": {
@@ -1986,7 +1986,7 @@
       "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
       "Faction": "Rebels",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipIcon": "/Assets/Logos/Rebels/Attack Shuttle.png",
       "ShipName": "Attack Shuttle",
       "Actions": [ "Focus", "Barrel Roll", "Evade" ],
       "Stats": {
@@ -2006,7 +2006,7 @@
       "Upgrades": [ "Modification", "Turret", "Crew", "Title", "Elite Pilot Talent" ],
       "Faction": "Rebels",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Rebels/AttackShuttle.png",
+      "ShipIcon": "/Assets/Logos/Rebels/Attack Shuttle.png",
       "ShipName": "Attack Shuttle",
       "Actions": [ "Focus", "Barrel Roll", "Evade" ],
       "Stats": {
@@ -2299,6 +2299,1126 @@
       "Unique": true,
       "PilotAbility": "When another friendly ship at Range 1-3 is attacking, if you have no stress tokens, you may receive 1 stress token to allow that ship to roll 1 additional attack die.",
       "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Warden Squadron Pilot",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Bomb", "Bomb", "Missile", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/K-Wing.png",
+      "ShipName": "K-Wing",
+      "Actions": [ "Focus", "Target Lock", "SLAM" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 23,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Guardian Squadron Pilot",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Bomb", "Bomb", "Missile", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/K-Wing.png",
+      "ShipName": "K-Wing",
+      "Actions": [ "Focus", "Target Lock", "SLAM" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Esege Teketu",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Bomb", "Bomb", "Missile", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/K-Wing.png",
+      "ShipName": "K-Wing",
+      "Actions": [ "Focus", "Target Lock", "SLAM" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When another friendly ship at Range 1-2 is attacking, it may treat your focus tokens as its own.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/Lamda1Background.png",
+      "Name": "Miranda Doni",
+      "Upgrades": [ "Modification", "Turret", "Crew", "Bomb", "Bomb", "Missile", "Torpedo", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/K-Wing.png",
+      "ShipName": "K-Wing",
+      "Actions": [ "Focus", "Target Lock", "SLAM" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "Once per round when attacking, you may either spend 1 shield to roll 1 additional attack die or roll 1 fewer attack die to recover 1 shield.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Zeb\" Orrelios",
+      "Upgrades": [ "Modification", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "Sabine's TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 12,
+      "Unique": true,
+      "PilotAbility": "When defending, you may cancel ^CRITICAL results before ^HIT results.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Captain Rex",
+      "Upgrades": [ "Modification", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "Sabine's TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 14,
+      "Unique": true,
+      "PilotAbility": "After you perform an attack, assign the \"Suppressive Fire\" Condition card to the defender.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Sabine Wren",
+      "Upgrades": [ "Modification", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "Sabine's TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 15,
+      "Unique": true,
+      "PilotAbility": "Immediately before you reveal your manoeuvre, you may perform a free boost or barrel roll action.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Ahsoka Tano",
+      "Upgrades": [ "Modification", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Empire/tiefighter logo.png",
+      "ShipName": "Sabine's TIE Fighter",
+      "Actions": [ "Focus", "Evade", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 0,
+        "Hull": 3,
+        "Aglilty": 3,
+        "Attack": 2
+      },
+      "Cost": 17,
+      "Unique": true,
+      "PilotAbility": "At the start of the Combat phase, you may spend 1 focus token to choose a friendly ship at Range 1. It may perform 1 free action.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Blue Squadron Novice",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 24,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Jess Pava",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When attacking or defending, you may reroll 1 of your dice for each other friendly ship at Range 1.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Red Squadron Veteran",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": false,
+      "PilotAbility": "No pilot ablilty",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Blue Ace\"",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "When performing a boost action, you may use the [ ^LEFTTURN 1] or [ ^RIGHTTURN 1] template.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Snap\" Wexley",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 28,
+      "Unique": true,
+      "PilotAbility": "After you execute a 2-, 3-, or 4-speed manoeuvre, if you are not touching a ship, you may perform a free boost action.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Red Ace\"",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "The first time you remove a shield token from your ship each round, assign 1 evade token to your ship.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Nien Nunb",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "When you receive a stress token, if there is an enemy ship inside your firing arc at Range 1, you may discard that stress token.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Ello Asty",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 30,
+      "Unique": true,
+      "PilotAbility": "While you are not stressed, you may treat your ^LEFTTALONROLL and ^RIGHTTALONROLL manoeuvres as white manoeuvres.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Poe Dameron",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 31,
+      "Unique": true,
+      "PilotAbility": "While attacking or defending, if you have a focus token, you may change 1 of your ^FOCUS results to a ^HIT or ^EVADE result.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Poe Dameron",
+      "Upgrades": [ "Modification", "Title", "Astromech", "Torpedo", "Tech", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-70 X-Wing.png",
+      "ShipName": "T-70 X-Wing",
+      "Actions": [ "Focus", "Target Lock", "Boost" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 33,
+      "Unique": true,
+      "PilotAbility": "While attacking or defending, if you have a focus token, you may change 1 of your ^FOCUS results to a ^HIT or ^EVADE result.",
+      "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Rookie Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 21,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Red Squadron Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 21,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Tarn Mison",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 23,
+      "Unique": true,
+      "PilotAbility": "When an enemy ship declares you as the target of an attack, you may acquire a target lock on that ship.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Hobbie\" Klivian",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When you acquire or spend a target lock, you may remove 1 stress token from your ship.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Biggs Darklighter",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "Other friendly ships at Range 1 cannot be targeted by attacks if the attacker could target you instead.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Garven Dreis",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "After spending a focus token, you may place that token on any other friendly ship at Range 1-2 (instead of discarding it).",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Jek Prokins",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 26,
+      "Unique": true,
+      "PilotAbility": "When you receive a stress token, you may remove it and roll 1 attack die. On a ^HIT result, deal 1 facedown damage card to this ship.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Luke Skywalker",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 28,
+      "Unique": true,
+      "PilotAbility": "When defending, you may change 1 of your ^FOCUS results to a ^EVADE result.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Wedge Antilles",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "When attacking, reduce the defender's agility value by 1 (to a minimum of 0)",
+      "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Wes Janson",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/T-65 X-Wing.png",
+      "ShipName": "T-65 X-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 3,
+        "Aglilty": 2,
+        "Attack": 3
+      },
+      "Cost": 29,
+      "Unique": true,
+      "PilotAbility": "After you perform an attack, you may remove 1 focus, evade or blue target lock token from the defender.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Horton Salm",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Torpedo", "Turret", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Y-Wing.png",
+      "ShipName": "Y-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When attacking at Range 2-3, you may reroll any of your blank results.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Dutch\" Vandar",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Torpedo", "Turret", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Y-Wing.png",
+      "ShipName": "Y-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 23,
+      "Unique": true,
+      "PilotAbility": "After acquiring a target lock, choose another friendly ship at Range 1-2. The ship may immediately acquire a target lock.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Gray Squadron Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Torpedo", "Turret", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Y-Wing.png",
+      "ShipName": "Y-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 20,
+      "Unique": false,
+      "PilotAbility": "No pilot ablilty",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Gold Squadron Pilot",
+      "Upgrades": [ "Modification", "Astromech", "Torpedo", "Torpedo", "Turret", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Y-Wing.png",
+      "ShipName": "Y-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 3,
+        "Hull": 5,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 18,
+      "Unique": false,
+      "PilotAbility": "No pilot ablilty",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Airen Cracken",
+      "Upgrades": [ "Modification", "Elite Pilot Talent", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Z-95 Headhunter.png",
+      "ShipName": "Z-95 Headhunter",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 19,
+      "Unique": true,
+      "PilotAbility": "After you perform an attack, you may choose another friendly ship at Range 1. That ship may perform 1 free action.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Lieutenant Blount",
+      "Upgrades": [ "Modification", "Elite Pilot Talent", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Z-95 Headhunter.png",
+      "ShipName": "Z-95 Headhunter",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 17,
+      "Unique": true,
+      "PilotAbility": "When attacking, the defender is hit by your attack, even if he does not suffer any damage.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Tala Squadron Pilot",
+      "Upgrades": [ "Modification", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Z-95 Headhunter.png",
+      "ShipName": "Z-95 Headhunter",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 13,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Bandit Squadron Pilot",
+      "Upgrades": [ "Modification", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Small",
+      "ShipIcon": "/Assets/Logos/Rebels/Z-95 Headhunter.png",
+      "ShipName": "Z-95 Headhunter",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 2,
+        "Hull": 2,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 12,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Cassian Amdor",
+      "Upgrades": [ "Modification", "Elite Pilot Talent", "Torpedo", "System Upgrade", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/U-Wing.png",
+      "ShipName": "U-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 27,
+      "Unique": true,
+      "PilotAbility": "At the start of the Activation phase, you may remove 1 stress token from 1 other friendly ship at Range 1-2.",
+      "PilotSkill": 6
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Bodhi Rook",
+      "Upgrades": [ "Modification", "Torpedo", "System Upgrade", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/U-Wing.png",
+      "ShipName": "U-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 25,
+      "Unique": true,
+      "PilotAbility": "When a friendly ship acquires a target lock, that ship can lock onto an enemy ship at Range 1-3 of any friendly ship.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Heff Tobber",
+      "Upgrades": [ "Modification", "Torpedo", "System Upgrade", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/U-Wing.png",
+      "ShipName": "U-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 24,
+      "Unique": true,
+      "PilotAbility": "After an enemy ship executes a manoeuvre that causes it to overlap your ship, you may perform a free action.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Blue Squadron Pathfinder",
+      "Upgrades": [ "Modification", "Torpedo", "System Upgrade", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/U-Wing.png",
+      "ShipName": "U-Wing",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 4,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 23,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Hera Syndulla",
+      "Upgrades": [ "Modification", "Torpedo", "Torpedo", "System Upgrade", "Crew", "Crew", "Title", "Turret" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/VCX-100.png",
+      "ShipName": "VCX-100",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 10,
+        "Aglilty": 0,
+        "Attack": 4
+      },
+      "Cost": 40,
+      "Unique": true,
+      "PilotAbility": "When you reveal a green or red manoeuvre, you may rotate your dial to another manoeuvre of the same difficulty.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Kanan Jarrus",
+      "Upgrades": [ "Modification", "Torpedo", "Torpedo", "System Upgrade", "Crew", "Crew", "Title", "Turret" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/VCX-100.png",
+      "ShipName": "VCX-100",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 10,
+        "Aglilty": 0,
+        "Attack": 4
+      },
+      "Cost": 38,
+      "Unique": true,
+      "PilotAbility": "When an enemy ship at Range 1-2 is attacking, you may spend a focus token. If you do, the attacker rolls 1 less attack die.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Chopper\"",
+      "Upgrades": [ "Modification", "Torpedo", "Torpedo", "System Upgrade", "Crew", "Crew", "Title", "Turret" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/VCX-100.png",
+      "ShipName": "VCX-100",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 10,
+        "Aglilty": 0,
+        "Attack": 4
+      },
+      "Cost": 37,
+      "Unique": true,
+      "PilotAbility": "At the start of the Combat phase, each enemy ship you are touching receives 1 stress token.",
+      "PilotSkill": 4
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Lothal Rebel",
+      "Upgrades": [ "Modification", "Torpedo", "Torpedo", "System Upgrade", "Crew", "Crew", "Title", "Turret" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/VCX-100.png",
+      "ShipName": "VCX-100",
+      "Actions": [ "Focus", "Target Lock", "Evade" ],
+      "Stats": {
+        "Shield": 6,
+        "Hull": 10,
+        "Aglilty": 0,
+        "Attack": 4
+      },
+      "Cost": 35,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Han Solo (HOTR)",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 46,
+      "Unique": true,
+      "PilotAbility": "When you are placed during setup, you can be placed anywhere in the play area beyond Range 3 of enemy ships.",
+      "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Han Solo",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 46,
+      "Unique": true,
+      "PilotAbility": "When attacking, you may reroll all of your dice. If you choose to do so, you must reroll as many of your dice as possible.",
+      "PilotSkill": 9
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Rey",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 45,
+      "Unique": true,
+      "PilotAbility": "When attacking or defending, if the enemy ship is inside your firing arc, you may reroll up to 2 of your blank results.",
+      "PilotSkill": 8
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Lando Calrissian",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 44,
+      "Unique": true,
+      "PilotAbility": "After you execute a green manoeuvre, choose one other friendly ship at Range 1. That ship may perform 1 free action on its action bar.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Chewbacca (HOTR)",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 42,
+      "Unique": true,
+      "PilotAbility": "After another friendly ship at Range 1-3 is destroyed (but has not fled the battlefield), you may perform an attack.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Chewbacca",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title", "Elite Pilot Talent" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 42,
+      "Unique": true,
+      "PilotAbility": "When you are dealt a faceup damage card, immediately flip it facedown (without resolving its ability).",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Resistance Sympathizer",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 8,
+        "Aglilty": 1,
+        "Attack": 3
+      },
+      "Cost": 38,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Outer Rim Smuggler",
+      "Upgrades": [ "Modification", "Missile", "Crew", "Crew", "Title" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-1300.png",
+      "ShipName": "YT-1300",
+      "Actions": [ "Focus", "Target Lock" ],
+      "Stats": {
+        "Shield": 4,
+        "Hull": 6,
+        "Aglilty": 1,
+        "Attack": 2
+      },
+      "Cost": 27,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 1
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Dash Rendar",
+      "Upgrades": [ "Modification", "Cannon", "Crew", "Title", "Elite Pilot Talent", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-2400 Freighter.png",
+      "ShipName": "YT-2400 Freighter",
+      "Actions": [ "Focus", "Target Lock", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 36,
+      "Unique": true,
+      "PilotAbility": "You may ignore obstacles during the Activation phase and when performing actions.",
+      "PilotSkill": 7
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "\"Leebo\"",
+      "Upgrades": [ "Modification", "Cannon", "Crew", "Title", "Elite Pilot Talent", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-2400 Freighter.png",
+      "ShipName": "YT-2400 Freighter",
+      "Actions": [ "Focus", "Target Lock", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 34,
+      "Unique": true,
+      "PilotAbility": "When you are dealt a faceup Damage card, draw 1 additional Damage card, choose 1 to resolve and discard the other.",
+      "PilotSkill": 5
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Eaden Vrill",
+      "Upgrades": [ "Modification", "Cannon", "Crew", "Title", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-2400 Freighter.png",
+      "ShipName": "YT-2400 Freighter",
+      "Actions": [ "Focus", "Target Lock", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 32,
+      "Unique": true,
+      "PilotAbility": "When performing a primary weapon attack against a stressed ship, roll 1 additional attack dice.",
+      "PilotSkill": 3
+    },
+    {
+      "Image": "/Assets/Logos/Empire/Backgrounds/TieFighterBackground.png",
+      "Name": "Wild Space Fringer",
+      "Upgrades": [ "Modification", "Cannon", "Crew", "Title", "Missile" ],
+      "Faction": "Rebels",
+      "ShipSize": "Large",
+      "ShipIcon": "/Assets/Logos/Rebels/YT-2400 Freighter.png",
+      "ShipName": "YT-2400 Freighter",
+      "Actions": [ "Focus", "Target Lock", "Barrel Roll" ],
+      "Stats": {
+        "Shield": 5,
+        "Hull": 5,
+        "Aglilty": 2,
+        "Attack": 2
+      },
+      "Cost": 30,
+      "Unique": false,
+      "PilotAbility": "No pilot ability",
+      "PilotSkill": 2
     }
   ]
 }

@@ -423,7 +423,7 @@
       {
         "Faction": "Rebels",
         "Unique": true,
-        "Name": "C3PO",
+        "Name": "C3-PO",
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Crew",
@@ -441,7 +441,7 @@
       {
         "Faction": "Rebels",
         "Unique": true,
-        "Name": "R2D2",
+        "Name": "R2-D2",
         "Cost": 4,
         "SlotsRequired": 1,
         "Type": "Crew",
@@ -1201,11 +1201,11 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Small",       
+        "SizeRestriction": "Small",
         "Name": "Vectored Thrusters",
         "Cost": 2,
         "SlotsRequired": 1,
-        "AddedActions": [ "Barrel Roll" ],        
+        "AddedActions": [ "Barrel Roll" ],
         "Type": "Modification",
         "Description": "Your action bar gains the ^BARRELROLL icon."
       },
@@ -1665,9 +1665,30 @@
       },
       {
         "Faction": "Any",
-        "Name": "Adaptability",
+        "Name": "Adaptability (Increase)",
         "Cost": 0,
         "SlotsRequired": 1,
+        "StatChanges": [
+          {
+            "Type": "PilotSkill",
+            "Value": 1
+          }
+        ],
+        "ShipLimited": "",
+        "Type": "Elite Pilot Talent",
+        "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Adaptability (Decrease)",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "StatChanges": [
+          {
+            "Type": "PilotSkill",
+            "Value": -1
+          }
+        ],
         "ShipLimited": "",
         "Type": "Elite Pilot Talent",
         "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
@@ -1762,6 +1783,198 @@
         "ShipLimited": "",
         "Type": "Tech",
         "Description": "When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the \"Attack [targetlock]\" :header as \"Attack:\" If a game effect instructs that ship to spend a target lock, it may spend your target lock instead."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Guidance Chips",
+        "Cost": 0,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Modification",
+        "Description": "Once per round, when attacking with a ^TORPEDO or ^MISSILE secondary weapon, you may change 1 die result to a ^HIT result (or a ^CRITICAL result if your primary weapon value is \"3\" or higher)."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R2-D2",
+        "Unique": true,
+        "Cost": 4,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "After executing a green maneuver, you may recover 1 shield (up to your shield value)."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R2-F2",
+        "Unique": true,
+        "Cost": 3,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "ACTION: Increase your agility value by 1 until the end of this game round."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R5-K6",
+        "Unique": true,
+        "Cost": 2,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "After spending your target lock, roll 1 defense die. On an ^EVADE result, immediately acquire a target lock on that same ship. You cannot spend this target lock during this attack."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R5 Astromech",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "During the End phase, you may choose 1 of your faceup Damage cards with the Ship trait and flip it facedown."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R2 Astromech",
+        "Cost": 1,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "You may treat all 1- and 2-speed maneuvers as green maneuvers."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R5-D8",
+        "Cost": 3,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "Action:  Roll 1 defense die. On an ^EVADE or ^FOCUS result, discard 1 of your facedown Damage cards."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R2-D6",
+        "Cost": 1,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "AddedUpgrades": [
+          {
+            "Type": "Elite Pilot Talent"            
+          }
+        ],
+        "Type": "Astromech",
+        "UpgradeRestricted": [
+          "Elite Pilot Talent"
+        ],
+        "StatLimited": [
+          {
+            "Stat": "Pilot Skill",
+            "Operand": ">",
+            "Value": 2
+          }
+        ],
+        "Description": "Your upgrade bar gains the elite upgrade icon. You cannot equip this upgrade if you already have an elite upgrade icon or if your pilot skill value is \"2\" or lower."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R3-A2",
+        "Cost": 1,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "When you declare the target of your attack, if the defender is inside your firing arc, you may receive 1 stress token to cause the defender to receive 1 stress token."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R4-D6",
+        "Cost": 1,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "When you are hit by an attack and there are at least 3 uncancelled ^HIT results, you may choose and cancel those results until there are 2 remaining. For each result cancelled in this way, receive 1 stress token. "
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R5-P9",
+        "Cost": 3,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "At the end of the Combat phase, you may spend 1 of your focus tokens to recover 1 shield (up to your shield value)."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R7-T1",
+        "Cost": 3,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "ACTION: Choose an enemy ship at Range 1-2. If you are inside that ship's firing arc, you may acquire a target lock on that ship. Then, you may perform a free ^BOOST action."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R7 Astromech",
+        "Cost": 2,
+        "Unique": false,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "Once per round when defending, if you have a target lock on the attacker, you may spend the target lock to choose any or all attack dice. The attacker must reroll the chosen dice."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "BB-8",
+        "Cost": 2,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "When you reveal a green maneuver, you may perform a free ^BARRELROLL action."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R5-X3",
+        "Cost": 1,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "Targeting Astromech",
+        "Cost": 2,
+        "Unique": false,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "After you execute a red maneuver, you may acquire a target lock. "
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "R3 Astromech",
+        "Cost": 2,
+        "Unique": false,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "Once per round, when attacking with a primary weapon, you may cancel 1 of your ^FOCUS results during the \"Modify Attack Dice\" step to assign 1 ^EVADE token to your ship."
+      },
+      {
+        "Faction": "Rebels",
+        "Name": "M9-G8",
+        "Cost": 3,
+        "Unique": true,
+        "SlotsRequired": 1,
+        "ShipLimited": "",
+        "Type": "Astromech",
+        "Description": "When a ship you have locked is attacking, you may choose 1 attack die. The attacker must reroll that die. You can acquire target locks on other friendly ships."
       }
     ]
   }
