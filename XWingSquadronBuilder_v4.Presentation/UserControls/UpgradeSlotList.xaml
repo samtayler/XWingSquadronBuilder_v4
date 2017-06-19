@@ -11,26 +11,29 @@
     mc:Ignorable="d" Visibility="{Binding Visibility}">
 
     <UserControl.Resources>
-        <converters:TextToItemsConverter x:Key="textToItems"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Style\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>            
 
-        <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
-            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
-            <Setter Property="TabNavigation" Value="Local"/>
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="BorderThickness" Value="0,0.5"/>
-            <Setter Property="IsHoldingEnabled" Value="True"/>
-            <Setter Property="Padding" Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
-            <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-                        <ListViewItemPresenter          
+            <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
+                <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+                <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
+                <Setter Property="TabNavigation" Value="Local"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Setter Property="BorderThickness" Value="0,0.5"/>
+                <Setter Property="IsHoldingEnabled" Value="True"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
+                <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListViewItem">
+                            <ListViewItemPresenter          
           CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
           CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
           DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}"
@@ -52,15 +55,13 @@
           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
           ContentMargin="{TemplateBinding Padding}"
           CheckMode="Inline"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
-        <converters:BooleanToVisibilityConverter x:Key="boolToVis"/>
-        <converters:BooleanToUniqueConverter x:Key="boolToUnique" />        
-        
 
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <ItemsControl ItemsSource="{x:Bind UpgradeSlots,Mode=OneWay}" >
@@ -91,19 +92,19 @@
                             Margin="2"/>
                         <TextBlock x:Name="txblkUpgradeTypeName" 
                             Text="{x:Bind Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
-                                   Visibility="{x:Bind IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVis}}"
+                                   Visibility="{x:Bind IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.AlignVerticalCenterWith="imgType"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>
                         <TextBlock x:Name="txblkCost" Text="{x:Bind Cost,Mode=OneWay, FallbackValue='Cost'}"
-                                   Visibility="{x:Bind IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVis}}"
+                                   Visibility="{x:Bind IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                    
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName" 
                                    RelativePanel.LeftOf="btnClearUpgrade"
                                    HorizontalAlignment="Left"
                                    FontSize="12"
-                                   Margin="2"/>                       
+                                   Margin="2"/>
                         <ItemsControl Name="CardText"
                                       ItemsSource="{x:Bind Upgrade.CardText,Mode=OneWay, Converter={StaticResource textToItems}}"
                                       Margin="5,5,0,5"                   

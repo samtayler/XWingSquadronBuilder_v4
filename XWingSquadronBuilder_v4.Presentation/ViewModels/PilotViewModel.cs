@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Prism.Commands;
 using XWingSquadronBuilder_v4.Interfaces;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Input;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
@@ -18,11 +19,11 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         public PilotViewModel(IPilot pilot)
         {
             this.pilot = pilot;
-            ToggleCollapsed = new DelegateCommand(() =>
-            {
-                if (Collapsed == Visibility.Collapsed) Collapsed = Visibility.Visible;
-                else if (Collapsed == Visibility.Visible) Collapsed = Visibility.Collapsed;
-            });
+            //ToggleCollapsed = new DelegateCommand(() =>
+            //{
+            //    if (Collapsed == Visibility.Collapsed) Collapsed = Visibility.Visible;
+            //    else if (Collapsed == Visibility.Visible) Collapsed = Visibility.Collapsed;
+            //});
 
             pilot.PropertyChanged += Pilot_PropertyChanged;
             PilotCost = pilot.Cost + pilot.UpgradesCost;
@@ -57,7 +58,13 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             set { SetProperty(ref collapsed, value); }
         }
 
-        public ICommand ToggleCollapsed { get; private set; }
+        public void ToggleCollapsed(object sender, TappedRoutedEventArgs e)
+        {
+            if (Collapsed == Visibility.Collapsed) Collapsed = Visibility.Visible;
+            else if (Collapsed == Visibility.Visible) Collapsed = Visibility.Collapsed;
+        }
+
+        //public ICommand ToggleCollapsed { get; private set; }
 
         public bool Equals(PilotViewModel other)
         {

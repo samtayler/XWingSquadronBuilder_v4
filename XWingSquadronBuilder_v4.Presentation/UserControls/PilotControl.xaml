@@ -14,9 +14,11 @@
     RequestedTheme="Dark">
 
     <UserControl.Resources>
-        <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
-        <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>        
-        <converters:TextToItemsConverter x:Key="textToItems"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Style\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
 
@@ -24,14 +26,14 @@
         <!--<Grid.Background>
             <ImageBrush ImageSource="{x:Bind Pilot.Image}" Stretch="UniformToFill"/>
         </Grid.Background>-->
-        <RelativePanel Padding="5,0,5,5">
-            <Interactivity:Interaction.Behaviors>
+        <RelativePanel Padding="5,0,5,5" Tapped="{x:Bind ViewModel.ToggleCollapsed}">
+            <!--<Interactivity:Interaction.Behaviors>
                 <Interactivity:BehaviorCollection>
                     <Interactions:EventTriggerBehavior EventName="Tapped">
                         <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.ToggleCollapsed}"/>
                     </Interactions:EventTriggerBehavior>
                 </Interactivity:BehaviorCollection>
-            </Interactivity:Interaction.Behaviors>
+            </Interactivity:Interaction.Behaviors>-->
             <RelativePanel.Background>
                 <SolidColorBrush Color="#E5000000"/>
             </RelativePanel.Background>
@@ -149,7 +151,7 @@
                         <ContentPresenter Content="{Binding}"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
-            </ItemsControl>            
+            </ItemsControl>
             <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Pilot.Upgrades,Mode=OneWay}"
                                           UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
                                           RelativePanel.Below="pilotAbility"

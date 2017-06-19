@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    xmlns:local="using:XWingSquadronBuilder_v4.Presentation.Style">
+
+    <Color x:Key="EmpireAccentColor">White</Color>
+    <Color x:Key="RebelsAccentColor">Red</Color>
+    <Color x:Key="ScumAccentColor">#FFA59053</Color>
+
+    <converters:TextToItemsConverter x:Key="textToItems"/>
+    <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
+    <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>    
+
+</ResourceDictionary>

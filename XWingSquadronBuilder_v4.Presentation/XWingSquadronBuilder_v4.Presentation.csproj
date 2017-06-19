@@ -129,6 +129,9 @@
     <Compile Include="UserControls\Squadron.xaml.cs">
       <DependentUpon>Squadron.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UpgradeControl.xaml.cs">
+      <DependentUpon>UpgradeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UpgradeSelector.xaml.cs">
       <DependentUpon>UpgradeSelector.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,7 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
     <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
+    <Compile Include="ViewModels\UpgradeVIewModel.cs" />
     <Compile Include="Views\FactionSelectionPage.xaml.cs">
       <DependentUpon>FactionSelectionPage.xaml</DependentUpon>
     </Compile>
@@ -299,6 +303,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Style\XWing Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="UserControls\PilotControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,6 +317,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Squadron.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UpgradeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

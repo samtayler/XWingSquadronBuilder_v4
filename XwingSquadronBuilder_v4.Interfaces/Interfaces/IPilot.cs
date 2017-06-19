@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged
+    public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged, IDisposable
     {        
         string Name { get; }
         bool Unique { get; }

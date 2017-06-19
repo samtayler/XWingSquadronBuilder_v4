@@ -44,6 +44,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public void ClearAllPilots()
         {
+            foreach (var pilot in Pilots)
+            {
+                pilot.Dispose();
+            }
             this.Pilots.Clear();
             NotifyPropertyChanged(nameof(SquadronCostTotal));
             UniqueNameCards.Clear();
@@ -68,6 +72,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             if (!Pilots.Remove(pilot)) return false;
 
+            pilot.Dispose();
             NotifyPropertyChanged(nameof(SquadronCostTotal));
             UniqueNameCards.Remove(pilot.Name);
             return true;

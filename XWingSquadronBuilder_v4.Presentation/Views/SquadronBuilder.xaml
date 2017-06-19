@@ -14,10 +14,7 @@
     RequestedTheme="Dark">
 
     <Page.Resources>
-        <!--<ResourceDictionary>
-            <converters:PilotToPilotViewModelConverter x:Key="PilotToViewModel"/>
-        </ResourceDictionary>-->
-        
+       
     </Page.Resources>
     
     <Page.Background>
