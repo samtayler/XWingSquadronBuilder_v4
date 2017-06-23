@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.BusinessLogic.Logic;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.Presentation.Converters;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -47,6 +48,11 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             e.Handled = true;
             UpgradeSetter.SetUpgrade(((FrameworkElement)e.OriginalSource).DataContext as IUpgrade);
             Visibility = Visibility.Collapsed;
+        }
+
+        public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
+        {
+            return XWingTextAugmenter.AugementWithXWingIcons(text, fontsize);
         }
 
         private void Grid_Tapped_1(object sender, TappedRoutedEventArgs e)

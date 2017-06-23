@@ -22,15 +22,15 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class Squadron : UserControl
     {
-        public delegate void PilotRemoveSelectedHandler(object sender, PilotViewModel e);
+        public delegate void PilotRemoveSelectedHandler(PilotViewModel e);
 
         public event PilotRemoveSelectedHandler RemovePilot;
 
-        public delegate void PilotCopySelectedHandler(object sender, IPilot e);
+        public delegate void PilotCopySelectedHandler(IPilot e);
 
         public event PilotCopySelectedHandler CopyPilot;
 
-        public delegate void UpgradeSlotSelectedHandler(object sender, Tuple<IPilot,IUpgradeSlot> e);
+        public delegate void UpgradeSlotSelectedHandler(Tuple<IPilot,IUpgradeSlot> e);
 
         public event UpgradeSlotSelectedHandler UpgradeSlotSelected;
 
@@ -51,17 +51,17 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void PilotControl_RemovePilot(object sender, PilotViewModel e)
         {
-            RemovePilot?.Invoke(sender, e);
+            RemovePilot?.Invoke(e);
         }
 
         private void PilotControl_CopyPilot(object sender, IPilot e)
         {
-            CopyPilot?.Invoke(sender, e);
+            CopyPilot?.Invoke(e);
         }
 
         private void PilotControl_UpgradeSlotSelected(object sender, Tuple<IPilot, IUpgradeSlot> e)
         {
-            UpgradeSlotSelected?.Invoke(sender, e);
+            UpgradeSlotSelected?.Invoke(e);
         }
 
         private void PilotControl_Tapped(object sender, TappedRoutedEventArgs e)

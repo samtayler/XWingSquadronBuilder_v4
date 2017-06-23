@@ -9,12 +9,7 @@
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
     mc:Ignorable="d"
-    RequestedTheme="Dark" >
-
-    <UserControl.Resources>
-        <ResourceDictionary>            
-        </ResourceDictionary>
-    </UserControl.Resources>
+    RequestedTheme="Dark">    
     
     <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10" >
         <ItemsControl ItemsSource="{x:Bind Pilots,Mode=OneTime}">

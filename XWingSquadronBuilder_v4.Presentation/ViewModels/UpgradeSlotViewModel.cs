@@ -1,34 +1,33 @@
-﻿using Template10.Mvvm;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Template10.Mvvm;
+using Windows.UI.Xaml.Controls;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Converters;
-using Windows.UI.Xaml.Controls;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
-    public class UpgradeViewModel : BindableBase
+    public class UpgradeSlotViewModel : BindableBase
     {
-        private IUpgrade upgrade;
+        private IUpgradeSlot upgradeSlot;
 
-        public IUpgrade Upgrade
+        public UpgradeSlotViewModel(IUpgradeSlot upgradeSlot)
         {
-            get { return this.upgrade; }
-            private set { Set(ref upgrade, value); }
+            UpgradeSlot = upgradeSlot;
         }
 
-        public UpgradeViewModel(IUpgrade upgrade)
+        public IUpgradeSlot UpgradeSlot
         {
-            this.upgrade = upgrade;
+            get { return this.upgradeSlot; }
+            set { Set(ref upgradeSlot, value); }
         }
 
         public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
         {
             return XWingTextAugmenter.AugementWithXWingIcons(text, fontsize);
         }
-
     }
 }

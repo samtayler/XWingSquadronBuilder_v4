@@ -1,8 +1,23 @@
-﻿<Application
-    x:Class="XWingSquadronBuilder_v4.Presentation.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:XWingSquadronBuilder_v4.Presentation"
-    RequestedTheme="Dark">
+﻿<common:BootStrapper x:Class="XWingSquadronBuilder_v4.Presentation.App"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:common="using:Template10.Common">
 
-</Application>
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles\XWing Styles.xaml"/>                
+            </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.ThemeDictionaries>                
+                <ResourceDictionary Source="Styles\EmpireTheme.xaml" x:Key="Empire" />
+                <ResourceDictionary Source="Styles\RebelsTheme.xaml" x:Key="Rebels" />
+                <ResourceDictionary Source="Styles\ScumTheme.xaml" x:Key="Scum" />
+            </ResourceDictionary.ThemeDictionaries>
+
+            <!--  custom resources  -->
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+
+</common:BootStrapper>

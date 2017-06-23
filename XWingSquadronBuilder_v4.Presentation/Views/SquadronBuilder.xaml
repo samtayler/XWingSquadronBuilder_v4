@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"  
@@ -13,9 +14,11 @@
     mc:Ignorable="d"
     RequestedTheme="Dark">
 
-    <Page.Resources>
-       
-    </Page.Resources>
+   
+    
+    <Page.DataContext>
+        <viewModels:SqudronBuilderViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
     
     <Page.Background>
         <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
@@ -32,15 +35,8 @@
                     Width="50"
                     Content="&#xE10F;"
                     Background="Transparent"
-                    FontFamily="Segoe MDL2 Assets">
-                <Interactivity:Interaction.Behaviors>
-                    <Interactivity:BehaviorCollection>
-                        <Interactions:EventTriggerBehavior EventName="Tapped">
-                            <Interactions:NavigateToPageAction TargetPage="XWingSquadronBuilder_v4.Presentation.Views.FactionSelectionPage"/>
-                        </Interactions:EventTriggerBehavior>
-                    </Interactivity:BehaviorCollection>
-                </Interactivity:Interaction.Behaviors>                
-            </Button>
+                    FontFamily="Segoe MDL2 Assets"
+                    Tapped="{x:Bind ViewModel.NavigateHome}"/>
             <Button x:Name="btnPrint"
                     Height="50"
                     Width="50"
@@ -54,42 +50,23 @@
                     Background="Transparent"
                     Foreground="Green"
                     FontFamily="Segoe MDL2 Assets"
-                    Command="{x:Bind ViewModel.ClearPilotsCommand}"/>
-
+                    Tapped="{x:Bind ViewModel.ClearPilots}"/>
         </StackPanel>
         <userControls:PilotsList x:Name="PilotList" 
                                  Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"                                                                 
                                  RelativePanel.AlignLeftWithPanel="True"
                                  RelativePanel.Above="StatusBar"
-                                 RelativePanel.Below="CommandBar">
-            <Interactivity:Interaction.Behaviors>
-                <Interactivity:BehaviorCollection>
-                    <Interactions:EventTriggerBehavior EventName="PilotSelected">
-                        <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.AddPilotCommand}" />
-                    </Interactions:EventTriggerBehavior>
-                </Interactivity:BehaviorCollection>
-            </Interactivity:Interaction.Behaviors>
-        </userControls:PilotsList>
+                                 RelativePanel.Below="CommandBar"
+                                 PilotSelected="{x:Bind ViewModel.AddPilot}"/>
         <userControls:Squadron x:Name="Squadron"                                                                               
                                RelativePanel.AlignRightWithPanel="True"
                                RelativePanel.RightOf="PilotList"
                                RelativePanel.Below="CommandBar"
                                RelativePanel.Above="StatusBar"
-                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}">
-            <Interactivity:Interaction.Behaviors>
-                <Interactivity:BehaviorCollection>
-                    <Interactions:EventTriggerBehavior EventName="RemovePilot">
-                        <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.RemovePilotCommand}" />
-                    </Interactions:EventTriggerBehavior>
-                    <Interactions:EventTriggerBehavior EventName="CopyPilot">
-                        <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.AddPilotCommand}" />
-                    </Interactions:EventTriggerBehavior>
-                    <Interactions:EventTriggerBehavior EventName="UpgradeSlotSelected">
-                        <Interactions:InvokeCommandAction Command="{x:Bind ViewModel.SelectUpgradeCommand}" />
-                    </Interactions:EventTriggerBehavior>
-                </Interactivity:BehaviorCollection>
-            </Interactivity:Interaction.Behaviors>
-        </userControls:Squadron>
+                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}"
+                               RemovePilot="{x:Bind ViewModel.RemovePilot}"
+                               CopyPilot="{x:Bind ViewModel.AddPilot}"
+                               UpgradeSlotSelected="{x:Bind ViewModel.SelectUpgrade}"/>
         <RelativePanel x:Name="StatusBar"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"

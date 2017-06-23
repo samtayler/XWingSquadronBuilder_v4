@@ -26,7 +26,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
     {
         private Expander previousExpander;
 
-        public delegate void PilotSelectedEventHandler(object sender, IPilot e);
+        public delegate void PilotSelectedEventHandler(IPilot e);
 
         public event PilotSelectedEventHandler PilotSelected;
 
@@ -64,7 +64,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void ShipList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            PilotSelected?.Invoke(this, (e.ClickedItem as IPilot).DeepClone());
+            PilotSelected?.Invoke((e.ClickedItem as IPilot).DeepClone());
         }        
 
         private void Expander1_Expanded(object sender, EventArgs e)

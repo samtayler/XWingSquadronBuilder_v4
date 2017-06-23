@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -24,9 +25,9 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event UpgradeSlotSelectHandler UpgradeSlotSelected;
 
-        public IEnumerable<IUpgradeSlot> UpgradeSlots
+        public IEnumerable<UpgradeSlotViewModel> UpgradeSlots
         {
-            get { return (IEnumerable<IUpgradeSlot>)GetValue(UpgradeSlotsProperty); }
+            get { return (IEnumerable<UpgradeSlotViewModel>)GetValue(UpgradeSlotsProperty); }
             set { SetValue(UpgradeSlotsProperty, value); }
         }
 
@@ -44,7 +45,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         {
             if (e.Handled) return;
             e.Handled = true;
-            UpgradeSlotSelected?.Invoke(sender, ((FrameworkElement)e.OriginalSource).DataContext as IUpgradeSlot);
+            UpgradeSlotSelected?.Invoke(sender, (((FrameworkElement)e.OriginalSource).DataContext as UpgradeSlotViewModel).UpgradeSlot);
         }        
 
         private void btnClearUpgrade_Tapped(object sender, TappedRoutedEventArgs e)

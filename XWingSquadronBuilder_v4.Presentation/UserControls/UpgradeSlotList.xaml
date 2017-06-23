@@ -7,13 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
     xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
     mc:Ignorable="d" Visibility="{Binding Visibility}">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="..\Style\XWing Styles.xaml"/>
+                <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>            
 
             <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
@@ -73,10 +74,10 @@
             </Style>
         </ItemsControl.ItemContainerStyle>
         <ItemsControl.ItemTemplate>
-            <DataTemplate x:DataType="interfaces:IUpgradeSlot">
-                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind Enabled, Mode=OneWay}">
+            <DataTemplate x:DataType="viewModels:UpgradeSlotViewModel">
+                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind UpgradeSlot.Enabled, Mode=OneWay}">
                     <RelativePanel>
-                        <TextBlock x:Name="imgType" Text="{x:Bind UpgradeType.Image, Mode=OneWay, FallbackValue=t}"   
+                        <TextBlock x:Name="imgType" Text="{x:Bind UpgradeSlot.UpgradeType.Image, Mode=OneWay, FallbackValue=t}"   
                                    Margin="2"
                                    FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
                                    FontSize="15"
@@ -87,18 +88,19 @@
                                    Foreground="Gold"/>
                         <TextBlock x:Name="txblkUpgradeName" 
                             Text="{Binding Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
+                            Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>
                         <TextBlock x:Name="txblkUpgradeTypeName" 
-                            Text="{x:Bind Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
-                                   Visibility="{x:Bind IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
+                            Text="{x:Bind UpgradeSlot.Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
+                                   Visibility="{x:Bind UpgradeSlot.IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.AlignVerticalCenterWith="imgType"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>
-                        <TextBlock x:Name="txblkCost" Text="{x:Bind Cost,Mode=OneWay, FallbackValue='Cost'}"
-                                   Visibility="{x:Bind IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
+                        <TextBlock x:Name="txblkCost" Text="{x:Bind UpgradeSlot.Cost,Mode=OneWay, FallbackValue='Cost'}"
+                                   Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                    
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName" 
                                    RelativePanel.LeftOf="btnClearUpgrade"
@@ -106,7 +108,7 @@
                                    FontSize="12"
                                    Margin="2"/>
                         <ItemsControl Name="CardText"
-                                      ItemsSource="{x:Bind Upgrade.CardText,Mode=OneWay, Converter={StaticResource textToItems}}"
+                                      ItemsSource="{x:Bind AugmentText(UpgradeSlot.Upgrade.CardText,16) ,Mode=OneWay}"
                                       Margin="5,5,0,5"                   
                                       RelativePanel.Below="txblkUpgradeName" 
                                       RelativePanel.LeftOf="btnClearUpgrade"

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.Presentation.Converters;
 using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -55,6 +57,11 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         {
             e.Handled = true;
             CopyPilot?.Invoke(sender, ViewModel.Pilot.DeepClone());
-        }       
+        }
+
+        public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
+        {
+            return ViewModel.AugementText(text, fontsize);
+        }
     }
 }

@@ -52,7 +52,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Logic
             {
                 uniqueCardsInUse.Add(upgrade.Name);
             }
-            upgradeSlot.Upgrade = upgrade;
+            upgradeSlot.SetUpgrade(upgrade);
         }
     }
 }

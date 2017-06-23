@@ -18,10 +18,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             {
                 return this.upgrade;
             }
-            set
+            private set
             {
-                if (!value.UpgradeType.Equals(this.UpgradeType)) throw new ArgumentException(value.ToString());
-                this.upgrade = value ?? throw new ArgumentNullException(nameof(Upgrade));
+                if (upgrade.Equals(value)) return;
+                upgrade = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsNotNullUpgrade)));
@@ -89,9 +89,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return Upgrade.GetInnerUpgradeSlots();
         }
 
-        public void Dispose()
+        public bool SetUpgrade(IUpgrade upgrade)
         {
-
+            if (!upgrade.UpgradeType.Equals(UpgradeType)) return false;
+            if (!(upgrade.Cost <= CostRestriction)) return false;
+            this.Upgrade = upgrade;
+            return true;            
         }
 
         public bool Equals(IUpgradeSlot other)

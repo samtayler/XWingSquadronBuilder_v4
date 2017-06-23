@@ -11,13 +11,14 @@
     <AssemblyName>XWingSquadronBuilder_v4.Presentation</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.15063.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>XWingSquadronBuilder_v4.Presentation_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -91,9 +92,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\Empire Background.jpg" />
     <Content Include="Assets\Fonts\xwing-miniatures-ships.ttf" />
     <Content Include="Assets\Fonts\xwing-miniatures.ttf" />
-    <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -101,7 +102,7 @@
     </Compile>
     <Compile Include="Commands\RemovePilotCommand.cs" />
     <Compile Include="Converters\BooleanToTextConverter.cs" />
-    <Compile Include="Converters\TextToItemsConverter.cs" />
+    <Compile Include="Converters\XWingTextAugmenter.cs" />
     <Compile Include="Extensions\ScrollViewerExtension.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -139,10 +140,12 @@
       <DependentUpon>UpgradeSlotList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\AddPilotCommand.cs" />
+    <Compile Include="ViewModels\FactionSelectViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
     <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
-    <Compile Include="ViewModels\UpgradeVIewModel.cs" />
+    <Compile Include="ViewModels\UpgradeSlotViewModel.cs" />
+    <Compile Include="ViewModels\UpgradeViewModel.cs" />
     <Compile Include="Views\FactionSelectionPage.xaml.cs">
       <DependentUpon>FactionSelectionPage.xaml</DependentUpon>
     </Compile>
@@ -160,8 +163,6 @@
     <Content Include="Assets\-Star-Wars-Death-Star-X-wing-Tie-Fighters-Star-Destroyers-Fresh-New-Hd-Wallpaper--.jpg" />
     <Content Include="Assets\600px-Galactic_Empire_emblem.svg.png" />
     <Content Include="Assets\ImperialLogo.png" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Assets\Logos\Actions\BarrelRoll.png" />
     <Content Include="Assets\Logos\Actions\Boost.png" />
     <Content Include="Assets\Logos\Actions\Cloak.png" />
@@ -280,18 +281,9 @@
     <Content Include="Assets\Logos\Rebels\YT-2400 Freighter.png" />
     <Content Include="Assets\Logos\Rebels\Z-95 Headhunter.png" />
     <Content Include="Assets\RebelAllianceLogo.png" />
+    <Content Include="Assets\Rebels Background.jpg" />
+    <Content Include="Assets\Scum Background.png" />
     <Content Include="Assets\ScumLogo.png" />
-    <Content Include="Assets\SmallLogo.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="Assets\WideLogo.scale-100.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -303,7 +295,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Style\XWing Styles.xaml">
+    <Page Include="Styles\EmpireTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\RebelsTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\ScumTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\XWing Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -341,7 +348,32 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.DeveloperTools">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>1.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="Template10">
+      <Version>1.1.12</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XWingSquadronBuilder_v4.BusinessLogic\XWingSquadronBuilder_v4.BusinessLogic.csproj">
       <Project>{c2ccc448-0b58-47d6-83fc-67a91bf1a36f}</Project>

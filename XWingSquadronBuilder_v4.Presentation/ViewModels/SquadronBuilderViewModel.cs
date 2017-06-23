@@ -1,5 +1,4 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Template10.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,22 +14,54 @@ using XWingSquadronBuilder_v4.BusinessLogic.Models;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Commands;
+using Template10.Services.NavigationService;
+using Windows.UI.Xaml.Navigation;
+using XWingSquadronBuilder_v4.BusinessLogic.Factories;
+using XWingSquadronBuilder_v4.Presentation.Views;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
-    
-    public partial class SqudronBuilderViewModel : BindableBase , IDisposable
+
+    public class SqudronBuilderViewModel : ViewModelBase, IDisposable
     {
         private int squadronCost;
         public ISquadron Squadron { get; private set; }
-        public ObservableCollection<PilotViewModel> SquadronPilots { get; }       
+
+
+        private ObservableCollection<PilotViewModel> squadronPilots;
+
+        public ObservableCollection<PilotViewModel> SquadronPilots
+        {
+            get { return this.squadronPilots; }
+            private set { Set(ref squadronPilots, value); }
+        }
+
+
+        private IFaction faction;
+
+        public IFaction Faction
+        {
+            get { return this.faction; }
+            private set { Set(ref faction, value); }
+        }
+
+
+        private List<IPilot> pilotList;
+
+        public List<IPilot> PilotList
+        {
+            get { return this.pilotList; }
+            private set { Set(ref pilotList, value); }
+        }
 
         private UpgradeSetter upgradeSetter;
 
         public UpgradeSetter UpgradeSetter
         {
             get { return this.upgradeSetter; }
-            set { SetProperty(ref upgradeSetter, value); }
+            set { Set(ref upgradeSetter, value); }
         }
 
         private Visibility showUpgradeSelector;
@@ -38,42 +69,64 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         public Visibility ShowUpgradeSelector
         {
             get { return this.showUpgradeSelector; }
-            set { SetProperty(ref showUpgradeSelector, value); }
+            set { Set(ref showUpgradeSelector, value); }
         }
 
         public int SquadronCost
         {
             get { return this.squadronCost; }
-            set { SetProperty(ref squadronCost, value); }
+            set { Set(ref squadronCost, value); }
         }
 
-        public IFaction Faction { get; }
-
-        public List<IPilot> PilotList { get; }
-
-        public DelegateCommand<IPilot> AddPilotCommand { get; }
-        public DelegateCommand<PilotViewModel> RemovePilotCommand { get; }
-        public DelegateCommand ClearPilotsCommand { get; }
-        public DelegateCommand<Tuple<IPilot, IUpgradeSlot>> SelectUpgradeCommand { get; }
-
-        public SqudronBuilderViewModel(IFaction faction)
+        public SqudronBuilderViewModel()
         {
-            Faction = faction;
-            PilotList = XWingRepository.Instance.PilotRepository.GetPilotsForFaction(faction);
-            Squadron = new Squadron(faction);
+            Squadron = SquadronFactory.CreateSquadron();
             SquadronPilots = new ObservableCollection<PilotViewModel>();
-            AddPilotCommand = new DelegateCommand<IPilot>(AddPilot);
-            RemovePilotCommand = new DelegateCommand<PilotViewModel>(RemovePilot);
-            ClearPilotsCommand = new DelegateCommand(ClearPilots);
-            SelectUpgradeCommand = new DelegateCommand<Tuple<IPilot, IUpgradeSlot>>(SelectUpgrade);
+            PilotList = new List<IPilot>();
             ShowUpgradeSelector = Visibility.Collapsed;
+            Faction = XWingRepository.Instance.FactionRepository.GetFactionAny();
+        }
+
+        public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
+        {
+            Dispose();
+            if (suspensionState.Any())
+            {
+                //Value = suspensionState[nameof(Value)]?.ToString();
+            }
+
+            Faction = parameter as IFaction;
+            PilotList = XWingRepository.Instance.PilotRepository.GetPilotsForFaction(Faction);
+            Squadron = SquadronFactory.CreateSquadron(Faction);
             Squadron.PropertyChanged += Squadron_PropertyChanged;
             Squadron.Pilots.CollectionChanged += Pilots_CollectionChanged;
+            if (Faction.Name == "Empire") ApplyAccentColor(Colors.White);
+            if (Faction.Name == "Rebels") ApplyAccentColor(Colors.Red);
+            if (Faction.Name == "Scum") ApplyAccentColor(Colors.Gold);
+
+
+
+            await Task.CompletedTask;
         }
 
-        private void SelectUpgrade(Tuple<IPilot, IUpgradeSlot> arg)
+        public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
         {
-            UpgradeSetter = new UpgradeSetter(this.Squadron.UniqueNameCards, arg.Item1, arg.Item2);
+            if (suspending)
+            {
+                //suspensionState[nameof(Value)] = Value;
+            }
+            await Task.CompletedTask;
+        }
+
+        public override async Task OnNavigatingFromAsync(NavigatingEventArgs args)
+        {
+            args.Cancel = false;
+            await Task.CompletedTask;
+        }
+
+        public void SelectUpgrade(Tuple<IPilot, IUpgradeSlot> e)
+        {
+            UpgradeSetter = new UpgradeSetter(this.Squadron.UniqueNameCards, e.Item1, e.Item2);
             ShowUpgradeSelector = Visibility.Visible;
         }
 
@@ -112,25 +165,43 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             SquadronCost = Squadron.SquadronCostTotal;
         }
 
-        private void AddPilot(IPilot pilot)
+        public void AddPilot(IPilot e)
         {
-            if(!Squadron.AddPilot(pilot))
+            if (!Squadron.AddPilot(e))
             {
-                MessageDialog pilotUniqueDialog = new MessageDialog($"{pilot.Name} is a unique pilot and cannot be added more than once.", "Unique pilot");
+                MessageDialog pilotUniqueDialog = new MessageDialog($"{e.Name} is a unique pilot and cannot be added more than once.", "Unique pilot");
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
                 pilotUniqueDialog.ShowAsync();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             }
         }
 
-        private void RemovePilot(PilotViewModel pilot)
+        public async void NavigateHome()
         {
-            Squadron.RemovePilot(pilot.Pilot);
+            await NavigationService.NavigateAsync(typeof(FactionSelectionPage));
         }
 
-        private void ClearPilots()
+        public void RemovePilot(PilotViewModel e)
+        {
+            Squadron.RemovePilot(e.Pilot);
+        }
+
+        public void ClearPilots()
         {
             Squadron.ClearAllPilots();
+        }
+
+        public Color SetThemeColour()
+        {
+            return Colors.Red;
+        }
+
+        public static void ApplyAccentColor(Color accentColor)
+        {
+            if (!new AccessibilitySettings().HighContrast)
+            {
+                Application.Current.Resources["SystemAccentColor"] = accentColor;
+            }
         }
 
         public void Dispose()

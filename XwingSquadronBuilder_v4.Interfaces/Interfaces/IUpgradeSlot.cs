@@ -10,7 +10,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
     public interface IUpgradeSlot : INotifyPropertyChanged, IEquatable<IUpgradeSlot>, IDeepCloneable<IUpgradeSlot>, IComparable<IUpgradeSlot>
     {
         IUpgradeType UpgradeType { get; }
-        IUpgrade Upgrade { get; set; }
+        IUpgrade Upgrade { get; }
         int CostReduction { get; }
         int CostRestriction { get; }
         int Cost { get; }
@@ -22,6 +22,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
         void Disable();
         IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
         void ClearUpgrade();
-        
+        bool SetUpgrade(IUpgrade upgrade);
+
+
     }
 }

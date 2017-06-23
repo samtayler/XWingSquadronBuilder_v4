@@ -7,11 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"  
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <viewModels:FactionSelectViewModel x:Name="ViewModel"/>
+    </Page.DataContext>
+    
+    
     <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -23,7 +29,15 @@
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <GridView x:Name="gwFactionSelect" Grid.Row="1" Grid.Column="1" IsItemClickEnabled="True" ItemsSource="{x:Bind Factions,Mode=OneWay}" VerticalAlignment="Center" HorizontalAlignment="Center" SelectionMode="None" ItemClick="gwFactionSelect_ItemClick">
+        <GridView x:Name="gwFactionSelect" 
+                  Grid.Row="1" 
+                  Grid.Column="1" 
+                  IsItemClickEnabled="True" 
+                  ItemsSource="{x:Bind ViewModel.Factions,Mode=OneWay}" 
+                  VerticalAlignment="Center" 
+                  HorizontalAlignment="Center" 
+                  SelectionMode="None" 
+                  ItemClick="gwFactionSelect_ItemClick">
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsWrapGrid Orientation="Horizontal"/>
@@ -32,7 +46,17 @@
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="interfaces:IFaction">
                     <Border BorderBrush="White" BorderThickness="1" Margin="40">
-                        <TextBlock Text="{x:Bind Image,FallbackValue=#}" FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="160" Foreground="White" Margin="10" TextAlignment="Center" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0,10,0,0"/>
+                        <TextBlock Text="{x:Bind Image,FallbackValue=#}" 
+                                   FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
+                                   FontSize="160" 
+                                   Foreground="White" 
+                                   Margin="10" 
+                                   TextAlignment="Center" 
+                                   Width="180" 
+                                   Height="180" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   Padding="0,10,0,0"/>
                     </Border>
                 </DataTemplate>
             </GridView.ItemTemplate>

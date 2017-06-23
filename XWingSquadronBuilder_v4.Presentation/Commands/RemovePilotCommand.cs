@@ -1,5 +1,4 @@
-﻿using Prism.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,24 +9,24 @@ using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 namespace XWingSquadronBuilder_v4.Presentation.Commands
 {
-    public class RemovePilotCommand : DelegateCommandBase
-    {
-        private ObservableCollection<PilotViewModel> squadron { get; }        
+    //public class RemovePilotCommand : DelegateCommandBase
+    //{
+    //    private ObservableCollection<PilotViewModel> squadron { get; }        
 
-        public RemovePilotCommand(ObservableCollection<PilotViewModel> squadron)
-        {           
-            this.squadron = squadron;
-        }
+    //    public RemovePilotCommand(ObservableCollection<PilotViewModel> squadron)
+    //    {           
+    //        this.squadron = squadron;
+    //    }
 
-        protected override bool CanExecute(object parameter)
-        {
-            var pilot = parameter as PilotViewModel;
-            return squadron.Contains(pilot);
-        }
+    //    protected override bool CanExecute(object parameter)
+    //    {
+    //        var pilot = parameter as PilotViewModel;
+    //        return squadron.Contains(pilot);
+    //    }
 
-        protected override void Execute(object parameter)
-        {
-            squadron.Remove(parameter as PilotViewModel);
-        }
-    }
+    //    protected override void Execute(object parameter)
+    //    {
+    //        squadron.Remove(parameter as PilotViewModel);
+    //    }
+    //}
 }

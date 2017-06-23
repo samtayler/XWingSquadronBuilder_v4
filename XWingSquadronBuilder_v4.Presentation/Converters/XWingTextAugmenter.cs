@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 
 namespace XWingSquadronBuilder_v4.Presentation.Converters
 {
-    public class TextToItemsConverter : IValueConverter
+    public class XWingTextAugmenter
     {
         private static Dictionary<string, string> xwingKeyWords = new Dictionary<string, string>()
         {
@@ -21,19 +21,13 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
             { "LEFTTALONROLL","\'" },{ "RIGHTSEGNORSLOOP","2" },{"STOP","5" },{ "LEFTSEGNORSLOOP","1" }};
 
 
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public static IEnumerable<TextBlock> AugementWithXWingIcons(string text, double fontSize, FontStyle style = FontStyle.Normal)
         {
-            double fontSize = 14;
-
-            if (parameter != null)
-                fontSize = double.Parse((string)parameter);
-
-            List<TextBlock> textblocks = new List<TextBlock>();
-            string text = ((string)value);
+            List<TextBlock> textblocks = new List<TextBlock>();           
 
             if (!text.Any(x => x == '^'))
             {
-                textblocks.Add(new TextBlock() { Text = text, FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize, TextWrapping = Windows.UI.Xaml.TextWrapping.WrapWholeWords });
+                textblocks.Add(new TextBlock() { Text = text, FontFamily = new FontFamily("Segoe UI"), FontStyle = style, Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize, TextWrapping = Windows.UI.Xaml.TextWrapping.WrapWholeWords });
             }
             else
             {
@@ -44,20 +38,15 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
                     var wordSplit = item.Split('^');
                     if (wordSplit.Count() > 1 && xwingKeyWords.ContainsKey(wordSplit[1]))
                     {
-                        textblocks.Add(new TextBlock() { Text = xwingKeyWords[wordSplit[1]], FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols"), Margin = new Windows.UI.Xaml.Thickness(2, 3, 2, 0), FontSize = fontSize, VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center });
+                        textblocks.Add(new TextBlock() { Text = xwingKeyWords[wordSplit[1]], FontStyle = style, FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols"), Margin = new Windows.UI.Xaml.Thickness(2, 3, 2, 0), FontSize = fontSize, VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center });
                     }
                     else
                     {
-                        textblocks.Add(new TextBlock() { Text = wordSplit[0], FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize });
+                        textblocks.Add(new TextBlock() { Text = wordSplit[0], FontStyle = style, FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize });
                     }
                 }
             }
             return textblocks;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
-        {
-            return null;
-        }
+        }        
     }
 }

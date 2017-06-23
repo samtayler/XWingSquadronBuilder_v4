@@ -33,6 +33,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
     public interface IFactionRepository
     {
         IFaction GetFaction(string name);
+        IFaction GetFactionAny();
         List<IFaction> GetAllFactions();
     }
 }

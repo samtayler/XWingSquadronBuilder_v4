@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Template10.Services.NavigationService;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -34,17 +36,15 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
         public static readonly DependencyProperty FactionsProperty =
             DependencyProperty.Register("Factions", typeof(List<IFaction>), typeof(FactionSelectionPage), new PropertyMetadata(0));
 
-
-
         public FactionSelectionPage()
         {
             Factions = XWingRepository.Instance.FactionRepository.GetAllFactions().Where(faction => faction.Name != "Any").ToList();
-            this.InitializeComponent();          
+            this.InitializeComponent();
         }
 
         private void gwFactionSelect_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Frame.Navigate(typeof(SquadronBuilder), e.ClickedItem);
+            ViewModel.FactionSelected(e.ClickedItem as IFaction);
         }
     }
 }

@@ -30,5 +30,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         {
             return CreateFaction(factions.Single(x => x.Name.ToLower() == name.ToLower()));
         }
+
+        public IFaction GetFactionAny()
+        {
+            return CreateFaction(factions.Single(x => x.Name.ToLower() == "any"));
+        }
     }
 }
