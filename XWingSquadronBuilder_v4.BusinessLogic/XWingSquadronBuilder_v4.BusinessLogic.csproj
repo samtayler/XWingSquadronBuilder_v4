@@ -111,7 +111,7 @@
     <Compile Include="Factories\DataParsers.cs" />
     <Compile Include="Factories\SquadronFactory.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
-    <Compile Include="Logic\UpgradeSetter.cs" />
+    <Compile Include="Logic\UpgradeFilter.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Faction.cs" />
     <Compile Include="Models\NullSquadron.cs" />

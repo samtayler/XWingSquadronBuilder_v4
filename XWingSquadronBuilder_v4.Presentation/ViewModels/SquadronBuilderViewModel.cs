@@ -56,12 +56,12 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             private set { Set(ref pilotList, value); }
         }
 
-        private UpgradeSetter upgradeSetter;
+        private IEnumerable<UpgradeViewModel> selectableUpgrades;
 
-        public UpgradeSetter UpgradeSetter
+        public IEnumerable<UpgradeViewModel> SelectableUpgrades
         {
-            get { return this.upgradeSetter; }
-            set { Set(ref upgradeSetter, value); }
+            get { return this.selectableUpgrades; }
+            set { Set(ref selectableUpgrades, value); }
         }
 
         private Visibility showUpgradeSelector;
@@ -126,7 +126,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 
         public void SelectUpgrade(Tuple<IPilot, IUpgradeSlot> e)
         {
-            UpgradeSetter = new UpgradeSetter(this.Squadron.UniqueNameCards, e.Item1, e.Item2);
+            new UpgradeFilter(this.Squadron.UniqueNameCards, e.Item1, e.Item2).;
             ShowUpgradeSelector = Visibility.Visible;
         }
 

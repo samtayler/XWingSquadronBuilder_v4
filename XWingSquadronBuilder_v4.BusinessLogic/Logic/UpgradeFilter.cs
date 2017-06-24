@@ -10,7 +10,7 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Logic
 {
-    public class UpgradeSetter
+    public class UpgradeFilter
     {
         private SortedSet<string> uniqueCardsInUse;
         private IPilot pilot;
@@ -20,7 +20,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Logic
         public List<IUpgrade> Upgrades { get; }
 
 
-        public UpgradeSetter(SortedSet<string> uniqueCardsInUse, IPilot pilot, IUpgradeSlot upgradeSlot)
+        public UpgradeFilter(SortedSet<string> uniqueCardsInUse, IPilot pilot, IUpgradeSlot upgradeSlot)
         {
             this.uniqueCardsInUse = uniqueCardsInUse;
             this.pilot = pilot;

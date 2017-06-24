@@ -73,7 +73,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1" Tapped="Grid_Tapped_1">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="15" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF1B1B1C" BorderBrush="White" BorderThickness="1">
-                <ItemsControl ItemsSource="{x:Bind UpgradeSetter.Upgrades,Mode=OneWay}" >
+                <ItemsControl ItemsSource="{x:Bind Upgrades,Mode=OneWay}" >
                     <ItemsControl.ItemContainerStyle>
                         <Style TargetType="ContentPresenter">
                             <Setter Property="VerticalAlignment" Value="Stretch" />

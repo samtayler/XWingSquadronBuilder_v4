@@ -10,11 +10,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
     public abstract class UpgradeModifierParsersBase
     {
-        public abstract List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgrade[] data);
+        public abstract List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data);
         public abstract List<IUpgradeType> ParseRemovedUpgrades(string[] data);
         public abstract List<IAction> ParseAddedActions(string[] data);
         public abstract List<IAction> ParseRemovedActions(string[] data);
-        public abstract Dictionary<string, int> ParseChangedStats(StatChange[] data);
+        public abstract Dictionary<string, int> ParseChangedStats(StatChangeJson[] data);
     }
 
     public class UpgradeModifierParser : UpgradeModifierParsersBase
@@ -24,7 +24,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             return data.Select(action => XWingRepository.Instance.ActionRepository.GetAction(action)).ToList();
         }
 
-        public override List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgrade[] data)
+        public override List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data)
         {
             return data.Select(upgrade =>
             (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
@@ -32,7 +32,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             upgrade.CostReduction, upgrade.CostLimit)).ToList();
         }
 
-        public override Dictionary<string, int> ParseChangedStats(StatChange[] data)
+        public override Dictionary<string, int> ParseChangedStats(StatChangeJson[] data)
         {
             Dictionary<string, int> output = data.Select(stat => Tuple.Create(stat.Type, stat.Value)
             ).ToDictionary((x => x.Item1), y => y.Item2);

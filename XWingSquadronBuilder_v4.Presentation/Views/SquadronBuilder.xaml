@@ -79,6 +79,6 @@
                                       RelativePanel.AlignLeftWithPanel="True" 
                                       RelativePanel.AlignRightWithPanel="True"
                                       Visibility="{x:Bind ViewModel.ShowUpgradeSelector,Mode=TwoWay}"
-                                      UpgradeSetter="{x:Bind ViewModel.UpgradeSetter,Mode=OneWay}" d:IsHidden="True"/>
+                                      d:IsHidden="True"/>
     </RelativePanel>
 </Page>

@@ -5,92 +5,69 @@ using System.Runtime.Serialization;
 namespace XWingSquadronBuilder_v4.DataLayer.RawData
 {
     [DataContract]
-    public class UpgradeRootobject
+    public class AddedUpgradeJson
     {
-        [DataMember]
-        public UpgradesJson Upgrades { get; set; }
+        [DataMember] public string Type { get; set; } = "";
+        [DataMember] public int CostReduction { get; set; } = 0;
+        [DataMember] public int CostLimit { get; set; } = 0;
     }
 
     [DataContract]
-    public class UpgradesJson
+    public class StatChangeJson
     {
-        [DataMember]
-        public UpgradeJson[] Upgrade { get; set; }
+        [DataMember] public string Type { get; set; } = "";
+        [DataMember] public int Value { get; set; } = 0;
+    }
+
+    [DataContract]
+    public class ChooseUpgradeJson
+    {
+        [DataMember] public string Type { get; set; } = "";
+        [DataMember] public int CostReduction { get; set; } = 0;
+    }
+
+    [DataContract]
+    public class StatsRestrictedJson
+    {
+        [DataMember] public string Stat { get; set; } = "";
+        [DataMember] public string Operand { get; set; } = "";
+        [DataMember] public int Value { get; set; } = 0;
     }
 
     [DataContract]
     public class UpgradeJson
     {
-        [DataMember]
-        public string Faction { get; set; } = "";
-        [DataMember]
-        public string Name { get; set; } = "";
-        [DataMember]
-        public int Cost { get; set; } = 0;
-        [DataMember]
-        public int SlotsRequired { get; set; }
-        [DataMember]
-        public string Type { get; set; } = "";
-        [DataMember]
-        public string Description { get; set; } = "";
-        [DataMember]
-        public bool Unique { get; set; } = false;
-        [DataMember]
-        public string SizeRestriction { get; set; } = "";
-        [DataMember]
-        public bool Limited { get; set; } = false;
-        [DataMember]
-        public StatChange[] StatChanges { get; set; } = new StatChange[0];
-        [DataMember]
-        public string ShipLimited { get; set; } = "";
-        [DataMember]
-        public string ActionLimited { get; set; } = "";
-        [DataMember]
-        public string[] AddedActions { get; set; } = new string[0];
-        [DataMember]
-        public string[] RemovedActions { get; set; } = new string[0];
-        [DataMember]
-        public AddedUpgrade[] AddedUpgrades { get; set; } = new AddedUpgrade[0];
-        [DataMember]
-        public string[] RemovedUpgrades { get; set; } = new string[0];
-        [DataMember]
-        public ChooseUpgrade[] ChooseUpgrade { get; set; } = new ChooseUpgrade[0];
-        [DataMember]
-        public string[] DisabledUpgrades { get; set; } = new string[0];
-
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
+        [DataMember] public string Faction { get; set; } = "";
+        [DataMember] public string Name { get; set; } = "";
+        [DataMember] public int Cost { get; set; } = 0;
+        [DataMember] public int SlotsRequired { get; set; } = 0;
+        [DataMember] public string Type { get; set; } = "";
+        [DataMember] public string Description { get; set; } = "";
+        [DataMember] public bool Limited { get; set; } = false;
+        [DataMember] public bool Unique { get; set; } = false;
+        [DataMember] public List<AddedUpgradeJson> AddedUpgrades { get; set; } = new List<AddedUpgradeJson>();
+        [DataMember] public List<string> RemovedUpgrades { get; set; } = new List<string>();
+        [DataMember] public string SizeRestriction { get; set; } = "";
+        [DataMember] public List<string> UpgradeRestricted { get; set; } = new List<string>();
+        [DataMember] public List<StatsRestrictedJson> StatsRestricted { get; set; } = new List<StatsRestrictedJson>();
+        [DataMember] public string ShipRestricted { get; set; } = "";
+        [DataMember] public string ActionRestricted { get; set; } = "";
+        [DataMember] public List<StatChangeJson> StatChanges { get; set; } = new List<StatChangeJson>();  
+        [DataMember] public List<string> AddedActions { get; set; } = new List<string>();
+        [DataMember] public List<string> RemovedActions { get; set; } = new List<string>();
+        [DataMember] public List<ChooseUpgradeJson> ChooseUpgrade { get; set; } = new List<ChooseUpgradeJson>();
     }
 
     [DataContract]
-    public class StatChange
+    public class UpgradesJson
     {
-        [DataMember]
-        public string Type { get; set; } = "";
-        [DataMember]
-        public int Value { get; set; } = 0;
+        [DataMember] public UpgradeJson[] Upgrade { get; set; }
     }
+
     [DataContract]
-    public class AddedUpgrade
+    public class RootUpgradesJson
     {
-        [DataMember]
-        public string Type { get; set; } = "";
-        [DataMember]
-        public int CostReduction { get; set; } = 0;
-        [DataMember]
-        public int CostLimit { get; set; } = 100;
-    }
-    [DataContract]
-    public class ChooseUpgrade
-    {
-        [DataMember]
-        public string Type { get; set; } = "";
-        [DataMember]
-        public int CostReduction { get; set; } = 0;
-        [DataMember]
-        public int CostLimit { get; set; } = 0;
+        [DataMember] public UpgradesJson Upgrades { get; set; } = new UpgradesJson();
     }
 }
 

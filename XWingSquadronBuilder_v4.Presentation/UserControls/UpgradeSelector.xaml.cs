@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.BusinessLogic.Logic;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Converters;
+using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,15 +23,20 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class UpgradeSelector : UserControl
     {
-        public UpgradeSetter UpgradeSetter
+        public delegate void UpgradeSelectedHandler(IUpgrade e);
+
+        public event UpgradeSelectedHandler UpgradeSelected;
+
+        public IEnumerable<UpgradeViewModel> Upgrades
         {
-            get { return (UpgradeSetter)GetValue(UpgradeSetterProperty); }
-            set { SetValue(UpgradeSetterProperty, value); }
+            get { return (IEnumerable<UpgradeViewModel>)GetValue(UpgradesProperty); }
+            set { SetValue(UpgradesProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Filter.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty UpgradeSetterProperty =
-            DependencyProperty.Register(nameof(UpgradeSetter), typeof(UpgradeSetter), typeof(UpgradeSelector), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for Upgrades.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UpgradesProperty =
+            DependencyProperty.Register("Upgrades", typeof(IEnumerable<UpgradeViewModel>), typeof(UpgradeSelector), new PropertyMetadata(0));
+
 
         public UpgradeSelector()
         {
@@ -46,7 +52,8 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         private void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
             e.Handled = true;
-            UpgradeSetter.SetUpgrade(((FrameworkElement)e.OriginalSource).DataContext as IUpgrade);
+            var upgrade = (((e.OriginalSource as FrameworkElement).DataContext as UpgradeViewModel).Upgrade);
+            UpgradeSelected?.Invoke(upgrade);            
             Visibility = Visibility.Collapsed;
         }
 
