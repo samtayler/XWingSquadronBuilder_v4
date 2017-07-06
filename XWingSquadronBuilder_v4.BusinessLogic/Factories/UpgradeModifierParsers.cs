@@ -15,6 +15,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
         public abstract List<IAction> ParseAddedActions(string[] data);
         public abstract List<IAction> ParseRemovedActions(string[] data);
         public abstract Dictionary<string, int> ParseChangedStats(StatChangeJson[] data);
+        public abstract List<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data);
     }
 
     public class UpgradeModifierParser : UpgradeModifierParsersBase
@@ -48,6 +49,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
         public override List<IUpgradeType> ParseRemovedUpgrades(string[] data)
         {
             return data.Select(x => XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)).ToList();
+        }
+
+        public override List<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data)
+        {
+            return data.Select(upgrade =>
+            (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type),
+            new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type)),
+            upgrade.CostReduction)).ToList();
         }
     }
 

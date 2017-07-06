@@ -374,7 +374,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Name": "WED15 Repair Droid",
         "Cost": 2,
         "SlotsRequired": 1,
@@ -383,17 +389,29 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
         "Unique": true,
         "Name": "Carlist Rieekan",
         "Cost": 3,
         "SlotsRequired": 1,
         "Type": "Crew",
-        "Description": "At the start of the Activation phase, you may discard this card to treat each friendly ship's pilot skill value as \"12\" until the end of the phase."
+        "Description": "At the start of the Activation phase, you may discard this card to treat each friendly ship's pilot skill value as \"12\" until the end of the phase.",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ]
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Jan Dodonna",
         "Cost": 6,
@@ -403,7 +421,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Toryn Farr",
         "Cost": 6,
@@ -449,7 +473,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Limited": true,
         "Name": "Targeting Coordinator",
         "Cost": 4,
@@ -459,7 +489,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Raymus Antilles",
         "Cost": 6,
@@ -546,7 +582,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Name": "Shield Technician",
         "Cost": 1,
         "SlotsRequired": 1,
@@ -555,7 +597,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Name": "Shield Technician",
         "Cost": 1,
         "SlotsRequired": 1,
@@ -564,7 +612,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Admiral Ozzel",
         "Cost": 2,
@@ -574,7 +628,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Captain Needa",
         "Cost": 2,
@@ -584,7 +644,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Grand Moff Tarkin",
         "Cost": 6,
@@ -989,7 +1055,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "Counter Measures",
         "Cost": 3,
         "SlotsRequired": 1,
@@ -1021,7 +1093,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Name": "Combat Retrofit",
         "Cost": 10,
         "SlotsRequired": 1,
@@ -1074,7 +1152,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "Anti-Pursuit Lasers",
         "Cost": 2,
         "SlotsRequired": 1,
@@ -1083,7 +1167,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "Tactical Jammer",
         "Cost": 1,
         "SlotsRequired": 1,
@@ -1102,16 +1192,27 @@
       {
         "Faction": "Any",
         "Name": "Autothrusters",
-        "Cost": 2,
-        "ActionRestricted": "Boost",
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Cost": 2,        
+        "Restrictions": [
+          {
+            "Attribute": "Actions",
+            "Operand": "Contains",
+            "Value": "Boost"
+          }
+        ],
+        "SlotsRequired": 1,        
         "Type": "Modification",
         "Description": "When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to a ^EVADE result. You can equip this card only if you have the ^BOOST icon."
       },
       {
         "Faction": "Scum",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "Maneuvering Fins",
         "Cost": 1,
         "SlotsRequired": 1,
@@ -1121,7 +1222,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "Ion projector",
         "Cost": 2,
         "SlotsRequired": 1,
@@ -1189,7 +1296,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "Millennium Falcon",
         "Cost": 1,
@@ -1201,7 +1314,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Small",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Small"
+          }
+        ],
         "Name": "Vectored Thrusters",
         "Cost": 2,
         "SlotsRequired": 1,
@@ -1211,7 +1330,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "Outrider",
         "Cost": 5,
@@ -1238,7 +1363,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Dutyfree",
         "Cost": 2,
@@ -1249,7 +1380,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Quantum Storm",
         "Cost": 4,
@@ -1260,7 +1397,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Bright Hope",
         "Cost": 5,
@@ -1271,7 +1414,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Jaina's Light",
         "Cost": 2,
@@ -1282,7 +1431,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Dodonna's Pride",
         "Cost": 4,
@@ -1293,7 +1448,13 @@
       },
       {
         "Faction": "Rebels",
-        "SizeRestriction": "Huge",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Huge"
+          }
+        ],
         "Unique": true,
         "Name": "Tantive IV",
         "Cost": 5,
@@ -1325,7 +1486,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "Slave-1",
         "Cost": 0,
@@ -1343,7 +1510,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "ST-321",
         "Cost": 3,
@@ -1354,7 +1527,13 @@
       },
       {
         "Faction": "Empire",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "Dauntless",
         "Cost": 2,
@@ -1417,7 +1596,13 @@
       },
       {
         "Faction": "Any",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Unique": true,
         "Name": "Andrasta",
         "Cost": 0,
@@ -1516,7 +1701,13 @@
       },
       {
         "Faction": "Scum",
-        "SizeRestriction": "Large",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          }
+        ],
         "Name": "IG2000",
         "Cost": 0,
         "SlotsRequired": 1,
@@ -1732,7 +1923,13 @@
       {
         "Faction": "Any",
         "Name": "Primed Thrusters",
-        "SizeRestriction": "Small",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Small"
+          }
+        ],
         "Cost": 1,
         "SlotsRequired": 1,
         "ShipRestricted": "",

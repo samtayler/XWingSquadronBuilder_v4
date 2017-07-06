@@ -48,7 +48,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                 upgradeParsers.ParseRemovedActions(upgrade.RemovedActions.ToArray()),
                 upgradeParsers.ParseAddedUpgrades(upgrade.AddedUpgrades.ToArray()),
                 upgradeParsers.ParseRemovedUpgrades(upgrade.RemovedUpgrades.ToArray()),
-                upgradeParsers.ParseChangedStats(upgrade.StatChanges.ToArray())));
+                upgradeParsers.ParseChangedStats(upgrade.StatChanges.ToArray()),
+                upgradeParsers.ParseSelectableUpgrades(upgrade.ChooseUpgrade.ToArray())));
         }
 
         public static IUpgradeType CreateUpgradeType(UpgradeTypeJson upgradeType)

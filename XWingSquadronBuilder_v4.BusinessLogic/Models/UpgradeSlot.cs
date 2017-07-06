@@ -66,6 +66,8 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
         }
 
+        public IEnumerable<Predicate<IUpgrade>> UpgradeFilters { get; }
+
         public bool IsNotNullUpgrade => !IsNullUpgrade;
 
         public bool IsNullUpgrade => (Upgrade is NullUpgrade);

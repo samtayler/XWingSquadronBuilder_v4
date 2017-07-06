@@ -126,7 +126,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 
         public void SelectUpgrade(Tuple<IPilot, IUpgradeSlot> e)
         {
-            new UpgradeFilter(this.Squadron.UniqueNameCards, e.Item1, e.Item2).;
+            new UpgradeFilter(this.Squadron.UniqueNameCards, e.Item1, e.Item2);
             ShowUpgradeSelector = Visibility.Visible;
         }
 

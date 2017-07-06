@@ -22,6 +22,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IDictionary<string, int> PilotAttributeModifiers { get; }
 
+        public IEnumerable<IUpgradeSlot> SelectableAddedUpgrades { get; }
+
+        private IUpgradeSlot SelectedAddedUpgrade { get; set; }
+
         public string Name { get; }
 
         public int Cost { get; }
@@ -44,7 +48,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgradeType UpgradeType { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;        
 
         public Upgrade(string name, int cost, int slotsRequired,
             string cardText, bool unique, bool limited, string shipLimited, string actionLimited,
@@ -83,6 +87,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return $"{Name} - {UpgradeType}";
         }
 
+        private void SetSelectableUpgrade(IUpgradeSlot selected)
+        {
+            SelectedAddedUpgrade = selected;
+        }
+
         public IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots()
         {
             return AddUpgradeModifiers.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x }))
@@ -104,7 +113,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 this.AddUpgradeModifiers.Select(x => x.DeepClone()), 
                 this.RemoveUpgradeModifiers.Select(x => x.DeepClone()), 
                 this.PilotAttributeModifiers.Select(x => new KeyValuePair<string, int>(x.Key, x.Value))
-                .ToDictionary(x => x.Key, y => y.Value)));
+                .ToDictionary(x => x.Key, y => y.Value), SelectableAddedUpgrades.Select(x => x.DeepClone())));
         }
     }
 }

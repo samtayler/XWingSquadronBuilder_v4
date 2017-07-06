@@ -107,10 +107,12 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventPayloads\ChooseUpgradeArgs.cs" />
     <Compile Include="Extensions\UpgradeSlotCollectionExtensions.cs" />
     <Compile Include="Factories\DataParsers.cs" />
     <Compile Include="Factories\SquadronFactory.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
+    <Compile Include="Factories\UpgradeSlotFactory.cs" />
     <Compile Include="Logic\UpgradeFilter.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Faction.cs" />

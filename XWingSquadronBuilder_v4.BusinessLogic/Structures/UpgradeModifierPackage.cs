@@ -11,13 +11,15 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
     {
         public UpgradeModifierPackage(IEnumerable<IAction> addActionModifiers, IEnumerable<IAction> removeActionModifiers,
             IEnumerable<IUpgradeSlot> addUpgradeModifiers, IEnumerable<IUpgradeType> removeUpgradeModifiers, 
-            IDictionary<string, int> pilotAttributeModifiers) : this()
+            IDictionary<string, int> pilotAttributeModifiers,
+            IEnumerable<IUpgradeSlot> chooseableUpgradeModifiers) : this()
         {
             AddActionModifiers = addActionModifiers ?? throw new ArgumentNullException(nameof(addActionModifiers));
             RemoveActionModifiers = removeActionModifiers ?? throw new ArgumentNullException(nameof(removeActionModifiers));
             AddUpgradeModifiers = addUpgradeModifiers ?? throw new ArgumentNullException(nameof(addUpgradeModifiers));
             RemoveUpgradeModifiers = removeUpgradeModifiers ?? throw new ArgumentNullException(nameof(removeUpgradeModifiers));
             PilotAttributeModifiers = pilotAttributeModifiers ?? throw new ArgumentNullException(nameof(pilotAttributeModifiers));
+            ChooseableUpgradeModifiers = chooseableUpgradeModifiers ?? throw new ArgumentNullException(nameof(chooseableUpgradeModifiers));
         }
 
         public IEnumerable<IAction> AddActionModifiers { get; }
@@ -29,5 +31,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
         public IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
 
         public IDictionary<string, int> PilotAttributeModifiers { get; }
+
+        public IEnumerable<IUpgradeSlot> ChooseableUpgradeModifiers { get; set; }
     }
 }
