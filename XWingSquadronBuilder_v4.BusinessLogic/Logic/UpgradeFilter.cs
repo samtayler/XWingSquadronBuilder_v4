@@ -30,7 +30,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Logic
                 new Predicate<IUpgrade>((upgrade) => !uniqueCardsInUse.Contains(upgrade.Name)), // Unique card is not in use
                 new Predicate<IUpgrade>((upgrade) => upgrade.Cost <= this.upgradeSlot.CostRestriction), // within cost restriction. slot with no cost restriction have a restriction set to 100 pts
                 new Predicate<IUpgrade>((upgrade) => this.pilot.Actions.Any(action => action.Name.Contains(upgrade.ActionLimited))), // does pilot have the required action
-                new Predicate<IUpgrade>((upgrade) => this.pilot.Ship.Contains(upgrade.ShipLimited)), // can the upgrade be applyed to this ship
+                new Predicate<IUpgrade>((upgrade) => this.pilot.ShipName.Contains(upgrade.ShipLimited)), // can the upgrade be applyed to this ship
                 new Predicate<IUpgrade>((upgrade) => upgrade.Limited ? !this.pilot.Upgrades.Any(y => y.Upgrade.Equals(upgrade)) : true), // if upgrade is limited, make sure the upgrade is not already applied
                 new Predicate<IUpgrade>((upgrade) => this.pilot.Upgrades.Where(uSlot => uSlot.UpgradeType.Equals(this.upgradeSlot.UpgradeType)
                                                         && ((uSlot.Upgrade is NullUpgrade) || uSlot == this.upgradeSlot)).Count() >= upgrade.SlotsRequired), // make sure there are enough slots avaliable for the upgrade

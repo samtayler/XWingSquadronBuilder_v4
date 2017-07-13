@@ -5,7 +5,13 @@
         "Faction": "Any",
         "Name": "Heavy Laser Cannon",
         "Cost": 7,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. Immediately after rolling your attack dice, you must change all your Critical results to Hit results. Attack value: 4. Range: 23."
       },
@@ -13,7 +19,13 @@
         "Faction": "Any",
         "Name": "Ion Cannon",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. If this attack hits the target ship, the ship suffers 1 damage and receives 1 ion token. Then cancel all dice results. Attack value: 3. Range: 13."
       },
@@ -21,7 +33,13 @@
         "Faction": "Any",
         "Name": "Autoblaster",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. Your ^HIT results cannot be cancelled by defense dice. The defender may cancel ^CRITICAL results before ^HIT results. Attack value: 3. Range 1."
       },
@@ -29,7 +47,13 @@
         "Faction": "Any",
         "Name": "Flechette Cannon",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. If this attack hits, the defender suffers 1 damage and, if the defender is not stressed, it also receives 1 stress token. Then cancel all dice results. Range: 13. Attack value: 3."
       },
@@ -37,7 +61,13 @@
         "Faction": "Any",
         "Name": "“Mangler” Cannon",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. When attacking, you may change 1 of your ^HIT results to a ^CRITICAL result. Range: 13. Attack value: 3."
       },
@@ -45,7 +75,13 @@
         "Faction": "Any",
         "Name": "Tractor beam",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. If this attack hits, the defender receives 1 tractor beam token. Then cancel all dice results. Range 13. Attack value: 3."
       },
@@ -53,7 +89,13 @@
         "Faction": "Any",
         "Name": "Arc Caster",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Cannon",
         "Description": "Attack: Attack 1 ship. If this attack hits, you must choose 1 other ship at Range 1 of the defender to suffer 1 damage. Then flip this card. Attack value: 4. Range: 1."
       },
@@ -61,7 +103,13 @@
         "Faction": "Any",
         "Name": "Proton Bomb",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "When you reveal your maneuver dial, you may discard this card to drop 1 proton bomb token. The bomb detonates at the end of the Activation phase. When the bomb token detonates, deal 1 faceup damage card to each ship at Range 1 of this token. Then discard this token."
       },
@@ -69,7 +117,13 @@
         "Faction": "Any",
         "Name": "Ion Bombs",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "When you reveal your maneuver dial, you may discard this card to drop 1 ion bomb token. This token detonates at the end of the Activation phase. When thisbomb token detonates, each ship at Range 1 of the token receives 2 ion tokens. Then discard this token."
       },
@@ -77,7 +131,13 @@
         "Faction": "Any",
         "Name": "Conner Net",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "Action: Discard this card to drop 1 Conner net token. When a ship's base or maneuver template overlaps this token, this token detonates. When this bomb token detonates, the ship that moved through or overlapped this token suffers 1 damage, receives 2 ion tokens, and skips its \"Perform Action\" step. Then discard this token."
       },
@@ -85,7 +145,13 @@
         "Faction": "Any",
         "Name": "Thermal Detonators",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "When you reveal your manoeuvre dial, you may discard this card to drop 1 thermal detonator token. This token detonates at the end of the Activation phase. When this bomb token detonates, each ship at Range 1 of the token suffers 1 damage and receives 1 stress token. Then discard this token."
       },
@@ -93,7 +159,13 @@
         "Faction": "Any",
         "Name": "Seismic Charges",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "When you reveal your maneuver dial, you may discard this card to drop 1 seismic charge token. This token detonates at the end of the Activation phase. When the bomb detonates, each ship at range 1 of this token suffers 1 damage. Then discard this token."
       },
@@ -101,7 +173,13 @@
         "Faction": "Any",
         "Name": "Cluster Mines",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "Action: Discard this card to drop 1 cluster mine token set. When a ship's base or manoeuvre template overlaps a cluster mine token, that token detonates. When one of these bomb tokens detonates, the ship that moved through or overlapped that token rolls 2 attack dice and suffers all damage (^HIT) rolled. Then discard that token."
       },
@@ -109,7 +187,13 @@
         "Faction": "Any",
         "Name": "Proximity Mines",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Bomb",
         "Description": "Action: Discard this card to drop 1 proximity mine token. When a ship executes a maneuver, if its base or maneuver template overlaps this token, this token detonates. When the bomb token detonates, the ship that moved through or overlapped this token rolls 3 attack dice and suffers all damage [^HIT] and critical damage [^CRITICAL] rolled. Then discard this token."
       },
@@ -117,7 +201,13 @@
         "Faction": "Any",
         "Name": "Tactician",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack against a ship inside your firing arc at Range 2, that ship receives 1 stress token."
       },
@@ -125,7 +215,13 @@
         "Faction": "Any",
         "Name": "Inspiring Recruit",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Once per round, when a friendly ship at Range 1-2 removes a stress token, it may remove 1 additional stress token."
       },
@@ -133,7 +229,13 @@
         "Faction": "Any",
         "Name": "Tail Gunner",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Limited": true,
         "Type": "Crew",
         "Description": "When attacking from your rear-facing auxiliary firing arc, reduce the defender's agility by 1 (to a minimum of 0). Limited."
@@ -143,7 +245,13 @@
         "Name": "Bodhi Rook",
         "Unique": true,
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When you acquire a target lock, you can lock onto an enemy ship at Range 1-3 of any friendly ship."
       },
@@ -152,7 +260,13 @@
         "Name": "Jyn Erso",
         "Unique": true,
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Choose 1 friendly ship at Range 1-2. Assign 1 focus token to that ship for each enemy ship inside your firing arc at Range 1-3. You cannot assign more than 3 tokens this way."
       },
@@ -161,7 +275,13 @@
         "Name": "Baze Malbus",
         "Unique": true,
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack against a different ship. You cannot perform another attack this round."
       },
@@ -170,7 +290,13 @@
         "Name": "General Hux",
         "Unique": true,
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Choose up to 3 friendly ships at Range 1-2. Assign 1 focus token to each of those ships and assign the \"Fanatical Devotion\" Condition card to 1 of them. Then receive 1 stress token."
       },
@@ -179,7 +305,13 @@
         "Name": "Cassian Andor",
         "Unique": true,
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the end of the Planning phase, you may choose an enemy ship at Range 1-2. Guess aloud that ship's bearing and speed, then look at its dial. If you are correct, you may rotate your dial to another manoeuvre."
       },
@@ -188,7 +320,13 @@
         "Name": "Bistan",
         "Unique": true,
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When attacking at Range 1-2, you may change 1 of your ^HIT results to a ^CRITICAL result."
       },
@@ -196,7 +334,13 @@
         "Faction": "Any",
         "Name": "Intelligence Agent",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the start of the Activation phase, choose 1 enemy ship at Range 12. You may look at that ship's chosen maneuver."
       },
@@ -204,7 +348,13 @@
         "Faction": "Any",
         "Name": "Saboteur",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Choose 1 enemy ship at Range 1 and roll 1 attack die. On a ^HIT or ^CRITICAL result, choose 1 random facedown Damage card assigned to that ship, flip it faceup, and resolve it."
       },
@@ -212,7 +362,13 @@
         "Faction": "Any",
         "Name": "Recon Specialist",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When you perform a focus action, assign 1 additional focus token to your ship."
       },
@@ -220,7 +376,13 @@
         "Faction": "Any",
         "Name": "Bombardier",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When dropping a bomb, you may use the [2] ^STRAIGHT template instead of the [1] ^STRAIGHT template."
       },
@@ -229,7 +391,13 @@
         "Unique": true,
         "Name": "Nien Nunb",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "You may treat all ^STRAIGHT maneuvers as green maneuvers."
       },
@@ -237,7 +405,13 @@
         "Faction": "Any",
         "Name": "Weapons Engineer",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "You may maintain 2 target locks (only 1 per enemy ship). When you acquire a target lock, you may lock onto 2 enemy ships."
       },
@@ -246,7 +420,13 @@
         "Unique": true,
         "Name": "Chewbacca",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When you are dealt a Damage card, you may immediately discard that card and recover 1 shield. Then, discard this Upgrade card."
       },
@@ -255,7 +435,13 @@
         "Unique": true,
         "Name": "Luke Skywalker",
         "Cost": 7,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You may change 1 ^FOCUS result to a ^HIT result. You cannot perform another attack this round."
       },
@@ -264,7 +450,13 @@
         "Unique": true,
         "Name": "\"Chopper\"",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "You may perform actions while stressed. After you perform an action while stressed, suffer 1 damage."
       },
@@ -273,7 +465,13 @@
         "Unique": true,
         "Name": "Ezra Bridger",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When attacking, if you are stressed, you may change 1 of your ^FOCUS results to a ^CRITICAL result."
       },
@@ -282,7 +480,13 @@
         "Unique": true,
         "Name": "Kanan Jarrus",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Once per round, after a friendly ship at Range 1-2 executes a white manoeuvre, you may remove 1 stress token from that ship."
       },
@@ -297,7 +501,13 @@
           }
         ],
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Your upgrade bar gains the ^BOMB upgrade icon. Once per round, before a friendly bomb token is removed, choose 1 enemy ship at Range 1 of that token. That ship suffers 1 damage."
       },
@@ -306,7 +516,13 @@
         "Unique": true,
         "Name": "Hera Syndulla",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "You can reveal and execute red manoeuvres even while stressed."
       },
@@ -315,7 +531,13 @@
         "Unique": true,
         "Name": "\"Zeb\" Orrelios",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Enemy ships inside your firing arc that you are touching are not considered to be touching you when either you or they activate during the Combat phase."
       },
@@ -324,7 +546,13 @@
         "Unique": true,
         "Name": "\"Leebo\"",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Perform a free boost action. Then receive 1 ion token."
       },
@@ -333,7 +561,13 @@
         "Unique": true,
         "Name": "Dash Rendar",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "You may perform attacks while overlapping an obstacle. Your attacks cannot be obstructed."
       },
@@ -342,7 +576,13 @@
         "Unique": true,
         "Name": "Lando Calrissian",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Roll 2 defense dice. For each ^FOCUS result, assign 1 focus token to your ship. For each ^EVADE result, assign 1 evade token to your ship."
       },
@@ -350,7 +590,13 @@
         "Faction": "Any",
         "Name": "Gunner",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack that does not hit, you may immediately perform a primary weapon attack. You cannot perform another attack this round."
       },
@@ -359,7 +605,13 @@
         "Unique": true,
         "Name": "Jan Ors",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Once per round, when a friendly ship at range 13 performs a focus action or would be assigned a focus token, you may assign an evade token instead."
       },
@@ -368,31 +620,40 @@
         "Unique": true,
         "Name": "Kyle Katarn",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you remove a stress token from your ship, you may assign a focus token to your ship."
       },
       {
         "Faction": "Rebels",
+        "Name": "WED15 Repair Droid",
+        "Cost": 2,
+        "Type": "Crew",
+        "Description": "Action: Spend 1 energy to discard 1 of your facedown Damage cards, or spend 3 energy to discard 1 of your faceup Damage cards.",
         "Restrictions": [
           {
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
-        ],
-        "Name": "WED15 Repair Droid",
-        "Cost": 2,
-        "SlotsRequired": 1,
-        "Type": "Crew",
-        "Description": "Action: Spend 1 energy to discard 1 of your facedown Damage cards, or spend 3 energy to discard 1 of your faceup Damage cards."
+        ]
       },
       {
         "Faction": "Rebels",
         "Unique": true,
         "Name": "Carlist Rieekan",
         "Cost": 3,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "At the start of the Activation phase, you may discard this card to treat each friendly ship's pilot skill value as \"12\" until the end of the phase.",
         "Restrictions": [
@@ -400,6 +661,11 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ]
       },
@@ -410,12 +676,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Jan Dodonna",
         "Cost": 6,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "When another friendly ship at Range 1 is attacking, it may change 1 of its ^HIT results to a ^CRITICAL."
       },
@@ -426,12 +696,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Toryn Farr",
         "Cost": 6,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "Action: Spend any amount of energy to choose that many enemy ships at Range 12. Remove all focus, evade, and blue target lock tokens from those ships."
       },
@@ -440,7 +714,13 @@
         "Unique": true,
         "Name": "Han Solo",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When attacking, if you have a target lock on the defender, you may spend that target lock to change all your ^FOCUS results to ^HIT results."
       },
@@ -449,7 +729,13 @@
         "Unique": true,
         "Name": "C3-PO",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Once per round, before you roll 1 or more defense dice, you may guess aloud a number of ^EVADE results. If you roll that many ^EVADE results (before modifying the dice), add 1 ^EVADE result."
       },
@@ -458,7 +744,13 @@
         "Unique": true,
         "Name": "Leia Organa",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the start of the Activation Phase, you may discard this card to allow all friendly ships that reveal a red manoeuvre to treat that manoeuvre as a white manoeuvre until the end of the turn."
       },
@@ -467,7 +759,13 @@
         "Unique": true,
         "Name": "R2-D2",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the end of the End phase, if you have no shields, you may recover 1 shield and roll 1 attack die. On a ^HIT result, randomly flip one of your facedown Damage cards faceup and resolve it."
       },
@@ -478,12 +776,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Limited": true,
         "Name": "Targeting Coordinator",
         "Cost": 4,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "Energy: You may spend 1 energy to choose 1 friendly ship at Range 12. Acquire a target lock, then assign the blue target lock token to the chosen ship."
       },
@@ -494,12 +796,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Raymus Antilles",
         "Cost": 6,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "At the start of the Activation Phase, choose 1 enemy ship at Range 13. You may look at that ship's chosen manoeuvre. If that manoeuvre is white, assign that ship 1 stress token."
       },
@@ -507,7 +813,13 @@
         "Faction": "Any",
         "Name": "Mercenary Copilot",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When attacking at Range 3, you may change one of your ^HIT results to a ^CRITICAL result."
       },
@@ -516,7 +828,13 @@
         "Unique": true,
         "Name": "Darth Vader",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack against an enemy ship, you may suffer 2 damage to cause that ship to suffer 1 critical damage."
       },
@@ -524,7 +842,13 @@
         "Faction": "Any",
         "Name": "Navigator",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When you reveal a maneuver, you may rotate your dial to another maneuver with the same bearing. You cannot rotate to a red maneuver if you have any stress tokens."
       },
@@ -533,7 +857,13 @@
         "Unique": true,
         "Name": "Rebel Captive",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Once per round, the first ship that declares you as the target of an attack immediately receives 1 stress token."
       },
@@ -541,7 +871,13 @@
         "Faction": "Any",
         "Name": "Flight Instructor",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When defending, you may reroll one of your ^FOCUS results. If the attacker's pilot skill value is \"2\" or lower, you may reroll 1 of your blank results instead."
       },
@@ -550,7 +886,13 @@
         "Unique": true,
         "Name": "Moff Jerjerrod",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "When you are dealt a faceup Damage card, you may discard this upgrade card or another ^CREW upgrade card to flip that Damage card facedown (without resolving its effect)."
       },
@@ -558,7 +900,13 @@
         "Faction": "Empire",
         "Name": "Fleet Officer",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "Action: Choose up to 2 friendly ships at Range 12 and assign 1 focus token to each of those ships. Then receive 1 stress token."
       },
@@ -567,7 +915,13 @@
         "Unique": true,
         "Name": "Mara Jade",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the end of the Combat phase, each enemy ship at Range 1 that does not have a stress token receives 1 stress token."
       },
@@ -576,7 +930,13 @@
         "Unique": true,
         "Name": "Ysanne Isard",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the start of the Combat phase, if you have no shields and at least 1 Damage card assigned to your ship, you may perform a free evade action."
       },
@@ -587,11 +947,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Shield Technician",
         "Cost": 1,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "When you preform a recover action, instead of spending all your energy, you can choose any amount of energy to spend."
       },
@@ -602,11 +966,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Shield Technician",
         "Cost": 1,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "When you preform a recover action, instead of spending all your energy, you can choose any amount of energy to spend."
       },
@@ -617,12 +985,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Admiral Ozzel",
         "Cost": 2,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "Energy: You may remove up to 3 shields from your ship. For each shield removed, gain 1 energy."
       },
@@ -633,12 +1005,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Captain Needa",
         "Cost": 2,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "If you overlap an obstacle during the Activation phase, do not suffer 1 faceup damage card. Instead, roll 1 attack die. On a ^HIT or ^CRITICAL result, suffer 1 damage."
       },
@@ -649,12 +1025,16 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Grand Moff Tarkin",
         "Cost": 6,
-        "SlotsRequired": 1,
         "Type": "Crew",
         "Description": "At the start of the Combat phase, you may choose another ship at Range 14. Either remove 1 focus token from the chosen ship or assign 1 focus token to that ship."
       },
@@ -673,7 +1053,13 @@
         "Unique": true,
         "Name": "Agent Callus",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "At the start of the first round, choose 1 enemy small or large ship. When attacking or defending agaist that ship, you may change 1 of your ^FOCUS results to a ^HIT or ^EVADE result."
       },
@@ -682,7 +1068,13 @@
         "Unique": true,
         "Name": "Greedo",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "The first time you attack each round and the first time you defend each round, the first Damage card dealt is dealt faceup."
       },
@@ -691,7 +1083,13 @@
         "Limited": true,
         "Name": "Outlaw Tech",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you execute a red manoeuvre, you may assign 1 focus token to your ship. Limited."
       },
@@ -699,7 +1097,13 @@
         "Faction": "Scum",
         "Name": "K4 Security Droid",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After executing a green manoeuvre, you may acquire a target lock."
       },
@@ -708,7 +1112,13 @@
         "Unique": true,
         "Name": "Bossk",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Crew",
         "Description": "After you perform an attack that does not hit, if you are not stressed, you must receive 1 stress token. Then assign 1 focus token to your ship and acquire a target lock on the defender."
       },
@@ -716,7 +1126,13 @@
         "Faction": "Any",
         "Name": "Adrenaline Rush",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When you reveal a red maneuver, you may discard this card to treat that maneuver as a white maneuver until the end of the Activation phase."
       },
@@ -724,7 +1140,13 @@
         "Faction": "Any",
         "Name": "Determination",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When you are dealt a faceup Damage card with the Pilot trait, discard it immediately without resolving its effect."
       },
@@ -732,7 +1154,13 @@
         "Faction": "Any",
         "Name": "Marksmanship",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Action: When attacking this round, you may change one of your ^FOCUS results to a ^CRITICAL result and all your other ^FOCUS results to ^HIT results."
       },
@@ -740,7 +1168,13 @@
         "Faction": "Any",
         "Name": "Expert Handling",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Action: Perform a free barrel roll action. If you do not have the ^BARRELROLL action icon, receive 1 stress token. You may then remove 1 enemy target lock from your ship."
       },
@@ -748,7 +1182,13 @@
         "Faction": "Any",
         "Name": "Deadeye",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "You may treat the \"Attack [Target Lock]\" header as \"Attack [Focus]\". When an attack instructs you to spend a target lock, you may spend a focus token instead."
       },
@@ -756,7 +1196,13 @@
         "Faction": "Any",
         "Name": "Push the Limit",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Once per round, after you perform an action, you may perform 1 free action shown in your action bar. Then receive 1 stress token."
       },
@@ -764,7 +1210,13 @@
         "Faction": "Any",
         "Name": "Decoy",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "At the start of Combat phase, you may choose 1 friendly ship at Range 12. Exchange your pilot skill with that ship's pilot skill until the end of the phase."
       },
@@ -772,7 +1224,13 @@
         "Faction": "Any",
         "Name": "Wingman",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "At the start of the Combat phase, remove 1 stress token from another friendly ship at Range 1."
       },
@@ -780,7 +1238,13 @@
         "Faction": "Any",
         "Name": "Outmaneuver",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking a ship inside your firing arc, if you are not inside that ship's firing arc reduce its agility value by 1 (to a minumum of 0)"
       },
@@ -788,7 +1252,13 @@
         "Faction": "Any",
         "Name": "Draw Their Fire",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When a friendly ship at range 1 is hit by an attack, you may suffer 1 of the uncancelled  results instead of the target ship."
       },
@@ -796,7 +1266,13 @@
         "Faction": "Any",
         "Name": "Veteran Instincts",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "StatChanges": [
           {
             "Type": "PilotSkill",
@@ -810,7 +1286,13 @@
         "Faction": "Any",
         "Name": "Elusiveness",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When defending, you may receive 1 stress token to choose 1 attack die. The attacker must reroll that die. If you have at least 1 stress token, you cannot use this ability."
       },
@@ -818,7 +1300,13 @@
         "Faction": "Any",
         "Name": "Lone Wolf",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking or defending, if there are no friendly ships at Range 12, you may reroll one of your blank results."
       },
@@ -826,7 +1314,13 @@
         "Faction": "Any",
         "Name": "Stay on Target",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When you reveal a manoeuvre, you may rotate your dial to another manoeuvre with the same speed. Treat that manoeuvre as a red manoeuvre."
       },
@@ -834,7 +1328,13 @@
         "Faction": "Any",
         "Name": "Swarm Tactics",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "At the start of the combat phase, choose 1 friendly ship at Range 1. Until the end of this phase, treat the chosen ship as if its pilot skill were equal to your pilot skill."
       },
@@ -842,7 +1342,13 @@
         "Faction": "Any",
         "Name": "Squad Leader",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Action: Choose one ship at range 12 that has a lower pilot skill. The chosen ship may immediately perform 1 free action."
       },
@@ -850,7 +1356,13 @@
         "Faction": "Any",
         "Name": "Expose",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Action: Until the end of the round, increase your primary weapon value by 1 and decrease your agility value by 1."
       },
@@ -858,7 +1370,13 @@
         "Faction": "Any",
         "Name": "Predator",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, you may reroll 1 attack die. If the defender's pilot skill is \"2\" or lower, you may instead reroll up to 2 attack dice."
       },
@@ -866,7 +1384,13 @@
         "Faction": "Any",
         "Name": "Intimidation",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "While you are touching an enemy ship, reduce that ship's agility value by 1."
       },
@@ -874,7 +1398,13 @@
         "Faction": "Any",
         "Name": "Ruthlessness",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "After you perform an attack that hits, you must choose 1 other ship at Range 1 of the defender (other than yourself). That ship suffers 1 Damage."
       },
@@ -882,7 +1412,13 @@
         "Faction": "Any",
         "Name": "Opportunist",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if the defender does not have any focus or evade tokens, you may receive 1 stress token to roll 1 additional attack die. You cannot use this ability if you have any stress tokens."
       },
@@ -890,7 +1426,13 @@
         "Faction": "Any",
         "Name": "Calculation",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, you may spend a focus token to change 1 of your ^FOCUS results to a ^HIT result."
       },
@@ -898,7 +1440,13 @@
         "Faction": "Scum",
         "Name": "Bodyguard",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "At the start of the Combat phase, you may spend a focus token to choose a friendly ship at Range 1 with higher pilot skill than you. Increase its agility value by 1 until the end of the round."
       },
@@ -906,7 +1454,13 @@
         "Faction": "Any",
         "Name": "Crack Shot",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "When attacking a ship inside your firing arc, you may discard this card to cancel 1 of the defender's ^EVADE results."
       },
@@ -914,7 +1468,13 @@
         "Faction": "Any",
         "Name": "Lightning Reflexes",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "After you execute a white maneouvre on your dial, you may discard this card to rotate your ship 180°. Then receive 1 stress token after the “Check Pilot Stress” step."
       },
@@ -922,7 +1482,13 @@
         "Faction": "Any",
         "Name": "Daredevil",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Elite Pilot Talent",
         "Description": "Action: Execute a white [ ^LEFTTURN 1] or [ ^RIGHTTURN 1] manouevre. Then, receive 1 stress token. Then, if you do not have the  action icon, roll 2 attack dice. Suffer any damage ^HIT or ^CRITICAL damage rolled."
       },
@@ -930,7 +1496,13 @@
         "Faction": "Any",
         "Name": "Ion Pulse Missile",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target Lock]: Discard this card to perform this attack. If the attack hits, the defender suffers 1 damage and receives 2 ion tokens. Then cancel all dice results. Attack: 3. Range 23."
       },
@@ -938,7 +1510,13 @@
         "Faction": "Any",
         "Name": "Cluster Missiles",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target Lock]: Spend your Target Lock and discard this card to perform this attack twice. Attack value: 3. Range: 12."
       },
@@ -946,7 +1524,13 @@
         "Faction": "Any",
         "Name": "Concussion Missiles",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target Lock]: Spend your Target Lock and discard this card to perform this attack. You may change 1 of your blank results to a ^HIT result. Attack value: 4. Range: 23."
       },
@@ -954,7 +1538,13 @@
         "Faction": "Any",
         "Name": "Homing Missiles",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target Lock]: Discard this card to perform this attack. The defender cannot spend evade tokens during this attack. Attack: 4. Range 23."
       },
@@ -962,7 +1552,13 @@
         "Faction": "Any",
         "Name": "Assault Missiles",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. If this attack hits, each other ship at range 1 of the defender suffers 1 damage. Attack: 4. Range 23."
       },
@@ -970,7 +1566,13 @@
         "Faction": "Any",
         "Name": "Advanced Homing Missiles",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Target lock]: Discard this card to perform this attack. If this attack hits, deal 1 faceup Damage card to the defender. Then cancel all dice results. Attack value 4. Range 23."
       },
@@ -978,7 +1580,13 @@
         "Faction": "Any",
         "Name": "Proton Rockets",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Focus]: Discard this card to perform this attack. You may roll additional attack dice equal to your agility value, to a maximum of 3 additional dice. Attack value: 2. Range: 1."
       },
@@ -987,7 +1595,13 @@
         "Name": "Chardaan Refit",
         "Cost": -2,
         "SlotsRequired": -1,
-        "ShipRestricted": "A-Wing",
+        "Restrictions": [
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "A-Wing"
+          }
+        ],
         "Type": "Missile",
         "Description": "This card has a negative squad point cost."
       },
@@ -995,7 +1609,13 @@
         "Faction": "Any",
         "Name": "XX-23 S-thread Tracers",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Missile",
         "Description": "Attack [Focus]: Discard this card to perform this attack. If this attack hits, each friendly ship at Range 12 of you may acquire a target lock on the defender. Then cancel all dice results. Attack value 3. Range 13."
       },
@@ -1003,7 +1623,13 @@
         "Faction": "Any",
         "Name": "Hull Upgrade",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "StatChanges": [
           {
             "Type": "Hull",
@@ -1017,7 +1643,13 @@
         "Faction": "Any",
         "Name": "Munitions Failsafe",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Modification",
         "Description": "When attacking with a secondary weapon that instructs you to discard it to perform the attack, do not discard it unless the attack hits."
       },
@@ -1025,8 +1657,18 @@
         "Faction": "Any",
         "Name": "Advanced SLAM",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ActionRestricted": "SLAM",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "Actions",
+            "Operand": "Contains",
+            "Value": "SLAM"
+          }
+        ],
         "Type": "Modification",
         "Description": "After performing a ^SLAM action, if you did not overlap an obstacle or another ship, you may perform a free action."
       },
@@ -1034,7 +1676,13 @@
         "Faction": "Any",
         "Name": "Engine Upgrade",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "AddedActions": [ "Boost" ],
         "Type": "Modification",
         "Description": "Your action bar gains the ^BOOST action icon."
@@ -1043,7 +1691,13 @@
         "Faction": "Any",
         "Name": "Shield Upgrade",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "StatChanges": [
           {
             "Type": "Shield",
@@ -1060,11 +1714,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Counter Measures",
         "Cost": 3,
-        "SlotsRequired": 1,
         "Type": "Modification",
         "Description": "At the start of the Combat phase, you may discard this card to increase your agility value by 1 for the rest of the round. Then you may remove 1 enemy target lock token from your ship."
       },
@@ -1072,7 +1730,13 @@
         "Faction": "Any",
         "Name": "Experimental Interface",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Modification",
         "Description": "Once per round, after you perform an action, you may perform 1 free action from an equipped Upgrade card with the \"Action:\" header. Then receive 1 stress token."
       },
@@ -1080,14 +1744,24 @@
         "Faction": "Rebels",
         "Name": "B-Wing/E2",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "B-Wing"
+          }
+        ],
         "AddedUpgrades": [
           {
             "Type": "Crew",
             "CostReduction": 0
           }
         ],
-        "ShipRestricted": "B-Wing",
         "Type": "Modification",
         "Description": "Your upgrade bar gains the ^CREW icon."
       },
@@ -1098,11 +1772,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Combat Retrofit",
         "Cost": 10,
-        "SlotsRequired": 1,
         "StatChanges": [
           {
             "Type": "Hull",
@@ -1120,7 +1798,18 @@
         "Faction": "Any",
         "Name": "Stygium Particle Accelerator",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "Acions",
+            "Operand": "Contains",
+            "Value": "Cloak"
+          }
+        ],
         "Type": "Modification",
         "Description": "When you either decloak or perform a cloak action, you may perform a free evade action."
       },
@@ -1128,8 +1817,18 @@
         "Faction": "Empire",
         "Name": "Advanced Cloaking Device",
         "Cost": 4,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE Phantom",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Phantom"
+          }
+        ],
         "Type": "Modification",
         "Description": "After you perform an attack, you may perform a free cloak action."
       },
@@ -1137,8 +1836,18 @@
         "Faction": "Empire",
         "Name": "Twin Ion Engine Mk. II",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE"
+          }
+        ],
         "Type": "Modification",
         "Description": "You may treat all bank manoeuvres ( ^LEFTBANK or ^RIGHTBANK ) as green manoeuvres."
       },
@@ -1146,7 +1855,13 @@
         "Faction": "Any",
         "Name": "Stealth Device",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Modification",
         "Description": "Increase your agility value by 1. If you are hit by an attack, discard this card."
       },
@@ -1157,11 +1872,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Anti-Pursuit Lasers",
         "Cost": 2,
-        "SlotsRequired": 1,
         "Type": "Modification",
         "Description": "After an enemy ship performs a maneuver that causes it to overlap your ship, roll 1 attack die. On a ^HIT or ^CRITICAL result, the enemy ship suffers 1 damage."
       },
@@ -1172,11 +1891,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Tactical Jammer",
         "Cost": 1,
-        "SlotsRequired": 1,
         "Type": "Modification",
         "Description": "Your ship can obstruct enemy attacks."
       },
@@ -1184,7 +1907,13 @@
         "Faction": "Any",
         "Name": "Targeting Computer",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "AddedActions": [ "Target Lock" ],
         "Type": "Modification",
         "Description": "Your action bar gains the ^TARGETLOCK icon."
@@ -1192,15 +1921,19 @@
       {
         "Faction": "Any",
         "Name": "Autothrusters",
-        "Cost": 2,        
+        "Cost": 2,
         "Restrictions": [
           {
             "Attribute": "Actions",
             "Operand": "Contains",
             "Value": "Boost"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
-        "SlotsRequired": 1,        
         "Type": "Modification",
         "Description": "When defending, if you are beyond Range 2 or outside the attacker's firing arc, you may change 1 of your blank results to a ^EVADE result. You can equip this card only if you have the ^BOOST icon."
       },
@@ -1211,12 +1944,20 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "YV-666"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Maneuvering Fins",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "YV-666",
         "Type": "Modification",
         "Description": "When you reveal a turn maneuver (^LEFTTURN or ^RIGHTTURN), you may rotate your dial to the corresponding bank maneuver (^LEFTBANK or ^RIGHTBANK) of the same speed."
       },
@@ -1227,11 +1968,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Ion projector",
         "Cost": 2,
-        "SlotsRequired": 1,
         "Type": "Modification",
         "Description": "After an enemy ship executes a maneuver that causes it to overlap your ship, roll 1 attack die. On a ^HIT or ^CRITICAL result, the enemy ship receives 1 ion token."
       },
@@ -1239,7 +1984,13 @@
         "Faction": "Any",
         "Name": "Enhanced Scopes",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "During the Activation phase, treat your pilot skill as \"0\"."
       },
@@ -1247,7 +1998,13 @@
         "Faction": "Any",
         "Name": "Fire-Control System",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "After you perform an attack, you may acquire a target lock on the defender."
       },
@@ -1255,7 +2012,13 @@
         "Faction": "Any",
         "Name": "Advanced Sensors",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "Immediately before you reveal your maneuver, you may perform 1 free action. If you use this ability, skip your \"Perform Action\" step during this round."
       },
@@ -1263,7 +2026,13 @@
         "Faction": "Any",
         "Name": "Sensor Jammer",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "When defending, you may change 1 of the attacker's ^HIT results to a ^FOCUS result. The attacker cannot reroll the die with the changed result."
       },
@@ -1271,8 +2040,18 @@
         "Faction": "Any",
         "Name": "Advanced Targeting Computer",
         "Cost": 5,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE Advanced",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Advanced"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "When attacking with your primary weapon, if you have a target lock on the defender, you may add 1 ^CRITICAL result to your roll. If you do, you cannot spend target locks during this attack."
       },
@@ -1280,7 +2059,13 @@
         "Faction": "Any",
         "Name": "Accuracy Corrector",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "System Upgrade",
         "Description": "When attacking, you may cancel all of your dice results. Then you may add 2 ^HIT results to your roll. Your dice cannot be modified again this attack."
       },
@@ -1289,8 +2074,18 @@
         "Unique": true,
         "Name": "Moldy Crow",
         "Cost": 3,
-        "SlotsRequired": 1,
-        "ShipRestricted": "HWK-290",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "HWK-290"
+          }
+        ],
         "Type": "Title",
         "Description": "During the End phase, do not remove unused focus tokens from your ship."
       },
@@ -1301,14 +2096,22 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "YT-1300"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Millennium Falcon",
         "Cost": 1,
-        "SlotsRequired": 1,
         "AddedActions": [ "Evade" ],
-        "ShipRestricted": "YT-1300",
         "Type": "Title",
         "Description": "Your action bar gains the ^EVADE action icon."
       },
@@ -1319,11 +2122,15 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Small"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "Vectored Thrusters",
         "Cost": 2,
-        "SlotsRequired": 1,
         "AddedActions": [ "Barrel Roll" ],
         "Type": "Modification",
         "Description": "Your action bar gains the ^BARRELROLL icon."
@@ -1335,13 +2142,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "YT-2400"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Outrider",
         "Cost": 5,
-        "SlotsRequired": 1,
-        "ShipRestricted": "YT-2400",
         "Type": "Title",
         "Description": "When you have a ^CANNON Upgrade card equipped, you cannot perform primary weapon attacks and you may perform Cannon secondary weapon attacks against ships outside your firing arc."
       },
@@ -1349,15 +2164,24 @@
         "Faction": "Rebels",
         "Name": "A-Wing Test Pilot",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "A-Wing"
+          }
+        ],
         "AddedUpgrades": [
           {
             "Type": "Elite Pilot Talent",
             "CostReduction": 0
-
           }
         ],
-        "ShipRestricted": "A-Wing",
         "Type": "Title",
         "Description": "Your upgrade bar gains 1 ^ELITEPILOTTALENT upgrade icon. You cannot equip 2 of the same ^ELITEPILOTTALENT upgrade cards. You cannot equip this card if your pilot skill is \"1\" or lower."
       },
@@ -1368,13 +2192,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "GR-75 Medium Transport"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Dutyfree",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "GR-75 Medium Transport",
         "Type": "Title",
         "Description": "When performing a jam action, you may choose an enemy ship at range 1 (instead of at Range 2)."
       },
@@ -1385,13 +2217,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "GR-75 Medium Transport"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Quantum Storm",
         "Cost": 4,
-        "SlotsRequired": 1,
-        "ShipRestricted": "GR-75 Medium Transport",
         "Type": "Title",
         "Description": "At the start of the End phase, if you have 1 or fewer energy tokens, gain 1 energy token."
       },
@@ -1402,13 +2242,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "GR-75 Medium Transport"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Bright Hope",
         "Cost": 5,
-        "SlotsRequired": 1,
-        "ShipRestricted": "GR-75 Medium Transport",
         "Type": "Title",
         "Description": "A reinforce token assigned to your fore section adds 2 ^EVADE results (instead of 1)."
       },
@@ -1419,13 +2267,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "CR90 Corvette"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Jaina's Light",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "CR90 Corvette",
         "Type": "Title",
         "Description": "When defending, once per attack, if you are dealt a faceup Damage card, you may discard it and draw another faceup Damage card."
       },
@@ -1436,13 +2292,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "CR90 Corvette"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Dodonna's Pride",
         "Cost": 4,
-        "SlotsRequired": 1,
-        "ShipRestricted": "CR90 Corvette",
         "Type": "Title",
         "Description": "When you perform a coordinate action, you may choose 2 friendly ships (instead of 1). Those ships may each perform 1 free action."
       },
@@ -1453,12 +2317,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Huge"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "CR90 Corvette"
           }
         ],
         "Unique": true,
         "Name": "Tantive IV",
         "Cost": 5,
-        "SlotsRequired": 1,
         "AddedUpgrades": [
           {
             "Type": "Crew",
@@ -1470,7 +2343,6 @@
             "CostReduction": 0
           }
         ],
-        "ShipRestricted": "CR90 Corvette",
         "Type": "Title",
         "Description": "Your fore section upgrade bar gains 1 additional ^CREW and 1 additional ^TEAM upgrade icon."
       },
@@ -1479,8 +2351,23 @@
         "Unique": true,
         "Name": "TIE/v1",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE Adv. Prototype",
+        "Restrictions": [
+          {
+            "Attribute": "ShipSize",
+            "Operand": "Equals",
+            "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Adv. Prototype"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Title",
         "Description": "After you acquire a target lock, you may perform a free ^EVADE action."
       },
@@ -1491,20 +2378,27 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Firespray-31"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Slave-1",
         "Cost": 0,
-        "SlotsRequired": 1,
         "AddedUpgrades": [
           {
             "Type": "Torpedo",
             "CostReduction": 0
-
           }
         ],
-        "ShipRestricted": "Firespray-31",
         "Type": "Title",
         "Description": "Your upgrade bar gains the ^TROPEDO icon."
       },
@@ -1515,13 +2409,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Lambda-Class Shuttle"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "ST-321",
         "Cost": 3,
-        "SlotsRequired": 1,
-        "ShipRestricted": "Lambda-Class Shuttle",
         "Type": "Title",
         "Description": "When acquiring a target lock, you may lock onto any target in the play area."
       },
@@ -1532,13 +2434,21 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "VT-49 Decimator"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Dauntless",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "VT-49 Decimator",
         "Type": "Title",
         "Description": "After you execute a maneuver that causes you to overlap another ship, you may perform 1 free action. Then receive 1 stress token."
       },
@@ -1546,14 +2456,29 @@
         "Faction": "Empire",
         "Name": "Royal Guard TIE",
         "Cost": 0,
-        "SlotsRequired": 1,
         "AddedUpgrades": [
           {
             "Type": "Modification",
             "CostReduction": 0
           }
         ],
-        "ShipRestricted": "TIE Interceptor",
+        "Restrictions": [
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Interceptor"
+          },
+          {
+            "Attribute": "PilotSkill",
+            "Operand": ">",
+            "Value": "4"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Title",
         "Description": "You may equip up to 2 different ^MODIFICAION upgrades (instead of 1). You cannot equip this card if your pilot skill is \"4\" or lower."
       },
@@ -1561,14 +2486,24 @@
         "Faction": "Empire",
         "Name": "TIE/x1",
         "Cost": 0,
-        "SlotsRequired": 1,
         "AddedUpgrades": [
           {
             "Type": "System Upgrade",
             "CostReduction": 4
           }
         ],
-        "ShipRestricted": "TIE Advanced",
+        "Restrictions": [
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Advanced"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Title",
         "Description": "Your upgrade bar gains the ^SYSTEMUPGRADE upgrade icon. If you equip a ^SYSTEMUPGRADE upgrade, its squad point cost is reduced by 4 (to a minimum of 0)."
       },
@@ -1576,21 +2511,44 @@
         "Faction": "Empire",
         "Name": "TIE/Shuttle",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Bomber"
+          }
+        ],
         "AddedUpgrades": [
           {
             "Type": "Crew",
             "CostReduction": 0,
-            "CostLimit": 4
+            "Restrictions": [
+              {
+                "Attribute": "Cost",
+                "Operand": "<=",
+                "Value": "4"
+              }
+            ]
           },
           {
             "Type": "Crew",
             "CostReduction": 0,
-            "CostLimit": 4
+            "Restrictions": [
+              {
+                "Attribute": "Cost",
+                "Operand": "<=",
+                "Value": "4"
+              }
+
+            ]
           }
         ],
         "RemovedUpgrades": [ "Bomb", "Torpedo", "Torpedo", "Missile", "Missile" ],
-        "ShipRestricted": "TIE Bomber",
         "Type": "Title",
         "Description": "Your upgrade bar loses all ^MISSILE , ^TORPEDO and ^BOMB upgrade icons and gains 2 ^CREW upgrade icons. You cannot equip an upgrade card that costs more than 4 squad points."
       },
@@ -1601,23 +2559,29 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Firespray-31"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Unique": true,
         "Name": "Andrasta",
         "Cost": 0,
-        "SlotsRequired": 1,
         "AddedUpgrades": [
           {
-            "Type": "Bomb",
-            "CostReduction": 0
+            "Type": "Bomb"
           },
           {
-            "Type": "Bomb",
-            "CostReduction": 0
+            "Type": "Bomb"
           }
         ],
-        "ShipRestricted": "Firespray-31",
         "Type": "Title",
         "Description": "Your upgrade bar gains two additional ^BOMB upgrade icons."
       },
@@ -1625,8 +2589,18 @@
         "Faction": "Any",
         "Name": "BTLA4 Y-Wing",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "Y-Wing",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Y-Wing"
+          }
+        ],
         "Type": "Title",
         "Description": "You cannot attack ships outside your firing arc. After you perform a primary weapon attack, you may immediately perform an attack with a ^TURRET secondary weapon."
       },
@@ -1634,8 +2608,18 @@
         "Faction": "Empire",
         "Name": "Adaptive Ailerons",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE Striker",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Striker"
+          }
+        ],
         "Type": "Title",
         "Description": "Immediately before you reveal your dial, if you are not stressed, you must execute a white ( ^LEFTBANK 1), ( ^STRAIGHT 1), or ( ^RIGHTBANK 1) maneuver."
       },
@@ -1643,19 +2627,30 @@
         "Faction": "Scum",
         "Name": "“Heavy Scyk” Interceptor",
         "Cost": 1,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "M3-A Interceptor"
+          }
+        ],
         "ChooseUpgrade": [
           {
-            "Type": "Missile",
-            "CostReduction": 0
+            "Type": "Missile"
+
           },
           {
-            "Type": "Torpedo",
-            "CostReduction": 0
+            "Type": "Torpedo"
+
           },
           {
-            "Type": "Cannon",
-            "CostReduction": 0
+            "Type": "Cannon"
+
           }
         ],
         "StatChanges": [
@@ -1664,7 +2659,6 @@
             "Value": 1
           }
         ],
-        "ShipRestricted": "M3-A Interceptor",
         "Type": "Title",
         "Description": "Your upgrade bar gains the ^CANNON, ^TORPEDO, or ^MISSILE upgrade icon."
       },
@@ -1673,18 +2667,26 @@
         "Unique": true,
         "Name": "Virago",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "AddedUpgrades": [
+        "Restrictions": [
           {
-            "Type": "System Upgrade",
-            "CostReduction": 0
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           },
           {
-            "Type": "Illicit",
-            "CostReduction": 0
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "StarViper"
           }
         ],
-        "ShipRestricted": "StarViper",
+        "AddedUpgrades": [
+          {
+            "Type": "System Upgrade"
+          },
+          {
+            "Type": "Illicit"
+          }
+        ],
         "Type": "Title",
         "Description": "Your upgrade bar gains the ^SYSTEMUPGRADE and ^ILLICIT upgrade icons. You cannot equip this card if your pilot skill is \"3\" or lower."
       },
@@ -1693,11 +2695,28 @@
         "Unique": true,
         "Name": "Mist Hunter",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "G-1A Starfighter"
+          }
+        ],
         "AddedActions": [ "Barrel Roll" ],
-        "ShipRestricted": "G-1A Starfighter",
+        "AddedUpgrades": [
+          {
+            "Type": "Cannon",
+            "Upgrade": "Tractor Beam",
+            "Mutable": false
+          }
+        ],
         "Type": "Title",
-        "Description": "Your action bar gains the ^BARRELROLL action icon. You must equip 1 \"Tractor Beam\" upgrade (paying the squad point cost as normal."
+        "Description": "Your action bar gains the ^BARRELROLL action icon. You must equip 1 \"Tractor Beam\" upgrade (paying the squad point cost as normal)."
       },
       {
         "Faction": "Scum",
@@ -1706,12 +2725,20 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Large"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Aggressor"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Name": "IG2000",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "Aggressor",
         "Type": "Title",
         "Description": "You have the pilot ability of each other friendly ship with the IG2000 Upgrade card (in addition to your own pilot ability)."
       },
@@ -1719,9 +2746,19 @@
         "Faction": "Empire",
         "Name": "TIE/x7",
         "Cost": -2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Defender"
+          }
+        ],
         "RemovedUpgrades": [ "Cannon", "Missile" ],
-        "ShipRestricted": "TIE Defender",
         "Type": "Title",
         "Description": "Your upgrade bar loses the ^CANNON and ^MISSILE upgrade icons. After executing a 3, 4 or 5 speed maneuver, you may assign 1 evade token to your ship."
       },
@@ -1729,8 +2766,18 @@
         "Faction": "Empire",
         "Name": "TIE/D",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "TIE Defender",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "TIE Defender"
+          }
+        ],
         "Type": "Title",
         "Description": "Once per round, after you perform an attack with a Cannon secondary weapon that costs 3 or fewer squad points, you may perform a primary weapon attack."
       },
@@ -1738,7 +2785,13 @@
         "Faction": "Any",
         "Name": "Ion Torpedoes",
         "Cost": 5,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. If the attack hits, the defender and each ship at Range 1 of it receives 1 ion token. Attack value: 4. Range: 23."
       },
@@ -1746,7 +2799,13 @@
         "Faction": "Any",
         "Name": "Proton Torpedoes",
         "Cost": 4,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. You may change one of your ^FOCUS results to a ^CRITICAL result. Attack value: 4. Range: 23."
       },
@@ -1754,7 +2813,13 @@
         "Faction": "Any",
         "Name": "Advanced Proton Torpedoes",
         "Cost": 6,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Attack [Target Lock]: Spend your target lock and discard this card to attack. You may change up to 3 of your blank results to ^FOCUS results. Attack value: 5. Range: 1."
       },
@@ -1762,7 +2827,13 @@
         "Faction": "Any",
         "Name": "Flechette Torpedoes",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Attack [Target Lock]: Spend you target lock an discard this card to perform this attack. After you perform this attack, the defender receives 1 stress token if its hull value is \"4\" or less. Attack value: 3. Range: 23."
       },
@@ -1770,7 +2841,13 @@
         "Faction": "Any",
         "Name": "Extra Munitions",
         "Cost": 2,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "When you equip this card, place 1 ordnance token on each equipped ^TORPEDO, ^MISSILE, and ^BOMB Upgrade card. When you are instructed to discard an Upgrade card, you may discard 1 ordnance token on that card instead. Limited."
       },
@@ -1778,7 +2855,13 @@
         "Faction": "Any",
         "Name": "Plasma Torpedoes",
         "Cost": 3,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Attack [Target Lock]: Spend your target lock and discard this card to perform this attack. If this attack hits, after dealing damage, remove 1 shield token from the defender."
       },
@@ -1786,8 +2869,18 @@
         "Faction": "Scum",
         "Name": "Bomb Loadout",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "Y-Wing",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "ShipName",
+            "Operand": "Contains",
+            "Value": "Y-Wing"
+          }
+        ],
         "Type": "Torpedo",
         "Description": "Your upgrade bar gains the ^BOMB icon. Limited."
       },
@@ -1795,8 +2888,14 @@
         "Faction": "Any",
         "Name": "A Score To Settle",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "During setup, before the \"Place Forces\" step, select 1 enemy ship and assign the \"A Debt ToPay\" Condition card to it. When attacking a ship that has the \"A Debt To Pay\" Condition card, you may change 1 undefined result to a undefined result."
       },
@@ -1804,8 +2903,14 @@
         "Faction": "Any",
         "Name": "Wired ",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When attacking or defending, if you are stressed, you may reroll 1 or more of your ^FOCUS results."
       },
@@ -1813,8 +2918,14 @@
         "Faction": "Any",
         "Name": "Cool Hand",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When you receive a stress token, you may discard this card to assign 1 ^FOCUS or ^EVADE token to your ship."
       },
@@ -1822,8 +2933,14 @@
         "Faction": "Any",
         "Name": "Expertise",
         "Cost": 4,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if you are not stressed, you may change all of your ^FOCUS results to ^HIT results."
       },
@@ -1831,8 +2948,14 @@
         "Faction": "Any",
         "Name": "Trick Shot",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if the attack is obstructed, you may roll 1 additional attack dice."
       },
@@ -1840,8 +2963,14 @@
         "Faction": "Any",
         "Name": "Snap Shot",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "After an enemy ship executes a manoeuvre, you may perform this attack against that ship. Attack: Attack 1 ship. You cannot modify your attack dice and cannot attack again this phase. Attack value: 2. Range: 1."
       },
@@ -1849,8 +2978,14 @@
         "Faction": "Any",
         "Name": "Juke",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if you have an evade token, you may change 1 of the defender's ^EVADE results into a ^FOCUS result."
       },
@@ -1858,14 +2993,20 @@
         "Faction": "Any",
         "Name": "Adaptability (Increase)",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "StatChanges": [
           {
             "Type": "PilotSkill",
             "Value": 1
           }
         ],
-        "ShipRestricted": "",
+
         "Type": "Elite Pilot Talent",
         "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
       },
@@ -1873,14 +3014,20 @@
         "Faction": "Any",
         "Name": "Adaptability (Decrease)",
         "Cost": 0,
-        "SlotsRequired": 1,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "StatChanges": [
           {
             "Type": "PilotSkill",
             "Value": -1
           }
         ],
-        "ShipRestricted": "",
+
         "Type": "Elite Pilot Talent",
         "Description": "Dual Card. Either: Increase your pilot skill value by 1; or: Decrease your pilot skill value by 1."
       },
@@ -1888,8 +3035,14 @@
         "Faction": "Scum",
         "Name": "Attanni Mindlink",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "Each time you are assigned a focus or stress token, each other friendly ship with Attanni Mindlink must also be assigned the same type of token if it does not already have one."
       },
@@ -1897,8 +3050,14 @@
         "Faction": "Any",
         "Name": "Rage",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "Action: Assign 1 focus token to your ship and receive 2 stress tokens. Until the end of round, when attacking, you may reroll up to 3 dice."
       },
@@ -1906,8 +3065,14 @@
         "Faction": "Scum",
         "Name": "Fearlessness",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Elite Pilot Talent",
         "Description": "When attacking, if you are inside the defender's firing arc at Range 1 and the defender is inside your firing arc, you may add 1 ^HIT result to your roll."
       },
@@ -1915,8 +3080,14 @@
         "Faction": "Any",
         "Name": "Hyperwave Comm Scanner",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Tech",
         "Description": "At the start of the \"Place Forces\" step, you may choose to treat your pilot skill value as \"0\", \"6\" or \"12\", until the end of the step. During setup, after another friendly ship is placed at Range 1-2, you may assign 1 focus or evade token to it."
       },
@@ -1928,11 +3099,14 @@
             "Attribute": "ShipSize",
             "Operand": "Equals",
             "Value": "Small"
+          },
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
           }
         ],
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
         "Type": "Tech",
         "Description": "Stress tokens do not prevent you from performing boost or barrel roll actions unless you have 3 or more stress tokens."
       },
@@ -1940,8 +3114,13 @@
         "Faction": "Any",
         "Name": "Pattern Analyzer",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Tech",
         "Description": "When executing a manoeuvre, you may resolve the \"Check Pilot Stress\" step after the \"Perform Action\" step (instead of before that step)."
       },
@@ -1949,8 +3128,13 @@
         "Faction": "Any",
         "Name": "Sensor Cluster",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Tech",
         "Description": "When defending, you may spend a focus token to change 1 of your blank results to an ^EVADE result."
       },
@@ -1958,8 +3142,13 @@
         "Faction": "Any",
         "Name": "Weapons Guidance",
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Tech",
         "Description": "When attacking, you may spend a focus token to change 1 of your blank results to a ^HIT result."
       },
@@ -1967,8 +3156,13 @@
         "Faction": "Any",
         "Name": "Comm Relay",
         "Cost": 3,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Tech",
         "Description": "You cannot have more that 1 evade token. During the End phase, do not remove an unused evade token from your ship."
       },
@@ -1976,8 +3170,13 @@
         "Faction": "Any",
         "Name": "Targeting Synchronizer",
         "Cost": 3,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Tech",
         "Description": "When a friendly ship at Range 1-2 is attacking a ship you have locked, the friendly ship treats the \"Attack [targetlock]\" :header as \"Attack:\" If a game effect instructs that ship to spend a target lock, it may spend your target lock instead."
       },
@@ -1985,8 +3184,13 @@
         "Faction": "Any",
         "Name": "Guidance Chips",
         "Cost": 0,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Modification",
         "Description": "Once per round, when attacking with a ^TORPEDO or ^MISSILE secondary weapon, you may change 1 die result to a ^HIT result (or a ^CRITICAL result if your primary weapon value is \"3\" or higher)."
       },
@@ -1995,8 +3199,13 @@
         "Name": "R2-D2",
         "Unique": true,
         "Cost": 4,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "After executing a green maneuver, you may recover 1 shield (up to your shield value)."
       },
@@ -2005,8 +3214,13 @@
         "Name": "R2-F2",
         "Unique": true,
         "Cost": 3,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "ACTION: Increase your agility value by 1 until the end of this game round."
       },
@@ -2015,8 +3229,13 @@
         "Name": "R5-K6",
         "Unique": true,
         "Cost": 2,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "After spending your target lock, roll 1 defense die. On an ^EVADE result, immediately acquire a target lock on that same ship. You cannot spend this target lock during this attack."
       },
@@ -2024,8 +3243,13 @@
         "Faction": "Rebels",
         "Name": "R5 Astromech",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "During the End phase, you may choose 1 of your faceup Damage cards with the Ship trait and flip it facedown."
       },
@@ -2033,8 +3257,13 @@
         "Faction": "Rebels",
         "Name": "R2 Astromech",
         "Cost": 1,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "You may treat all 1- and 2-speed maneuvers as green maneuvers."
       },
@@ -2043,8 +3272,13 @@
         "Name": "R5-D8",
         "Cost": 3,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
         "Type": "Astromech",
         "Description": "Action:  Roll 1 defense die. On an ^EVADE or ^FOCUS result, discard 1 of your facedown Damage cards."
       },
@@ -2053,24 +3287,29 @@
         "Name": "R2-D6",
         "Cost": 1,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "Pilot Skill",
+            "Operand": ">",
+            "Value": 2
+          },
+          {
+            "Attribute": "UpgradeSlots",
+            "Operand": "Not Contains",
+            "Value": "Elite Pilot Talent"
+          }
+        ],
         "AddedUpgrades": [
           {
             "Type": "Elite Pilot Talent"
           }
         ],
-        "Type": "Astromech",
-        "UpgradeRestricted": [
-          "Elite Pilot Talent"
-        ],
-        "StatsRestricted": [
-          {
-            "Stat": "Pilot Skill",
-            "Operand": ">",
-            "Value": 2
-          }
-        ],
+        "Type": "Astromech",               
         "Description": "Your upgrade bar gains the elite upgrade icon. You cannot equip this upgrade if you already have an elite upgrade icon or if your pilot skill value is \"2\" or lower."
       },
       {
@@ -2078,8 +3317,14 @@
         "Name": "R3-A2",
         "Cost": 1,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "When you declare the target of your attack, if the defender is inside your firing arc, you may receive 1 stress token to cause the defender to receive 1 stress token."
       },
@@ -2088,8 +3333,14 @@
         "Name": "R4-D6",
         "Cost": 1,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "When you are hit by an attack and there are at least 3 uncancelled ^HIT results, you may choose and cancel those results until there are 2 remaining. For each result cancelled in this way, receive 1 stress token. "
       },
@@ -2098,8 +3349,14 @@
         "Name": "R5-P9",
         "Cost": 3,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "At the end of the Combat phase, you may spend 1 of your focus tokens to recover 1 shield (up to your shield value)."
       },
@@ -2108,8 +3365,14 @@
         "Name": "R7-T1",
         "Cost": 3,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "ACTION: Choose an enemy ship at Range 1-2. If you are inside that ship's firing arc, you may acquire a target lock on that ship. Then, you may perform a free ^BOOST action."
       },
@@ -2118,8 +3381,14 @@
         "Name": "R7 Astromech",
         "Cost": 2,
         "Unique": false,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "Once per round when defending, if you have a target lock on the attacker, you may spend the target lock to choose any or all attack dice. The attacker must reroll the chosen dice."
       },
@@ -2128,8 +3397,14 @@
         "Name": "BB-8",
         "Cost": 2,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "When you reveal a green maneuver, you may perform a free ^BARRELROLL action."
       },
@@ -2138,8 +3413,14 @@
         "Name": "R5-X3",
         "Cost": 1,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "Before you reveal your maneuver, you may discard this card to ignore obstacles until the end of the round."
       },
@@ -2148,8 +3429,14 @@
         "Name": "Targeting Astromech",
         "Cost": 2,
         "Unique": false,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "After you execute a red maneuver, you may acquire a target lock. "
       },
@@ -2158,8 +3445,14 @@
         "Name": "R3 Astromech",
         "Cost": 2,
         "Unique": false,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "Once per round, when attacking with a primary weapon, you may cancel 1 of your ^FOCUS results during the \"Modify Attack Dice\" step to assign 1 ^EVADE token to your ship."
       },
@@ -2168,8 +3461,14 @@
         "Name": "M9-G8",
         "Cost": 3,
         "Unique": true,
-        "SlotsRequired": 1,
-        "ShipRestricted": "",
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          }
+        ],
+
         "Type": "Astromech",
         "Description": "When a ship you have locked is attacking, you may choose 1 attack die. The attacker must reroll that die. You can acquire target locks on other friendly ships."
       }

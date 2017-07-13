@@ -39,13 +39,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             var upgradeParsers = new UpgradeModifierParser();
 
             return new Upgrade(upgrade.Name, upgrade.Cost, upgrade.SlotsRequired,
-                upgrade.Description, upgrade.Unique, upgrade.Limited, upgrade.ShipRestricted, 
-                upgrade.ActionRestricted, upgrade.SizeRestriction,
+                upgrade.Description, upgrade.Unique, upgrade.Limited,
                 XWingRepository.Instance.FactionRepository.GetFaction(upgrade.Faction),
                 XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
                 new Structures.UpgradeModifierPackage(
                 upgradeParsers.ParseAddedActions(upgrade.AddedActions.ToArray()),
-                upgradeParsers.ParseRemovedActions(upgrade.RemovedActions.ToArray()),
+                upgradeParsers.ParseRemovedActions(upgrade.RemovedUpgrades.ToArray()),
                 upgradeParsers.ParseAddedUpgrades(upgrade.AddedUpgrades.ToArray()),
                 upgradeParsers.ParseRemovedUpgrades(upgrade.RemovedUpgrades.ToArray()),
                 upgradeParsers.ParseChangedStats(upgrade.StatChanges.ToArray()),

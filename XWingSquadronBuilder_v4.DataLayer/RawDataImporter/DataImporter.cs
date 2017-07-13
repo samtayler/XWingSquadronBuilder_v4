@@ -27,7 +27,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawDataImporter
 
         public static UpgradeJson[] LoadUpgrades()
         {
-            var root = GetDataFromJson<RootUpgradesJson>("Upgrades");
+            var root = GetDataFromJson<UpgradesRootJson>("Upgrades");
             return root.Upgrades.Upgrade;
 
         }

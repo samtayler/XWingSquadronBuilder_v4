@@ -133,7 +133,7 @@ namespace XWingSquadronBuilder_v4.Tests
             var invalidPilots = from pilotR in pilotsRaw
                                 join pilotC in pilotsConverted on
                                 pilotR.Name equals pilotC.Name
-                                where pilotC.Ship != pilotR.ShipName ||
+                                where pilotC.ShipName != pilotR.ShipName ||
                                 pilotC.Attack != pilotR.Stats.Attack ||
                                 pilotC.Agility != pilotR.Stats.Aglilty ||
                                 pilotC.Hull != pilotR.Stats.Hull ||
@@ -145,7 +145,7 @@ namespace XWingSquadronBuilder_v4.Tests
                                 pilotC.Actions?.Count() != pilotR.Actions.Count() ||
                                 pilotC.Upgrades?.Count() != pilotR.Upgrades.Count() ||
                                 pilotC.Cost != pilotR.Cost
-                                select new { PilotName = pilotC.Name, ShipName = pilotC.Ship };
+                                select new { PilotName = pilotC.Name, ShipName = pilotC.ShipName };
 
             foreach (var item in invalidPilots)
             {

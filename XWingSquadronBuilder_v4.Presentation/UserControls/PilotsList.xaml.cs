@@ -36,7 +36,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             set
             {
                 SetValue(PilotsProperty, value);
-                GroupedPilots = Pilots.OrderBy(pilot => pilot.Ship).ThenBy(x => x.PilotSkill).ThenBy(x => x.Cost).ThenBy(x => x.Name).GroupBy(x => x.Ship).ToList();                
+                GroupedPilots = Pilots.OrderBy(pilot => pilot.ShipName).ThenBy(x => x.PilotSkill).ThenBy(x => x.Cost).ThenBy(x => x.Name).GroupBy(x => x.ShipName).ToList();                
             }
         }
 

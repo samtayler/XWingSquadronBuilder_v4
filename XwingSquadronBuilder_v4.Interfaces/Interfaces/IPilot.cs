@@ -7,12 +7,10 @@ using System.Linq;
 namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged, IDisposable
-    {        
-        string Name { get; }
-        bool Unique { get; }
+    {
         string PilotAbility { get; }
-        string Ship { get; }
-        IShipSize ShipSize { get; }        
+        string ShipName { get; }
+        IShipSize ShipSize { get; }
         int Cost { get; }
         int UpgradesCost { get; }
         IFaction Faction { get; }
@@ -27,7 +25,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         List<IAction> Actions { get; }
 
         string Image { get; }
-        string ShipIcon { get; }       
+        string ShipIcon { get; }
 
     }
 }

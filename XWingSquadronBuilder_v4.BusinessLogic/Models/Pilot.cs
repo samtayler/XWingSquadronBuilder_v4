@@ -16,7 +16,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IFaction Faction { get; }
 
-        public string Ship { get; }
+        public string ShipName { get; }
 
         public bool Unique { get; }
 
@@ -55,7 +55,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             Name = name;
             Faction = faction;
-            Ship = shipName;
+            ShipName = shipName;
             Unique = unique;
             PilotAbility = pilotAbility;
             Image = imageUri;
@@ -73,7 +73,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public override string ToString()
         {
-            return $"{Name} {Ship}";
+            return $"{Name} {ShipName}";
         }               
 
         public void Dispose()
@@ -85,7 +85,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public bool Equals(IPilot other)
         {
             return Name == other.Name 
-                && Ship == other.Ship
+                && ShipName == other.ShipName
                 && other.Upgrades.All(Upgrades.Contains) 
                 && other.Upgrades.Count == Upgrades.Count
                 && other.UpgradesCost == UpgradesCost;
@@ -96,7 +96,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             Name = name;
             Faction = faction;
-            Ship = shipName;
+            ShipName = shipName;
             Unique = unique;
             PilotAbility = pilotAbility;
             Image = imageUri;
@@ -109,7 +109,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IPilot DeepClone()
         {
-            return new Pilot(this.Ship, this.Name, this.Unique, this.Faction.DeepClone(), 
+            return new Pilot(this.ShipName, this.Name, this.Unique, this.Faction.DeepClone(), 
                 this.Cost, this.PilotAbility, this.Image, this.ShipSize.DeepClone(), 
                 this.AbilityEngine.DeepClone(), this.ShipIcon);
         }
