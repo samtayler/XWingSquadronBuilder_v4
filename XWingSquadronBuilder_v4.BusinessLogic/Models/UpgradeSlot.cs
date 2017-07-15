@@ -20,7 +20,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
             private set
             {
-                if (upgrade.Equals(value)) return;
+                if (value.Equals(upgrade)) return;
                 upgrade = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Upgrade)));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cost)));
@@ -30,7 +30,6 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         }
 
         private IUpgrade upgrade;
-
 
         public int CostReduction { get; }
 
@@ -51,52 +50,35 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
         }
 
-        private bool enabled = true;
-
-        public bool Enabled
-        {
-            get { return enabled; }
-            private set
-            {
-                if (value != enabled)
-                {
-                    enabled = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Enabled)));
-                }
-            }
-        }
-
-        public IEnumerable<Predicate<IUpgrade>> UpgradeFilters { get; }
-
         public bool IsNotNullUpgrade => !IsNullUpgrade;
 
         public bool IsNullUpgrade => (Upgrade is NullUpgrade);
 
-        public void Enable() => Enabled = true;
+        public IReadOnlyList<IXWingSpecification<IUpgrade>> RestrictionList { get; }
 
-        public void Disable() => Enabled = false;
+        public bool IsMutable { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public UpgradeSlot(IUpgradeType upgradeType, IUpgrade upgrade, int costReduction = 0, int costRestriction = 100)
+        internal UpgradeSlot(IUpgradeType upgradeType, IUpgrade upgrade, IReadOnlyList<IXWingSpecification<IUpgrade>> restrictions, int costReduction = 0, bool isMutable = true)
         {
             UpgradeType = upgradeType ?? throw new ArgumentNullException(nameof(upgradeType));
             this.upgrade = upgrade ?? throw new ArgumentNullException(nameof(upgrade));
             CostReduction = costReduction;
-            CostRestriction = costRestriction;
+            RestrictionList = restrictions;
+            IsMutable = isMutable;
         }
 
-        public IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots()
+        public IReadOnlyList<IUpgradeSlot> GetInnerUpgradeSlots()
         {
             return Upgrade.GetInnerUpgradeSlots();
         }
 
         public bool SetUpgrade(IUpgrade upgrade)
         {
-            if (!upgrade.UpgradeType.Equals(UpgradeType)) return false;
-            if (!(upgrade.Cost <= CostRestriction)) return false;
+            if (!upgrade.UpgradeType.Equals(UpgradeType)) return false;           
             this.Upgrade = upgrade;
-            return true;            
+            return true;
         }
 
         public bool Equals(IUpgradeSlot other)
@@ -119,7 +101,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgradeSlot DeepClone()
         {
-            return new UpgradeSlot(this.UpgradeType.DeepClone(), this.Upgrade.DeepClone(), this.CostReduction, this.CostRestriction);
+            return new UpgradeSlot(this.UpgradeType.DeepClone(), this.Upgrade.DeepClone(), RestrictionList.ToList().AsReadOnly(), this.CostReduction, this.IsMutable);
         }
 
         public int CompareTo(IUpgradeSlot other)

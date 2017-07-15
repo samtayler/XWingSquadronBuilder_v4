@@ -18,38 +18,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
         public static IFaction CreateFaction(FactionJson faction)
         {
             return new Faction(faction.Name, faction.Image);
-        }
-
-        public static IPilot CreatePilot(PilotJson pilot)
-        {
-            return new Pilot(pilot.ShipName, pilot.Name, pilot.Unique,
-                XWingRepository.Instance.FactionRepository.GetFaction(pilot.Faction), pilot.Cost, 
-                new Structures.PilotStatPackage(pilot.Stats.Attack,
-                pilot.Stats.Aglilty, pilot.Stats.Hull, pilot.Stats.Shield, pilot.PilotSkill),
-                pilot.PilotAbility, pilot.Image, new ShipSize(pilot.ShipSize),
-                new HashSet<IAction>(pilot.Actions.Select(x => XWingRepository.Instance.ActionRepository.GetAction(x))),
-                pilot.Upgrades.Select(x => 
-                new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x),
-                new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)))), 
-                pilot.ShipIcon);
-        }
-
-        public static IUpgrade CreateUpgrade(UpgradeJson upgrade)
-        {
-            var upgradeParsers = new UpgradeModifierParser();
-
-            return new Upgrade(upgrade.Name, upgrade.Cost, upgrade.SlotsRequired,
-                upgrade.Description, upgrade.Unique, upgrade.Limited,
-                XWingRepository.Instance.FactionRepository.GetFaction(upgrade.Faction),
-                XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
-                new Structures.UpgradeModifierPackage(
-                upgradeParsers.ParseAddedActions(upgrade.AddedActions.ToArray()),
-                upgradeParsers.ParseRemovedActions(upgrade.RemovedUpgrades.ToArray()),
-                upgradeParsers.ParseAddedUpgrades(upgrade.AddedUpgrades.ToArray()),
-                upgradeParsers.ParseRemovedUpgrades(upgrade.RemovedUpgrades.ToArray()),
-                upgradeParsers.ParseChangedStats(upgrade.StatChanges.ToArray()),
-                upgradeParsers.ParseSelectableUpgrades(upgrade.ChooseUpgrade.ToArray())));
-        }
+        }          
 
         public static IUpgradeType CreateUpgradeType(UpgradeTypeJson upgradeType)
         {

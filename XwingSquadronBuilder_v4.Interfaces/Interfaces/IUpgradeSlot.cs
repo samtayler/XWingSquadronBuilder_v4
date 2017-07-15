@@ -16,11 +16,10 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int Cost { get; }
         bool IsNotNullUpgrade { get; }
         bool IsNullUpgrade { get; }
-
-        bool Enabled { get;}
-        void Enable();
-        void Disable();
-        IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
+        IReadOnlyList<IXWingSpecification<IUpgrade>> RestrictionList { get; }
+        bool IsMutable { get; }
+        
+        IReadOnlyList<IUpgradeSlot> GetInnerUpgradeSlots();
         void ClearUpgrade();
         bool SetUpgrade(IUpgrade upgrade);
 

@@ -110,6 +110,10 @@
     <Compile Include="EventPayloads\ChooseUpgradeArgs.cs" />
     <Compile Include="Extensions\UpgradeSlotCollectionExtensions.cs" />
     <Compile Include="Factories\DataParsers.cs" />
+    <Compile Include="Factories\Interfaces\IUpgradeFactory.cs" />
+    <Compile Include="Factories\Interfaces\IUpgradeSlotFactory.cs" />
+    <Compile Include="Factories\Interfaces\IPilotFactory.cs" />
+    <Compile Include="Factories\PilotFactory.cs" />
     <Compile Include="Factories\SquadronFactory.cs" />
     <Compile Include="Factories\UpgradeFactory.cs" />
     <Compile Include="Factories\UpgradeModifierParsers.cs" />
@@ -136,7 +140,6 @@
     <Compile Include="Repositories\UpgradeTypesRepository.cs" />
     <Compile Include="Repositories\XWingRepository.cs" />
     <Compile Include="Specifications\Specification.cs" />
-    <Compile Include="Specifications\UpgradeSpecifications.cs" />
     <Compile Include="Specifications\XWingSpecifications.cs" />
     <Compile Include="Structures\PilotStatsPackage.cs" />
     <Compile Include="Structures\UpgradeModifierPackage.cs" />

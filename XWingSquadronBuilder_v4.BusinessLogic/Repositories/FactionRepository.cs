@@ -21,7 +21,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
             factions = DataImporter.LoadFactions();
         }
 
-        public List<IFaction> GetAllFactions()
+        public IReadOnlyList<IFaction> GetAllFactions()
         {
             return factions.Select(x => CreateFaction(x)).ToList();
         }

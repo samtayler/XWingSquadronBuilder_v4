@@ -30,6 +30,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 
         private void Pilot_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
+            UpgradesChanged();
             PilotCost = pilot.Cost + pilot.UpgradesCost;
         }
 

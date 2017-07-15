@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using XWingSquadronBuilder_v4.BusinessLogic.Factories;
 using XWingSquadronBuilder_v4.DataLayer.RawData;
 using XWingSquadronBuilder_v4.DataLayer.RawDataImporter;
 using XWingSquadronBuilder_v4.Interfaces;
@@ -8,21 +9,26 @@ using XWingSquadronBuilder_v4.Interfaces;
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
     internal class UpgradeRepository : IUpgradeRepository
-    {
-        private Func<UpgradeJson, IUpgrade> CreateUpgrade { get; }
-        public UpgradeRepository(Func<UpgradeJson, IUpgrade> createUpgrade)
+    {        
+        private readonly IUpgradeFactory upgradeFactory;
+        private readonly IUpgradeSlotFactory upgradeSlotFactory;
+        private readonly IUpgradeTypesRepository typeRepo;
+
+        public UpgradeRepository(IUpgradeFactory upgradeFactory, IUpgradeSlotFactory upgradeSlotFactory, IUpgradeTypesRepository typeRepo)
         {
-            CreateUpgrade = createUpgrade;
+            this.upgradeFactory = upgradeFactory;
+            this.upgradeSlotFactory = upgradeSlotFactory;
+            this.typeRepo = typeRepo;
             upgrades = DataImporter.LoadUpgrades();
         }
 
         private IReadOnlyList<UpgradeJson> upgrades { get; }
 
         public IReadOnlyList<IUpgrade> GetAllUpgrades()
-            => (from upgrade in upgrades select CreateUpgrade(upgrade)).ToList().AsReadOnly();
+            => (upgrades.Select(x => upgradeFactory.CreateUpgrade(x, new UpgradeModifierParser(upgradeSlotFactory, typeRepo,this)))).ToList().AsReadOnly();
 
         public IReadOnlyList<IUpgrade> GetAllUpgradesForType(IUpgradeType type)
-             => (from upgrade in upgrades where upgrade.Type == type.Name select CreateUpgrade(upgrade)).ToList().AsReadOnly();
+             => (upgrades.Where(x => x.Type.Equals(type.Name)).Select(x => upgradeFactory.CreateUpgrade(x, new UpgradeModifierParser(upgradeSlotFactory, typeRepo, this)))).ToList().AsReadOnly();
     }
 }
 

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using XWingSquadronBuilder_v4.BusinessLogic.Structures;
 using XWingSquadronBuilder_v4.Interfaces;
 
@@ -12,13 +9,13 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
     public class Upgrade : IUpgrade
     {
-        public IEnumerable<IAction> AddActionModifiers { get; }
+        public IReadOnlyList<IAction> AddActionModifiers { get; }
 
-        public IEnumerable<IAction> RemoveActionModifiers { get; }
+        public IReadOnlyList<IAction> RemoveActionModifiers { get; }
 
-        public IEnumerable<IUpgradeSlot> AddUpgradeModifiers { get; }
+        public IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers { get; }
 
-        public IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
+        public IReadOnlyList<IUpgradeType> RemoveUpgradeModifiers { get; }
 
         public IDictionary<string, int> PilotAttributeModifiers { get; }
 
@@ -28,59 +25,39 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public string Name { get; }
 
-        public int Cost { get; }
-
-        public int SlotsRequired { get; }
+        public int Cost { get; }        
 
         public string CardText { get; }
 
         public bool Unique { get; }
 
-        public bool Limited { get; }
-
-        public string ShipLimited { get; }
-
-        public string ActionLimited { get; }
-
-        public string SizeRestriction { get; }
+        public bool Limited { get; }       
 
         public IFaction Faction { get; }
 
         public IUpgradeType UpgradeType { get; }
 
-        public event PropertyChangedEventHandler PropertyChanged;        
+        public IReadOnlyList<IXWingSpecification<IPilot>> UpgradeRestrictions { get; }       
 
-        public Upgrade(string name, int cost, int slotsRequired,
-            string cardText, bool unique, bool limited, string shipLimited, string actionLimited,
-            string sizeRestriction, IFaction faction, IUpgradeType upgradeType, UpgradeModifierPackage modifiers)
+        internal Upgrade(string name, int cost,
+            string cardText, bool unique, bool limited,
+            IFaction faction, IUpgradeType upgradeType, UpgradeModifierPackage modifiers, IReadOnlyList<IXWingSpecification<IPilot>> upgradeRestrictions)
         {
             Name = name;
-            Cost = cost;
-            SlotsRequired = slotsRequired;
+            Cost = cost;            
             CardText = cardText;
             Unique = unique;
-            Limited = limited;
-            ShipLimited = shipLimited;
-            ActionLimited = actionLimited;
-            SizeRestriction = sizeRestriction;
+            Limited = limited;           
             Faction = faction;
             UpgradeType = upgradeType;
 
             AddActionModifiers = modifiers.AddActionModifiers;
             RemoveActionModifiers = modifiers.RemoveActionModifiers;
-            AddUpgradeModifiers = modifiers.AddUpgradeModifiers.Select(x =>
-            {
-                x.PropertyChanged += AddedUpgrade_PropertyChanged;
-                return x;
-            }).ToList();
+            AddUpgradeModifiers = modifiers.AddUpgradeModifiers.ToList();
             RemoveUpgradeModifiers = modifiers.RemoveUpgradeModifiers;
             PilotAttributeModifiers = modifiers.PilotAttributeModifiers;
-        }
-
-        private void AddedUpgrade_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(sender, e);
-        }
+            UpgradeRestrictions = upgradeRestrictions;
+        }       
 
         public override string ToString()
         {
@@ -92,7 +69,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             SelectedAddedUpgrade = selected;
         }
 
-        public IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots()
+        public IReadOnlyList<IUpgradeSlot> GetInnerUpgradeSlots()
         {
             return AddUpgradeModifiers.Select(x => x.GetInnerUpgradeSlots().Concat(new[] { x }))
                 .Aggregate(new List<IUpgradeSlot>(), (x, y) => x.Concat(y).ToList());
@@ -105,15 +82,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IUpgrade DeepClone()
         {
-            return new Upgrade(this.Name, this.Cost, this.SlotsRequired, 
-                this.CardText, this.Unique, this.Limited, this.ShipLimited,this.ActionLimited, 
-                this.SizeRestriction, this.Faction.DeepClone(), this.UpgradeType.DeepClone(), 
-                new UpgradeModifierPackage(this.AddActionModifiers.Select(x => x.DeepClone()), 
-                this.RemoveActionModifiers.Select(x => x.DeepClone()), 
-                this.AddUpgradeModifiers.Select(x => x.DeepClone()), 
-                this.RemoveUpgradeModifiers.Select(x => x.DeepClone()), 
+            return new Upgrade(this.Name, this.Cost,
+                this.CardText, this.Unique, this.Limited, this.Faction.DeepClone(), this.UpgradeType.DeepClone(), 
+                new UpgradeModifierPackage(this.AddActionModifiers.Select(x => x.DeepClone()).ToList().AsReadOnly(), 
+                this.RemoveActionModifiers.Select(x => x.DeepClone()).ToList().AsReadOnly(), 
+                this.AddUpgradeModifiers.Select(x => x.DeepClone()).ToList().AsReadOnly(), 
+                this.RemoveUpgradeModifiers.Select(x => x.DeepClone()).ToList().AsReadOnly(), 
                 this.PilotAttributeModifiers.Select(x => new KeyValuePair<string, int>(x.Key, x.Value))
-                .ToDictionary(x => x.Key, y => y.Value), SelectableAddedUpgrades.Select(x => x.DeepClone())));
+                .ToDictionary(x => x.Key, y => y.Value), SelectableAddedUpgrades.Select(x => x.DeepClone()).ToList().AsReadOnly()),UpgradeRestrictions.ToList().AsReadOnly());
         }
     }
 }

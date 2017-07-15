@@ -30,9 +30,9 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event PilotSelectedEventHandler PilotSelected;
 
-        public List<IPilot> Pilots
+        public IReadOnlyList<IPilot> Pilots
         {
-            get { return (List<IPilot>)GetValue(PilotsProperty); }
+            get { return (IReadOnlyList<IPilot>)GetValue(PilotsProperty); }
             set
             {
                 SetValue(PilotsProperty, value);
@@ -42,7 +42,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(List<IPilot>), typeof(PilotsList), new PropertyMetadata(new List<IPilot>()));
+            DependencyProperty.Register(nameof(Pilots), typeof(IReadOnlyList<IPilot>), typeof(PilotsList), new PropertyMetadata(new List<IPilot>()));
 
 
 

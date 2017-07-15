@@ -8,6 +8,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged, IDisposable
     {
+        string Name { get; }
+        bool Unique { get; }
         string PilotAbility { get; }
         string ShipName { get; }
         IShipSize ShipSize { get; }
@@ -21,8 +23,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
         int Hull { get; }
         int Shield { get; }
 
-        List<IUpgradeSlot> Upgrades { get; }
-        List<IAction> Actions { get; }
+        IReadOnlyList<IUpgradeSlot> Upgrades { get; }
+        IReadOnlyList<IAction> Actions { get; }
 
         string Image { get; }
         string ShipIcon { get; }

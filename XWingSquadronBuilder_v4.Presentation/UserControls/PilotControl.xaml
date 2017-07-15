@@ -66,7 +66,7 @@
                 <TextBlock x:Name="txblkShipName" 
                            HorizontalAlignment="Left" 
                            TextWrapping="Wrap" 
-                           Text="{x:Bind ViewModel.Pilot.Ship, Mode=OneWay, FallbackValue='Ship Name'}" 
+                           Text="{x:Bind ViewModel.Pilot.ShipName, Mode=OneWay, FallbackValue='Ship Name'}" 
                            VerticalAlignment="Top" 
                            RelativePanel.Below="txblkPilotName" 
                            FontSize="10" 

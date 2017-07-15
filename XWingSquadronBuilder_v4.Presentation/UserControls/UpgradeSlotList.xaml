@@ -75,7 +75,7 @@
         </ItemsControl.ItemContainerStyle>
         <ItemsControl.ItemTemplate>
             <DataTemplate x:DataType="viewModels:UpgradeSlotViewModel">
-                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind UpgradeSlot.Enabled, Mode=OneWay}">
+                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind IsEnabled, Mode=OneWay}">
                     <RelativePanel>
                         <TextBlock x:Name="imgType" Text="{x:Bind UpgradeSlot.UpgradeType.Image, Mode=OneWay, FallbackValue=t}"   
                                    Margin="2"
@@ -87,7 +87,7 @@
                                    RelativePanel.AlignVerticalCenterWithPanel="True"
                                    Foreground="Gold"/>
                         <TextBlock x:Name="txblkUpgradeName" 
-                            Text="{Binding Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
+                            Text="{x:Bind UpgradeSlot.Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"

@@ -10,27 +10,48 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
     public abstract class UpgradeModifierParsersBase
     {
-        public abstract List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data);
-        public abstract List<IUpgradeType> ParseRemovedUpgrades(string[] data);
-        public abstract List<IAction> ParseAddedActions(string[] data);
-        public abstract List<IAction> ParseRemovedActions(string[] data);
+        public abstract IReadOnlyList<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data);
+        public abstract IReadOnlyList<IUpgradeType> ParseRemovedUpgrades(string[] data);
+        public abstract IReadOnlyList<IAction> ParseAddedActions(string[] data);
+        public abstract IReadOnlyList<IAction> ParseRemovedActions(string[] data);
         public abstract Dictionary<string, int> ParseChangedStats(StatChangeJson[] data);
-        public abstract List<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data);
+        public abstract IReadOnlyList<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data);
     }
 
     public class UpgradeModifierParser : UpgradeModifierParsersBase
     {
-        public override List<IAction> ParseAddedActions(string[] data)
+        private IUpgradeSlotFactory upgradeSlotFactory;
+        private IUpgradeTypesRepository typeRepo;
+        private IUpgradeRepository upgradeRepo;        
+
+        public UpgradeModifierParser(IUpgradeSlotFactory upgradeSlotFactory, IUpgradeTypesRepository typeRepo, IUpgradeRepository upgradeRepo)
+        {
+            this.upgradeSlotFactory = upgradeSlotFactory;
+            this.typeRepo = typeRepo;
+            this.upgradeRepo = upgradeRepo;
+        }
+
+        public override IReadOnlyList<IAction> ParseAddedActions(string[] data)
         {
             return data.Select(action => XWingRepository.Instance.ActionRepository.GetAction(action)).ToList();
         }
 
-        public override List<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data)
+        public override IReadOnlyList<IUpgradeSlot> ParseAddedUpgrades(AddedUpgradeJson[] data)
         {
-            return data.Select(upgrade =>
-            (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type), 
-            new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type)),
-            upgrade.CostReduction, upgrade.CostLimit)).ToList();
+            List<IUpgradeSlot> newUpgradeSlots = new List<IUpgradeSlot>();
+            foreach (var upgrade in data)
+            {
+                if (upgrade.Upgrade == "")
+                {
+                    newUpgradeSlots.Add(upgradeSlotFactory.CreateEmpty(typeRepo.GetUpgradeType(upgrade.Type), UpgradeRestrictionParser.ParseRestrictionsForUpgradeSlot(upgrade.Restrictions), upgrade.CostReduction));
+                }
+                else
+                {
+                    newUpgradeSlots.Add(upgradeSlotFactory.CreatePrefilled(upgradeRepo.GetAllUpgradesForType(typeRepo.GetUpgradeType(upgrade.Type)).Single(x => x.Name == upgrade.Upgrade), upgrade.CostReduction));
+                }
+            }
+
+            return newUpgradeSlots;
         }
 
         public override Dictionary<string, int> ParseChangedStats(StatChangeJson[] data)
@@ -41,22 +62,19 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
             return output;
         }
 
-        public override List<IAction> ParseRemovedActions(string[] data)
+        public override IReadOnlyList<IAction> ParseRemovedActions(string[] data)
         {
             return data.Select(action => XWingRepository.Instance.ActionRepository.GetAction(action)).ToList();
         }
 
-        public override List<IUpgradeType> ParseRemovedUpgrades(string[] data)
+        public override IReadOnlyList<IUpgradeType> ParseRemovedUpgrades(string[] data)
         {
             return data.Select(x => XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(x)).ToList();
         }
 
-        public override List<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data)
+        public override IReadOnlyList<IUpgradeSlot> ParseSelectableUpgrades(ChooseUpgradeJson[] data)
         {
-            return data.Select(upgrade =>
-            (IUpgradeSlot)new UpgradeSlot(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type),
-            new NullUpgrade(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgrade.Type)),
-            upgrade.CostReduction)).ToList();
+            return data.Select(upgrade => upgradeSlotFactory.CreateEmpty(typeRepo.GetUpgradeType(upgrade.Type))).ToList();
         }
     }
 

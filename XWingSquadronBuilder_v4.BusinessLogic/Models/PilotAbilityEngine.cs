@@ -22,7 +22,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
         public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);
         private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
-        public List<IUpgradeSlot> Upgrades => GetCalculatedUpgradeSlots()
+        public IReadOnlyList<IUpgradeSlot> Upgrades => GetCalculatedUpgradeSlots()
             .OrderBy(upgrade => upgrade.UpgradeType.Name).ThenBy(upgrade => upgrade.IsNullUpgrade).ToList();
         public List<IAction> Actions => CalculateActions().ToList();
         private HashSet<IAction> _actions { get; }
@@ -33,7 +33,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         private int pilotSkill { get; }
 
 
-        public PilotAbilityEngine(PilotStatPackage stats, HashSet<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
+        public PilotAbilityEngine(PilotStatPackage stats, HashSet<IAction> actions, IReadOnlyList<IUpgradeSlot> upgrades)
         {
             this.attack = stats.Attack;
             this.agility = stats.Agility;
@@ -41,7 +41,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             this.shield = stats.Shield;
             this.pilotSkill = stats.PilotSkill;
             this._actions = actions;
-            _upgrades = upgrades.ToList().AsReadOnly();
+            _upgrades = upgrades.ToList();
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged += UpgradeContainer_PropertyChanged;
@@ -84,22 +84,22 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             }
         }
 
-        private IEnumerable<IAction> CalculateActions()
+        private ISet<IAction> CalculateActions()
         {
             return ApplyActionAddFromUpgrades(ApplyActionModelRemoval(_actions, Upgrades), Upgrades);
         }
 
-        private IEnumerable<IUpgradeSlot> GetCalculatedUpgradeSlots()
+        private IReadOnlyList<IUpgradeSlot> GetCalculatedUpgradeSlots()
         {
             return FlattenUpgradeTree(ApplyUpgradeSlotRemoval(_upgrades));
         }
 
-        public static IEnumerable<IUpgradeSlot> FlattenUpgradeTree(IEnumerable<IUpgradeSlot> upgrades)
+        public static IReadOnlyList<IUpgradeSlot> FlattenUpgradeTree(IReadOnlyList<IUpgradeSlot> upgrades)
         {
-            return upgrades.SelectMany(x => x.GetInnerUpgradeSlots().Concat(new[] { x }));
+            return upgrades.SelectMany(x => x.GetInnerUpgradeSlots().Concat(new[] { x })).ToList();
         }
 
-        public static IEnumerable<IUpgradeSlot> ApplyUpgradeSlotRemoval(IEnumerable<IUpgradeSlot> upgrades)
+        public static IReadOnlyList<IUpgradeSlot> ApplyUpgradeSlotRemoval(IReadOnlyList<IUpgradeSlot> upgrades)
         {
             var upgradeTypesToRemove = FlattenUpgradeTree(upgrades)
                 .SelectMany(x => x.Upgrade.RemoveUpgradeModifiers);
@@ -108,7 +108,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
             foreach (var item in upgradeTypesToRemove)
             {
-                foreach (var upgrade in finalUpgrades.Where(x => x.UpgradeType.Equals(item)))
+                foreach (var upgrade in finalUpgrades.Where(x => x.UpgradeType.Equals(item)).ToList())
                 {
                     if (upgrade.Upgrade.CardText == string.Empty)
                     {
@@ -127,7 +127,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         /// <param name="actions">A Collection of actions</param>
         /// <param name="upgrades">A collection of upgrages without upgradeRemoval applied</param>
         /// <returns></returns>
-        public static IEnumerable<IAction> ApplyActionAddFromUpgrades(IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
+        public static ISet<IAction> ApplyActionAddFromUpgrades(IReadOnlyList<IAction> actions, IReadOnlyList<IUpgradeSlot> upgrades)
         {
             var finalActions = new HashSet<IAction>(actions);
             var actionsToBeAdded = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
@@ -148,7 +148,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         /// <param name="actions">A Collection of actions</param>
         /// <param name="upgrades">A collection of upgrages without upgradeRemoval applied</param>
         /// <returns></returns>
-        public static IEnumerable<IAction> ApplyActionModelRemoval(IEnumerable<IAction> actions, IEnumerable<IUpgradeSlot> upgrades)
+        public static IReadOnlyList<IAction> ApplyActionModelRemoval(ISet<IAction> actions, IReadOnlyList<IUpgradeSlot> upgrades)
         {
             var finalActions = new List<IAction>(actions);
             var actionsToBeRemoved = FlattenUpgradeTree(ApplyUpgradeSlotRemoval(upgrades))
@@ -172,7 +172,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 new PilotStatPackage(this.attack, this.agility, this.hull,
                 this.shield, this.pilotSkill),
                 new HashSet<IAction>(this._actions.Select(x => x.DeepClone())),
-                this._upgrades.Select(x => x.DeepClone()));
+                this._upgrades.Select(x => x.DeepClone()).ToList());
         }
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

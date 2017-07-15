@@ -10,7 +10,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface ISquadron : INotifyPropertyChanged, IDeepCloneable<ISquadron>
     {
-        string Name { get; set; }
+        string Name { get; }
         ObservableCollection<IPilot> Pilots { get; }
         int SquadronCostTotal { get; }
         SortedSet<string> UniqueNameCards { get; }        

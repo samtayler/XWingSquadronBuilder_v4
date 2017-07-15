@@ -73,7 +73,7 @@
       },
       {
         "Faction": "Any",
-        "Name": "Tractor beam",
+        "Name": "Tractor Beam",
         "Cost": 1,
         "Restrictions": [
           {
@@ -1042,8 +1042,14 @@
         "Faction": "Empire",
         "Unique": true,
         "Name": "Emperor Palpatine",
-        "Cost": 8,
-        "SlotsRequired": 2,
+        "Cost": 8,        
+        "Restrictions": [         
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "2"
+          }
+        ],
         "Type": "Crew",
         "RemovedUpgrades": [ "Crew" ],
         "Description": "Once per round, you may change a friendly ship's die result to any other die result. That die cannot be modified again."
@@ -1805,7 +1811,7 @@
             "Value": "1"
           },
           {
-            "Attribute": "Acions",
+            "Attribute": "Actions",
             "Operand": "Contains",
             "Value": "Cloak"
           }

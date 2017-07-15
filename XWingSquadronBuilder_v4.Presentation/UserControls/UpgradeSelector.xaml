@@ -10,7 +10,9 @@
     xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
     xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
-    mc:Ignorable="d">
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    mc:Ignorable="d"    >
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -56,9 +58,10 @@
                 </Setter>
             </Style>
 
-           
         </ResourceDictionary>
     </UserControl.Resources>
+
+
 
     <Grid Background="#CC000000" Tapped="Grid_Tapped">
         <Grid.RowDefinitions>
@@ -73,7 +76,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="1" Grid.Column="1" Tapped="Grid_Tapped_1">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="15" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF1B1B1C" BorderBrush="White" BorderThickness="1">
-                <ItemsControl ItemsSource="{x:Bind Upgrades,Mode=OneWay}" >
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Upgrades,Mode=OneWay}" >
                     <ItemsControl.ItemContainerStyle>
                         <Style TargetType="ContentPresenter">
                             <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -83,40 +86,61 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:UpgradeViewModel">
-                            <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped">
-                                <RelativePanel>
-                                    <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
+                            <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" Margin="0,0,5,5">
+                                <Interactivity:Interaction.Behaviors>
+                                    <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="True">
+                                        <Interactions:ChangePropertyAction PropertyName="Background">
+                                            <Interactions:ChangePropertyAction.Value>
+                                                <SolidColorBrush Color="#8CFF0000"/>
+                                            </Interactions:ChangePropertyAction.Value>
+                                        </Interactions:ChangePropertyAction>
+                                        <!--<Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="2"/>-->
+                                    </Interactions:DataTriggerBehavior>
+                                    <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="False">
+                                        <Interactions:ChangePropertyAction PropertyName="Background">
+                                            <Interactions:ChangePropertyAction.Value>
+                                                <SolidColorBrush/>
+                                            </Interactions:ChangePropertyAction.Value>
+                                        </Interactions:ChangePropertyAction>
+                                        <!--<Interactions:ChangePropertyAction PropertyName="BorderBrush" Value="White"/>
+                                        <Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="0"/>-->
+                                    </Interactions:DataTriggerBehavior>
+                                </Interactivity:Interaction.Behaviors>
+                                <ListViewItem.Content>
+                                    <RelativePanel>
+                                        <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
                                                Margin="2"
                                                FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
                                                FontSize="20"
                                                RelativePanel.AlignLeftWithPanel="True" 
                                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                                Foreground="Gold"/>
-                                    <TextBlock x:Name="txblkUpgradeName" 
-                                               Text="{Binding UpgradeSlot.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
+                                        <TextBlock x:Name="txblkUpgradeName" 
+                                               Text="{x:Bind Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                                                RelativePanel.RightOf="imgType"
                                                Margin="5,5,5,0"/>
-                                    <TextBlock x:Name="txblkCost" Text="{x:Bind Upgrade.Cost,Mode=OneWay, FallbackValue='Cost'}"
+                                        <TextBlock x:Name="txblkCost" Text="{x:Bind Upgrade.Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                   
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                    
                                    Margin="5,5,5,0"/>
-                                    <ItemsControl Name="CardText"
+                                        <ItemsControl Name="CardText"
                                       ItemsSource="{x:Bind AugmentText(Upgrade.CardText,12),Mode=OneWay}"
                                       Margin="0,5,0,5"    
                                       RelativePanel.Below="txblkUpgradeName"
                                       RelativePanel.AlignLeftWith="txblkUpgradeName">
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <wrapPanel:WrapPanel />
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <ContentPresenter Content="{Binding}"/>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </RelativePanel>
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <wrapPanel:WrapPanel />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ContentPresenter Content="{Binding}"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </RelativePanel>
+                                </ListViewItem.Content>
                             </ListViewItem>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

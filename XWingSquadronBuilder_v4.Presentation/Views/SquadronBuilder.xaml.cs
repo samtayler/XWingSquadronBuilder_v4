@@ -15,8 +15,8 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
     {
         public SquadronBuilder()
         {
-            this.InitializeComponent();
-        } 
-
+            this.InitializeComponent();            
+        }
+        
     }
 }

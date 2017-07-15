@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,15 +26,15 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public event UpgradeSlotSelectHandler UpgradeSlotSelected;
 
-        public IEnumerable<UpgradeSlotViewModel> UpgradeSlots
+        public ObservableCollection<UpgradeSlotViewModel> UpgradeSlots
         {
-            get { return (IEnumerable<UpgradeSlotViewModel>)GetValue(UpgradeSlotsProperty); }
+            get { return (ObservableCollection<UpgradeSlotViewModel>)GetValue(UpgradeSlotsProperty); }
             set { SetValue(UpgradeSlotsProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for UpgradeSlots.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UpgradeSlotsProperty =
-            DependencyProperty.Register(nameof(UpgradeSlots), typeof(IEnumerable<IUpgradeSlot>), typeof(UpgradeSlotList), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(UpgradeSlots), typeof(ObservableCollection<IUpgradeSlot>), typeof(UpgradeSlotList), new PropertyMetadata(0));
         
 
         public UpgradeSlotList()
@@ -52,7 +53,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         {
             if (e.Handled) return;
             e.Handled = true;
-            ((IUpgradeSlot)((FrameworkElement)sender).DataContext).ClearUpgrade();
+            ((UpgradeSlotViewModel)((FrameworkElement)sender).DataContext).UpgradeSlot.ClearUpgrade();
         }
     }
 }

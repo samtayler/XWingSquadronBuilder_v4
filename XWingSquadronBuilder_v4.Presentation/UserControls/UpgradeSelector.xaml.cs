@@ -23,38 +23,35 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class UpgradeSelector : UserControl
     {
-        public delegate void UpgradeSelectedHandler(IUpgrade e);
 
-        public event UpgradeSelectedHandler UpgradeSelected;
-
-        public IEnumerable<UpgradeViewModel> Upgrades
+        public UpgradeSelectorViewModel ViewModel
         {
-            get { return (IEnumerable<UpgradeViewModel>)GetValue(UpgradesProperty); }
-            set { SetValue(UpgradesProperty, value); }
+            get { return (UpgradeSelectorViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Upgrades.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty UpgradesProperty =
-            DependencyProperty.Register("Upgrades", typeof(IEnumerable<UpgradeViewModel>), typeof(UpgradeSelector), new PropertyMetadata(0));
-
+        // Using a DependencyProperty as the backing store for ViewModel.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register("ViewModel", typeof(UpgradeSelectorViewModel), typeof(UpgradeSelector), new PropertyMetadata(0));
+        
 
         public UpgradeSelector()
         {
             this.InitializeComponent();
+            Visibility = Visibility.Collapsed;
+
         }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
             e.Handled = true;
-            Visibility = Visibility.Collapsed;
+            ViewModel.Cancel();           
         }
 
         private void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            e.Handled = true;
-            var upgrade = (((e.OriginalSource as FrameworkElement).DataContext as UpgradeViewModel).Upgrade);
-            UpgradeSelected?.Invoke(upgrade);            
-            Visibility = Visibility.Collapsed;
+            e.Handled = true;           
+            ViewModel.SelectUpgrade(((e.OriginalSource as FrameworkElement).DataContext as UpgradeViewModel));            
         }
 
         public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
@@ -66,5 +63,6 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         {
             e.Handled = true;
         }
+
     }
 }

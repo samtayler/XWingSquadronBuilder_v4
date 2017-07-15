@@ -9,10 +9,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
 {
     public struct UpgradeModifierPackage
     {
-        public UpgradeModifierPackage(IEnumerable<IAction> addActionModifiers, IEnumerable<IAction> removeActionModifiers,
-            IEnumerable<IUpgradeSlot> addUpgradeModifiers, IEnumerable<IUpgradeType> removeUpgradeModifiers, 
+        public UpgradeModifierPackage(IReadOnlyList<IAction> addActionModifiers, IReadOnlyList<IAction> removeActionModifiers,
+            IReadOnlyList<IUpgradeSlot> addUpgradeModifiers, IReadOnlyList<IUpgradeType> removeUpgradeModifiers, 
             IDictionary<string, int> pilotAttributeModifiers,
-            IEnumerable<IUpgradeSlot> chooseableUpgradeModifiers) : this()
+            IReadOnlyList<IUpgradeSlot> chooseableUpgradeModifiers) : this()
         {
             AddActionModifiers = addActionModifiers ?? throw new ArgumentNullException(nameof(addActionModifiers));
             RemoveActionModifiers = removeActionModifiers ?? throw new ArgumentNullException(nameof(removeActionModifiers));
@@ -22,16 +22,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Structures
             ChooseableUpgradeModifiers = chooseableUpgradeModifiers ?? throw new ArgumentNullException(nameof(chooseableUpgradeModifiers));
         }
 
-        public IEnumerable<IAction> AddActionModifiers { get; }
+        public IReadOnlyList<IAction> AddActionModifiers { get; }
 
-        public IEnumerable<IAction> RemoveActionModifiers { get; }
+        public IReadOnlyList<IAction> RemoveActionModifiers { get; }
 
-        public IEnumerable<IUpgradeSlot> AddUpgradeModifiers { get; }
+        public IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers { get; }
 
-        public IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
+        public IReadOnlyList<IUpgradeType> RemoveUpgradeModifiers { get; }
 
         public IDictionary<string, int> PilotAttributeModifiers { get; }
 
-        public IEnumerable<IUpgradeSlot> ChooseableUpgradeModifiers { get; set; }
+        public IReadOnlyList<IUpgradeSlot> ChooseableUpgradeModifiers { get; set; }
     }
 }

@@ -28,8 +28,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
     {
         private int squadronCost;
         public ISquadron Squadron { get; private set; }
-
-
+        
         private ObservableCollection<PilotViewModel> squadronPilots;
 
         public ObservableCollection<PilotViewModel> SquadronPilots
@@ -48,29 +47,22 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         }
 
 
-        private List<IPilot> pilotList;
+        private UpgradeSelectorViewModel upgradeSelector;
 
-        public List<IPilot> PilotList
+        public UpgradeSelectorViewModel UpgradeSelector
+        {
+            get { return upgradeSelector; }
+            private set { Set(ref upgradeSelector, value); }
+        }
+
+        private IReadOnlyList<IPilot> pilotList;
+
+        public IReadOnlyList<IPilot> PilotList
         {
             get { return this.pilotList; }
             private set { Set(ref pilotList, value); }
-        }
-
-        private IEnumerable<UpgradeViewModel> selectableUpgrades;
-
-        public IEnumerable<UpgradeViewModel> SelectableUpgrades
-        {
-            get { return this.selectableUpgrades; }
-            set { Set(ref selectableUpgrades, value); }
-        }
-
-        private Visibility showUpgradeSelector;
-
-        public Visibility ShowUpgradeSelector
-        {
-            get { return this.showUpgradeSelector; }
-            set { Set(ref showUpgradeSelector, value); }
-        }
+        }       
+        
 
         public int SquadronCost
         {
@@ -82,9 +74,9 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         {
             Squadron = SquadronFactory.CreateSquadron();
             SquadronPilots = new ObservableCollection<PilotViewModel>();
-            PilotList = new List<IPilot>();
-            ShowUpgradeSelector = Visibility.Collapsed;
+            PilotList = new List<IPilot>();            
             Faction = XWingRepository.Instance.FactionRepository.GetFactionAny();
+            UpgradeSelector = new UpgradeSelectorViewModel();
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
@@ -126,8 +118,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 
         public void SelectUpgrade(Tuple<IPilot, IUpgradeSlot> e)
         {
-            new UpgradeFilter(this.Squadron.UniqueNameCards, e.Item1, e.Item2);
-            ShowUpgradeSelector = Visibility.Visible;
+            UpgradeSelector.Show(e.Item2, Squadron.UniqueNameCards, e.Item1);
         }
 
         private void Pilots_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

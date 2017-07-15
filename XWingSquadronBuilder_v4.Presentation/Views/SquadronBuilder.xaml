@@ -77,8 +77,9 @@
                                       RelativePanel.AlignBottomWithPanel="True" 
                                       RelativePanel.AlignTopWithPanel="True" 
                                       RelativePanel.AlignLeftWithPanel="True" 
-                                      RelativePanel.AlignRightWithPanel="True"
-                                      Visibility="{x:Bind ViewModel.ShowUpgradeSelector,Mode=TwoWay}"
+                                      RelativePanel.AlignRightWithPanel="True"      
+                                      ViewModel="{x:Bind ViewModel.UpgradeSelector,Mode=OneWay}"
+                                      Visibility="{x:Bind ViewModel.UpgradeSelector.Visibility,Mode=OneWay}"
                                       d:IsHidden="True"/>
     </RelativePanel>
 </Page>

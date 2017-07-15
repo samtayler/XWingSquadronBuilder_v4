@@ -20,6 +20,12 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawData
         [DataMember] public List<RestrictionJson> Restrictions { get; set; } = new List<RestrictionJson>();
         [DataMember] public string Upgrade { get; set; } = "";
         [DataMember] public bool Mutable { get; set; } = true;
+
+        public override string ToString()
+        {
+            return $"{Type} - {Upgrade}";
+        }
+
     }
 
     [DataContract]
@@ -40,8 +46,7 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawData
     {
         [DataMember] public string Faction { get; set; } = "";
         [DataMember] public string Name { get; set; } = "";
-        [DataMember] public int Cost { get; set; } = 0;
-        [DataMember] public int SlotsRequired { get; set; } = 0;
+        [DataMember] public int Cost { get; set; } = 0;        
         [DataMember] public string Type { get; set; } = "";
         [DataMember] public string Description { get; set; } = "";
         [DataMember] public bool Limited { get; set; } = false;
@@ -49,9 +54,15 @@ namespace XWingSquadronBuilder_v4.DataLayer.RawData
         [DataMember] public List<AddedUpgradeJson> AddedUpgrades { get; set; } = new List<AddedUpgradeJson>();
         [DataMember] public List<RestrictionJson> Restrictions { get; set; } = new List<RestrictionJson>();
         [DataMember] public List<string> RemovedUpgrades { get; set; } = new List<string>();
+        [DataMember] public List<string> RemovedActions { get; set; } = new List<string>();
         [DataMember] public List<StatChangeJson> StatChanges { get; set; } = new List<StatChangeJson>();
         [DataMember] public List<string> AddedActions { get; set; } = new List<string>();
-        [DataMember] public List<ChooseUpgradeJson> ChooseUpgrade { get; set; } = new List<ChooseUpgradeJson>();  
+        [DataMember] public List<ChooseUpgradeJson> ChooseUpgrade { get; set; } = new List<ChooseUpgradeJson>();
+
+        public override string ToString()
+        {
+            return $"{Name} - {Type}";
+        }
     }
 
     [DataContract]

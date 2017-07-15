@@ -12,7 +12,9 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         public IUpgradeRepository UpgradeRepository { get; }
         public IUpgradeTypesRepository UpgradeTypesRepository { get; }
         public IFactionRepository FactionRepository { get; }
-
+        public IPilotFactory PilotFactory { get; }
+        public IUpgradeFactory UpgradeFactory { get; }
+        public IUpgradeSlotFactory UpgradeSlotFactory { get; }
         private static readonly XWingRepository instance = new XWingRepository();
 
         // Explicit static constructor to tell C# compiler
@@ -25,9 +27,13 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         {
             FactionRepository = new FactionRepository(DataParsers.CreateFaction);
             UpgradeTypesRepository = new UpgradeTypesRepository(DataParsers.CreateUpgradeType);
-            ActionRepository = new ActionRepository(DataParsers.CreateAction);
-            PilotRepository = new PilotRepository(DataParsers.CreatePilot);
-            UpgradeRepository = new UpgradeRepository(DataParsers.CreateUpgrade);
+            ActionRepository = new ActionRepository(DataParsers.CreateAction);               
+            UpgradeFactory = new UpgradeFactory(FactionRepository, UpgradeTypesRepository);
+            UpgradeSlotFactory = new UpgradeSlotFactory(UpgradeFactory);
+            PilotFactory = new PilotFactory(UpgradeSlotFactory, FactionRepository, UpgradeTypesRepository);
+
+            PilotRepository = new PilotRepository(PilotFactory);
+            UpgradeRepository = new UpgradeRepository(UpgradeFactory, UpgradeSlotFactory,UpgradeTypesRepository);
         }
 
         public static XWingRepository Instance

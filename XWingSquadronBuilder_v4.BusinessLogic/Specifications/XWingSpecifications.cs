@@ -6,15 +6,9 @@ using XWingSquadronBuilder_v4.BusinessLogic.Models;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
-{
+{   
 
-    public enum SpecificationType
-    {
-        Critical,
-        NonCritical
-    }
-
-    public abstract class XWingSpecification<T> : Specification<T>
+    public abstract class XWingSpecification<T> : Specification<T>, IXWingSpecification<T>
     {
         public abstract SpecificationType SpecType { get; }
         public abstract string ErrorMessage { get; }
@@ -135,17 +129,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
 
         public override Expression<Func<IPilot, bool>> ToExpression()
         {
-            return pilot => pilot.Upgrades.Where(uSlot => uSlot.UpgradeType.Equals(upgradeType) &&
-            (uSlot.Upgrade is NullUpgrade)).Count() >= slotsRequired;
+            return pilot => pilot.Upgrades.Where(uSlot => uSlot.UpgradeType.Equals(upgradeType) && (uSlot.Upgrade.CardText == "")).Count() >= slotsRequired;
             // make sure there are enough slots avaliable for the upgrade
         }
     }
 
-    public sealed class ContainsUpgradeSlotsSpecification : XWingSpecification<IPilot>
+    public sealed class NotContainsUpgradeSlotsSpecification : XWingSpecification<IPilot>
     {
         private IUpgradeType upgradeType;        
 
-        public ContainsUpgradeSlotsSpecification(IUpgradeType upgradeType)
+        public NotContainsUpgradeSlotsSpecification(IUpgradeType upgradeType)
         {
             this.upgradeType = upgradeType;            
         }
@@ -155,7 +148,25 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
 
         public override Expression<Func<IPilot, bool>> ToExpression()
         {
-            return pilot => pilot.Upgrades.Where(upgrade => upgrade.UpgradeType.Equals(upgradeType)).Count() > 0;            
+            return pilot => pilot.Upgrades.Where(upgrade => upgrade.UpgradeType.Equals(upgradeType)).Count() == 0;            
+        }
+    }
+
+    public sealed class ContainsUpgradeSlotsSpecification : XWingSpecification<IPilot>
+    {
+        private IUpgradeType upgradeType;
+
+        public ContainsUpgradeSlotsSpecification(IUpgradeType upgradeType)
+        {
+            this.upgradeType = upgradeType;
+        }
+
+        public override string ErrorMessage => $"This pilot has a upgrade slot of type {upgradeType.Name}";
+        public override SpecificationType SpecType => SpecificationType.NonCritical;
+
+        public override Expression<Func<IPilot, bool>> ToExpression()
+        {
+            return pilot => pilot.Upgrades.Where(upgrade => upgrade.UpgradeType.Equals(upgradeType)).Count() > 0;
         }
     }
 

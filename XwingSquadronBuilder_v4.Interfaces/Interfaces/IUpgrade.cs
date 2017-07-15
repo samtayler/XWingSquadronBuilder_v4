@@ -7,27 +7,23 @@ using System.Threading.Tasks;
 
 namespace XWingSquadronBuilder_v4.Interfaces
 {
-    public interface IUpgrade : IXWingCard, INotifyPropertyChanged, IEquatable<IUpgrade>, IDeepCloneable<IUpgrade>
+    public interface IUpgrade : IXWingCard, IEquatable<IUpgrade>, IDeepCloneable<IUpgrade>
     {
-        IEnumerable<IAction> AddActionModifiers { get; }
-        IEnumerable<IAction> RemoveActionModifiers { get; }
-        IEnumerable<IUpgradeSlot> AddUpgradeModifiers { get; }
-        IEnumerable<IUpgradeType> RemoveUpgradeModifiers { get; }
-        IDictionary<string, int> PilotAttributeModifiers { get; }
-
         string Name { get; }
         bool Unique { get; }
-        int Cost { get; }
-        int SlotsRequired { get; }
-        string CardText { get; }
-       
-        bool Limited { get; }
-        string ShipLimited { get; }
-        string ActionLimited { get; }
-        string SizeRestriction { get; }  
+        IReadOnlyList<IAction> AddActionModifiers { get; }
+        IReadOnlyList<IAction> RemoveActionModifiers { get; }
+        IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers { get; }
+        IReadOnlyList<IUpgradeType> RemoveUpgradeModifiers { get; }
+        IDictionary<string, int> PilotAttributeModifiers { get; }
+        IReadOnlyList<IXWingSpecification<IPilot>> UpgradeRestrictions { get; }
+        
+        int Cost { get; }        
+        string CardText { get; }       
+        bool Limited { get; }       
 
         IFaction Faction { get; }        
         IUpgradeType UpgradeType { get; }
-        IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots();
+        IReadOnlyList<IUpgradeSlot> GetInnerUpgradeSlots();
     }
 }

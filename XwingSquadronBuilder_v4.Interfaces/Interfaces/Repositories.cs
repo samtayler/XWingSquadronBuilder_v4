@@ -15,7 +15,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
     public interface IUpgradeTypesRepository
     {
         IUpgradeType GetUpgradeType(string name);
-        List<IUpgradeType> GetAllUpgradeTypes();
+        IReadOnlyList<IUpgradeType> GetAllUpgradeTypes();
     }
 
     public interface IUpgradeRepository
@@ -26,14 +26,14 @@ namespace XWingSquadronBuilder_v4.Interfaces
 
     public interface IPilotRepository
     {
-        List<IPilot> GetPilotsForFaction(IFaction faction);
-        List<IPilot> GetPilots();
+        IReadOnlyList<IPilot> GetPilotsForFaction(IFaction faction);
+        IReadOnlyList<IPilot> GetPilots();
     }
 
     public interface IFactionRepository
     {
         IFaction GetFaction(string name);
         IFaction GetFactionAny();
-        List<IFaction> GetAllFactions();
+        IReadOnlyList<IFaction> GetAllFactions();
     }
 }

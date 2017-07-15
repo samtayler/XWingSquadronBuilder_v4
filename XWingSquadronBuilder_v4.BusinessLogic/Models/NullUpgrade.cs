@@ -11,18 +11,18 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
     public class NullUpgrade : IUpgrade
     {
-        public NullUpgrade(IUpgradeType upgradeType)
+        internal NullUpgrade(IUpgradeType upgradeType)
         {
             UpgradeType = upgradeType;
         }
 
-        public IEnumerable<IAction> AddActionModifiers => new List<IAction>();
+        public IReadOnlyList<IAction> AddActionModifiers => new List<IAction>();
 
-        public IEnumerable<IAction> RemoveActionModifiers => new List<IAction>();
+        public IReadOnlyList<IAction> RemoveActionModifiers => new List<IAction>();
 
-        public IEnumerable<IUpgradeSlot> AddUpgradeModifiers => new List<IUpgradeSlot>();
+        public IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers => new List<IUpgradeSlot>();
 
-        public IEnumerable<IUpgradeType> RemoveUpgradeModifiers => new List<IUpgradeType>();
+        public IReadOnlyList<IUpgradeType> RemoveUpgradeModifiers => new List<IUpgradeType>();
 
         public IDictionary<string, int> PilotAttributeModifiers => new Dictionary<string, int>();
 
@@ -36,17 +36,13 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public bool Unique => false;
 
-        public bool Limited => false;
-
-        public string ShipLimited => string.Empty;
-
-        public string SizeRestriction => string.Empty;
+        public bool Limited => false;       
 
         public IFaction Faction => XWingRepository.Instance.FactionRepository.GetFaction("Any");
 
         public IUpgradeType UpgradeType { get; }
 
-        public string ActionLimited => string.Empty;
+        public IReadOnlyList<IXWingSpecification<IPilot>> UpgradeRestrictions => new List<IXWingSpecification<IPilot>>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -57,12 +53,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public bool Equals(IUpgrade other)
         {
-            return this.UpgradeType.Equals(other.UpgradeType);
+            return Name == other.Name && UpgradeType.Equals(other.UpgradeType) && CardText == other.CardText;
         }
 
-        public IEnumerable<IUpgradeSlot> GetInnerUpgradeSlots()
+        public IReadOnlyList<IUpgradeSlot> GetInnerUpgradeSlots()
         {
             return new List<IUpgradeSlot>();
-        }
+        }        
     }
 }

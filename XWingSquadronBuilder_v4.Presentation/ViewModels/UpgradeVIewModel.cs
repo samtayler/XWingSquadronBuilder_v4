@@ -14,15 +14,26 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
     {
         private IUpgrade upgrade;
 
+        private IReadOnlyList<string> errorsList;
+
+        public IReadOnlyList<string> ErrorsList
+        {
+            get { return this.errorsList; }
+            private set { Set(ref errorsList, value); }
+        }
+
+        public bool HasErrors => ErrorsList.Count > 0;        
+
         public IUpgrade Upgrade
         {
             get { return this.upgrade; }
             private set { Set(ref upgrade, value); }
         }
 
-        public UpgradeViewModel(IUpgrade upgrade)
+        public UpgradeViewModel(IUpgrade upgrade, IReadOnlyList<string> errorList)
         {
             this.upgrade = upgrade;
+            this.ErrorsList = errorList;
         }
 
         public IEnumerable<TextBlock> AugmentText(string text, double fontsize)

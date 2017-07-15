@@ -11,19 +11,29 @@ using XWingSquadronBuilder_v4.Presentation.Converters;
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
     public class UpgradeSlotViewModel : BindableBase
-    {
-        private IUpgradeSlot upgradeSlot;
-
+    {        
         public UpgradeSlotViewModel(IUpgradeSlot upgradeSlot)
         {
             UpgradeSlot = upgradeSlot;
+            IsEnabled = true;
         }
+
+        private IUpgradeSlot upgradeSlot;
 
         public IUpgradeSlot UpgradeSlot
         {
             get { return this.upgradeSlot; }
             set { Set(ref upgradeSlot, value); }
         }
+
+        private bool isEnabled;
+
+        public bool IsEnabled
+        {
+            get { return this.isEnabled; }
+            set { Set(ref isEnabled, value); }
+        }
+
 
         public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
         {

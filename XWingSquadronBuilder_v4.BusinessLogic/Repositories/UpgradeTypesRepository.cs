@@ -12,7 +12,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
     internal class UpgradeTypesRepository : IUpgradeTypesRepository
     {
-        private IEnumerable<UpgradeTypeJson> upgradeTypes { get; }
+        private IReadOnlyList<UpgradeTypeJson> upgradeTypes { get; }
         private Func<UpgradeTypeJson, IUpgradeType> CreateUpgradeType { get; }
 
 
@@ -22,7 +22,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
             upgradeTypes = DataImporter.LoadUpgradesTypes();
         }
 
-        public List<IUpgradeType> GetAllUpgradeTypes()
+        public IReadOnlyList<IUpgradeType> GetAllUpgradeTypes()
         {
             return (from upgradeType in upgradeTypes
                     select CreateUpgradeType(upgradeType)).ToList();

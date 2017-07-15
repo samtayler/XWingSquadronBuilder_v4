@@ -42,16 +42,16 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public int PilotSkill => AbilityEngine.PilotSkill;
 
-        public List<IAction> Actions => AbilityEngine.Actions;
+        public IReadOnlyList<IAction> Actions => AbilityEngine.Actions;
 
-        public List<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
+        public IReadOnlyList<IUpgradeSlot> Upgrades => AbilityEngine.Upgrades;
 
         private PilotAbilityEngine AbilityEngine { get; }         
 
-        public string ShipIcon { get; }       
+        public string ShipIcon { get; }
 
-        public Pilot(string shipName, string name, bool unique, IFaction faction, int cost, PilotStatPackage stats, string pilotAbility,
-                string imageUri, IShipSize shipSize, HashSet<IAction> actions, IEnumerable<IUpgradeSlot> upgrades, string shipIcon)
+        internal Pilot(string shipName, string name, bool unique, IFaction faction, int cost, PilotStatPackage stats, string pilotAbility,
+                string imageUri, IShipSize shipSize, HashSet<IAction> actions, IReadOnlyList<IUpgradeSlot> upgrades, string shipIcon)
         {
             Name = name;
             Faction = faction;
