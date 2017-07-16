@@ -1042,8 +1042,8 @@
         "Faction": "Empire",
         "Unique": true,
         "Name": "Emperor Palpatine",
-        "Cost": 8,        
-        "Restrictions": [         
+        "Cost": 8,
+        "Restrictions": [
           {
             "Attribute": "SlotsRequired",
             "Operand": "Count",
@@ -1301,6 +1301,30 @@
         ],
         "Type": "Elite Pilot Talent",
         "Description": "When defending, you may receive 1 stress token to choose 1 attack die. The attacker must reroll that die. If you have at least 1 stress token, you cannot use this ability."
+      },
+      {
+        "Faction": "Any",
+        "Name": "Long Range Scanners",
+        "Cost": 0,
+        "Restrictions": [
+          {
+            "Attribute": "SlotsRequired",
+            "Operand": "Count",
+            "Value": "1"
+          },
+          {
+            "Attribute": "UpgradeSlots",
+            "Operand": "Contains",
+            "Value": "Missile"
+          },
+          {
+            "Attribute": "UpgradeSlots",
+            "Operand": "Contains",
+            "Value": "Torpedo"
+          }
+        ],
+        "Type": "Modification",
+        "Description": "You can acquire target locks on ships at Range 3 and beyond. You cannot acquire target locks on ships at Range 1-2. You can equip this card only if you have ^TORPEDO and ^MISSILE in your upgrade bar."
       },
       {
         "Faction": "Any",
@@ -3315,7 +3339,7 @@
             "Type": "Elite Pilot Talent"
           }
         ],
-        "Type": "Astromech",               
+        "Type": "Astromech",
         "Description": "Your upgrade bar gains the elite upgrade icon. You cannot equip this upgrade if you already have an elite upgrade icon or if your pilot skill value is \"2\" or lower."
       },
       {

@@ -91,7 +91,7 @@
                             Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
-                            Margin="2"/>
+                            Margin="5,2,2,2"/>
                         <TextBlock x:Name="txblkUpgradeTypeName" 
                             Text="{x:Bind UpgradeSlot.Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
                                    Visibility="{x:Bind UpgradeSlot.IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
@@ -108,7 +108,7 @@
                                    FontSize="12"
                                    Margin="2"/>
                         <ItemsControl Name="CardText"
-                                      ItemsSource="{x:Bind AugmentText(UpgradeSlot.Upgrade.CardText,16) ,Mode=OneWay}"
+                                      ItemsSource="{x:Bind AugmentText(UpgradeSlot.Upgrade.CardText,12) ,Mode=OneWay}"
                                       Margin="5,5,0,5"                   
                                       RelativePanel.Below="txblkUpgradeName" 
                                       RelativePanel.LeftOf="btnClearUpgrade"

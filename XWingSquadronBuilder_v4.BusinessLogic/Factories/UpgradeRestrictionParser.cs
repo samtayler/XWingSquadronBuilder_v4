@@ -57,11 +57,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                         {                            
                             if (restriction.Operand == "Not Contains")
                             {
-                                specList.Add(new NotContainsUpgradeSlotsSpecification(upgradeType));
+                                specList.Add(new NotContainsUpgradeSlotsSpecification(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(restriction.Value)));
                             }
                             else if (restriction.Operand == "Contains")
                             {
-                                specList.Add(new ContainsUpgradeSlotsSpecification(upgradeType));
+                                specList.Add(new ContainsUpgradeSlotsSpecification(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(restriction.Value)));
                             }
                             else
                             {

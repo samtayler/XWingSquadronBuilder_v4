@@ -161,7 +161,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.upgradeType = upgradeType;
         }
 
-        public override string ErrorMessage => $"This pilot has a upgrade slot of type {upgradeType.Name}";
+        public override string ErrorMessage => $"This pilot does not have a upgrade slot of type {upgradeType.Name}";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()

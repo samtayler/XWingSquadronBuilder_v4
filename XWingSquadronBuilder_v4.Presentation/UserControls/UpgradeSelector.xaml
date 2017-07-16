@@ -86,14 +86,22 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:UpgradeViewModel">
-                            <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" Margin="0,0,5,5">
+                            <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" Margin="0,0,5,5">                                
                                 <Interactivity:Interaction.Behaviors>
                                     <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="True">
-                                        <Interactions:ChangePropertyAction PropertyName="Background">
+                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
+                                                                           PropertyName="CornerRadius"
+                                                                           Value="5"/>
+                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
+                                                                           PropertyName="BorderBrush">
                                             <Interactions:ChangePropertyAction.Value>
-                                                <SolidColorBrush Color="#8CFF0000"/>
+                                                <SolidColorBrush Color="#CCFF0000"/>
                                             </Interactions:ChangePropertyAction.Value>
                                         </Interactions:ChangePropertyAction>
+                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
+                                                                           PropertyName="BorderThickness"
+                                                                           Value="3"/>
+
                                         <!--<Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="2"/>-->
                                     </Interactions:DataTriggerBehavior>
                                     <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="False">
@@ -107,7 +115,7 @@
                                     </Interactions:DataTriggerBehavior>
                                 </Interactivity:Interaction.Behaviors>
                                 <ListViewItem.Content>
-                                    <RelativePanel>
+                                    <RelativePanel x:Name="relPanel1">
                                         <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
                                                Margin="2"
                                                FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
@@ -125,7 +133,7 @@
                                    Margin="5,5,5,0"/>
                                         <ItemsControl Name="CardText"
                                       ItemsSource="{x:Bind AugmentText(Upgrade.CardText,12),Mode=OneWay}"
-                                      Margin="0,5,0,5"    
+                                      Margin="5,5,0,5"    
                                       RelativePanel.Below="txblkUpgradeName"
                                       RelativePanel.AlignLeftWith="txblkUpgradeName">
                                             <ItemsControl.ItemsPanel>
