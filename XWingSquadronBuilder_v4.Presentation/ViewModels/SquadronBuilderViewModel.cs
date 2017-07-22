@@ -20,7 +20,7 @@ using Windows.UI.ViewManagement;
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
 
-    public class SqudronBuilderViewModel : ViewModelBase, IDisposable
+    public class SquadronBuilderViewModel : ViewModelBase, IDisposable
     {
         private int squadronCost;
         public ISquadron Squadron { get; private set; }
@@ -66,7 +66,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             set { Set(ref squadronCost, value); }
         }
 
-        public SqudronBuilderViewModel()
+        public SquadronBuilderViewModel()
         {
             Squadron = SquadronFactory.CreateSquadron();
             SquadronPilots = new ObservableCollection<PilotViewModel>();

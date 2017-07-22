@@ -6,6 +6,7 @@
     
     
     <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
-    <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>    
+    <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>
+    <converters:OppositeBooleanToVisibilityConverter x:Key="OppositeVisibility"/>
 
 </ResourceDictionary>

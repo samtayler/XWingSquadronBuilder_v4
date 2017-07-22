@@ -64,5 +64,12 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             e.Handled = true;
         }
 
+        private void btnShowErrors_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var flyout = button.Flyout;
+            flyout.ShowAt(button);
+            
+        }
     }
 }

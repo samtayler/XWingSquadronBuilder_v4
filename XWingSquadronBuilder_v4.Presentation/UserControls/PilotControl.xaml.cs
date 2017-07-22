@@ -61,7 +61,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
         {
-            return ViewModel.AugementText(text, fontsize);
+            return ViewModel.AugmentText(text, fontsize);
         }
     }
 }

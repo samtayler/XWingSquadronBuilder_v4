@@ -16,19 +16,21 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<IPilot> Pilots { get; private set; }
-        public SortedSet<string> UniqueNameCards { get; }
-        public IFaction Faction { get; }        
+        public IReadOnlyList<string> UniqueNameCards => 
+            Pilots
+            .SelectMany(pilot => pilot.Upgrades.Where(upgrade => upgrade.Upgrade.Unique).Select(upgrade => upgrade.Upgrade.Name))
+            .Concat(Pilots.Where(pilot => pilot.Unique).Select(pilot => pilot.Name)).ToList();
 
+        public IFaction Faction { get; }        
 
         public string Name { get; set; } = "Unnamed Squadron";
         public int SquadronCostTotal => Pilots.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
 
-        public Func<IXWingCard, bool> CheckSquadronRequirements { get; }
+        public Func<IPilot, bool> CheckSquadronRequirements { get; }
 
         public Squadron(IFaction faction)
         {
-            Pilots = new ObservableCollection<IPilot>();
-            UniqueNameCards = new SortedSet<string>();
+            Pilots = new ObservableCollection<IPilot>();            
             Faction = faction;
             CheckSquadronRequirements = CheckUnique;
         }
@@ -49,8 +51,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 pilot.Dispose();
             }
             this.Pilots.Clear();
-            NotifyPropertyChanged(nameof(SquadronCostTotal));
-            UniqueNameCards.Clear();
+            NotifyPropertyChanged(nameof(SquadronCostTotal));            
         }
 
         /// <summary>
@@ -58,11 +59,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         /// </summary>
         /// <param name="card"></param>
         /// <returns>True if check is OK</returns>
-        private bool CheckUnique(IXWingCard card)
+        private bool CheckUnique(IPilot card)
         {
-            if (card.Unique)
+            if (card.Unique || card.Upgrades.Any(upgrade => upgrade.Upgrade.Unique))
             {
-                return UniqueNameCards.Add(card.Name);
+                return !UniqueNameCards.Contains(card.Name) && !card.Upgrades.Any(upgrade => UniqueNameCards.Contains(upgrade.Upgrade.Name));
             }
 
             return true;
@@ -73,8 +74,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             if (!Pilots.Remove(pilot)) return false;
 
             pilot.Dispose();
-            NotifyPropertyChanged(nameof(SquadronCostTotal));
-            UniqueNameCards.Remove(pilot.Name);
+            NotifyPropertyChanged(nameof(SquadronCostTotal));            
             return true;
         }
 

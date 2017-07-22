@@ -17,6 +17,10 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
         {
             this.InitializeComponent();            
         }
-        
+
+        private void btnPrint_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

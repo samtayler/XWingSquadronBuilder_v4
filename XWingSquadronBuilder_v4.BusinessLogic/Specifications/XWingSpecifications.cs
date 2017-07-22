@@ -48,7 +48,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.requiredPilotSkill = requiredPilotSkill;
         }
 
-        public override string ErrorMessage => "Pilot does not have high enough pilot skill.";
+        public override string ErrorMessage => "Pilot does not have a high enough pilot skill.";
 
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
@@ -86,7 +86,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.shipSize = shipSize;
         }
 
-        public override string ErrorMessage => "The ship is not the correct size for this upgrade.";
+        public override string ErrorMessage => "This ship is not the correct size for this upgrade.";
         public override SpecificationType SpecType => SpecificationType.Critical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()
@@ -104,7 +104,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.action = action;
         }
 
-        public override string ErrorMessage => "The ship is not the correct size for this upgrade.";
+        public override string ErrorMessage => $"This pilot does not contain the {action.Name} action.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()
@@ -124,7 +124,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.slotsRequired = slotsRequired;
         }
 
-        public override string ErrorMessage => "This pilot does not have the require upgrade slots to fit this upgrade.";
+        public override string ErrorMessage => "This pilot does not have the required number of upgrade slots.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()
@@ -143,7 +143,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.upgradeType = upgradeType;            
         }
 
-        public override string ErrorMessage => $"This pilot has a upgrade slot of type {upgradeType.Name}";
+        public override string ErrorMessage => $"This pilot has a upgrade slot of type {upgradeType.Name}.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()
@@ -161,7 +161,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.upgradeType = upgradeType;
         }
 
-        public override string ErrorMessage => $"This pilot does not have a upgrade slot of type {upgradeType.Name}";
+        public override string ErrorMessage => $"This pilot does not have a upgrade slot of type {upgradeType.Name}.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IPilot, bool>> ToExpression()
@@ -179,7 +179,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
             this.costRestriction = costRestriction;
         }
 
-        public override string ErrorMessage => "This upgrade cost is high than is allows for this upgrade slot.";
+        public override string ErrorMessage => "This upgrade cost is higher than is allows for this upgrade slot.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
 
         public override Expression<Func<IUpgrade, bool>> ToExpression()

@@ -13,7 +13,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
     public class UpgradeSelectorViewModel : BindableBase
     {
         private IUpgradeSlot upgradeSlot;
-        private IEnumerable<string> uniqueNames;
+        private IReadOnlyList<string> uniqueNames;
         private IPilot pilot;
         private IUpgrade oldUpgrade;
         private IReadOnlyList<UpgradeViewModel> upgrades;
@@ -38,7 +38,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             Visibility = Visibility.Collapsed;
         }
 
-        public void Show(IUpgradeSlot upgradeSlot, IEnumerable<string> uniqueNames, IPilot pilot)
+        public void Show(IUpgradeSlot upgradeSlot, IReadOnlyList<string> uniqueNames, IPilot pilot)
         {
             this.upgradeSlot = upgradeSlot;
             this.uniqueNames = uniqueNames;
@@ -85,8 +85,8 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         }
 
         public void SelectUpgrade(UpgradeViewModel upgrade)
-        {
-            upgradeSlot.SetUpgrade(upgrade.Upgrade);
+        {           
+            upgradeSlot.SetUpgrade(upgrade.Upgrade);            
             Hide();
         }
 

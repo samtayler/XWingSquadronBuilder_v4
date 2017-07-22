@@ -13,7 +13,7 @@ namespace XWingSquadronBuilder_v4.Interfaces
         string Name { get; }
         ObservableCollection<IPilot> Pilots { get; }
         int SquadronCostTotal { get; }
-        SortedSet<string> UniqueNameCards { get; }        
+        IReadOnlyList<string> UniqueNameCards { get; }        
 
         bool AddPilot(IPilot pilot);
         bool RemovePilot(IPilot pilot);

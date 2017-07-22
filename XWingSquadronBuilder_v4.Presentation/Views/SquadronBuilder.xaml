@@ -17,7 +17,7 @@
    
     
     <Page.DataContext>
-        <viewModels:SqudronBuilderViewModel x:Name="ViewModel"/>
+        <viewModels:SquadronBuilderViewModel x:Name="ViewModel"/>
     </Page.DataContext>
     
     <Page.Background>
@@ -42,7 +42,8 @@
                     Width="50"
                     Content="&#xE2F6;"
                     Background="Transparent"
-                    FontFamily="Segoe MDL2 Assets"/>
+                    FontFamily="Segoe MDL2 Assets"
+                    Tapped="btnPrint_Tapped"/>
             <Button x:Name="btnNew"
                     Height="50"
                     Width="50"

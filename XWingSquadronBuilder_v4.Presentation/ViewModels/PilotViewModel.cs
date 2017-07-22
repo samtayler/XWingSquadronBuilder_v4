@@ -104,7 +104,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
                 .ThenBy(upgrade => upgrade.UpgradeSlot.IsNotNullUpgrade));
         }
         
-        public IEnumerable<TextBlock> AugementText(string text, double fontsize)
+        public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
         {
             return XWingTextAugmenter.AugementWithXWingIcons(text, fontsize, Pilot.Unique ? Windows.UI.Text.FontStyle.Normal : Windows.UI.Text.FontStyle.Italic);
         }

@@ -56,6 +56,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             AddUpgradeModifiers = modifiers.AddUpgradeModifiers.ToList();
             RemoveUpgradeModifiers = modifiers.RemoveUpgradeModifiers;
             PilotAttributeModifiers = modifiers.PilotAttributeModifiers;
+            SelectableAddedUpgrades = modifiers.ChooseableUpgradeModifiers;
             UpgradeRestrictions = upgradeRestrictions;
         }       
 

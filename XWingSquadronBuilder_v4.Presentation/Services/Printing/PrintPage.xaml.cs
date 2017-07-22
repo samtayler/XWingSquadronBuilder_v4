@@ -1,0 +1,33 @@
+﻿using System;
+
+namespace XWingSquadronBuilder_v4.Presentation.Services.Printing
+{
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Documents;
+
+    public partial class PrintPage
+    {
+        public PrintPage()
+        {
+            InitializeComponent();
+        }
+
+        public PrintPage(RichTextBlockOverflow textLinkContainer)
+            : this()
+        {
+            if (textLinkContainer == null) throw new ArgumentNullException(nameof(textLinkContainer));
+            textLinkContainer.OverflowContentTarget = textOverflow;
+        }
+
+        internal Grid PrintableArea => printableArea;
+
+        internal RichTextBlock TextContent => textContent;
+
+        internal RichTextBlockOverflow TextOverflow => textOverflow;
+
+        internal void AddContent(Paragraph block)
+        {
+            textContent.Blocks.Add(block);
+        }
+    }
+}

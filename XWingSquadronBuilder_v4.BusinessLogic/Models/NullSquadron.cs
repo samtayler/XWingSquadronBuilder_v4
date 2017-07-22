@@ -17,7 +17,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public int SquadronCostTotal => 0;
 
-        public SortedSet<string> UniqueNameCards => new SortedSet<string>();
+        public IReadOnlyList<string> UniqueNameCards => new List<string>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 

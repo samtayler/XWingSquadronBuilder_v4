@@ -22,7 +22,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             private set { Set(ref errorsList, value); }
         }
 
-        public bool HasErrors => ErrorsList.Count > 0;        
+        public bool NoErrors => ErrorsList.Count == 0;        
 
         public IUpgrade Upgrade
         {

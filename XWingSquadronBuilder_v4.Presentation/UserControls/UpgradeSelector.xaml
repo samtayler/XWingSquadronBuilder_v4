@@ -86,10 +86,18 @@
                     </ItemsControl.ItemContainerStyle>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:UpgradeViewModel">
-                            <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" Margin="0,0,5,5">                                
-                                <Interactivity:Interaction.Behaviors>
+                            <RelativePanel>
+                                <ListViewItem Style="{StaticResource CustomListViewItem}" 
+                                              Tapped="ListViewItem_Tapped" Margin="0,0,5,5" 
+                                              IsEnabled="{x:Bind NoErrors,Mode=OneWay}"
+                                              RelativePanel.AlignBottomWithPanel="True"                                             
+                                              RelativePanel.AlignTopWithPanel="True"
+                                              RelativePanel.AlignLeftWithPanel="True"
+                                              RelativePanel.LeftOf="btnShowErrors">
+                                    <!--<Interactivity:Interaction.Behaviors>
                                     <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="True">
-                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
+                                        -->
+                                    <!--<Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
                                                                            PropertyName="CornerRadius"
                                                                            Value="5"/>
                                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
@@ -100,9 +108,10 @@
                                         </Interactions:ChangePropertyAction>
                                         <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
                                                                            PropertyName="BorderThickness"
-                                                                           Value="3"/>
+                                                                           Value="3"/>-->
 
-                                        <!--<Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="2"/>-->
+                                    <!--<Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="2"/>-->
+                                    <!--
                                     </Interactions:DataTriggerBehavior>
                                     <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="False">
                                         <Interactions:ChangePropertyAction PropertyName="Background">
@@ -110,46 +119,80 @@
                                                 <SolidColorBrush/>
                                             </Interactions:ChangePropertyAction.Value>
                                         </Interactions:ChangePropertyAction>
-                                        <!--<Interactions:ChangePropertyAction PropertyName="BorderBrush" Value="White"/>
+                                        -->
+                                    <!--<Interactions:ChangePropertyAction PropertyName="BorderBrush" Value="White"/>
                                         <Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="0"/>-->
+                                    <!--
                                     </Interactions:DataTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>
-                                <ListViewItem.Content>
-                                    <RelativePanel x:Name="relPanel1">
-                                        <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
+                                </Interactivity:Interaction.Behaviors>-->
+                                    <ListViewItem.Content>
+                                        <RelativePanel x:Name="relPanel1">
+                                            <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
                                                Margin="2"
                                                FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
                                                FontSize="20"
                                                RelativePanel.AlignLeftWithPanel="True" 
                                                RelativePanel.AlignVerticalCenterWithPanel="True"
                                                Foreground="Gold"/>
-                                        <TextBlock x:Name="txblkUpgradeName" 
+                                            <TextBlock x:Name="txblkUpgradeName" 
                                                Text="{x:Bind Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                                                RelativePanel.RightOf="imgType"
                                                Margin="5,5,5,0"/>
-                                        <TextBlock x:Name="txblkCost" Text="{x:Bind Upgrade.Cost,Mode=OneWay, FallbackValue='Cost'}"
+                                            <TextBlock x:Name="txblkCost" Text="{x:Bind Upgrade.Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                   
                                    Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                    
                                    Margin="5,5,5,0"/>
-                                        <ItemsControl Name="CardText"
+                                            <ItemsControl Name="CardText"
                                       ItemsSource="{x:Bind AugmentText(Upgrade.CardText,12),Mode=OneWay}"
                                       Margin="5,5,0,5"    
                                       RelativePanel.Below="txblkUpgradeName"
                                       RelativePanel.AlignLeftWith="txblkUpgradeName">
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <wrapPanel:WrapPanel />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <ContentPresenter Content="{Binding}"/>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </RelativePanel>
-                                </ListViewItem.Content>
-                            </ListViewItem>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <wrapPanel:WrapPanel />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <ContentPresenter Content="{Binding}"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </RelativePanel>
+                                    </ListViewItem.Content>
+                                </ListViewItem>
+                                <Button x:Name="btnShowErrors" 
+                                        FontFamily="Segoe MDL2 Assets"
+                                        Content="&#xE783;"                                        
+                                        Background="#FF1B1B1C"                                       
+                                        Width="25"          
+                                        FontSize="21"
+                                        Height="25" 
+                                        Foreground="Red"  
+                                        Padding="0"
+                                        Margin="2" 
+                                        RelativePanel.AlignRightWithPanel="True"      
+                                        RelativePanel.AlignVerticalCenterWithPanel="True"
+                                        Visibility="{x:Bind NoErrors, Converter={StaticResource OppositeVisibility}, Mode=OneWay}"
+                                        Tapped="btnShowErrors_Tapped">
+                                    <Button.Flyout>
+                                        <Flyout>
+                                            <StackPanel>
+                                                <ItemsControl ItemsSource="{x:Bind ErrorsList}">
+                                                    <TextBlock Text="{x:Bind}" Foreground="Red" TextWrapping="WrapWholeWords"/>
+                                                    <ItemsControl.ItemContainerStyle>
+                                                        <Style TargetType="ContentPresenter">
+                                                            <Setter Property="VerticalAlignment" Value="Stretch" />
+                                                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                                        </Style>
+                                                    </ItemsControl.ItemContainerStyle>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </Flyout>
+                                    </Button.Flyout>                                    
+                                </Button>
+                            </RelativePanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
