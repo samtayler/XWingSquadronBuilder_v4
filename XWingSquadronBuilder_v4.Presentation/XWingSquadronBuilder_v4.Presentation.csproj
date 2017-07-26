@@ -153,11 +153,15 @@
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
     <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
+    <Compile Include="ViewModels\SquadronPrintViewModel.cs" />
     <Compile Include="ViewModels\UpgradeSelectorViewModel.cs" />
     <Compile Include="ViewModels\UpgradeSlotViewModel.cs" />
     <Compile Include="ViewModels\UpgradeViewModel.cs" />
     <Compile Include="Views\FactionSelectionPage.xaml.cs">
       <DependentUpon>FactionSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SquadronBuilder.xaml.cs">
       <DependentUpon>SquadronBuilder.xaml</DependentUpon>
@@ -358,6 +362,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FactionSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
