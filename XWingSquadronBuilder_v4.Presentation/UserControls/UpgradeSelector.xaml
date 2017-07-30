@@ -74,9 +74,9 @@
             <ColumnDefinition/>
             <ColumnDefinition MinWidth="10" Width="0.25*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1" Tapped="Grid_Tapped_1">
+        <Grid Grid.Row="1" Grid.Column="1" Tapped="Grid_Tapped_1" IsDoubleTapEnabled="False">
             <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="15" HorizontalAlignment="Center" VerticalAlignment="Top" Background="#FF1B1B1C" BorderBrush="White" BorderThickness="1">
-                <ItemsControl ItemsSource="{x:Bind ViewModel.Upgrades,Mode=OneWay}" >
+                <ItemsControl ItemsSource="{x:Bind ViewModel.Upgrades,Mode=OneWay}">
                     <ItemsControl.ItemContainerStyle>
                         <Style TargetType="ContentPresenter">
                             <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -93,38 +93,7 @@
                                               RelativePanel.AlignBottomWithPanel="True"                                             
                                               RelativePanel.AlignTopWithPanel="True"
                                               RelativePanel.AlignLeftWithPanel="True"
-                                              RelativePanel.LeftOf="btnShowErrors">
-                                    <!--<Interactivity:Interaction.Behaviors>
-                                    <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="True">
-                                        -->
-                                    <!--<Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
-                                                                           PropertyName="CornerRadius"
-                                                                           Value="5"/>
-                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
-                                                                           PropertyName="BorderBrush">
-                                            <Interactions:ChangePropertyAction.Value>
-                                                <SolidColorBrush Color="#CCFF0000"/>
-                                            </Interactions:ChangePropertyAction.Value>
-                                        </Interactions:ChangePropertyAction>
-                                        <Interactions:ChangePropertyAction TargetObject="{Binding ElementName=relPanel1}" 
-                                                                           PropertyName="BorderThickness"
-                                                                           Value="3"/>-->
-
-                                    <!--<Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="2"/>-->
-                                    <!--
-                                    </Interactions:DataTriggerBehavior>
-                                    <Interactions:DataTriggerBehavior Binding="{x:Bind HasErrors, Mode=OneWay}" Value="False">
-                                        <Interactions:ChangePropertyAction PropertyName="Background">
-                                            <Interactions:ChangePropertyAction.Value>
-                                                <SolidColorBrush/>
-                                            </Interactions:ChangePropertyAction.Value>
-                                        </Interactions:ChangePropertyAction>
-                                        -->
-                                    <!--<Interactions:ChangePropertyAction PropertyName="BorderBrush" Value="White"/>
-                                        <Interactions:ChangePropertyAction PropertyName="BorderThickness" Value="0"/>-->
-                                    <!--
-                                    </Interactions:DataTriggerBehavior>
-                                </Interactivity:Interaction.Behaviors>-->
+                                              RelativePanel.LeftOf="btnShowErrors">                                   
                                     <ListViewItem.Content>
                                         <RelativePanel x:Name="relPanel1">
                                             <TextBlock x:Name="imgType" Text="{x:Bind Upgrade.UpgradeType.Image, Mode=OneWay, TargetNullValue={x:Null}}"
@@ -176,10 +145,10 @@
                                         Visibility="{x:Bind NoErrors, Converter={StaticResource OppositeVisibility}, Mode=OneWay}"
                                         Tapped="btnShowErrors_Tapped">
                                     <Button.Flyout>
-                                        <Flyout>
-                                            <StackPanel>
-                                                <ItemsControl ItemsSource="{x:Bind ErrorsList}">
-                                                    <TextBlock Text="{x:Bind}" Foreground="Red" TextWrapping="WrapWholeWords"/>
+                                        <Flyout Placement="Right">
+                                            <StackPanel MinWidth="300">
+                                                <ItemsControl ItemsSource="{x:Bind ErrorsList}" MinWidth="300">
+                                                    <TextBlock Text="{x:Bind}" Foreground="Red" TextWrapping="WrapWholeWords" MinWidth="300"/>
                                                     <ItemsControl.ItemContainerStyle>
                                                         <Style TargetType="ContentPresenter">
                                                             <Setter Property="VerticalAlignment" Value="Stretch" />

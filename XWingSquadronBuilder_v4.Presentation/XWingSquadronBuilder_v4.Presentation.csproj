@@ -151,7 +151,9 @@
     <Compile Include="Commands\AddPilotCommand.cs" />
     <Compile Include="ViewModels\FactionSelectViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MenuItem.cs" />
     <Compile Include="ViewModels\PilotViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\SquadronBuilderViewModel.cs" />
     <Compile Include="ViewModels\SquadronPrintViewModel.cs" />
     <Compile Include="ViewModels\UpgradeSelectorViewModel.cs" />

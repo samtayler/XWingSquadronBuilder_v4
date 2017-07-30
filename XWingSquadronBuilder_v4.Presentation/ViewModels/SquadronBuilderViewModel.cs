@@ -24,7 +24,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
     {
         private int squadronCost;
         public ISquadron Squadron { get; private set; }
-        
+
         private ObservableCollection<PilotViewModel> squadronPilots;
 
         public ObservableCollection<PilotViewModel> SquadronPilots
@@ -57,8 +57,8 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         {
             get { return this.pilotList; }
             private set { Set(ref pilotList, value); }
-        }       
-        
+        }
+
 
         public int SquadronCost
         {
@@ -70,7 +70,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         {
             Squadron = SquadronFactory.CreateSquadron();
             SquadronPilots = new ObservableCollection<PilotViewModel>();
-            PilotList = new List<IPilot>();            
+            PilotList = new List<IPilot>();
             Faction = XWingRepository.Instance.FactionRepository.GetFactionAny();
             UpgradeSelector = new UpgradeSelectorViewModel();
         }
@@ -152,20 +152,16 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             SquadronCost = Squadron.SquadronCostTotal;
         }
 
-        public void AddPilot(IPilot e)
+        public async void AddPilot(IPilot e)
         {
             if (!Squadron.AddPilot(e))
             {
-                MessageDialog pilotUniqueDialog = new MessageDialog($"{e.Name} is a unique pilot and cannot be added more than once.", "Unique pilot");
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-                pilotUniqueDialog.ShowAsync();
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                if (e.Upgrades.Any(x => x.Upgrade.Unique) || e.Unique)
+                {
+                    MessageDialog uniqueDialog = new MessageDialog($"{e.Name} is a unique pilot or has unique upgrade cards.", "Unique constraint");
+                    await uniqueDialog.ShowAsync();
+                }
             }
-        }
-
-        public async void NavigateHome()
-        {
-            await NavigationService.NavigateAsync(typeof(FactionSelectionPage));
         }
 
         public void RemovePilot(PilotViewModel e)

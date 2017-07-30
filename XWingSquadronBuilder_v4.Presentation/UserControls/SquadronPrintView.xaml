@@ -23,7 +23,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <RichTextBlock xml:space="preserve" 
+    <!--<RichTextBlock xml:space="preserve" 
                    x:Name="TextContent" 
                    Grid.Row="1" 
                    Width="675" 
@@ -148,5 +148,5 @@
                </ItemsControl>
             </InlineUIContainer>
         </Paragraph>
-    </RichTextBlock>
+    </RichTextBlock>-->
 </Page>

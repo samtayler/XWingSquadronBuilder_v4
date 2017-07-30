@@ -29,14 +29,7 @@
                        RelativePanel.AlignTopWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
-                    Orientation="Horizontal">
-            <Button x:Name="btnHome"
-                    Height="50"
-                    Width="50"
-                    Content="&#xE10F;"
-                    Background="Transparent"
-                    FontFamily="Segoe MDL2 Assets"
-                    Tapped="{x:Bind ViewModel.NavigateHome}"/>
+                    Orientation="Horizontal">            
             <Button x:Name="btnPrint"
                     Height="50"
                     Width="50"
@@ -53,21 +46,21 @@
                     FontFamily="Segoe MDL2 Assets"
                     Tapped="{x:Bind ViewModel.ClearPilots}"/>
         </StackPanel>
-        <userControls:PilotsList x:Name="PilotList" 
-                                 Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"                                                                 
-                                 RelativePanel.AlignLeftWithPanel="True"
-                                 RelativePanel.Above="StatusBar"
-                                 RelativePanel.Below="CommandBar"
-                                 PilotSelected="{x:Bind ViewModel.AddPilot}"/>
         <userControls:Squadron x:Name="Squadron"                                                                               
-                               RelativePanel.AlignRightWithPanel="True"
-                               RelativePanel.RightOf="PilotList"
+                               RelativePanel.AlignLeftWithPanel="True"                               
                                RelativePanel.Below="CommandBar"
                                RelativePanel.Above="StatusBar"
+                               RelativePanel.LeftOf="PilotList"
                                Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}"
                                RemovePilot="{x:Bind ViewModel.RemovePilot}"
                                CopyPilot="{x:Bind ViewModel.AddPilot}"
                                UpgradeSlotSelected="{x:Bind ViewModel.SelectUpgrade}"/>
+        <userControls:PilotsList x:Name="PilotList" 
+                                 Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"                                                                 
+                                 RelativePanel.AlignRightWithPanel="True"
+                                 RelativePanel.Above="StatusBar"                                 
+                                 RelativePanel.Below="CommandBar"
+                                 PilotSelected="{x:Bind ViewModel.AddPilot}"/>        
         <RelativePanel x:Name="StatusBar"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"

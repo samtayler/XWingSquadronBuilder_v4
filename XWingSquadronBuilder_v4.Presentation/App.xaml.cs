@@ -28,7 +28,7 @@ namespace XWingSquadronBuilder_v4.Presentation
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
             // TODO: add your long-running task here
-            await NavigationService.NavigateAsync(typeof(Views.FactionSelectionPage));
+            await NavigationService.NavigateAsync(typeof(Views.Shell));
         }
     }
 }

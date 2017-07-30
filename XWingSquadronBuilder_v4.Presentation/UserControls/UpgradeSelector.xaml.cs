@@ -45,7 +45,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
             e.Handled = true;
-            ViewModel.Cancel();           
+            CancelUpgradeSelection();
         }
 
         private void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)
@@ -70,6 +70,22 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             var flyout = button.Flyout;
             flyout.ShowAt(button);
             
+        }
+
+        private void Grid_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            e.Handled = true;
+            CancelUpgradeSelection();
+        }
+
+        private void CancelUpgradeSelection()
+        {
+            ViewModel.Cancel();
+        }
+
+        private void ItemsControl_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
