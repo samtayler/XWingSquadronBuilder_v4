@@ -30,8 +30,8 @@
                         <uwpControls:Expander.Style>
                             <Style TargetType="uwpControls:Expander">
                                 <Setter Property="Padding" Value="0"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>                                
-                            </Style>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>                            
                         </uwpControls:Expander.Style>
                         <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" >
                             <ListView.ItemContainerStyle>

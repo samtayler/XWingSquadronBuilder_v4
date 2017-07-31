@@ -57,6 +57,10 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
             {
                 svShell.IsPaneOpen = false;
             }
+            if (e.Cumulative.Translation.X > 50)
+            {
+                svShell.IsPaneOpen = true;
+            }
         }        
 
         private async void ListViewItem_Tapped(object sender, TappedRoutedEventArgs e)

@@ -14,12 +14,22 @@
     </Page.DataContext>
 
     <RelativePanel>
-        <SplitView x:Name="svShell" 
-                   RelativePanel.AlignTopWithPanel="True" 
+        <Button x:Name="btnMenu" 
+                RelativePanel.AlignTopWithPanel="True" 
+                RelativePanel.AlignLeftWithPanel="True" 
+                Width="48" 
+                Height="48" 
+                Content="&#xE700;" 
+                FontFamily="Segoe MDL2 Assets" 
+                FontSize="20" 
+                Padding="0"
+                Background="#FF1E1E1E" Click="btnMenu_Click" />
+        <SplitView x:Name="svShell"                    
                    RelativePanel.AlignLeftWithPanel="True" 
+                   RelativePanel.AlignBottomWithPanel="True"
                    RelativePanel.AlignRightWithPanel="True"
-                   RelativePanel.Above="btnMenu"
-                   PanePlacement="Left"
+                   RelativePanel.RightOf="btnMenu"
+                   RelativePanel.Below="btnMenu"
                    DisplayMode="CompactOverlay">
             <SplitView.Pane>
                 <Grid x:Name="SplitViewPane"
@@ -28,9 +38,7 @@
                       ManipulationMode="TranslateX"
                       ManipulationCompleted="SplitViewPane_ManipulationCompleted"
                       Background="#FF1E1E1E">
-                    <ItemsControl ItemsSource="{x:Bind ViewModel.Menu}"                              
-                              Margin="0 48 0 0"
-                              VerticalAlignment="Bottom">
+                    <ItemsControl ItemsSource="{x:Bind ViewModel.Menu}">
                         <ItemsControl.ItemContainerStyle>
                             <Style TargetType="ContentPresenter">
                                 <Setter Property="VerticalAlignment" Value="Stretch" />
@@ -85,17 +93,8 @@
                 </Grid>
             </SplitView.Content>
         </SplitView>
-        <Button x:Name="btnMenu" 
-                RelativePanel.AlignBottomWithPanel="True" 
-                RelativePanel.AlignLeftWithPanel="True" 
-                Width="50" 
-                Height="50" 
-                Content="&#xE700;" 
-                FontFamily="Segoe MDL2 Assets" 
-                FontSize="32" 
-                Padding="0"
-                Background="Transparent" Click="btnMenu_Click" />
-        <Button x:Name="btnNewTab" 
+        
+        <!--<Button x:Name="btnNewTab" 
                 RelativePanel.AlignBottomWithPanel="True" 
                 RelativePanel.RightOf="btnMenu" 
                 Width="50" 
@@ -110,6 +109,6 @@
                       RelativePanel.AlignRightWithPanel="True"                        
                       RelativePanel.RightOf="btnNewTab"
                       RelativePanel.AlignTopWith="btnMenu"
-                      />
+                      />-->
     </RelativePanel>
 </Page>
