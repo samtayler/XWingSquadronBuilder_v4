@@ -1,46 +1,44 @@
 {
-  "Actions": {
-    "Action": [
-      {
-        "Name": "Boost",
-        "ImageSource": "b"
-      },
-      {
-        "Name": "Evade",
-        "ImageSource": "e"
-      },
-      {
-        "Name": "Focus",
-        "ImageSource": "f"
-      },
-      {
-        "Name": "Target Lock",
-        "ImageSource": "l"
-      },
-      {
-        "Name": "Cloak",
-        "ImageSource": "k"
-      },
-      {
-        "Name": "Barrel Roll",
-        "ImageSource": "r"
-      },
-      {
-        "Name": "SLAM",
-        "ImageSource": "s"
-      },
-      {
-        "Name": "Coordinate",
-        "ImageSource": "o"
-      },
-      {
-        "Name": "Reinforce",
-        "ImageSource": "i"
-      },
-      {
-        "Name": "Recover",
-        "ImageSource": "v"
-      }
-    ]
-  }
+  "Actions": [
+    {
+      "Name": "Boost",
+      "ImageSource": "b"
+    },
+    {
+      "Name": "Evade",
+      "ImageSource": "e"
+    },
+    {
+      "Name": "Focus",
+      "ImageSource": "f"
+    },
+    {
+      "Name": "Target Lock",
+      "ImageSource": "l"
+    },
+    {
+      "Name": "Cloak",
+      "ImageSource": "k"
+    },
+    {
+      "Name": "Barrel Roll",
+      "ImageSource": "r"
+    },
+    {
+      "Name": "SLAM",
+      "ImageSource": "s"
+    },
+    {
+      "Name": "Coordinate",
+      "ImageSource": "o"
+    },
+    {
+      "Name": "Reinforce",
+      "ImageSource": "i"
+    },
+    {
+      "Name": "Recover",
+      "ImageSource": "v"
+    }
+  ]
 }

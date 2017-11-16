@@ -5,58 +5,212 @@
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-    xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.Pages"
+    xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"  
     xmlns:uwpControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
+    xmlns:Controls="using:Template10.Controls"  
+    xmlns:pageModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.Pages.Interfaces"
+    xmlns:XWingModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels.Interfaces"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"  
+    mc:Ignorable="d"
+    x:Name="PilotList">
 
+    <!--<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-    <ScrollViewer x:Name="scrollViewer" >
-        <ItemsControl x:Name="pilotListControl" ItemsSource="{x:Bind GroupedPilots,Mode=OneWay}" Width="225">
-            <ItemsControl.ItemContainerStyle>
-                <Style TargetType="ContentPresenter">
-                    <Setter Property="VerticalAlignment" Value="Stretch" />
-                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ItemsControl.ItemContainerStyle>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <uwpControls:Expander x:Name="Expander1" VerticalAlignment="Top" 
-                                          Header="{Binding Key}"
-                                          IsExpanded="False"
-                                          Expanded="Expander1_Expanded"
-                                          Background="Black"
-                                          Foreground="White"                                          >
-                        <uwpControls:Expander.Style>
-                            <Style TargetType="uwpControls:Expander">
-                                <Setter Property="Padding" Value="0"/>
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            </Style>                            
-                        </uwpControls:Expander.Style>
-                        <ListView x:Name="ShipList" SelectionMode="None" ItemsSource="{Binding}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ItemClick="ShipList_ItemClick" IsItemClickEnabled="True" IsSwipeEnabled="False" ScrollViewer.VerticalScrollMode="Disabled" >
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="VerticalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                            <ListView.ItemTemplate>
-                                <DataTemplate x:DataType="interfaces:IPilot">
-                                    <RelativePanel x:Name="PilotPanel">
-                                        <Image x:Name="shipIcon" Source="{x:Bind ShipIcon, Mode=OneWay}" Width="20" Height="20" RelativePanel.AlignLeftWithPanel="True"/>
-                                        <TextBlock x:Name="txblkPilotSkill" TextWrapping="Wrap" Foreground="#FFF57F20" Text="{x:Bind PilotSkill, Mode=OneWay}" FontSize="15" FontFamily="Segoe UI" TextAlignment="Center" Margin="3,0,0,0" RelativePanel.AlignTopWithPanel="True" RelativePanel.RightOf="shipIcon"/>
-                                        <TextBlock x:Name="txblkPilotName" Text="{Binding Name, Mode=OneWay}" RelativePanel.RightOf="txblkPilotSkill" Margin="3,0,0,0" FontSize="12" RelativePanel.LeftOf="txblkCost" TextTrimming="CharacterEllipsis" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
-                                        <TextBlock x:Name="txblkCost" Foreground="Red" Text="{x:Bind Cost, Mode=OneWay}" TextAlignment="Center" FontFamily="Segoe UI" FontSize="12" Margin="3,0,15,0" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignVerticalCenterWith="txblkPilotSkill"/>
-                                    </RelativePanel>
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="BorderBrush" Value="Gray"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="CornerRadius" Value="90"/>
+            </Style>
+
+            <DataTemplate x:Name="PilotTemplate" x:DataType="XWingModels:IPilotViewModel">
+                <GridViewItem Padding="0" Margin="15" Tapped="GridViewItem_Tapped_1">
+                    <RelativePanel x:Name="RootPanel" CornerRadius="5" Background="{ThemeResource SystemControlBackgroundListLowBrush}" Padding="5" Width="250" Height="375" Margin="3">
+                        <Border RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True">
+                            <TextBlock Text="{x:Bind Pilot.Faction.Image, FallbackValue=#}" 
+                                   FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
+                                   FontSize="160" 
+                                   Foreground="White" 
+                                   Margin="10" 
+                                   TextAlignment="Center" 
+                                   Width="180" 
+                                   Height="180" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center" 
+                                   Padding="0,10,0,0"/>
+                        </Border>
+                        <Border RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True" Background="#CC000000"/>
+                        <RelativePanel x:Name="StatsPanel">                            
+                            <RelativePanel x:Name="grdPS" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="3">
+                                <TextBlock x:Name="txblkPS" Text="{x:Bind Pilot.PilotSkill, FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2" Foreground="{StaticResource PilotSkillColour}" FontSize="18" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="grdAttack" RelativePanel.Below="grdPS" Margin="3">
+                                <Grid x:Name="grdAttackIcon" Height="20" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                                    <Border Style="{StaticResource BorderStyle}">
+                                        <TextBlock x:Name="txblkAttackIcon" Text="%" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" Foreground="{StaticResource AttackColour}" Margin="2,2,0,0"/>
+                                    </Border>
+                                </Grid>
+                                <TextBlock x:Name="txblkAttack" Text="{x:Bind Pilot.Attack, FallbackValue=1}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2" Foreground="{StaticResource AttackColour}" RelativePanel.RightOf="grdAttackIcon" />
+                            </RelativePanel>
+                            <RelativePanel x:Name="grdAgility" RelativePanel.Below="grdAttack" Margin="3">
+                                <Grid x:Name="grdAgilityIcon" Height="20" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                                    <Border Style="{StaticResource BorderStyle}">
+                                        <TextBlock x:Name="txblkAgilityIcon" Text="^" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" Foreground="{StaticResource AgilityColour}" Margin="1,2,0,0"/>
+                                    </Border>
+                                </Grid>
+                                <TextBlock x:Name="txblkAgility" Text="{x:Bind Pilot.Agility, FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2" Foreground="{StaticResource AgilityColour}" RelativePanel.RightOf="grdAgilityIcon"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="grdHull" RelativePanel.Below="grdAgility" Margin="3">
+                                <Grid x:Name="grdHullIcon" Height="20" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                                    <Border Style="{StaticResource BorderStyle}">
+                                        <TextBlock x:Name="txblkHullIcon" Text="&amp;" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource HullColour}" RenderTransformOrigin="0.5,0.5">
+                                            <TextBlock.RenderTransform>
+                                                <CompositeTransform TranslateX="-0.5" TranslateY="-0.5" ScaleX="0.9" ScaleY="0.9"/>
+                                            </TextBlock.RenderTransform>
+                                        </TextBlock>
+                                    </Border>
+                                </Grid>
+                                <TextBlock x:Name="txblkHull" Text="{x:Bind Pilot.Hull, FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2" Foreground="{StaticResource HullColour}" RelativePanel.RightOf="grdHullIcon"/>
+                            </RelativePanel>
+                            <RelativePanel x:Name="grdShield" RelativePanel.Below="grdHull" Margin="3">
+                                <Grid x:Name="grdShieldIcon" Height="20" Width="20" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                                    <Border Style="{StaticResource BorderStyle}">
+                                        <TextBlock x:Name="txblkShieldIcon" Text="v" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource ShieldColour}" Margin="0,0,1,0"/>
+                                    </Border>
+                                </Grid>
+                                <TextBlock x:Name="txblkShield" Text="{x:Bind Pilot.Shield, FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,2" Foreground="{StaticResource ShieldColour}" RelativePanel.RightOf="grdShieldIcon"/>
+                            </RelativePanel>
+                        </RelativePanel>
+                        <RelativePanel x:Name="TextPanel" RelativePanel.RightOf="StatsPanel"
+                                   RelativePanel.AlignBottomWithPanel="True"
+                                   RelativePanel.AlignTopWithPanel="True"
+                                   RelativePanel.AlignRightWithPanel="True">                            
+                            <TextBlock x:Name="PilotName" 
+                                   Text="{x:Bind Pilot.Name, FallbackValue=PilotName}"
+                                   RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                   TextWrapping="WrapWholeWords"/>
+                            <TextBlock x:Name="ShipName" 
+                                   Text="{x:Bind Pilot.ShipName, FallbackValue=Shipname}"
+                                   RelativePanel.Below="PilotName" FontSize="12"
+                                   RelativePanel.AlignHorizontalCenterWith="PilotName"
+                                   FontStyle="Italic"
+                                   TextWrapping="WrapWholeWords"/>
+                            <TextBlock x:Name="PilotAbility" Text="{x:Bind Pilot.PilotAbility, FallbackValue=PilotAbility}"
+                                   FontSize="12"
+                                   RelativePanel.Below="ShipName"
+                                   RelativePanel.AlignHorizontalCenterWith="PilotName"
+                                   Margin="10"
+                                   TextWrapping="WrapWholeWords"/>
+                        </RelativePanel>
+                        <ItemsControl x:Name="upgradesList"
+                                      ItemsSource="{x:Bind Pilot.Upgrades}"
+                                      RelativePanel.Below="StatsPanel"
+                                      RelativePanel.AlignLeftWithPanel="True"
+                                      RelativePanel.AlignBottomWithPanel="True"                                      
+                                      RelativePanel.LeftOf="TextPanel" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="interfaces:IUpgradeSlot">
+                                    <TextBlock Text="{x:Bind UpgradeType.Image}" FontSize="18" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" />
                                 </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </uwpControls:Expander>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsWrapGrid Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>                           
+                        </ItemsControl>
+                    </RelativePanel>
+                </GridViewItem>
+            </DataTemplate>
+
+
+            <DataTemplate x:Name="ShipTemplate" x:DataType="viewmodel:ShipDisplay">
+                <GridViewItem Margin="15" Tapped="GridViewItem_Tapped">
+                    <Border x:Name="borderRoot" BorderBrush="White" BorderThickness="1" CornerRadius="5" Height="200" Width="300" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                        <Grid Margin="3" Padding="5">
+                            <RelativePanel>
+                                <Image x:Name="imgShip" Source="{x:Bind Icon}"  
+                                   RelativePanel.AlignRightWithPanel="True"
+                                   RelativePanel.AlignLeftWithPanel="True"
+                                   RelativePanel.AlignTopWithPanel="True"
+                                   RelativePanel.Above="txblkShipName"/>
+                                <TextBlock x:Name="txblkShipName" 
+                                       RelativePanel.AlignBottomWithPanel="True"
+                                       RelativePanel.AlignLeftWithPanel="True"
+                                       RelativePanel.AlignRightWithPanel="True"                                       
+                                       Text="{x:Bind ShipName}"
+                                       TextAlignment="Center" Margin="0,0,0,5" FontSize="24"/>
+                            </RelativePanel>
+                        </Grid>
+                    </Border>
+                </GridViewItem>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <RelativePanel x:Name="ShellPanel" IsTapEnabled="False">
+        <RelativePanel.Background>
+            <SolidColorBrush Color="#CC000000"/>
+        </RelativePanel.Background>
+        <RelativePanel x:Name="SearchBar"
+                       RelativePanel.AlignTopWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       IsTapEnabled="False">
+            <StackPanel Orientation="Horizontal" Margin="0,10"
+                        RelativePanel.AlignHorizontalCenterWithPanel="True">
+            </StackPanel>
+        </RelativePanel>
+        <RelativePanel x:Name="ContentArea"
+                       RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.Below="SearchBar"
+                       IsTapEnabled="False">
+
+            <ScrollViewer RelativePanel.AlignLeftWithPanel="True"  
+                  RelativePanel.AlignRightWithPanel="True"
+                  RelativePanel.AlignBottomWithPanel="True"
+                  RelativePanel.AlignTopWithPanel="True"                  
+                  x:Name="PilotSelectorSVer">
+                <Grid>
+                    <ItemsControl x:Name="ShipSelector" ItemTemplate="{StaticResource ShipTemplate}" ItemsSource="{x:Bind Ships, Mode=OneWay}" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="VerticalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <ItemsControl x:Name="PilotSelector" ItemTemplate="{StaticResource PilotTemplate}" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Visibility="Collapsed" >
+                        <ItemsControl.ItemContainerStyle>
+                            <Style TargetType="ContentPresenter">
+                                <Setter Property="VerticalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ItemsControl.ItemContainerStyle>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </Grid>
+            </ScrollViewer>
+        </RelativePanel>
+    </RelativePanel>-->
 
 
 </UserControl>

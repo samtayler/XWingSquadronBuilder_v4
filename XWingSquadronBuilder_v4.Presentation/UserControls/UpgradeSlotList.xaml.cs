@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.ViewModels;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels.Interfaces;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,19 +23,19 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class UpgradeSlotList : UserControl
     {
-        public delegate void UpgradeSlotSelectHandler(object sender, IUpgradeSlot e);
+        public delegate void UpgradeSlotSelectHandler(object sender, IUpgradeSlotViewModel e);
 
         public event UpgradeSlotSelectHandler UpgradeSlotSelected;
 
-        public ObservableCollection<UpgradeSlotViewModel> UpgradeSlots
+        public IReadOnlyList<IUpgradeSlotViewModel> UpgradeSlots
         {
-            get { return (ObservableCollection<UpgradeSlotViewModel>)GetValue(UpgradeSlotsProperty); }
+            get { return (IReadOnlyList<IUpgradeSlotViewModel>)GetValue(UpgradeSlotsProperty); }
             set { SetValue(UpgradeSlotsProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for UpgradeSlots.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty UpgradeSlotsProperty =
-            DependencyProperty.Register(nameof(UpgradeSlots), typeof(ObservableCollection<IUpgradeSlot>), typeof(UpgradeSlotList), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(UpgradeSlots), typeof(IReadOnlyList<IUpgradeSlotViewModel>), typeof(UpgradeSlotList), new PropertyMetadata(0));
         
 
         public UpgradeSlotList()
@@ -46,14 +47,14 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         {
             if (e.Handled) return;
             e.Handled = true;
-            UpgradeSlotSelected?.Invoke(sender, (((FrameworkElement)e.OriginalSource).DataContext as UpgradeSlotViewModel).UpgradeSlot);
+            UpgradeSlotSelected?.Invoke(sender, (((FrameworkElement)e.OriginalSource).DataContext as IUpgradeSlotViewModel));
         }        
 
         private void btnClearUpgrade_Tapped(object sender, TappedRoutedEventArgs e)
         {
             if (e.Handled) return;
             e.Handled = true;
-            ((UpgradeSlotViewModel)((FrameworkElement)sender).DataContext).UpgradeSlot.ClearUpgrade();
+            ((IUpgradeSlotViewModel)((FrameworkElement)sender).DataContext).UpgradeSlot.ClearUpgrade();
         }
     }
 }

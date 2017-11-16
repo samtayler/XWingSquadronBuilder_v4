@@ -9,7 +9,7 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
-    xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
+    xmlns:UWPControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d" 
     RequestedTheme="Dark">
 
@@ -22,10 +22,10 @@
     </UserControl.Resources>
 
 
-    <Grid BorderBrush="White" BorderThickness="1">
-        <RelativePanel Padding="5,0,5,5" Tapped="{x:Bind ViewModel.ToggleCollapsed}">
+    <Grid>
+        <RelativePanel Padding="5,0,5,5">
             <RelativePanel.Background>
-                <SolidColorBrush Color="#E5000000"/>
+                <SolidColorBrush Color="{ThemeResource SystemChromeMediumColor}"/>
             </RelativePanel.Background>
             <RelativePanel x:Name="InfoPanel" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
                 <Button x:Name="btnDelete" 
@@ -54,7 +54,7 @@
                            Text="{x:Bind ViewModel.Pilot.PilotSkill,Mode=OneWay, FallbackValue=0}"                            
                            RelativePanel.AlignVerticalCenterWithPanel="True"                           
                            Margin="0,0,10,0"
-                           FontSize="18"/>
+                           FontSize="22"/>
                 <TextBlock x:Name="txblkUnique"                            
                            TextWrapping="Wrap" 
                            Text="&#xE1F5;"    
@@ -105,7 +105,7 @@
                               Margin="10,0,0,0">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate x:DataType="interfaces:IAction">
-                            <TextBlock Text="{x:Bind Image}" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="20" Margin="5"/>
+                            <TextBlock Text="{x:Bind ImageUri}" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="20" Margin="5"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -124,29 +124,17 @@
                            RelativePanel.RightOf="actionsListview" 
                            RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
-            <ItemsControl Name="pilotAbility"
-                      ItemsSource="{x:Bind AugmentText(ViewModel.Pilot.PilotAbility,14)}"
-                      Margin="5,5,0,5"                   
+            <userControls:XWingFormattedTextBlock Name="pilotAbility"                       
+                      Margin="5,5,0,5" 
+                      Text="{x:Bind ViewModel.Pilot.PilotAbility, FallbackValue=PilotAbility}"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
-                      RelativePanel.Below="InfoPanel">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <wrapPanel:WrapPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <ContentPresenter Content="{Binding}"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <userControls:UpgradeSlotList x:Name="upgradeSlotListControl" UpgradeSlots="{x:Bind ViewModel.Upgrades,Mode=OneWay}"
-                                          UpgradeSlotSelected="UpgradeSlotList_UpgradeSlotSelected"
+                      RelativePanel.Below="InfoPanel"/>
+            <userControls:UpgradeSlotList x:Name="upgradeSlotListControl"
+                                          UpgradeSlots="{x:Bind ViewModel.Upgrades,Mode=OneWay}"                                          
                                           RelativePanel.Below="pilotAbility"
                                           RelativePanel.AlignRightWithPanel="True"
-                                          RelativePanel.AlignLeftWithPanel="True"
-                                          Visibility="{x:Bind ViewModel.Collapsed,Mode=OneWay}"/>
+                                          RelativePanel.AlignLeftWithPanel="True"/>
         </RelativePanel>
     </Grid>
 

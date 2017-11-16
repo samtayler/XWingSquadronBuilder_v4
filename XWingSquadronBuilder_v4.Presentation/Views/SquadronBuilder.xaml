@@ -1,79 +1,100 @@
 ﻿<Page
-    x:Class="XWingSquadronBuilder_v4.Presentation.Views.SquadronBuilder"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
-    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.Pages"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"  
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    x:Class="XWingSquadronBuilder_v4.Presentation.Views.SquadronBuilder"
     mc:Ignorable="d"
-    RequestedTheme="Dark">
+    RequestedTheme="Dark" >
 
-   
-    
-    <Page.DataContext>
-        <viewModels:SquadronBuilderViewModel x:Name="ViewModel"/>
-    </Page.DataContext>
-    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+
     <Page.Background>
         <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/star_wars_wallpaper_by_xdisciplexx-d5861q7.jpg"/>
     </Page.Background>
 
-    <RelativePanel Background="#E5000000">        
-        <StackPanel x:Name="CommandBar"
-                       RelativePanel.AlignTopWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True"
+    <RelativePanel Background="{StaticResource SystemControlBackgroundChromeBlackHighBrush}">
+        <RelativePanel x:Name="InformationBar"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignLeftWithPanel="True"
+                       RelativePanel.AlignTopWithPanel="True"                       
+                       Background="{StaticResource SystemControlBackgroundChromeMediumBrush}">
+            <TextBlock x:Name="PageTitle" Text="Squadron Builder" FontSize="16"
                        RelativePanel.AlignLeftWithPanel="True"
-                    Orientation="Horizontal">            
-            <Button x:Name="btnPrint"
-                    Height="50"
-                    Width="50"
-                    Content="&#xE2F6;"
-                    Background="Transparent"
-                    FontFamily="Segoe MDL2 Assets"
-                    Tapped="btnPrint_Tapped"/>
-            <Button x:Name="btnNew"
-                    Height="50"
-                    Width="50"
-                    Content="&#xE160;"
-                    Background="Transparent"
-                    Foreground="Green"
-                    FontFamily="Segoe MDL2 Assets"
-                    Tapped="{x:Bind ViewModel.ClearPilots}"/>
-        </StackPanel>
-        <userControls:Squadron x:Name="Squadron"                                                                               
-                               RelativePanel.AlignLeftWithPanel="True"                               
-                               RelativePanel.Below="CommandBar"
-                               RelativePanel.Above="StatusBar"
-                               RelativePanel.LeftOf="PilotList"
-                               Pilots="{x:Bind ViewModel.SquadronPilots,Mode=OneWay}"
-                               RemovePilot="{x:Bind ViewModel.RemovePilot}"
-                               CopyPilot="{x:Bind ViewModel.AddPilot}"
-                               UpgradeSlotSelected="{x:Bind ViewModel.SelectUpgrade}"/>
-        <userControls:PilotsList x:Name="PilotList" 
-                                 Pilots="{x:Bind ViewModel.PilotList,Mode=OneWay}"                                                                 
-                                 RelativePanel.AlignRightWithPanel="True"
-                                 RelativePanel.Above="StatusBar"                                 
-                                 RelativePanel.Below="CommandBar"
-                                 PilotSelected="{x:Bind ViewModel.AddPilot}"/>        
-        <RelativePanel x:Name="StatusBar"
-                       RelativePanel.AlignBottomWithPanel="True"
-                       RelativePanel.AlignLeftWithPanel="True"
-                       RelativePanel.AlignRightWithPanel="True">
-            <TextBlock x:Name="txblkSquadronCost" Foreground="Red" Text="{x:Bind ViewModel.SquadronCost, Mode=OneWay}" RelativePanel.AlignRightWithPanel="True"/>
+                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                       Margin="5"/>               
+                <TextBlock Name="txblkSquadronName" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Top" 
+                           Text="{x:Bind ViewModel.SquadronViewModel.Squadron.Name, Mode=OneWay}" 
+                           Margin="0,5,0,5"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <TextBlock x:Name="txblkSquadronDescription"   
+                       HorizontalAlignment="Left"   
+                       VerticalAlignment="Top"
+                       Text="{x:Bind ViewModel.SquadronViewModel.Squadron.Description, Mode=OneWay}"                       
+                       FontSize="12" 
+                       RelativePanel.Below="txblkSquadronName"
+                       RelativePanel.AlignHorizontalCenterWithPanel="True"/>           
         </RelativePanel>
-        <userControls:UpgradeSelector x:Name="upgradeSelector" 
-                                      RelativePanel.AlignBottomWithPanel="True" 
-                                      RelativePanel.AlignTopWithPanel="True" 
-                                      RelativePanel.AlignLeftWithPanel="True" 
-                                      RelativePanel.AlignRightWithPanel="True"      
-                                      ViewModel="{x:Bind ViewModel.UpgradeSelector,Mode=OneWay}"
-                                      Visibility="{x:Bind ViewModel.UpgradeSelector.Visibility,Mode=OneWay}"
-                                      d:IsHidden="True"/>
+        <RelativePanel x:Name="CommandBar"
+                       RelativePanel.AlignRightWithPanel="True"
+                       RelativePanel.AlignLeftWithPanel="True"                       
+                       RelativePanel.Below="InformationBar"                        
+                       Background="{StaticResource SystemControlBackgroundChromeMediumBrush}" >
+            <Button x:Name="AddPilot" Tapped="{x:Bind ViewModel.NavigateToPilotSelectionAsync}" Height="48" Background="{x:Null}">
+                <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border x:Name="icon">
+                        <TextBlock Text="{x:Bind ViewModel.IconPilotAdd, FallbackValue=F}" 
+                                   FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures-ships.ttf#x-wing-ships" 
+                                   FontSize="24" 
+                                   Margin="0,11,0,0" />
+                    </Border>
+                    <TextBlock x:Name="txblkPilots" 
+                               Text="Pilots" 
+                               Margin="2,0,0,0" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               RelativePanel.RightOf="icon" 
+                               RelativePanel.AlignVerticalCenterWith="icon" />
+                </RelativePanel>
+            </Button>
+            <Button x:Name="btnSave" Content="&#xE105;" FontFamily="Segoe MDL2 Assets"
+                    Height="48"
+                    Width="48"
+                    RelativePanel.RightOf="AddPilot" Click="btnSave_Click" Background="{x:Null}">
+                <Interactivity:Interaction.Behaviors>
+                    <Interactions:DataTriggerBehavior Binding="{x:Bind ViewModel.IsSquadronSaved}" ComparisonCondition="Equal" Value="True">
+                        <Interactions:ChangePropertyAction PropertyName="Content" Value="&#xE104;"/>
+                    </Interactions:DataTriggerBehavior>
+                    <Interactions:DataTriggerBehavior Binding="{x:Bind ViewModel.IsSquadronSaved}" ComparisonCondition="Equal" Value="False">
+                        <Interactions:ChangePropertyAction PropertyName="Content" Value="&#xE105;"/>
+                    </Interactions:DataTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+            </Button>
+        </RelativePanel>
+       
+        <userControls:Squadron x:Name="Squadron"                                                                               
+                               RelativePanel.AlignLeftWithPanel="True"  
+                               RelativePanel.AlignRightWithPanel="True"
+                               ViewModel="{x:Bind ViewModel.SquadronViewModel, Mode=OneWay}"                                
+                               PilotSelected="{x:Bind ViewModel.NavigateToPilotDetails}"                                 
+                               RelativePanel.Below="CommandBar"
+                               RelativePanel.AlignBottomWithPanel="True"/>
     </RelativePanel>
 </Page>

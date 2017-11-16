@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Serialization;
 using XWingSquadronBuilder_v4.BusinessLogic.Models;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
-{   
-
+{
+    [DataContract]
     public abstract class XWingSpecification<T> : Specification<T>, IXWingSpecification<T>
     {
+        [DataMember]
         public abstract SpecificationType SpecType { get; }
+        [DataMember]
         public abstract string ErrorMessage { get; }
 
         public bool IsSatisfiedBy(T entity, List<string> errors)
@@ -28,6 +31,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
 
     }
 
+    [DataContract]
     public sealed class UpgradeUniqueSpecification : XWingSpecification<IUpgrade>
     {
         public override string ErrorMessage => "Upgrade card must be unique.";
@@ -37,10 +41,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         {
             return upgrade => upgrade.Unique;
         }
-    }    
+    }
 
+    [DataContract]
     public sealed class PilotSkillGreaterThanSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private int requiredPilotSkill;
 
         public PilotSkillGreaterThanSpecification(int requiredPilotSkill)
@@ -58,8 +64,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class ContainsShipNameSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private string requiredShipName;
 
         public ContainsShipNameSpecification(string requiredShipName)
@@ -77,8 +85,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class EqualsShipSizeSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private string shipSize;
 
         public EqualsShipSizeSpecification(string shipSize)
@@ -95,8 +105,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class ContainsActionSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private IAction action;
 
         public ContainsActionSpecification(IAction action)
@@ -113,9 +125,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class PilotHasRequiredUpgradeSlotsSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private IUpgradeType upgradeType;
+        [DataMember]
         private int slotsRequired;
 
         public PilotHasRequiredUpgradeSlotsSpecification(IUpgradeType upgradeType, int slotsRequired)
@@ -134,8 +149,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class NotContainsUpgradeSlotsSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private IUpgradeType upgradeType;        
 
         public NotContainsUpgradeSlotsSpecification(IUpgradeType upgradeType)
@@ -152,8 +169,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class ContainsUpgradeSlotsSpecification : XWingSpecification<IPilot>
     {
+        [DataMember]
         private IUpgradeType upgradeType;
 
         public ContainsUpgradeSlotsSpecification(IUpgradeType upgradeType)
@@ -170,8 +189,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public sealed class UpgradeCostLessOrEqualToThanSpecification : XWingSpecification<IUpgrade>
     {
+        [DataMember]
         private int costRestriction;
 
         public UpgradeCostLessOrEqualToThanSpecification(int costRestriction)

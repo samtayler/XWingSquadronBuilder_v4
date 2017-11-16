@@ -10,5 +10,6 @@ namespace XWingSquadronBuilder_v4.Interfaces
     {
         string Name { get; }
         bool Unique { get; }
+        Guid Id { get; }
     }
 }

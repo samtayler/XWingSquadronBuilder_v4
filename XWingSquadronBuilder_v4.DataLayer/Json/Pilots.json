@@ -186,7 +186,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -206,7 +206,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -226,7 +226,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -246,7 +246,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -266,7 +266,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -286,7 +286,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -306,7 +306,7 @@
       "Upgrades": [ "Modification", "Cannon", "Missile", "Title", "Elite Pilot Talent" ],
       "Faction": "Empire",
       "ShipSize": "Small",
-      "ShipIcon": "/Assets/Logos/Empire/tie defender.png",
+      "ShipIcon": "/Assets/Logos/Empire/tie defender2.png",
       "ShipName": "TIE Defender",
       "Actions": [ "Focus", "Barrel Roll", "Target Lock" ],
       "Stats": {
@@ -477,7 +477,7 @@
       },
       "Cost": 39,
       "Unique": true,
-      "PilotAbility": "When you reveal a bank maneuver (^LEFTBANK or ^RIGHTBANK), you may rotate your dial to the other bank maneuver of the same speed.",
+      "PilotAbility": "When you reveal a bank maneuver ( ^LEFTBANK or ^RIGHTBANK ), you may rotate your dial to the other bank maneuver of the same speed.",
       "PilotSkill": 8
     },
     {
@@ -797,7 +797,7 @@
       },
       "Cost": 23,
       "Unique": true,
-      "PilotAbility": "When performing a barrel roll action, you may receive 1 stress token to use the 1  ^RIGHTBANK or ^LEFTBANK  template instead of the 1 ^STRAIGHT template.",
+      "PilotAbility": "When performing a barrel roll action, you may receive 1 stress token to use the 1 ^RIGHTBANK or ^LEFTBANK template instead of the 1 ^STRAIGHT template.",
       "PilotSkill": 5
     },
     {

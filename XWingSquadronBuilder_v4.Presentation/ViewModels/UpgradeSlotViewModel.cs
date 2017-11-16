@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Template10.Mvvm;
@@ -10,6 +11,7 @@ using XWingSquadronBuilder_v4.Presentation.Converters;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
+    [DataContract]
     public class UpgradeSlotViewModel : BindableBase
     {        
         public UpgradeSlotViewModel(IUpgradeSlot upgradeSlot)
@@ -17,7 +19,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             UpgradeSlot = upgradeSlot;
             IsEnabled = true;
         }
-
+        [DataMember]
         private IUpgradeSlot upgradeSlot;
 
         public IUpgradeSlot UpgradeSlot
@@ -25,7 +27,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
             get { return this.upgradeSlot; }
             set { Set(ref upgradeSlot, value); }
         }
-
+        [DataMember]
         private bool isEnabled;
 
         public bool IsEnabled

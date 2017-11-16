@@ -15,7 +15,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
-using XWingSquadronBuilder_v4.Presentation.ViewModels;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.Pages;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.Pages.Interfaces;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,25 +27,37 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
     /// </summary>
     public sealed partial class FactionSelectionPage : Page
     {
-        public List<IFaction> Factions
+        public IFactionSelectionViewModel ViewModel
         {
-            get { return (List<IFaction>)GetValue(FactionsProperty); }
-            set { SetValue(FactionsProperty, value); }
+            get { return (IFactionSelectionViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Factions.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty FactionsProperty =
-            DependencyProperty.Register("Factions", typeof(List<IFaction>), typeof(FactionSelectionPage), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(nameof(ViewModel), typeof(IFactionSelectionViewModel), typeof(FactionSelectionPage), new PropertyMetadata(0));
 
         public FactionSelectionPage()
         {
-            Factions = XWingRepository.Instance.FactionRepository.GetAllFactions().Where(faction => faction.Name != "Any").ToList();
+            ViewModel = new FactionSelectionViewModel();
+            DataContext = ViewModel;
             this.InitializeComponent();
         }
 
-        private void gwFactionSelect_ItemClick(object sender, ItemClickEventArgs e)
+        //private async void gwFactionSelect_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    await ViewModel.FactionSelectedAsync(e.ClickedItem as IFaction);
+        //} 
+        
+
+        private async void btnNewSquadron_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            ViewModel.FactionSelected(e.ClickedItem as IFaction);
+            await ViewModel.FactionSelectedAsync(((FrameworkElement)sender).Tag as string);
+        }
+
+        private async void lvSquadrons_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            await ViewModel.OpenSquadronAsync(e.ClickedItem as ISquadron);
         }
     }
 }

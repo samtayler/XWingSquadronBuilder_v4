@@ -10,6 +10,20 @@ using Windows.UI.Xaml.Media;
 
 namespace XWingSquadronBuilder_v4.Presentation.Converters
 {
+    public class StringToTextBlocks : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            return XWingTextAugmenter.AugementWithXWingIcons(value.ToString(), (int)parameter);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
     public class XWingTextAugmenter
     {
         private static Dictionary<string, string> xwingKeyWords = new Dictionary<string, string>()
@@ -27,7 +41,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
 
             if (!text.Any(x => x == '^'))
             {
-                textblocks.Add(new TextBlock() { Text = text, FontFamily = new FontFamily("Segoe UI"), FontStyle = style, Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize, TextWrapping = Windows.UI.Xaml.TextWrapping.WrapWholeWords });
+                textblocks.Add(new TextBlock() { Text = text.Trim(), FontFamily = new FontFamily("Segoe UI"), FontStyle = style, Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize, TextWrapping = Windows.UI.Xaml.TextWrapping.WrapWholeWords });
             }
             else
             {
@@ -38,14 +52,18 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
                     var wordSplit = item.Split('^');
                     if (wordSplit.Count() > 1 && xwingKeyWords.ContainsKey(wordSplit[1]))
                     {
-                        textblocks.Add(new TextBlock() { Text = xwingKeyWords[wordSplit[1]], FontStyle = style, FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols"), Margin = new Windows.UI.Xaml.Thickness(2, 3, 2, 0), FontSize = fontSize, VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center });
+                        textblocks.Add(new TextBlock() { Text = xwingKeyWords[wordSplit[1]].Trim(), FontStyle = style, FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols"), Margin = new Windows.UI.Xaml.Thickness(2, 3, 2, 0), FontSize = fontSize, VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center });
                     }
                     else
                     {
-                        textblocks.Add(new TextBlock() { Text = wordSplit[0], FontStyle = style, FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize });
+                        textblocks.Add(new TextBlock() { Text = wordSplit[0].Trim(), FontStyle = style, FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize });
                     }
                 }
             }
+
+            textblocks.First().Margin = new Windows.UI.Xaml.Thickness(0, 0, 2, 0);
+            textblocks.Last().Margin = new Windows.UI.Xaml.Thickness(2, 0, 0, 0);
+
             return textblocks;
         }        
     }

@@ -4,111 +4,37 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:c="using:Template10.Controls"
-    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.Pages"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Template10.Behaviors"
+    xmlns:Controls="using:Template10.Controls"
+    xmlns:views="using:XWingSquadronBuilder_v4.Presentation.Views"
     mc:Ignorable="d">
 
-    <Page.DataContext>
-        <viewModels:ShellViewModel x:Name="ViewModel" />
-    </Page.DataContext>
-
-    <RelativePanel>
-        <Button x:Name="btnMenu" 
-                RelativePanel.AlignTopWithPanel="True" 
-                RelativePanel.AlignLeftWithPanel="True" 
-                Width="48" 
-                Height="48" 
-                Content="&#xE700;" 
-                FontFamily="Segoe MDL2 Assets" 
-                FontSize="20" 
-                Padding="0"
-                Background="#FF1E1E1E" Click="btnMenu_Click" />
-        <SplitView x:Name="svShell"                    
-                   RelativePanel.AlignLeftWithPanel="True" 
-                   RelativePanel.AlignBottomWithPanel="True"
-                   RelativePanel.AlignRightWithPanel="True"
-                   RelativePanel.RightOf="btnMenu"
-                   RelativePanel.Below="btnMenu"
-                   DisplayMode="CompactOverlay">
-            <SplitView.Pane>
-                <Grid x:Name="SplitViewPane"
-                      VerticalAlignment="Stretch"
-                      HorizontalAlignment="Stretch"
-                      ManipulationMode="TranslateX"
-                      ManipulationCompleted="SplitViewPane_ManipulationCompleted"
-                      Background="#FF1E1E1E">
-                    <ItemsControl ItemsSource="{x:Bind ViewModel.Menu}">
-                        <ItemsControl.ItemContainerStyle>
-                            <Style TargetType="ContentPresenter">
-                                <Setter Property="VerticalAlignment" Value="Stretch" />
-                                <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            </Style>
-                        </ItemsControl.ItemContainerStyle>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate x:DataType="viewModels:MenuItem">
-                                <ListViewItem Tapped="ListViewItem_Tapped" Padding="0">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Border BorderBrush="{x:Null}" Height="50" Width="50" Margin="0">
-                                            <TextBlock x:Name="Glyph"
-                                                   Text="{x:Bind Glyph}"
-                                                   FontFamily="Segoe MDL2 Assets"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   Foreground="White"
-                                                   ToolTipService.ToolTip="{x:Bind Text}" 
-                                                   TextAlignment="Center"                                                   
-                                                   FontSize="18" />
-                                        </Border>
-                                        <Border BorderBrush="{x:Null}" Height="50">
-                                            <TextBlock Text="{Binding Text}"
-                                                   Margin="8,0,0,0"
-                                                   Foreground="White"
-                                                   FontSize="18"
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"/>
-                                        </Border>
-                                    </StackPanel>
-                                </ListViewItem>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <Grid>
-                    <!-- Navigation Frame -->
-                    <Frame x:Name="SplitViewFrame">
-                        <Frame.ContentTransitions>
-                            <TransitionCollection>
-                                <NavigationThemeTransition>
-                                    <NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                                        <EntranceNavigationTransitionInfo />
-                                    </NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                                </NavigationThemeTransition>
-                            </TransitionCollection>
-                        </Frame.ContentTransitions>
-                    </Frame>
-                </Grid>
-            </SplitView.Content>
-        </SplitView>
-        
-        <!--<Button x:Name="btnNewTab" 
-                RelativePanel.AlignBottomWithPanel="True" 
-                RelativePanel.RightOf="btnMenu" 
-                Width="50" 
-                Height="50" 
-                Content="&#xE109;" 
-                FontFamily="Segoe MDL2 Assets"
-                Padding="0"
-                FontSize="32" 
-                Background="Transparent" />
-        <ItemsControl x:Name="tabControl" 
-                      RelativePanel.AlignBottomWithPanel="True" 
-                      RelativePanel.AlignRightWithPanel="True"                        
-                      RelativePanel.RightOf="btnNewTab"
-                      RelativePanel.AlignTopWith="btnMenu"
-                      />-->
-    </RelativePanel>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources> 
+    
+    <NavigationView x:Name="NavView"
+                    ItemInvoked="NavView_ItemInvoked"
+                    SelectionChanged="NavView_SelectionChanged"
+                    Loaded="NavView_Loaded"
+                    AlwaysShowHeader="False"
+                    OpenPaneLength="250"> 
+        <NavigationView.MenuItems>              
+            <NavigationViewItem Icon="Home" Content="Home" Tag="Home"/>               
+        </NavigationView.MenuItems>  
+        <NavigationView.PaneFooter>
+            <HyperlinkButton x:Name="MoreInfoBtn"
+                             Content="More info"                               
+                             Margin="12,0"/>
+        </NavigationView.PaneFooter>  
+        <Frame x:Name="ContentFrame"/> 
+    </NavigationView>  
 </Page>

@@ -1,74 +1,76 @@
 {
-  "UpgradeTypes": {
-    "UpgradeType": [
-      {
-        "Name": "Title",
-        "ImageSource": "t"
-      },
-      {
-        "Name": "Elite Pilot Talent",
-        "ImageSource": "E"
-      },
-      {
-        "Name": "Missile",
-        "ImageSource": "M"
-      },
-      {
-        "Name": "Torpedo",
-        "ImageSource": "P"
-      },
-      {
-        "Name": "Bomb",
-        "ImageSource": "B"
-      },
-      {
-        "Name": "Crew",
-        "ImageSource": "W"
-      },
-      {
-        "Name": "Astromech",
-        "ImageSource": "A"
-      },
-      {
-        "Name": "Cargo",
-        "ImageSource": "C"
-      },
-      {
-        "Name": "Hardpoint",
-        "ImageSource": "H"
-      },
-      {
-        "Name": "Illicit",
-        "ImageSource": "I"
-      },
-      {
-        "Name": "Salvaged Astromech",
-        "ImageSource": "V"
-      },
-      {
-        "Name": "Cannon",
-        "ImageSource": "C"
-      },
-      {
-        "Name": "Team",
-        "ImageSource": "T"
-      },
-      {
-        "Name": "Tech",
-        "ImageSource": "X"
-      },
-      {
-        "Name": "Turret",
-        "ImageSource": "U"
-      },
-      {
-        "Name": "System Upgrade",
-        "ImageSource": "S"
-      },
-      {
-        "Name": "Modification",
-        "ImageSource": "M"
-      }
-    ]
-  }
+  "UpgradeTypes": [
+    {
+      "Name": "Title",
+      "ImageSource": "t"
+    },
+    {
+      "Name": "Elite Pilot Talent",
+      "ImageSource": "E"
+    },
+    {
+      "Name": "Missile",
+      "ImageSource": "M"
+    },
+    {
+      "Name": "Torpedo",
+      "ImageSource": "P"
+    },
+    {
+      "Name": "Bomb",
+      "ImageSource": "B"
+    },
+    {
+      "Name": "Crew",
+      "ImageSource": "W"
+    },
+    {
+      "Name": "Astromech",
+      "ImageSource": "A"
+    },
+    {
+      "Name": "Cargo",
+      "ImageSource": "C"
+    },
+    {
+      "Name": "Hardpoint",
+      "ImageSource": "H"
+    },
+    {
+      "Name": "Illicit",
+      "ImageSource": "I"
+    },
+    {
+      "Name": "Salvaged Astromech",
+      "ImageSource": "V"
+    },
+    {
+      "Name": "Cannon",
+      "ImageSource": "C"
+    },
+    {
+      "Name": "Team",
+      "ImageSource": "T"
+    },
+    {
+      "Name": "Tech",
+      "ImageSource": "X"
+    },
+    {
+      "Name": "Turret",
+      "ImageSource": "U"
+    },
+    {
+      "Name": "System Upgrade",
+      "ImageSource": "S"
+    },
+    {
+      "Name": "Modification",
+      "ImageSource": "m"
+    },
+    {
+      "Name": "Any",
+      "ImageSource": ""
+    }
+  ]
 }

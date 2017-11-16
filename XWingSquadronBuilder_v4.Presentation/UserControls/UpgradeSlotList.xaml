@@ -6,60 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interfaces="using:XWingSquadronBuilder_v4.Interfaces"
-    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
-    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
-    xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
+    xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"     
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels.Interfaces"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d" Visibility="{Binding Visibility}">
 
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
-            </ResourceDictionary.MergedDictionaries>            
+            </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="ListViewItem" x:Key="CustomListViewItem">
-                <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
-                <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
-                <Setter Property="Background" Value="Transparent"/>
-                <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}" />
-                <Setter Property="TabNavigation" Value="Local"/>
-                <Setter Property="BorderBrush" Value="White"/>
-                <Setter Property="BorderThickness" Value="0,0.5"/>
-                <Setter Property="IsHoldingEnabled" Value="True"/>
-                <Setter Property="Padding" Value="0"/>
-                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
-                <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="ListViewItem">
-                            <ListViewItemPresenter          
-          CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-          CheckBoxBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-          DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}"
-          DragForeground="{ThemeResource ListViewItemDragForegroundThemeBrush}"
-          FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}"
-          FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}"
-          PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}"
-          PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}"
-          PointerOverForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-          SelectedBackground="{ThemeResource SystemControlHighlightListAccentLowBrush}"
-          SelectedForeground="{ThemeResource SystemControlHighlightAltBaseHighBrush}"
-          SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListAccentMediumBrush}"
-          PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}"
-          SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}"
-          DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}"
-          DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}"
-          ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
-          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-          ContentMargin="{TemplateBinding Padding}"
-          CheckMode="Inline"/>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
+
 
 
         </ResourceDictionary>
@@ -74,10 +33,9 @@
             </Style>
         </ItemsControl.ItemContainerStyle>
         <ItemsControl.ItemTemplate>
-            <DataTemplate x:DataType="viewModels:UpgradeSlotViewModel">
-                <ListViewItem Style="{StaticResource CustomListViewItem}" Tapped="ListViewItem_Tapped" IsEnabled="{x:Bind IsEnabled, Mode=OneWay}">
-                    <RelativePanel>
-                        <TextBlock x:Name="imgType" Text="{x:Bind UpgradeSlot.UpgradeType.Image, Mode=OneWay, FallbackValue=t}"   
+            <DataTemplate x:DataType="viewModels:IUpgradeSlotViewModel">
+                <RelativePanel Margin="5">
+                    <TextBlock x:Name="imgType" Text="{x:Bind UpgradeSlot.UpgradeType.ImageUri, Mode=OneWay, FallbackValue=t}"   
                                    Margin="2"
                                    FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
                                    FontSize="15"
@@ -85,60 +43,44 @@
                                    Width="15"
                                    RelativePanel.AlignLeftWithPanel="True" 
                                    RelativePanel.AlignVerticalCenterWithPanel="True"
-                                   Foreground="Gold"/>
-                        <TextBlock x:Name="txblkUpgradeName" 
+                                   >
+                        <Interactivity:Interaction.Behaviors>
+                              <Interactions:DataTriggerBehavior Binding="{x:Bind UpgradeSlot.IsNullUpgrade}" ComparisonCondition="Equal" Value="True">
+                                <Interactions:ChangePropertyAction PropertyName="Foreground" Value="White"/>
+                              </Interactions:DataTriggerBehavior>
+                             <Interactions:DataTriggerBehavior Binding="{x:Bind UpgradeSlot.IsNullUpgrade}" ComparisonCondition="Equal" Value="False">
+                                <Interactions:ChangePropertyAction PropertyName="Foreground" Value="Gold"/>
+                              </Interactions:DataTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </TextBlock>
+                    <TextBlock x:Name="txblkUpgradeName" 
                             Text="{x:Bind UpgradeSlot.Upgrade.Name, Mode=OneWay, FallbackValue='UpgradeName'}"
                             Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="5,2,2,2"/>
-                        <TextBlock x:Name="txblkUpgradeTypeName" 
+                    <TextBlock x:Name="txblkUpgradeTypeName" 
                             Text="{x:Bind UpgradeSlot.Upgrade.UpgradeType, Mode=OneWay, FallbackValue='UpgradeTypeName'}"
                                    Visibility="{x:Bind UpgradeSlot.IsNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.AlignVerticalCenterWith="imgType"
                             RelativePanel.RightOf="imgType"
                             FontSize="12"
                             Margin="2"/>
-                        <TextBlock x:Name="txblkCost" Text="{x:Bind UpgradeSlot.Cost,Mode=OneWay, FallbackValue='Cost'}"
+                    <TextBlock x:Name="txblkCost" Text="{x:Bind UpgradeSlot.Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                    
-                                   Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName" 
-                                   RelativePanel.LeftOf="btnClearUpgrade"
+                                   Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                   
                                    HorizontalAlignment="Left"
                                    FontSize="12"
                                    Margin="2"/>
-                        <ItemsControl Name="CardText"
-                                      ItemsSource="{x:Bind AugmentText(UpgradeSlot.Upgrade.CardText,12) ,Mode=OneWay}"
-                                      Margin="5,5,0,5"                   
-                                      RelativePanel.Below="txblkUpgradeName" 
-                                      RelativePanel.LeftOf="btnClearUpgrade"
+                    <local:XWingFormattedTextBlock Name="CardText"
+                                      Text="{x:Bind UpgradeSlot.Upgrade.CardText ,Mode=OneWay}"
+                                      Margin="5,5,0,5" 
+                                      FontSize="13"
+                                      RelativePanel.Below="txblkUpgradeName"                                      
                                       RelativePanel.AlignLeftWith="txblkUpgradeName">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <wrapPanel:WrapPanel />
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <ContentPresenter Content="{Binding}"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                        <Button x:Name="btnClearUpgrade" 
-                                FontFamily="Segoe MDL2 Assets"
-                                Content="&#xE894;"
-                                Width="25" 
-                                Background="Transparent"
-                                FontSize="6"
-                                Height="25"
-                                Foreground="Red"  
-                                Padding="0"
-                                Margin="2" 
-                                RelativePanel.AlignRightWithPanel="True"                                                                  
-                                RelativePanel.AlignVerticalCenterWithPanel="True"
-                                Tapped="btnClearUpgrade_Tapped"/>
-                    </RelativePanel>
-                </ListViewItem>
+                    </local:XWingFormattedTextBlock>
+                </RelativePanel>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
     </ItemsControl>

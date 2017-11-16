@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Serialization;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
 {
+    [DataContract]
     internal sealed class IdentitySpecification<T> : Specification<T>
     {
         public override Expression<Func<T, bool>> ToExpression()
@@ -12,6 +14,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
+    [DataContract]
     public abstract class Specification<T>
     {
         public static readonly Specification<T> All = new IdentitySpecification<T>();
@@ -48,10 +51,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
-
+    [DataContract]
     internal sealed class AndSpecification<T> : Specification<T>
     {
+        [DataMember]
         private readonly Specification<T> _left;
+        [DataMember]
         private readonly Specification<T> _right;
 
         public AndSpecification(Specification<T> left, Specification<T> right)
@@ -71,10 +76,12 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
-
+    [DataContract]
     internal sealed class OrSpecification<T> : Specification<T>
     {
+        [DataMember]
         private readonly Specification<T> _left;
+        [DataMember]
         private readonly Specification<T> _right;
 
         public OrSpecification(Specification<T> left, Specification<T> right)
@@ -94,9 +101,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         }
     }
 
-
+    [DataContract]
     internal sealed class NotSpecification<T> : Specification<T>
     {
+        [DataMember]
         private readonly Specification<T> _specification;
 
         public NotSpecification(Specification<T> specification)

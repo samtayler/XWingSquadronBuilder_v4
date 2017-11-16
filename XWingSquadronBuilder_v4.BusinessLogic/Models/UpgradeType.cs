@@ -1,22 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
+    [DataContract]
     public class UpgradeType : IUpgradeType
     {
-        public UpgradeType(string name, string image)
+        private UpgradeType(string name, string imageUri)
         {
             Name = name;
-            Image = image;
+            ImageUri = imageUri;
         }
 
-        public string Image { get; }
-        public string Name { get; }
+        [DataMember]
+        public string ImageUri { get; }
+        [DataMember]
+        public string Name { get; }          
+
+        public static IUpgradeType CreateUpgradeType(string name, string imageUri)
+        {
+            return new UpgradeType(name, imageUri);
+        }
 
         public override string ToString()
         {
@@ -33,9 +43,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             return Name.Equals(other.Name);
         }
 
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
+
         public IUpgradeType DeepClone()
         {
-            return new UpgradeType(this.Name, this.Image);
-        }
+            return CreateUpgradeType(this.Name, this.ImageUri);
+        }        
     }
 }

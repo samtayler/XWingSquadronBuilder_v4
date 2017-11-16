@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
+    [DataContract]
     public class Action : IAction
     {
-        public Action(string name, string image)
+        private Action(string name, string imageUri)
         {
             Name = name;
-            Image = image;
+            ImageUri = imageUri;
         }
 
+        [DataMember]
         public string Name { get; }
+        [DataMember]
+        public string ImageUri { get; }
 
-        public string Image { get; }
+        internal static IAction CreateAction(string name, string imageUri)
+        {
+            return new Action(name, imageUri);
+        }
 
         public int CompareTo(IAction other)
         {
@@ -25,7 +33,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 
         public IAction DeepClone()
         {
-            return new Action(this.Name, this.Image);
+            return new Action(this.Name, this.ImageUri);
         }
 
         public override int GetHashCode()

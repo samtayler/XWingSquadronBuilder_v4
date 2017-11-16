@@ -5,6 +5,7 @@ using System.Linq;
 using Windows.UI.Xaml.Data;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.ViewModels;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels;
 
 namespace XWingSquadronBuilder_v4.Presentation.Converters
 {

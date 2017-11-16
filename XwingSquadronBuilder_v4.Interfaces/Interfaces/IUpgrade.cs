@@ -9,8 +9,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface IUpgrade : IXWingCard, IEquatable<IUpgrade>, IDeepCloneable<IUpgrade>
     {
-        string Name { get; }
-        bool Unique { get; }
+        //string Name { get; }
+        //bool Unique { get; }
         IReadOnlyList<IAction> AddActionModifiers { get; }
         IReadOnlyList<IAction> RemoveActionModifiers { get; }
         IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers { get; }

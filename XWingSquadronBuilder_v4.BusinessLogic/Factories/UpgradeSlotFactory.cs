@@ -8,11 +8,11 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
-    public class UpgradeSlotFactory : IUpgradeSlotFactory
+    public class UpgradeSlotFactory
     {
-        private IUpgradeFactory upgradeFactory;
+        private UpgradeFactory upgradeFactory;
 
-        public UpgradeSlotFactory(IUpgradeFactory upgradeFactory)
+        public UpgradeSlotFactory(UpgradeFactory upgradeFactory)
         {
             this.upgradeFactory = upgradeFactory;
         }

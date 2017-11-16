@@ -1,21 +1,10 @@
-﻿using Microsoft.Toolkit.Uwp.UI.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
+using XWingSquadronBuilder_v4.Presentation.ViewModels;
 
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -23,56 +12,49 @@ using XWingSquadronBuilder_v4.Interfaces;
 namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class PilotsList : UserControl
-    {
-        private Expander previousExpander;
-
+    {      
         public delegate void PilotSelectedEventHandler(IPilot e);
 
         public event PilotSelectedEventHandler PilotSelected;
 
-        public IReadOnlyList<IPilot> Pilots
+        public IReadOnlyList<ShipDisplay> Ships
         {
-            get { return (IReadOnlyList<IPilot>)GetValue(PilotsProperty); }
-            set
-            {
-                SetValue(PilotsProperty, value);
-                GroupedPilots = Pilots.OrderBy(pilot => pilot.ShipName).ThenBy(x => x.PilotSkill).ThenBy(x => x.Cost).ThenBy(x => x.Name).GroupBy(x => x.ShipName).ToList();                
-            }
+            get { return (IReadOnlyList<ShipDisplay>)GetValue(ShipsProperty); }
+            set { SetValue(ShipsProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(IReadOnlyList<IPilot>), typeof(PilotsList), new PropertyMetadata(new List<IPilot>()));
-
-
-
-        private List<IGrouping<string, IPilot>> GroupedPilots
-        {
-            get { return (List<IGrouping<string, IPilot>>)GetValue(GroupedPilotsProperty); }
-            set { SetValue(GroupedPilotsProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty GroupedPilotsProperty =
-            DependencyProperty.Register("GroupedPilots", typeof(List<IGrouping<string, IPilot>>), typeof(PilotsList), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for Ships.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShipsProperty =
+            DependencyProperty.Register(nameof(Ships), typeof(IReadOnlyList<ShipDisplay>), typeof(PilotsList), new PropertyMetadata(new List<ShipDisplay>()));
 
 
         public PilotsList()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
+
         }
 
-        private void ShipList_ItemClick(object sender, ItemClickEventArgs e)
+        private void GridViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            PilotSelected?.Invoke((e.ClickedItem as IPilot).DeepClone());
-        }        
+            ShipDisplay ship = ((FrameworkElement)e.OriginalSource).DataContext as ShipDisplay;
+            if (ship == null) return;
 
-        private void Expander1_Expanded(object sender, EventArgs e)
+            //PilotSelector.ItemsSource = ship.Pilots;
+            //PilotSelector.Visibility = Visibility.Visible;
+            //ShipSelector.Visibility = Visibility.Collapsed;
+        }
+
+        private void GridViewItem_Tapped_1(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            scrollViewer.ScrollToElement(sender as UIElement);
-            if (previousExpander != null && previousExpander != sender as Expander)
-                previousExpander.IsExpanded = false;
-            previousExpander = sender as Expander;
+            IPilot pilot = ((FrameworkElement)e.OriginalSource).DataContext as IPilot;
+            if (pilot == null) return;
+
+            this.Visibility = Visibility.Collapsed;
+            //PilotSelector.Visibility = Visibility.Collapsed;
+            //ShipSelector.Visibility = Visibility.Visible;
+            //PilotSelector.ItemsSource = null;
+            PilotSelected?.Invoke(pilot);
+
         }
     }
 }

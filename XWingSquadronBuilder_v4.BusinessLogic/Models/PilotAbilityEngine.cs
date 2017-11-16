@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using XWingSquadronBuilder_v4.BusinessLogic.Structures;
@@ -11,25 +12,47 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
+    [DataContract]
     public class PilotAbilityEngine : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         public int Agility => agility + GetPilotStatModification(nameof(Agility));
+
         public int Attack => attack + GetPilotStatModification(nameof(Attack));
+
         public int Hull => hull + GetPilotStatModification(nameof(Hull));
+
         public int PilotSkill => pilotSkill + GetPilotStatModification(nameof(PilotSkill));
+
         public int Shield => shield + GetPilotStatModification(nameof(Shield));
+
         public int Cost => GetCalculatedUpgradeSlots().Sum(x => x.Cost);
+
+        [DataMember]
         private IReadOnlyList<IUpgradeSlot> _upgrades { get; }
+
         public IReadOnlyList<IUpgradeSlot> Upgrades => GetCalculatedUpgradeSlots()
             .OrderBy(upgrade => upgrade.UpgradeType.Name).ThenBy(upgrade => upgrade.IsNullUpgrade).ToList();
+
         public List<IAction> Actions => CalculateActions().ToList();
+
+        [DataMember]
         private HashSet<IAction> _actions { get; }
+
+        [DataMember]
         private int attack { get; }
+
+        [DataMember]
         private int agility { get; }
+
+        [DataMember]
         private int hull { get; }
+
+        [DataMember]
         private int shield { get; }
+
+        [DataMember]
         private int pilotSkill { get; }
 
 
@@ -45,7 +68,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             foreach (var upgrade in _upgrades)
             {
                 upgrade.PropertyChanged += UpgradeContainer_PropertyChanged;
-            }           
+            }
 
         }
 
@@ -53,7 +76,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
         {
             if (e.PropertyName == "Enabled") return;
             if (e.PropertyName == "Upgrade")
-            {                
+            {
                 NotifyPropertyChanged(nameof(Actions));
                 NotifyPropertyChanged(nameof(Upgrades));
                 NotifyPropertyChanged(nameof(Attack));
@@ -63,7 +86,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 NotifyPropertyChanged(nameof(PilotSkill));
                 NotifyPropertyChanged(nameof(Cost));
             }
-        }        
+        }
 
         public int GetPilotStatModification(string key)
         {

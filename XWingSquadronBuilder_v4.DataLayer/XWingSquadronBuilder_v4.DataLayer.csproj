@@ -113,12 +113,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RawData\ActionData.cs" />
-    <Compile Include="RawDataImporter\DataImporter.cs" />
-    <Compile Include="RawData\FactionData.cs" />
-    <Compile Include="RawData\PilotData.cs" />
-    <Compile Include="RawData\UpgradeData.cs" />
-    <Compile Include="RawData\UpgradeTypesData.cs" />
+    <Compile Include="DataContracts\ActionData.cs" />
+    <Compile Include="RawDataImporter\JsonDataImporter.cs" />
+    <Compile Include="DataContracts\FactionData.cs" />
+    <Compile Include="DataContracts\PilotData.cs" />
+    <Compile Include="DataContracts\SquadronSaveData.cs" />
+    <Compile Include="DataContracts\UpgradeData.cs" />
+    <Compile Include="DataContracts\UpgradeTypesData.cs" />
+    <Compile Include="Respositories\IDataPortal.cs" />
+    <Compile Include="Respositories\IInventoryRepository.cs" />
+    <Compile Include="Respositories\IPersistanceRepository.cs" />
+    <Compile Include="Respositories\LocalDataPortal.cs" />
+    <Compile Include="SaveToJson\JsonSaver.cs" />
     <EmbeddedResource Include="Properties\XWingSquadronBuilder_v4.DataLayer.rd.xml" />
   </ItemGroup>
   <ItemGroup>

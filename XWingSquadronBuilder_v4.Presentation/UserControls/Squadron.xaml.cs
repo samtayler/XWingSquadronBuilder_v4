@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.ViewModels;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels.Interfaces;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,55 +24,39 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 {
     public sealed partial class Squadron : UserControl
     {
-        public delegate void PilotRemoveSelectedHandler(PilotViewModel e);
+        public delegate void PilotSelectedHandler(IPilotViewModel e);
 
-        public event PilotRemoveSelectedHandler RemovePilot;
+        public event PilotSelectedHandler PilotSelected;
 
-        public delegate void PilotCopySelectedHandler(IPilot e);
-
-        public event PilotCopySelectedHandler CopyPilot;
-
-        public delegate void UpgradeSlotSelectedHandler(Tuple<IPilot,IUpgradeSlot> e);
-
-        public event UpgradeSlotSelectedHandler UpgradeSlotSelected;
-
-        public ObservableCollection<PilotViewModel> Pilots
+        public ISquadronViewModel ViewModel
         {
-            get { return (ObservableCollection<PilotViewModel>)GetValue(PilotsProperty); }
-            set { SetValue(PilotsProperty, value); }
+            get { return (ISquadronViewModel)GetValue(ViewModelProperty); }
+            set { SetValue(ViewModelProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Pilots.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PilotsProperty =
-            DependencyProperty.Register(nameof(Pilots), typeof(ObservableCollection<PilotViewModel>), typeof(Squadron), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for ViewModel.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(nameof(ViewModel), typeof(ISquadronViewModel), typeof(Squadron), new PropertyMetadata(0));
 
         public Squadron()
         {
             this.InitializeComponent();
         }
 
-        private void PilotControl_RemovePilot(object sender, PilotViewModel e)
+        private void PilotControl_RemovePilot(object sender, IPilotViewModel e)
         {
-            RemovePilot?.Invoke(e);
+            ViewModel.Squadron.RemovePilot(e.Pilot.Id);            
         }
 
-        private void PilotControl_CopyPilot(object sender, IPilot e)
+        private void PilotControl_CopyPilot(object sender, IPilotViewModel e)
         {
-            CopyPilot?.Invoke(e);
-        }
-
-        private void PilotControl_UpgradeSlotSelected(object sender, Tuple<IPilot, IUpgradeSlot> e)
-        {
-            UpgradeSlotSelected?.Invoke(e);
+            ViewModel.Squadron.AddPilot(e.Pilot.DeepClone());
         }
 
         private void PilotControl_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            foreach (var pilot in Pilots)
-            {
-                if (pilot != ((PilotViewModel)(((UserControl)sender).DataContext)))
-                    pilot.Collapsed = Visibility.Collapsed;
-            }
+            var pilot = ((IPilotViewModel)(((UserControl)sender).DataContext));
+            PilotSelected?.Invoke(pilot);
         }
     }
 }

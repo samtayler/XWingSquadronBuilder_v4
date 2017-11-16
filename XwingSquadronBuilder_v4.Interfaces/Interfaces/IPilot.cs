@@ -8,8 +8,8 @@ namespace XWingSquadronBuilder_v4.Interfaces
 {
     public interface IPilot : IXWingCard, IEquatable<IPilot>, IDeepCloneable<IPilot>, INotifyPropertyChanged, IDisposable
     {
-        string Name { get; }
-        bool Unique { get; }
+        //string Name { get; }
+        //bool Unique { get; }        
         string PilotAbility { get; }
         string ShipName { get; }
         IShipSize ShipSize { get; }

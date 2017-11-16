@@ -9,10 +9,13 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
     public class UpgradeRestrictionParser
     {
-        public static IReadOnlyList<IXWingSpecification<IPilot>> ParseRestrictionsForUpgrade(UpgradeJson upgradeJson)
+        public static IReadOnlyList<IXWingSpecification<IPilot>> ParseRestrictionsForUpgrade(
+            Func<string, IUpgradeType> getUpgradeType, 
+            Func<string, IAction> getAction, 
+            UpgradeJson upgradeJson)
         {
             var specList = new List<IXWingSpecification<IPilot>>();
-            var upgradeType = XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(upgradeJson.Type);
+            var upgradeType = getUpgradeType(upgradeJson.Type);
             foreach (var restriction in upgradeJson.Restrictions)
             {
                 switch (restriction.Attribute)
@@ -54,14 +57,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                             break;
                         }
                     case "UpgradeSlots":
-                        {                            
+                        {
                             if (restriction.Operand == "Not Contains")
                             {
-                                specList.Add(new NotContainsUpgradeSlotsSpecification(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(restriction.Value)));
+                                specList.Add(new NotContainsUpgradeSlotsSpecification(getUpgradeType(restriction.Value)));
                             }
                             else if (restriction.Operand == "Contains")
                             {
-                                specList.Add(new ContainsUpgradeSlotsSpecification(XWingRepository.Instance.UpgradeTypesRepository.GetUpgradeType(restriction.Value)));
+                                specList.Add(new ContainsUpgradeSlotsSpecification(getUpgradeType(restriction.Value)));
                             }
                             else
                             {
@@ -85,7 +88,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                         {
                             if (restriction.Operand == "Contains")
                             {
-                                specList.Add(new ContainsActionSpecification(XWingRepository.Instance.ActionRepository.GetAction(restriction.Value)));
+                                specList.Add(new ContainsActionSpecification(getAction(restriction.Value)));
                             }
                             else
                             {
@@ -104,7 +107,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
         }
         public static IReadOnlyList<IXWingSpecification<IUpgrade>> ParseRestrictionsForUpgradeSlot(List<RestrictionJson> restrictions)
         {
-            var specList = new List<IXWingSpecification<IUpgrade>>();            
+            var specList = new List<IXWingSpecification<IUpgrade>>();
             foreach (var restriction in restrictions)
             {
                 switch (restriction.Attribute)
@@ -120,7 +123,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                                 throw new NotImplementedException($"Found a restriction not implemented\n {restriction.Operand}");
                             }
                             break;
-                        }                    
+                        }
                     default:
                         {
                             throw new NotImplementedException($"Found a restriction not implemented\n {restriction.Attribute}");

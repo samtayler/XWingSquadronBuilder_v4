@@ -118,7 +118,6 @@
     <Compile Include="Interfaces\IUpgradeType.cs" />
     <Compile Include="Interfaces\IXWingCard.cs" />
     <Compile Include="Interfaces\IXWingSpecification.cs" />
-    <Compile Include="Interfaces\Repositories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\XwingSquadronBuilder_v4.Interfaces.rd.xml" />
   </ItemGroup>

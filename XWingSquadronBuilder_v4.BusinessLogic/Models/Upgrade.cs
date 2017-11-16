@@ -2,47 +2,74 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using XWingSquadronBuilder_v4.BusinessLogic.Structures;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
+    [DataContract]
     public class Upgrade : IUpgrade
     {
+        [DataMember]
         public IReadOnlyList<IAction> AddActionModifiers { get; }
 
+        [DataMember]
         public IReadOnlyList<IAction> RemoveActionModifiers { get; }
 
+        [DataMember]
         public IReadOnlyList<IUpgradeSlot> AddUpgradeModifiers { get; }
 
+        [DataMember]
         public IReadOnlyList<IUpgradeType> RemoveUpgradeModifiers { get; }
 
+        [DataMember]
         public IDictionary<string, int> PilotAttributeModifiers { get; }
 
+        [DataMember]
         public IEnumerable<IUpgradeSlot> SelectableAddedUpgrades { get; }
 
+        [DataMember]
         private IUpgradeSlot SelectedAddedUpgrade { get; set; }
 
+        [DataMember]
         public string Name { get; }
 
-        public int Cost { get; }        
+        [DataMember]
+        public int Cost { get; }
 
+        [DataMember]
         public string CardText { get; }
 
+        [DataMember]
         public bool Unique { get; }
 
-        public bool Limited { get; }       
+        [DataMember]
+        public bool Limited { get; }
 
+        [DataMember]
         public IFaction Faction { get; }
 
+        [DataMember]
         public IUpgradeType UpgradeType { get; }
 
-        public IReadOnlyList<IXWingSpecification<IPilot>> UpgradeRestrictions { get; }       
+        [DataMember]
+        public IReadOnlyList<IXWingSpecification<IPilot>> UpgradeRestrictions { get; }        
 
-        internal Upgrade(string name, int cost,
-            string cardText, bool unique, bool limited,
-            IFaction faction, IUpgradeType upgradeType, UpgradeModifierPackage modifiers, IReadOnlyList<IXWingSpecification<IPilot>> upgradeRestrictions)
+        public Guid Id { get; }
+
+        internal Upgrade(
+            string name, 
+            int cost,
+            string cardText, 
+            bool unique, 
+            bool limited,
+            IFaction faction, 
+            IUpgradeType upgradeType, 
+            UpgradeModifierPackage modifiers, 
+            IReadOnlyList<IXWingSpecification<IPilot>> upgradeRestrictions)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Cost = cost;            
             CardText = cardText;
@@ -50,10 +77,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             Limited = limited;           
             Faction = faction;
             UpgradeType = upgradeType;
+            
 
             AddActionModifiers = modifiers.AddActionModifiers;
             RemoveActionModifiers = modifiers.RemoveActionModifiers;
-            AddUpgradeModifiers = modifiers.AddUpgradeModifiers.ToList();
+            AddUpgradeModifiers = modifiers.AddUpgradeModifiers;
             RemoveUpgradeModifiers = modifiers.RemoveUpgradeModifiers;
             PilotAttributeModifiers = modifiers.PilotAttributeModifiers;
             SelectableAddedUpgrades = modifiers.ChooseableUpgradeModifiers;

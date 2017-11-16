@@ -11,7 +11,7 @@
     xmlns:converters="using:XWingSquadronBuilder_v4.Presentation.Converters"
     xmlns:wrapPanel="using:Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel"
     xmlns:userControls="using:XWingSquadronBuilder_v4.Presentation.UserControls"
-    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
+    xmlns:viewModels="using:XWingSquadronBuilder_v4.Presentation.ViewModels.Pages"
     mc:Ignorable="d">
 
 

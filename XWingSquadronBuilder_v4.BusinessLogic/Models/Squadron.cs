@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using XWingSquadronBuilder_v4.BusinessLogic.Logic;
@@ -11,107 +12,89 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
 {
-    public class Squadron : ISquadron, IDisposable
+    [DataContract]
+    public class Squadron : ISquadron
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<IPilot> Pilots { get; private set; }
-        public IReadOnlyList<string> UniqueNameCards => 
-            Pilots
-            .SelectMany(pilot => pilot.Upgrades.Where(upgrade => upgrade.Upgrade.Unique).Select(upgrade => upgrade.Upgrade.Name))
-            .Concat(Pilots.Where(pilot => pilot.Unique).Select(pilot => pilot.Name)).ToList();
+        [DataMember]
+        public Guid Id { get; private set; }
 
-        public IFaction Faction { get; }        
+        [DataMember]
+        public Dictionary<Guid, IPilot> Pilots { get; private set; }
 
-        public string Name { get; set; } = "Unnamed Squadron";
-        public int SquadronCostTotal => Pilots.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
+        [DataMember]
+        public IFaction Faction { get; }
 
-        public Func<IPilot, bool> CheckSquadronRequirements { get; }
+        private string name = "Unnamed Squadron";
+
+        [DataMember]
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string description = "";
+
+        [DataMember]
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public int CostTotal => Pilots.Values.Sum(x => x.Cost + x.Upgrades.Sum(y => y.Upgrade.Cost));
+
+        [DataMember]
+        public int CostCap { get; set; }
 
         public Squadron(IFaction faction)
         {
-            Pilots = new ObservableCollection<IPilot>();            
-            Faction = faction;
-            CheckSquadronRequirements = CheckUnique;
+            Pilots = new Dictionary<Guid, IPilot>();
+            Faction = faction ?? throw new ArgumentNullException(nameof(faction));
+            Id = Guid.NewGuid();
         }
 
         public bool AddPilot(IPilot pilot)
         {
-            if (!CheckSquadronRequirements(pilot)) return false;
-
-            Pilots.Add(pilot);
-            NotifyPropertyChanged(nameof(SquadronCostTotal));
+            Pilots.Add(pilot.Id, pilot);
+            NotifySquadronChanges();
             return true;
+        }
+
+        private void NotifySquadronChanges()
+        {
+            NotifyPropertyChanged(nameof(CostTotal));
+            NotifyPropertyChanged(nameof(Pilots));
         }
 
         public void ClearAllPilots()
         {
-            foreach (var pilot in Pilots)
+            foreach (var pilot in Pilots.Values)
             {
                 pilot.Dispose();
             }
             this.Pilots.Clear();
-            NotifyPropertyChanged(nameof(SquadronCostTotal));            
+            NotifySquadronChanges();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="card"></param>
-        /// <returns>True if check is OK</returns>
-        private bool CheckUnique(IPilot card)
+        public bool RemovePilot(Guid id)
         {
-            if (card.Unique || card.Upgrades.Any(upgrade => upgrade.Upgrade.Unique))
-            {
-                return !UniqueNameCards.Contains(card.Name) && !card.Upgrades.Any(upgrade => UniqueNameCards.Contains(upgrade.Upgrade.Name));
-            }
+            if (!Pilots.ContainsKey(id)) return false;
 
+            Pilots[id].Dispose();
+            Pilots.Remove(id);
+            NotifySquadronChanges();
             return true;
-        }
-
-        public bool RemovePilot(IPilot pilot)
-        {
-            if (!Pilots.Remove(pilot)) return false;
-
-            pilot.Dispose();
-            NotifyPropertyChanged(nameof(SquadronCostTotal));            
-            return true;
-        }
-
-        public void SortPilotsByName(bool ascending)
-        {
-            if (ascending)
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.Name).ThenByDescending(pilot => pilot.Cost + pilot.UpgradesCost));
-            }
-            else
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.Name).ThenByDescending(pilot => pilot.Cost + pilot.UpgradesCost));
-            }
-        }
-
-        public void SortPilotsByPilotSkill(bool ascending)
-        {
-            if (ascending)
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.PilotSkill).ThenByDescending(pilot => pilot.Name));
-            }
-            else
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.PilotSkill).ThenByDescending(pilot => pilot.Name));
-            }
-        }
-
-        public void SortPilotsByCost(bool ascending)
-        {
-            if (ascending)
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderBy(pilot => pilot.Cost + pilot.UpgradesCost).ThenByDescending(pilot => pilot.Name));
-            }
-            else
-            {
-                Pilots = new ObservableCollection<IPilot>(Pilots.OrderByDescending(pilot => pilot.Cost + pilot.UpgradesCost).ThenByDescending(pilot => pilot.Name));
-            }
         }
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
@@ -119,14 +102,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void Dispose()
-        {
-
-        }
-
         public ISquadron DeepClone()
         {
             throw new NotImplementedException();
+        }
+
+        public void SetId(Guid id)
+        {
+            Id = id;
         }
     }
 }

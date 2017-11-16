@@ -4,41 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XWingSquadronBuilder_v4.BusinessLogic.Models;
+using XWingSquadronBuilder_v4.BusinessLogic.Models.NullModels;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.DataLayer.RawData;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
-    public class UpgradeFactory : IUpgradeFactory
-    {        
-        private IFactionRepository factionRepo;
-        private IUpgradeTypesRepository upgradeTypeRepo;
-
-        public UpgradeFactory(IFactionRepository factionRepo, IUpgradeTypesRepository upgradeTypeRepo)
-        {            
-            this.factionRepo = factionRepo;
-            this.upgradeTypeRepo = upgradeTypeRepo;
+    public class UpgradeFactory
+    {
+        public UpgradeFactory(
+            Func<string, IFaction> getFaction,
+            Func<string, IUpgradeType> getUpgradeType,
+            Func<string, IAction> getAction,
+            Func<string, string, IUpgrade> getUpgrade)
+        {
+            GetFaction = getFaction;
+            GetUpgradeType = getUpgradeType;
+            GetAction = getAction;
+            GetUpgrade = getUpgrade;
         }
+
+        private Func<string, IAction> GetAction { get; }
+        private Func<string, IFaction> GetFaction { get; }
+        private Func<string, IUpgradeType> GetUpgradeType { get; }
+        private Func<string, string, IUpgrade> GetUpgrade { get; }
 
         public IUpgrade CreateNullUpgrade(IUpgradeType type)
         {
             return new NullUpgrade(type);
         }
 
-        public IUpgrade CreateUpgrade(UpgradeJson upgrade, UpgradeModifierParsersBase upgradeModifierParsers)
+        public IUpgrade CreateUpgrade(UpgradeJson upgrade)
         {
+            var upgradeSlotFactory = new UpgradeSlotFactory(this);
+            UpgradeModifierParser parser = new UpgradeModifierParser(upgradeSlotFactory, GetUpgradeType, GetUpgrade, GetAction);
             return new Upgrade(upgrade.Name, upgrade.Cost,
                 upgrade.Description, upgrade.Unique, upgrade.Limited,
-                factionRepo.GetFaction(upgrade.Faction),
-                upgradeTypeRepo.GetUpgradeType(upgrade.Type),
+                GetFaction(upgrade.Faction),
+                GetUpgradeType(upgrade.Type),
                 new Structures.UpgradeModifierPackage(
-                upgradeModifierParsers.ParseAddedActions(upgrade.AddedActions.ToArray()),
-                upgradeModifierParsers.ParseRemovedActions(upgrade.RemovedActions.ToArray()),
-                upgradeModifierParsers.ParseAddedUpgrades(upgrade.AddedUpgrades.ToArray()),
-                upgradeModifierParsers.ParseRemovedUpgrades(upgrade.RemovedUpgrades.ToArray()),
-                upgradeModifierParsers.ParseChangedStats(upgrade.StatChanges.ToArray()),
-                upgradeModifierParsers.ParseSelectableUpgrades(upgrade.ChooseUpgrade.ToArray())), UpgradeRestrictionParser.ParseRestrictionsForUpgrade(upgrade));
+                parser.ParseAddedActions(upgrade.AddedActions?.ToArray() ?? new string[0]),
+                parser.ParseRemovedActions(upgrade.RemovedActions?.ToArray() ?? new string[0]),
+                parser.ParseAddedUpgrades(upgrade.AddedUpgrades?.ToArray() ?? new AddedUpgradeJson[0]),
+                parser.ParseRemovedUpgrades(upgrade.RemovedUpgrades?.ToArray() ?? new string[0]),
+                parser.ParseChangedStats(upgrade.StatChanges?.ToArray() ?? new StatChangeJson[0]),
+                parser.ParseSelectableUpgrades(upgrade.ChooseUpgrade?.ToArray() ?? new ChooseUpgradeJson[0])),
+                UpgradeRestrictionParser.ParseRestrictionsForUpgrade(GetUpgradeType, GetAction, upgrade));
         }
     }
 }
