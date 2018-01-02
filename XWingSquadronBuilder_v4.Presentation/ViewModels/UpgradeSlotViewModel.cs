@@ -8,11 +8,12 @@ using Template10.Mvvm;
 using Windows.UI.Xaml.Controls;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Converters;
+using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels.Interfaces;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels
 {
     [DataContract]
-    public class UpgradeSlotViewModel : BindableBase
+    public class UpgradeSlotViewModel : BindableBase, IUpgradeSlotViewModel
     {        
         public UpgradeSlotViewModel(IUpgradeSlot upgradeSlot)
         {
@@ -37,9 +38,14 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels
         }
 
 
-        public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
+        //public IEnumerable<TextBlock> AugmentText(string text, double fontsize)
+        //{
+        //    return XWingTextAugmenter.AugementWithXWingIcons(text, fontsize);
+        //}
+
+        public bool Equals(IUpgradeSlotViewModel other)
         {
-            return XWingTextAugmenter.AugementWithXWingIcons(text, fontsize);
+            return upgradeSlot.Equals(other.UpgradeSlot);
         }
     }
 }

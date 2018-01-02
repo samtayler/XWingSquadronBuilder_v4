@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
@@ -32,7 +33,11 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         private void ConvertText(string value)
         {
-            ConvertedText = XWingTextAugmenter.AugementWithXWingIcons(value, FontSize, FontStyle);
+            txblkUpgradeText.Inlines.Clear();
+            foreach (var item in XWingTextAugmenter.AugementWithXWingIcons(value, FontSize, FontStyle))
+            {
+                txblkUpgradeText.Inlines.Add(item);
+            }            
         }
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
@@ -40,17 +45,15 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             DependencyProperty.Register(nameof(Text), typeof(string), typeof(XWingFormattedTextBlock), new PropertyMetadata(""));
 
 
-        public IEnumerable<TextBlock> ConvertedText
+        public IEnumerable<Run> ConvertedText
         {
-            get { return (IEnumerable<TextBlock>)GetValue(ConvertedTextProperty); }
+            get { return (IEnumerable<Run>)GetValue(ConvertedTextProperty); }
             set { SetValue(ConvertedTextProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ConvertedText.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ConvertedTextProperty =
-            DependencyProperty.Register(nameof(ConvertedText), typeof(IEnumerable<TextBlock>), typeof(XWingFormattedTextBlock), new PropertyMetadata(new List<TextBlock>()));
-
-
+            DependencyProperty.Register(nameof(ConvertedText), typeof(IEnumerable<Run>), typeof(XWingFormattedTextBlock), new PropertyMetadata(new List<Run>()));
 
         public TextAlignment TextAlignment
         {
@@ -61,8 +64,6 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
         // Using a DependencyProperty as the backing store for TextAlignment.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextAlignmentProperty =
             DependencyProperty.Register(nameof(TextAlignment), typeof(TextAlignment), typeof(XWingFormattedTextBlock), new PropertyMetadata(TextAlignment.Left));
-
-
 
         public XWingFormattedTextBlock()
         {

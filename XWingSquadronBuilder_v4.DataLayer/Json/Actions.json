@@ -39,6 +39,18 @@
     {
       "Name": "Recover",
       "ImageSource": "v"
+    },
+    {
+      "Name": "Rotate Arc",
+      "ImageSource": "R"
+    },
+    {
+      "Name": "Jam",
+      "ImageSource": "j"
+    },
+    {
+      "Name": "Reload",
+      "ImageSource": "B"
     }
   ]
 }

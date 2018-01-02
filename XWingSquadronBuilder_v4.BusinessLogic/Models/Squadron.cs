@@ -7,7 +7,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using XWingSquadronBuilder_v4.BusinessLogic.Logic;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Models
@@ -15,6 +14,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
     [DataContract]
     public class Squadron : ISquadron
     {
+        private const int defaultCostCap = 100;
         public event PropertyChangedEventHandler PropertyChanged;
 
         [DataMember]
@@ -62,6 +62,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
             Pilots = new Dictionary<Guid, IPilot>();
             Faction = faction ?? throw new ArgumentNullException(nameof(faction));
             Id = Guid.NewGuid();
+            CostCap = defaultCostCap;
         }
 
         public bool AddPilot(IPilot pilot)

@@ -29,6 +29,7 @@
     </Page.Background>
 
     <RelativePanel Background="{StaticResource SystemControlBackgroundChromeBlackHighBrush}">
+        <Canvas x:Name="PrintCanvas" Opacity="0" RequestedTheme="Light" VerticalAlignment="Top"/>
         <RelativePanel x:Name="InformationBar"
                         RelativePanel.AlignRightWithPanel="True"
                         RelativePanel.AlignLeftWithPanel="True"
@@ -37,7 +38,7 @@
             <TextBlock x:Name="PageTitle" Text="Squadron Builder" FontSize="16"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignVerticalCenterWithPanel="True"
-                       Margin="5"/>               
+                       Margin="15,5,5,5"/>               
                 <TextBlock Name="txblkSquadronName" 
                            HorizontalAlignment="Left" 
                            VerticalAlignment="Top" 
@@ -71,7 +72,7 @@
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center" 
                                RelativePanel.RightOf="icon" 
-                               RelativePanel.AlignVerticalCenterWith="icon" />
+                               RelativePanel.AlignVerticalCenterWith="icon" />                    
                 </RelativePanel>
             </Button>
             <Button x:Name="btnSave" Content="&#xE105;" FontFamily="Segoe MDL2 Assets"
@@ -87,6 +88,30 @@
                     </Interactions:DataTriggerBehavior>
                 </Interactivity:Interaction.Behaviors>
             </Button>
+            <Button x:Name="btnPrint" 
+                    Content="&#xE2F6;"
+                    Height="48"
+                    Width="48" 
+                    FontFamily="Segoe MDL2 Assets"
+                    RelativePanel.RightOf="btnSave" 
+                    Tapped="btnPrint_Tapped"
+                    Background="{x:Null}"/>
+            <RelativePanel x:Name="CostPnl"
+                           RelativePanel.AlignRightWithPanel="True" Margin="0,0,15,0">
+                <TextBlock>
+                    <Run Text="{x:Bind ViewModel.SquadronViewModel.Squadron.CostTotal, Mode=OneWay}">
+                        <Interactivity:Interaction.Behaviors>
+                            <Interactions:DataTriggerBehavior Binding="{Binding ViewModel.SquadronViewModel.Squadron.CostTotal, Mode=OneWay}"
+                                                              ComparisonCondition="GreaterThan"
+                                                              Value="{Binding Text, ElementName=CostCapRun}">
+                                <Interactions:ChangePropertyAction PropertyName="Forground" Value="Red"/>
+                            </Interactions:DataTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Run>
+                    <Run>/</Run>
+                    <Run x:Name="CostCapRun" Text="{x:Bind ViewModel.SquadronViewModel.Squadron.CostCap, Mode=OneWay}"/>
+                </TextBlock>
+            </RelativePanel>
         </RelativePanel>
        
         <userControls:Squadron x:Name="Squadron"                                                                               
@@ -96,5 +121,7 @@
                                PilotSelected="{x:Bind ViewModel.NavigateToPilotDetails}"                                 
                                RelativePanel.Below="CommandBar"
                                RelativePanel.AlignBottomWithPanel="True"/>
+        
     </RelativePanel>
+    
 </Page>

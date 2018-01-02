@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Template10.Common;
 using Template10.Controls;
 using Template10.Services.SettingsService;
 using Windows.ApplicationModel;
@@ -26,7 +27,7 @@ namespace XWingSquadronBuilder_v4.Presentation
             #region app settings
 
             //draw into the title bar
-            
+
             //// some settings must be set in app.constructor
             //var settings = SettingsService.Instance;
             //RequestedTheme = settings.AppTheme;
@@ -38,20 +39,24 @@ namespace XWingSquadronBuilder_v4.Presentation
 
         private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
-            throw new NotImplementedException();
+            SaveStateAsync().Wait();
         }
 
         public async override Task OnSuspendingAsync(object s, SuspendingEventArgs e, bool prelaunchActivated)
         {
+            await SaveStateAsync();
+            await base.OnSuspendingAsync(s, e, prelaunchActivated);
+        }
 
+        private async Task SaveStateAsync()
+        {
             var sessionState = SessionState["State"] as IXWingSessionState;
             await (sessionState.XWingRepository as IPersistanceRepository).SaveToStorageAsync();
-            await base.OnSuspendingAsync(s, e, prelaunchActivated);
         }
 
         public override UIElement CreateRootElement(IActivatedEventArgs e)
         {
-            
+
             return new ModalDialog
             {
                 DisableBackButtonWhenModal = true,
@@ -69,7 +74,8 @@ namespace XWingSquadronBuilder_v4.Presentation
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
             // TODO: add your long-running task here
-            SessionState.Add("State", new XWingSessionState(await XWingRepository.CreateXWingRepository()));
+            if (!SessionState.ContainsKey("State"))
+                SessionState.Add("State", new XWingSessionState(await XWingRepository.CreateXWingRepository()));
             //await NavigationService.NavigateAsync(typeof(Views.Shell));
         }
     }

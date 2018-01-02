@@ -101,7 +101,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
                 {
                     case "Home":
                         {
-                            await navService.NavigateAsync(typeof(FactionSelectionPage));                            
+                            await navService.NavigateAsync(typeof(FactionSelectionPage));                             
                             break;
                         }
 

@@ -4,6 +4,7 @@ using XWingSquadronBuilder_v4.DataLayer.RawData;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.BusinessLogic.Specifications;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
+using XWingSquadronBuilder_v4.BusinessLogic.Models;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 {
@@ -26,6 +27,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                             {
                                 specList.Add(new ContainsShipNameSpecification(restriction.Value));
                             }
+                            else if(restriction.Operand == "Contains Double")
+                            {
+                                specList.Add(new ContainsShipNameDoubleSpecification(restriction.Value));
+                            }
                             else
                             {
                                 throw new NotImplementedException($"Found a restriction not implemented\n {restriction.Operand}");
@@ -37,6 +42,10 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                             if (restriction.Operand == "Equals")
                             {
                                 specList.Add(new EqualsShipSizeSpecification(restriction.Value));
+                            }
+                            else if (restriction.Operand == "Not Contains")
+                            {
+                                specList.Add(new NotContainsShipSizeSpecification(new ShipSize(restriction.Value)));
                             }
                             else
                             {
@@ -121,6 +130,14 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
                             else
                             {
                                 throw new NotImplementedException($"Found a restriction not implemented\n {restriction.Operand}");
+                            }
+                            break;
+                        }
+                    case "Unique":
+                        {
+                            if(restriction.Operand == "Equals")
+                            {
+                                specList.Add(new UpgradeUniqueSpecification(bool.Parse(restriction.Value)));
                             }
                             break;
                         }

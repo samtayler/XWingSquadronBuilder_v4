@@ -12,16 +12,12 @@
     <UserControl.Resources>
         <converters:TextAlignmentToHorizontalAlignment x:Key="TextAlignmentToHorizontalAlignment"/>
     </UserControl.Resources>
-    
-    <Grid>
-        <ItemsControl ItemsSource="{x:Bind ConvertedText, Mode=OneWay}" 
-                      HorizontalAlignment="{x:Bind TextAlignment, Mode=OneWay, Converter={StaticResource TextAlignmentToHorizontalAlignment}}" 
-                      VerticalAlignment="Center">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UWPControls:WrapPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-        </ItemsControl>
-    </Grid>
+
+
+    <TextBlock x:Name="txblkUpgradeText"
+                   TextAlignment="{x:Bind TextAlignment, Mode=OneWay}"
+                    VerticalAlignment="Center" TextWrapping="WrapWholeWords"
+               FontSize="{x:Bind FontSize, Mode=OneWay}"/>
+
+
 </UserControl>

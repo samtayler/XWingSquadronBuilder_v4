@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using XWingSquadronBuilder_v4.BusinessLogic.Models.NullModels;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.ViewModels;
 using XWingSquadronBuilder_v4.Presentation.ViewModels.XWingModels;
@@ -36,11 +37,19 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
 
         // Using a DependencyProperty as the backing store for ViewModel.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ViewModelProperty =
-            DependencyProperty.Register(nameof(ViewModel), typeof(ISquadronViewModel), typeof(Squadron), new PropertyMetadata(0));
+            DependencyProperty.Register(nameof(ViewModel), typeof(ISquadronViewModel), typeof(Squadron), new PropertyMetadata(new SquadronViewModel(new NullSquadron())));
 
         public Squadron()
         {
             this.InitializeComponent();
+        }
+
+        public FrameworkElement internalListControl
+        {
+            get
+            {
+                return icPilotList;
+            }
         }
 
         private void PilotControl_RemovePilot(object sender, IPilotViewModel e)

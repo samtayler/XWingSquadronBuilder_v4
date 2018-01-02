@@ -29,23 +29,6 @@
             <DataTemplate x:Name="PilotTemplate" x:DataType="interfaces:IPilot">
                 <RelativePanel x:Name="RootPanel" Margin="15" CornerRadius="5"  
                                Padding="5" Width="250" Height="375" >
-                    <Border RelativePanel.AlignTopWithPanel="True"
-                            RelativePanel.AlignBottomWithPanel="True" 
-                            RelativePanel.AlignLeftWithPanel="True" 
-                            RelativePanel.AlignRightWithPanel="True">
-                        <TextBlock Text="{x:Bind Faction.ImageUri, FallbackValue=#}" 
-                                   FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
-                                   FontSize="160" 
-                                   Foreground="White" 
-                                   Margin="10" 
-                                   TextAlignment="Center" 
-                                   Width="180" 
-                                   Height="180" 
-                                   HorizontalAlignment="Center" 
-                                   VerticalAlignment="Center" 
-                                   Padding="0,10,0,0"/>
-                    </Border>
-                    <Border RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWithPanel="True"/>
                     <RelativePanel x:Name="StatsPanel">
                         <RelativePanel x:Name="grdPS" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Margin="3">
                             <TextBlock x:Name="txblkPS" Text="{x:Bind PilotSkill, FallbackValue=0}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2" Foreground="{StaticResource PilotSkillColour}" FontSize="18" RelativePanel.AlignHorizontalCenterWithPanel="True"/>

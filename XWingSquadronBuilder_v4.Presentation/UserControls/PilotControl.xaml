@@ -114,15 +114,11 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
-                <TextBlock x:Name="txblkCost" 
-                           Foreground="DarkRed" 
-                           Text="{x:Bind ViewModel.Pilot.Cost ,Mode=OneWay, FallbackValue=0}" 
-                           TextAlignment="Center" 
-                           FontFamily="Segoe UI" 
-                           FontSize="16" 
-                           Margin="10,0,0,0"                            
-                           RelativePanel.RightOf="actionsListview" 
-                           RelativePanel.AlignVerticalCenterWithPanel="True"/>
+                <userControls:PilotCostControl x:Name="CostControl"
+                                               PilotCost="{x:Bind ViewModel.Pilot.Cost, Mode=OneWay}"
+                                               UpgradesCost="{x:Bind ViewModel.Pilot.UpgradesCost, Mode=OneWay}"
+                                               RelativePanel.RightOf="actionsListview" 
+                                               RelativePanel.AlignVerticalCenterWithPanel="True"/>
             </RelativePanel>
             <userControls:XWingFormattedTextBlock Name="pilotAbility"                       
                       Margin="5,5,0,5" 

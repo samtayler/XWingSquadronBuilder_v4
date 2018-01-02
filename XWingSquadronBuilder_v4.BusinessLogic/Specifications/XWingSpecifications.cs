@@ -34,12 +34,17 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
     [DataContract]
     public sealed class UpgradeUniqueSpecification : XWingSpecification<IUpgrade>
     {
-        public override string ErrorMessage => "Upgrade card must be unique.";
+        public override string ErrorMessage => checkValue ? "Upgrade card must be unique." : "Upgrade card cannot be unique.";
         public override SpecificationType SpecType => SpecificationType.NonCritical;
+        private bool checkValue { get; }
+        public UpgradeUniqueSpecification(bool check)
+        {
+            checkValue = check;
+        }
 
         public override Expression<Func<IUpgrade, bool>> ToExpression()
         {
-            return upgrade => upgrade.Unique;
+            return upgrade => upgrade.Unique == checkValue;
         }
     }
 
@@ -82,6 +87,27 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         public override Expression<Func<IPilot, bool>> ToExpression()
         {
             return pilot => pilot.ShipName.Contains(requiredShipName);
+        }
+    }
+
+    [DataContract]
+    public sealed class ContainsShipNameDoubleSpecification : XWingSpecification<IPilot>
+    {
+        [DataMember]
+        private string[] requiredShipName;
+
+        public ContainsShipNameDoubleSpecification(string requiredShipName)
+        {
+            this.requiredShipName = requiredShipName.Split(' ');
+        }
+
+        public override SpecificationType SpecType => SpecificationType.Critical;
+
+        public override string ErrorMessage => "This upgrade is not for this ship.";
+
+        public override Expression<Func<IPilot, bool>> ToExpression()
+        {
+            return pilot => pilot.ShipName.Contains(requiredShipName[0]) || pilot.ShipName.Contains(requiredShipName[1]);
         }
     }
 
@@ -166,6 +192,26 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Specifications
         public override Expression<Func<IPilot, bool>> ToExpression()
         {
             return pilot => pilot.Upgrades.Where(upgrade => upgrade.UpgradeType.Equals(upgradeType)).Count() == 0;            
+        }
+    }
+
+    [DataContract]
+    public sealed class NotContainsShipSizeSpecification : XWingSpecification<IPilot>
+    {
+        [DataMember]
+        private IShipSize shipSize;
+
+        public NotContainsShipSizeSpecification(IShipSize shipSize)
+        {
+            this.shipSize = shipSize;
+        }
+
+        public override string ErrorMessage => $"This ship has a size of {shipSize.Size}.";
+        public override SpecificationType SpecType => SpecificationType.NonCritical;
+
+        public override Expression<Func<IPilot, bool>> ToExpression()
+        {
+            return pilot => !pilot.ShipSize.Equals(shipSize);
         }
     }
 

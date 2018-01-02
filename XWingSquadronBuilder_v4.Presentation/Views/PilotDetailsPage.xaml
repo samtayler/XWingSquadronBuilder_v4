@@ -67,7 +67,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="1.618*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
@@ -133,25 +133,41 @@
                             <TextBlock x:Name="txblkShield" Text="{x:Bind ViewModel.PilotViewModel.Pilot.Shield, FallbackValue=10, Mode=OneWay}" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="{StaticResource ShieldColour}" RelativePanel.RightOf="grdShieldIcon" FontSize="36" RelativePanel.AlignRightWithPanel="True" />
                         </RelativePanel>
                     </StackPanel>
+                </RelativePanel>
+                <RelativePanel Grid.Column="0" Grid.Row="1">
+                    <userControls:XWingFormattedTextBlock x:Name="PilotAbility" 
+                                                      Text="{x:Bind FallbackValue=PilotAbility, Mode=OneWay, Path=ViewModel.PilotViewModel.Pilot.PilotAbility}" 
+                                                      FontSize="14" TextAlignment="Justify" 
+                                                      HorizontalAlignment="Center" 
+                                                      VerticalAlignment="Top"
+                                                      RelativePanel.AlignLeftWithPanel="True"
+                                                      RelativePanel.AlignRightWithPanel="True"
+                                                      RelativePanel.AlignTopWithPanel="True"
+                                                          Margin="15"/>
                     <ItemsControl x:Name="actionsListview" 
-                              ItemsSource="{x:Bind ViewModel.PilotViewModel.Pilot.Actions,Mode=OneWay}" RelativePanel.LeftOf="grdStats" RelativePanel.AlignBottomWithPanel="True" RelativePanel.Below="" VerticalAlignment="Center" RelativePanel.RightOf="" HorizontalAlignment="Center" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
+                                  ItemsSource="{x:Bind Mode=OneWay, Path=ViewModel.PilotViewModel.Pilot.Actions}" 
+                                  VerticalAlignment="Center" 
+                                  HorizontalAlignment="Center"
+                                  RelativePanel.Above="CostControl"
+                                  RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0,0,0,10">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate x:DataType="interfaces:IAction">
-                                <TextBlock Text="{x:Bind ImageUri}" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="20" Margin="5"/>
+                                <TextBlock Text="{x:Bind Path=ImageUri}" FontFamily="/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" FontSize="20" Margin="5"/>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <ItemsStackPanel Orientation="Vertical" />
+                                <ItemsStackPanel Orientation="Horizontal" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                     </ItemsControl>
+                    <userControls:PilotCostControl x:Name="CostControl"
+                                               PilotCost="{x:Bind ViewModel.PilotViewModel.Pilot.Cost, Mode=OneWay}"
+                                               UpgradesCost="{x:Bind ViewModel.PilotViewModel.Pilot.UpgradesCost, Mode=OneWay}"
+                                               RelativePanel.AlignLeftWithPanel="True"
+                                               RelativePanel.AlignBottomWithPanel="True"
+                                               Margin="15"/>
                 </RelativePanel>
-                <userControls:XWingFormattedTextBlock x:Name="PilotAbility" Margin="10" Grid.Row="1" Text="{x:Bind ViewModel.PilotViewModel.Pilot.PilotAbility, Mode=OneWay, FallbackValue=PilotAbility}" FontSize="14" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                <Grid Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,10">
-                    <TextBlock x:Name="txblkPilotCostLbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pilot Cost" VerticalAlignment="Top" Margin="10,0,0,0"/>
-                    <TextBlock x:Name="txblkPilotCostActual" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{x:Bind ViewModel.PilotViewModel.Pilot.Cost, FallbackValue=0}" VerticalAlignment="Top" Margin="94,0,0,0" Foreground="Red"/>
-                </Grid>
             </Grid>
             <Grid Grid.Column="1" Grid.RowSpan="2">
                 <userControls:UpgradeSelector x:Name="UpgradeSelectorMain" Pilot="{x:Bind ViewModel.PilotViewModel, Mode=OneWay}" UpgradeSelected="UpgradeSelector_UpgradeSelected"/>
@@ -191,10 +207,10 @@
                                                   RelativePanel.AlignLeftWithPanel="True" HorizontalAlignment="Left" Margin="5,0,0,0">
                                         <TextBlock TextWrapping="Wrap" Text="{x:Bind UpgradeSlot.UpgradeType.ImageUri, FallbackValue=m}" 
                                                    FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols" 
-                                                   HorizontalAlignment="Center" FontSize="21.333"/>                                       
+                                                   HorizontalAlignment="Center" FontSize="21.333"/>
                                     </Grid>
                                     <TextBlock x:Name="txblkCost" Text="{x:Bind UpgradeSlot.Cost, FallbackValue=0}"
-                                               Foreground="Red" RelativePanel.RightOf="grdIcon" RelativePanel.AlignVerticalCenterWith="grdIcon"
+                                               Foreground="{StaticResource UpgradeCostColour}" RelativePanel.RightOf="grdIcon" RelativePanel.AlignVerticalCenterWith="grdIcon"
                                                Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Converter={StaticResource boolToVisibility}, Mode=OneWay}" Margin="5,0,0,3"/>
                                     <Button x:Name="btnDelete"  
                                         Background="Transparent"

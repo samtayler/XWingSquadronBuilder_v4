@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Text;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Media;
 
 namespace XWingSquadronBuilder_v4.Presentation.Converters
@@ -30,41 +31,32 @@ namespace XWingSquadronBuilder_v4.Presentation.Converters
         {
             {"HIT","d" },{"CRIT","c" },{"CRITICAL","c" },{"EVADE","e" },{"FOCUS","f" },{"TARGETLOCK","l" },{"BOOST","b" },{"BARRELROLL","r" },
             { "CLOAK","k" },{"SLAM","s" },{"BOMB","B" },{"CREW","W" },{"CANNON","C" },{"MISSILE","M" },{"TORPEDO","P" },{"TURRET","U" },
-            { "MODFIFICATION","m" },{"TITLE","t" }, { "ELITEPILOTTALET","E" },{"SYSTEMUPGRADE","S" },{"TECH","X" },{"K-TURN","2" },
+            { "MODIFICATION","m" },{"TITLE","t" }, { "ELITEPILOTTALET","E" },{"SYSTEMUPGRADE","S" },{"TECH","X" },{"K-TURN","2" },
             { "RIGHTBANK","9" },{"LEFTBANK","7" },{"RIGHTTURN","6" },{"LEFTTURN","4" },{"STRAIGHT","8" },{"RIGHTTALONROLL","\"" },
             { "LEFTTALONROLL","\'" },{ "RIGHTSEGNORSLOOP","2" },{"STOP","5" },{ "LEFTSEGNORSLOOP","1" }};
 
 
-        public static IEnumerable<TextBlock> AugementWithXWingIcons(string text, double fontSize, FontStyle style = FontStyle.Normal)
+        public static IEnumerable<Run> AugementWithXWingIcons(string text, double fontSize, FontStyle style = FontStyle.Normal)
         {
-            List<TextBlock> textblocks = new List<TextBlock>();           
+            List<Run> runblock = new List<Run>();
 
-            if (!text.Any(x => x == '^'))
+            foreach (var txt in text.Split(' '))
             {
-                textblocks.Add(new TextBlock() { Text = text.Trim(), FontFamily = new FontFamily("Segoe UI"), FontStyle = style, Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize, TextWrapping = Windows.UI.Xaml.TextWrapping.WrapWholeWords });
-            }
-            else
-            {
-                string[] splitText = text.Split(' ');
-
-                foreach (var item in splitText)
+                Run r = new Run();
+                if (txt.FirstOrDefault() == '^')
                 {
-                    var wordSplit = item.Split('^');
-                    if (wordSplit.Count() > 1 && xwingKeyWords.ContainsKey(wordSplit[1]))
-                    {
-                        textblocks.Add(new TextBlock() { Text = xwingKeyWords[wordSplit[1]].Trim(), FontStyle = style, FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols"), Margin = new Windows.UI.Xaml.Thickness(2, 3, 2, 0), FontSize = fontSize, VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center });
-                    }
-                    else
-                    {
-                        textblocks.Add(new TextBlock() { Text = wordSplit[0].Trim(), FontStyle = style, FontFamily = new FontFamily("Segoe UI"), Margin = new Windows.UI.Xaml.Thickness(2, 0, 2, 0), FontSize = fontSize });
-                    }
+                    string insertText = xwingKeyWords.ContainsKey(txt.Remove(0, 1).ToUpper()) ? xwingKeyWords[txt.Remove(0, 1).ToUpper()].Trim() : "Unknown Icon";
+                    r.FontFamily = new FontFamily("/Assets/Fonts/xwing-miniatures.ttf#x-wing-symbols");
+                    r.Text = insertText + " ";
                 }
+                else
+                {
+                    r.Text = txt + " ";
+                }
+                runblock.Add(r);
             }
 
-            textblocks.First().Margin = new Windows.UI.Xaml.Thickness(0, 0, 2, 0);
-            textblocks.Last().Margin = new Windows.UI.Xaml.Thickness(2, 0, 0, 0);
-
-            return textblocks;
-        }        
+            return runblock;               
+        }
     }
 }

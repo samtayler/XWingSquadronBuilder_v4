@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Template10.Common;
 using XWingSquadronBuilder_v4.BusinessLogic.Factories;
 using XWingSquadronBuilder_v4.BusinessLogic.Models;
 using XWingSquadronBuilder_v4.DataLayer.RawData;
@@ -16,14 +17,23 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         private UpgradeFactory upgradeFactory { get; }
         private PilotFactory pilotFactory { get; }
 
-        private Dictionary<Guid, ISquadron> savedSquadrons { get; }
+        private ObservableDictionary<Guid, ISquadron> savedSquadrons;
+
+        public IObservableDictionary<Guid, ISquadron> SavedSquadrons
+        {
+            get
+            {
+                return savedSquadrons;
+            }
+        }
+
 
         private XWingRepository(IDataPortal dataPortal)
         {
             this.dataPortal = dataPortal;
             this.upgradeFactory = new UpgradeFactory(this.GetFaction, this.GetUpgradeType, this.GetAction, this.GetUpgrade);
             this.pilotFactory = new PilotFactory(GetAction, new UpgradeSlotFactory(upgradeFactory), GetFaction, GetUpgradeType);
-            savedSquadrons = new Dictionary<Guid, ISquadron>();
+            savedSquadrons = new ObservableDictionary<Guid, ISquadron>();
             LoadSquadrons();
         }
 
@@ -131,23 +141,23 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 
         public bool IsSquadronSaved(Guid id)
         {
-            return savedSquadrons.ContainsKey(id);
+            return SavedSquadrons.ContainsKey(id);
         }
 
         public IReadOnlyList<ISquadron> GetSavedSquadronsForFaction(IFaction faction)
         {
-            return savedSquadrons.Values.Where(x => x.Faction.Equals(faction)).ToList().AsReadOnly();
+            return SavedSquadrons.Values.Where(x => x.Faction.Equals(faction)).ToList().AsReadOnly();
         }
 
         public IReadOnlyList<ISquadron> GetSavedSquadrons()
         {
-            return savedSquadrons.Values.ToList().AsReadOnly();
+            return SavedSquadrons.Values.ToList().AsReadOnly();
         }
 
         public void SaveSquadron(ISquadron squadron)
         {
             if (!IsSquadronSaved(squadron.Id))
-                savedSquadrons.Add(squadron.Id, squadron);
+                SavedSquadrons.Add(squadron.Id, squadron);
         }
 
         private ISquadron generateSquadronFromSaveData(SquadronSaveData saveData)
@@ -167,7 +177,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 
                 foreach (var upgrade in upgradesToAdd.OrderByDescending(x => x.AddUpgradeModifiers.Count()))
                 {
-                    pilot.Upgrades.Single(x => x.IsNullUpgrade && x.UpgradeType.Equals(upgrade.UpgradeType)).SetUpgrade(upgrade);
+                    pilot.Upgrades.FirstOrDefault(x => x.IsNullUpgrade && x.UpgradeType.Equals(upgrade.UpgradeType))?.SetUpgrade(upgrade);
                 }
 
                 squadron.AddPilot(pilot);
@@ -212,6 +222,11 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         public async Task SaveToStorageAsync()
         {
             await dataPortal.PersistanceRepository.SaveDataToDrive(savedSquadrons.Select(x => CompileSaveData(x.Value)));
+        }
+
+        public void DeleteSavedSquadron(Guid id)
+        {
+            savedSquadrons.Remove(id);
         }
     }
 }

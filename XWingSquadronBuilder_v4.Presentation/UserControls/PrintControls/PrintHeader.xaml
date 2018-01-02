@@ -1,0 +1,28 @@
+﻿<UserControl
+    x:Class="XWingSquadronBuilder_v4.Presentation.UserControls.PrintControls.SquadronPrintHeader"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XWingSquadronBuilder_v4.Presentation.UserControls.PrintControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" FontFamily="Segoe UI">
+
+    <RelativePanel x:Name="RootPanel">
+        <TextBlock x:Name="txblkSquadronName"
+                   RelativePanel.AlignTopWithPanel="True"
+                   RelativePanel.AlignLeftWithPanel="True" Margin="10,0,0,0" FontSize="22"
+                   Text="{x:Bind ViewModel.Squadron.Name, FallbackValue=SquadronName}"/>
+        <TextBlock x:Name="txblkSquadronDescription"
+                   RelativePanel.Below="txblkSquadronName"
+                   RelativePanel.AlignLeftWith="txblkSquadronName" Margin="15,0,0,0"
+                   Text="{x:Bind ViewModel.Squadron.Description, FallbackValue=SquadronDescription}"/>
+        <TextBlock x:Name="txblkSquadronCost"
+                   RelativePanel.AlignRightWithPanel="True"
+                   RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,0,10,0">
+            <Run x:Name="runCost" Text="{x:Bind ViewModel.Squadron.CostTotal, FallbackValue=50}"/>
+            <Run>/</Run>
+            <Run x:Name="runCostCap" Text="{x:Bind ViewModel.Squadron.CostCap, FallbackValue=100}"/>
+        </TextBlock>
+
+    </RelativePanel>
+</UserControl>

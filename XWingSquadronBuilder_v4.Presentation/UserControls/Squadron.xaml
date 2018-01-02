@@ -14,7 +14,7 @@
     RequestedTheme="Dark">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10" >
-        <ItemsControl ItemsSource="{x:Bind ViewModel.Pilots,Mode=OneWay}">
+        <ItemsControl x:Name="icPilotList" ItemsSource="{x:Bind ViewModel.Pilots,Mode=OneWay}">
             <ItemsControl.ItemContainerStyle>
                 <Style TargetType="ContentPresenter">
                     <Setter Property="VerticalAlignment" Value="Stretch" />

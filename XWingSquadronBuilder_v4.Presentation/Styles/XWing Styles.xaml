@@ -8,8 +8,11 @@
     <SolidColorBrush x:Name="AttackColour" Color="#FFEA0000"/>
     <SolidColorBrush x:Name="AgilityColour" Color="#FF48D500"/>
     <SolidColorBrush x:Name="HullColour" Color="#FFEFE900"/>
-    <SolidColorBrush x:Name="ShieldColour" Color="#FF24CAE2"/>    
+    <SolidColorBrush x:Name="ShieldColour" Color="#FF24CAE2"/>
 
+    <SolidColorBrush x:Name="UpgradeCostColour" Color="#FF007ACC"/>
+    <SolidColorBrush x:Name="PilotCostColour" Color="DarkRed"/>
+    
     <converters:BooleanToUniqueConverter x:Key="boolToUnique" />
     <converters:BooleanToVisibilityConverter x:Key="boolToVisibility"/>
     <converters:OppositeBooleanToVisibilityConverter x:Key="OppositeVisibility"/>
@@ -28,7 +31,7 @@
     <Color x:Key="ContrastColor">White</Color>
     <Color x:Key="SystemAccentColor">SteelBlue</Color>
 
-    <ResourceDictionary.ThemeDictionaries>
+    <!--<ResourceDictionary.ThemeDictionaries>
 
         <ResourceDictionary x:Key="Light">
 
@@ -65,7 +68,7 @@
 
             <Style TargetType="controls:HamburgerMenu">
 
-                <!--
+                --><!--
 
                 Windows 10 2015 (1511) Hamburger1 Menu Style
                 Simply replace AccentColor with the follow setters.
@@ -83,7 +86,7 @@
                 <Setter Property="NavButtonCheckedBackground" Value="#FF2A4E6C" />
                 <Setter Property="NavButtonCheckedIndicatorBrush" Value="Transparent" />
 
-                -->
+                --><!--
 
                 <Setter Property="AccentColor" Value="{StaticResource SystemChromeMediumColor}" />
                 <Setter Property="HamburgerBackground" Value="{StaticResource SystemControlBackgroundChromeMediumBrush}"/>
@@ -121,6 +124,6 @@
             </Style>
 
         </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary.ThemeDictionaries>-->
 
 </ResourceDictionary>

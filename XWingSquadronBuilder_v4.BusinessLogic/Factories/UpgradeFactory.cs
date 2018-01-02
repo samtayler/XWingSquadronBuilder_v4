@@ -37,6 +37,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 
         public IUpgrade CreateUpgrade(UpgradeJson upgrade)
         {
+            System.Diagnostics.Debug.WriteLine(upgrade.Name);
             var upgradeSlotFactory = new UpgradeSlotFactory(this);
             UpgradeModifierParser parser = new UpgradeModifierParser(upgradeSlotFactory, GetUpgradeType, GetUpgrade, GetAction);
             return new Upgrade(upgrade.Name, upgrade.Cost,

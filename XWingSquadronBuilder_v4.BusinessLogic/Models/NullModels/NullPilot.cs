@@ -35,7 +35,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models.NullModels
 
         public IReadOnlyList<IUpgradeSlot> Upgrades => new List<IUpgradeSlot>();
 
-        public IReadOnlyList<IAction> Actions => new List<IAction>();
+        public IReadOnlyList<IAction> Actions => new List<IAction>() { Action.CreateAction("Focus","f") };
 
         public string Image => "";
 

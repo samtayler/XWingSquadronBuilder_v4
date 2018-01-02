@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="XWingSquadronBuilder_v4.Presentation.UserControls.PilotCostControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XWingSquadronBuilder_v4.Presentation.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\XWing Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Horizontal" Height="25">
+        <Border Background="{StaticResource PilotCostColour}" MinWidth="50" >
+            <TextBlock x:Name="txblkPilotCost" Foreground="White" Text="{x:Bind PilotCost, Mode=OneWay}" HorizontalAlignment="Center" />
+        </Border>
+        <Border Background="{StaticResource UpgradeCostColour}" MinWidth="50">
+            <TextBlock x:Name="txblkUpgradesCost" Foreground="White" Text="{x:Bind UpgradesCost,Mode=OneWay}" HorizontalAlignment="Center" />
+        </Border>
+        <Border Background="White" MinWidth="50">
+            <TextBlock x:Name="txblkTotalCost" Foreground="Black" Text="{x:Bind TotalCost, Mode=OneWay}" HorizontalAlignment="Center" />
+        </Border>
+    </StackPanel>
+</UserControl>

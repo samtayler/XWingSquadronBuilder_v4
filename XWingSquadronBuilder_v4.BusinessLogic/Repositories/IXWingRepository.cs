@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Template10.Common;
 using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
 {
     public interface IXWingRepository
     {
+        IObservableDictionary<Guid, ISquadron> SavedSquadrons { get; }
         IReadOnlyList<IAction> GetAllActions();
         IAction GetAction(string name);
         IUpgradeType GetUpgradeType(string name);
@@ -23,7 +25,6 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Repositories
         IReadOnlyList<ISquadron> GetSavedSquadrons();
         void SaveSquadron(ISquadron squadron);
         bool IsSquadronSaved(Guid id);
-
-
+        void DeleteSavedSquadron(Guid id);
     }
 }

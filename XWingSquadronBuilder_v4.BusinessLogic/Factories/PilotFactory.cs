@@ -28,6 +28,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Factories
 
         public IPilot CreatePilot(PilotJson pilot)
         {
+            System.Diagnostics.Debug.WriteLine(pilot.Name);
             return new Pilot(pilot.ShipName, pilot.Name, pilot.Unique,
                 GetFaction(pilot.Faction), pilot.Cost,
                 new Structures.PilotStatPackage(pilot.Stats.Attack,

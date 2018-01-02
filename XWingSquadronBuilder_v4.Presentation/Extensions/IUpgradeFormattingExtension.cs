@@ -12,9 +12,9 @@ namespace XWingSquadronBuilder_v4.Presentation.Extensions
 {
     public static class IUpgradeFormattingExtension
     {
-        public static IEnumerable<TextBlock> AugmentText(this string cardText, double fontSize, FontStyle style = FontStyle.Normal)
-        {
-            return XWingTextAugmenter.AugementWithXWingIcons(cardText, fontSize, style);
-        }
+        //public static IEnumerable<TextBlock> AugmentText(this string cardText, double fontSize, FontStyle style = FontStyle.Normal)
+        //{
+        //    return XWingTextAugmenter.AugementWithXWingIcons(cardText, fontSize, style);
+        //}
     }
 }

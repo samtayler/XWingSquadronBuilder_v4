@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XWingSquadronBuilder_v4.Interfaces", "XwingSquadronBuilder_v4.Interfaces\XWingSquadronBuilder_v4.Interfaces.csproj", "{355F7435-3BB4-4FD3-A6CE-77BC2E6C9EB4}"
 EndProject
@@ -86,6 +86,8 @@ Global
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Debug|x86.Build.0 = Debug|x86
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Debug|x86.Deploy.0 = Debug|x86
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|Any CPU.ActiveCfg = Release|x86
+		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|Any CPU.Build.0 = Release|x86
+		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|Any CPU.Deploy.0 = Release|x86
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|ARM.ActiveCfg = Release|ARM
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|ARM.Build.0 = Release|ARM
 		{6BEEE8FC-B4D4-425B-8FCA-E3B2128E46D1}.Release|ARM.Deploy.0 = Release|ARM

@@ -84,7 +84,7 @@ namespace XWingSquadronBuilder_v4.BusinessLogic.Models
                 NotifyPropertyChanged(nameof(Hull));
                 NotifyPropertyChanged(nameof(Shield));
                 NotifyPropertyChanged(nameof(PilotSkill));
-                NotifyPropertyChanged(nameof(Cost));
+                NotifyPropertyChanged("UpgradesCost");
             }
         }
 

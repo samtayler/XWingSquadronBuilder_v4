@@ -30,12 +30,13 @@
                             RelativePanel.AlignTopWithPanel="True" 
                             RelativePanel.AlignLeftWithPanel="True">
                     <Grid Margin="3" Padding="5">
-                        <RelativePanel>
-                            <Image x:Name="imgShip" Source="{x:Bind Icon}"  
-                                   RelativePanel.AlignRightWithPanel="True"
-                                   RelativePanel.AlignLeftWithPanel="True"
-                                   RelativePanel.AlignTopWithPanel="True"
-                                   RelativePanel.Above="txblkShipName"/>
+                        <RelativePanel>                          
+                            <TextBlock x:Name="imgShip" Text="{x:Bind Icon}" 
+                                       FontFamily="ms-appx:/Assets/Fonts/xwing-miniatures-ships.ttf#x-wing-ships" 
+                                       FontSize="200"                                       
+                                       RelativePanel.AlignHorizontalCenterWithPanel="True"
+                                       RelativePanel.AlignVerticalCenterWithPanel="True"
+                                       RelativePanel.Above="txblkShipName"/>
                             <TextBlock x:Name="txblkShipName" 
                                        RelativePanel.AlignBottomWithPanel="True"
                                        RelativePanel.AlignLeftWithPanel="True"

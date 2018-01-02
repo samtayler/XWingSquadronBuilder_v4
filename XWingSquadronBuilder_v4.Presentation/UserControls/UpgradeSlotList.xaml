@@ -42,12 +42,8 @@
                                    Height="15"
                                    Width="15"
                                    RelativePanel.AlignLeftWithPanel="True" 
-                                   RelativePanel.AlignVerticalCenterWithPanel="True"
-                                   >
-                        <Interactivity:Interaction.Behaviors>
-                              <Interactions:DataTriggerBehavior Binding="{x:Bind UpgradeSlot.IsNullUpgrade}" ComparisonCondition="Equal" Value="True">
-                                <Interactions:ChangePropertyAction PropertyName="Foreground" Value="White"/>
-                              </Interactions:DataTriggerBehavior>
+                                   RelativePanel.AlignVerticalCenterWithPanel="True" >
+                        <Interactivity:Interaction.Behaviors>                            
                              <Interactions:DataTriggerBehavior Binding="{x:Bind UpgradeSlot.IsNullUpgrade}" ComparisonCondition="Equal" Value="False">
                                 <Interactions:ChangePropertyAction PropertyName="Foreground" Value="Gold"/>
                               </Interactions:DataTriggerBehavior>
@@ -69,7 +65,7 @@
                     <TextBlock x:Name="txblkCost" Text="{x:Bind UpgradeSlot.Cost,Mode=OneWay, FallbackValue='Cost'}"
                                    Visibility="{x:Bind UpgradeSlot.IsNotNullUpgrade, Mode=OneWay, Converter={StaticResource boolToVisibility}}"
                                    RelativePanel.RightOf="txblkUpgradeName"                                    
-                                   Foreground="DarkRed" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                   
+                                   Foreground="{StaticResource UpgradeCostColour}" RelativePanel.AlignVerticalCenterWith="txblkUpgradeName"                                   
                                    HorizontalAlignment="Left"
                                    FontSize="12"
                                    Margin="2"/>

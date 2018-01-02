@@ -19,6 +19,11 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>XWingSquadronBuilder_v4.Presentation_TemporaryKey.pfx</PackageCertificateKeyFile>
     <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxPackageDir>F:\XWing</AppxPackageDir>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -106,8 +111,32 @@
     <Compile Include="Converters\XWingTextAugmenter.cs" />
     <Compile Include="Services\Navigation\IXWingSessionState.cs" />
     <Compile Include="Services\Navigation\XWingSessionState.cs" />
+    <Compile Include="Services\Printing\ContinuationPage.xaml.cs">
+      <DependentUpon>ContinuationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Printing\PageToPrint.xaml.cs">
+      <DependentUpon>PageToPrint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Printing\PrintHelper.cs" />
+    <Compile Include="Services\Printing\SquadronPrintPage.xaml.cs">
+      <DependentUpon>SquadronPrintPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\DataTemplates.cs" />
+    <Compile Include="UserControls\PilotCostControl.xaml.cs">
+      <DependentUpon>PilotCostControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PilotListBase.cs" />
+    <Compile Include="UserControls\PrintControls\PilotPrintControl.xaml.cs">
+      <DependentUpon>PilotPrintControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PrintControls\PrintHeader.xaml.cs">
+      <DependentUpon>PrintHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\SaveSquadronDialog.xaml.cs">
       <DependentUpon>SaveSquadronDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SquadronPrintControl.xaml.cs">
+      <DependentUpon>SquadronPrintControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Pages\Interfaces\IFactionSelectionViewModel.cs" />
     <Compile Include="ViewModels\Pages\Interfaces\IPilotDetailsViewModel.cs" />
@@ -142,12 +171,6 @@
     <Compile Include="Converters\UpgradeTypeToImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Navigation\SquadronNavigationContext.cs" />
-    <Compile Include="Services\Printing\PrintPage.xaml.cs">
-      <DependentUpon>PrintPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Services\Printing\PrintServiceEventArgs.cs" />
-    <Compile Include="Services\Printing\PrintServiceProvider.Contracts.cs" />
-    <Compile Include="Services\Printing\PrintServiceProvider.Core.cs" />
     <Compile Include="UserControls\PilotControl.xaml.cs">
       <DependentUpon>PilotControl.xaml</DependentUpon>
     </Compile>
@@ -177,9 +200,6 @@
     </Compile>
     <Compile Include="UserControls\Squadron.xaml.cs">
       <DependentUpon>Squadron.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\SquadronPrintView.xaml.cs">
-      <DependentUpon>SquadronPrintView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UpgradeControl.xaml.cs">
       <DependentUpon>UpgradeControl.xaml</DependentUpon>
@@ -360,9 +380,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Services\Printing\PrintPage.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Services\Printing\ContinuationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Services\Printing\PageToPrint.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Services\Printing\SquadronPrintPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\EmpireTheme.xaml">
       <SubType>Designer</SubType>
@@ -384,7 +412,15 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\PilotControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PilotCostControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -396,7 +432,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\PrintControls\PilotPrintControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PrintControls\PrintHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\SaveSquadronDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SquadronPrintControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -417,10 +465,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Squadron.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\SquadronPrintView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -459,25 +503,25 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
+      <Version>6.0.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.DeveloperTools">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>2.0.0</Version>
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Template10">
       <Version>1.1.13-preview-20161207</Version>
@@ -495,7 +539,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TemplatedControls\" />
-    <Folder Include="Themes\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

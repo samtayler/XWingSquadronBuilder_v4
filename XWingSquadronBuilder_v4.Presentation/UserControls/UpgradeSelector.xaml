@@ -47,7 +47,7 @@
                                                    HorizontalAlignment="Center" FontSize="21.333"/>
                                     </Grid>
                                     <TextBlock x:Name="txblkCost" Text="{x:Bind Cost, FallbackValue=0}"
-                                               Foreground="Red" RelativePanel.RightOf="grdIcon" RelativePanel.AlignVerticalCenterWith="grdIcon"
+                                               Foreground="{StaticResource UpgradeCostColour}" RelativePanel.RightOf="grdIcon" RelativePanel.AlignVerticalCenterWith="grdIcon"
                                                Margin="5,0,0,3"/>
                                 </RelativePanel>
                             </DataTemplate>

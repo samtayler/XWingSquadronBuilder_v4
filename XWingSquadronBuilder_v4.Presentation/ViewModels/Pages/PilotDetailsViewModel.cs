@@ -76,6 +76,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
 
         public override async Task OnNavigatedFromAsync(IDictionary<string, object> suspensionState, bool suspending)
         {
+            NavigationService.ClearHistory();
             if (suspending)
             {
                 //suspensionState[nameof(Value)] = Value;

@@ -3,9 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Services.Navigation;
 using XWingSquadronBuilder_v4.Presentation.ViewModels.Pages.Interfaces;
@@ -52,18 +50,18 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
             private set { Set(ref squadronViewModel, value); }
         }
 
-        private void LoadPilotsAsync(IFaction faction)
+        private void LoadPilots(IFaction faction)
         {
             var pilots = session.XWingRepository.GetPilotsForFaction(faction);
-
-            Ships = pilots.Distinct(new ShipComparer()).Select(x => new ShipDisplay(x.ShipIcon, x.ShipName, new List<IPilot>())).ToList();           
+            Ships = pilots.Distinct(new ShipComparer()).Select(x => 
+            new ShipDisplay(x.ShipIcon, x.ShipName, new List<IPilot>())).ToList();           
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             session = SessionState["State"] as IXWingSessionState;
             SquadronViewModel = session.ActiveSquadron;
-            LoadPilotsAsync(SquadronViewModel.Squadron.Faction);
+            LoadPilots(SquadronViewModel.Squadron.Faction);
 
             //if (suspensionState.Any())
             //{

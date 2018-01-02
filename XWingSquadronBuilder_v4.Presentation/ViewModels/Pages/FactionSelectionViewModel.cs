@@ -25,29 +25,25 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
     {
         private IXWingSessionState session { get; set; }
 
-        private IReadOnlyList<ISquadron> savedSquadronsEmpire;
 
-        public IReadOnlyList<ISquadron> SavedSquadronsEmpire
-        {
-            get { return this.savedSquadronsEmpire; }
-            private set { Set(ref savedSquadronsEmpire, value); }
-        }
 
-        private IReadOnlyList<ISquadron> savedSquadronsRebels;
+        public IReadOnlyList<ISquadron> SavedSquadronsEmpire =>
+            session?.XWingRepository.SavedSquadrons.Values
+            .Where(squadron => squadron.Faction
+            .Equals(session?.XWingRepository.GetFaction("Empire")))
+            .ToList().AsReadOnly();
 
-        public IReadOnlyList<ISquadron> SavedSquadronsRebels
-        {
-            get { return this.savedSquadronsRebels; }
-            private set { Set(ref savedSquadronsRebels, value); }
-        }
+        public IReadOnlyList<ISquadron> SavedSquadronsRebels =>
+            session?.XWingRepository.SavedSquadrons.Values
+            .Where(squadron => squadron.Faction
+            .Equals(session.XWingRepository.GetFaction("Rebels")))
+            .ToList().AsReadOnly();
 
-        private IReadOnlyList<ISquadron> savedSquadronsScum;
-
-        public IReadOnlyList<ISquadron> SavedSquadronsScum
-        {
-            get { return this.savedSquadronsScum; }
-            private set { Set(ref savedSquadronsScum, value); }
-        }
+        public IReadOnlyList<ISquadron> SavedSquadronsScum =>
+            session?.XWingRepository.SavedSquadrons.Values
+            .Where(squadron => squadron.Faction
+            .Equals(session.XWingRepository.GetFaction("Scum")))
+            .ToList().AsReadOnly();
 
 
         private IReadOnlyList<IFaction> factions;
@@ -58,25 +54,17 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
             set { Set(ref factions, value); }
         }
 
-        public FactionSelectionViewModel()
-        {
-            SavedSquadronsEmpire = new List<ISquadron>();
-            SavedSquadronsRebels = new List<ISquadron>();
-            SavedSquadronsScum = new List<ISquadron>();   
-        }
-
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
+            NavigationService.ClearHistory();
             session = SessionState["State"] as IXWingSessionState;
             Factions = session.XWingRepository.GetAllFactions().ToList();
-            SavedSquadronsEmpire = session.XWingRepository.GetSavedSquadronsForFaction(session.XWingRepository.GetFaction("Empire"));
-            SavedSquadronsRebels = session.XWingRepository.GetSavedSquadronsForFaction(session.XWingRepository.GetFaction("Rebels"));
-            SavedSquadronsScum = session.XWingRepository.GetSavedSquadronsForFaction(session.XWingRepository.GetFaction("Scum"));
+            session.ClearActiveSquadron();
             if (suspensionState.Any())
             {
                 //Value = suspensionState[nameof(Value)]?.ToString();
             }
-            NavigationService.ClearHistory();
+
             await Task.CompletedTask;
         }
 
@@ -89,22 +77,46 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
             await Task.CompletedTask;
         }
 
+        public void DeleteSavedSquadron(ISquadron squadron)
+        {
+            session.XWingRepository.DeleteSavedSquadron(squadron.Id);
+            switch (squadron.Faction.Name)
+            {
+                case ("Empire"):
+                    {
+                        RaisePropertyChanged(nameof(SavedSquadronsEmpire));
+                        break;
+                    }
+                case ("Rebels"):
+                    {
+                        RaisePropertyChanged(nameof(SavedSquadronsRebels));
+                        break;
+                    }
+                case ("Scum"):
+                    {
+                        RaisePropertyChanged(nameof(SavedSquadronsScum));
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
         public override async Task OnNavigatingFromAsync(NavigatingEventArgs args)
         {
             args.Cancel = false;
             await Task.CompletedTask;
-        }         
+        }
 
         public async Task FactionSelectedAsync(string faction)
         {
-            session.ClearActiveSquadron();
             await NavigationService.NavigateAsync(typeof(Views.SquadronBuilder), session.XWingRepository.GetFaction(faction));
         }
 
         public async Task OpenSquadronAsync(ISquadron squadron)
         {
             session.SetActiveSquadron(new SquadronViewModel(squadron));
-            await NavigationService.NavigateAsync(typeof(Views.SquadronBuilder)); 
+            await NavigationService.NavigateAsync(typeof(Views.SquadronBuilder));
         }
     }
 }

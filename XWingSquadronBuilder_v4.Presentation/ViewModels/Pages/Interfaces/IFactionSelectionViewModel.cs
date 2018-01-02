@@ -8,7 +8,7 @@ using XWingSquadronBuilder_v4.Interfaces;
 
 namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages.Interfaces
 {
-    public interface IFactionSelectionViewModel
+    public interface IFactionSelectionViewModel : INotifyPropertyChanged
     {
         IReadOnlyList<ISquadron> SavedSquadronsEmpire { get; }
         IReadOnlyList<ISquadron> SavedSquadronsRebels { get; }
@@ -16,5 +16,6 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages.Interfaces
         IReadOnlyList<IFaction> Factions { get; }
         Task FactionSelectedAsync(string faction);
         Task OpenSquadronAsync(ISquadron squadron);
+        void DeleteSavedSquadron(ISquadron squadron);
     }
 }

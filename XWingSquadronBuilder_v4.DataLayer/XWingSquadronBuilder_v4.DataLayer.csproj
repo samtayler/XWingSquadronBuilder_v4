@@ -127,12 +127,6 @@
     <Compile Include="SaveToJson\JsonSaver.cs" />
     <EmbeddedResource Include="Properties\XWingSquadronBuilder_v4.DataLayer.rd.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\XwingSquadronBuilder_v4.Interfaces\XWingSquadronBuilder_v4.Interfaces.csproj">
-      <Project>{355f7435-3bb4-4fd3-a6ce-77bc2e6c9eb4}</Project>
-      <Name>XWingSquadronBuilder_v4.Interfaces</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

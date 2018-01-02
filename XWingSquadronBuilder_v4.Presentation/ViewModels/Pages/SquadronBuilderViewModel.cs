@@ -38,7 +38,7 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
         {
             session = SessionState["State"] as IXWingSessionState;
 
-            if(session.ActiveSquadron.Squadron is NullSquadron)
+            if (session.ActiveSquadron.Squadron is NullSquadron)
             {
                 SquadronViewModel = new SquadronViewModel(SquadronFactory.CreateSquadron(parameter as IFaction));
                 session.SetActiveSquadron(SquadronViewModel);
@@ -46,9 +46,9 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
             else
             {
                 SquadronViewModel = session.ActiveSquadron;
-            }            
+            }
 
-            NavigationService.ClearHistory();
+            //NavigationService.ClearHistory();
             await Task.CompletedTask;
         }
 
@@ -91,18 +91,16 @@ namespace XWingSquadronBuilder_v4.Presentation.ViewModels.Pages
             await NavigationService.NavigateAsync(typeof(ShipSelectionPage));
         }
 
-        public Task NavigateToPilotDetails(IPilotViewModel e)
+        public async Task NavigateToPilotDetails(IPilotViewModel e)
         {
-            NavigationService.NavigateAsync(typeof(PilotDetailsPage), parameter: e.Pilot.Id).Wait();
-
-            return Task.CompletedTask;
+            await NavigationService.NavigateAsync(typeof(PilotDetailsPage), parameter: e.Pilot.Id);
         }
 
         public bool IsSquadronSaved
         {
             get
             {
-                return session.IsSquadronSaved();
+                return session?.IsSquadronSaved() ?? false;
             }
         }
 

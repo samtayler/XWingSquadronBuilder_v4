@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using XWingSquadronBuilder_v4.BusinessLogic.Factories;
-using XWingSquadronBuilder_v4.BusinessLogic.Logic;
 using XWingSquadronBuilder_v4.BusinessLogic.Repositories;
 using XWingSquadronBuilder_v4.Interfaces;
 using XWingSquadronBuilder_v4.Presentation.Converters;
@@ -131,7 +130,7 @@ namespace XWingSquadronBuilder_v4.Presentation.UserControls
             }
             else
             {
-                searchtab.SearchQuery = SearchBox.Text;
+                searchtab.SetSearchQuery(SearchBox.Text);
                 PivotMain.SelectedItem = searchtab;
             }
 

@@ -48,7 +48,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
         //{
         //    await ViewModel.FactionSelectedAsync(e.ClickedItem as IFaction);
         //} 
-        
+
 
         private async void btnNewSquadron_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -58,6 +58,11 @@ namespace XWingSquadronBuilder_v4.Presentation.Views
         private async void lvSquadrons_ItemClick(object sender, ItemClickEventArgs e)
         {
             await ViewModel.OpenSquadronAsync(e.ClickedItem as ISquadron);
+        }
+
+        private void btnDelete_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ViewModel.DeleteSavedSquadron((sender as FrameworkElement).DataContext as ISquadron);
         }
     }
 }
