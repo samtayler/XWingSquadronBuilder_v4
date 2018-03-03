@@ -10,7 +10,7 @@ namespace XWingSquadronBuilder_v4.Presentation.Themes
     {
         public DataTemplates()
         {
-            InitializeComponent();
+           // ItializeComponent();
         }
     }
 }

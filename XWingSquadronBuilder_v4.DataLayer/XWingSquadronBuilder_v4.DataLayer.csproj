@@ -124,7 +124,10 @@
     <Compile Include="Respositories\IInventoryRepository.cs" />
     <Compile Include="Respositories\IPersistanceRepository.cs" />
     <Compile Include="Respositories\LocalDataPortal.cs" />
+    <Compile Include="RSS\FFG_RSSWatcher.cs" />
+    <Compile Include="SaveToJson\Json.cs" />
     <Compile Include="SaveToJson\JsonSaver.cs" />
+    <Compile Include="SaveToJson\SaveToInternalStorage.cs" />
     <EmbeddedResource Include="Properties\XWingSquadronBuilder_v4.DataLayer.rd.xml" />
   </ItemGroup>
   <ItemGroup />

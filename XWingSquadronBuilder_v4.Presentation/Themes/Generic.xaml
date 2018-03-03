@@ -2,40 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:XWingSquadronBuilder_v4.Presentation"
-    xmlns:data="using:XWingSquadronBuilder_v4.Presentation.ViewModels"
-    x:Class="XWingSquadronBuilder_v4.Presentation.Themes.DataTemplates">
+    xmlns:data="using:XWingSquadronBuilder_v4.Presentation.ViewModels">
     
 
-    <DataTemplate x:Key="PilotItemTemplate" xmlns:xwingModels="using:XWingSquadronBuilder_v4.Interfaces" 
-                  x:DataType="xwingModels:IPilot">
-        <RelativePanel>
-            <TextBlock x:Name="PilotSkill" Text="{x:Bind PilotSkill}"/>
-            <TextBlock x:Name="PilotName" Text="{x:Bind Name}"/>
-            <TextBlock x:Name="PilotCost" Text="{x:Bind Cost}"/>
-        </RelativePanel>
-    </DataTemplate>
-    
-    <Style TargetType="local2:PilotListBase" xmlns:local2="using:XWingSquadronBuilder_v4.Presentation.UserControls">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="local2:PilotListBase">
-                    <ListView>
-                        <ListView.ItemTemplate>
-                            <DataTemplate x:DataType="data:ShipDisplay">
-                                <RelativePanel>
-                                    <TextBlock x:Name="ShipIcon"/>
-                                    <TextBlock x:Name="ShipName"/>
-                                    <ItemsControl x:Name="PilotList" 
-                                                  ItemsSource="{Binding Pilots}"
-                                                  ItemTemplate="{StaticResource PilotItemTemplate}"/>
-                                </RelativePanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    
+  
     
 </ResourceDictionary>

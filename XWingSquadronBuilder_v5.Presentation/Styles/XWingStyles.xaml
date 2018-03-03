@@ -1,0 +1,47 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XWingSquadronBuilder_v5.Presentation.Styles">
+
+    <AcrylicBrush x:Key="TransparentAcrylicBrush"
+            BackgroundSource="Backdrop"
+            TintColor="Black"            
+            FallbackColor="Black" TintOpacity="0.3" />
+
+
+    <DataTemplate x:Key="XWingFeedItemTemplate">
+        <RelativePanel Width="250" Height="50">
+            <Image x:Name="imgUnderlay"
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.AlignBottomWithPanel="True"
+                   RelativePanel.AlignTopWithPanel="True"
+                   RelativePanel.AlignRightWithPanel="True"
+                   Source="{Binding FeedImage, Mode=OneTime}"/>
+            <Border x:Name="blurBox"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    RelativePanel.AlignBottomWithPanel="True"
+                    RelativePanel.AlignTopWithPanel="True"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Background="{StaticResource SystemControlAcrylicElementMediumHighBrush }"/>
+            <Image x:Name="imgMain"
+                   Width="50"
+                   RelativePanel.AlignLeftWithPanel="True"
+                   RelativePanel.AlignBottomWithPanel="True"
+                   RelativePanel.AlignTopWithPanel="True"                   
+                   Source="{Binding FeedImage, Mode=OneTime}"/>
+            <TextBlock x:Name="txblkTitle"
+                       RelativePanel.RightOf="imgMain"
+                       Text="{Binding Title, Mode=OneTime}"/>
+            <TextBlock x:Name="txblkDescription"
+                       Text="{Binding Description}"
+                       RelativePanel.Below="txblkTitle"
+                       RelativePanel.RightOf="imgMain"/>
+            <TextBlock x:Name="txblkPublishDate"
+                       Text="{Binding PublishDate}"
+                       RelativePanel.AlignBottomWithPanel="True"
+                       RelativePanel.AlignRightWithPanel="True"/>
+
+        </RelativePanel>
+    </DataTemplate>
+    
+</ResourceDictionary>

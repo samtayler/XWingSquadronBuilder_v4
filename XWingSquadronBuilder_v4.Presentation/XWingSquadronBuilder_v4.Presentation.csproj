@@ -22,7 +22,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86</AppxBundlePlatforms>
-    <AppxPackageDir>F:\XWing</AppxPackageDir>
+    <AppxPackageDir>C:\XWing</AppxPackageDir>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -125,7 +125,6 @@
     <Compile Include="UserControls\PilotCostControl.xaml.cs">
       <DependentUpon>PilotCostControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PilotListBase.cs" />
     <Compile Include="UserControls\PrintControls\PilotPrintControl.xaml.cs">
       <DependentUpon>PilotPrintControl.xaml</DependentUpon>
     </Compile>
